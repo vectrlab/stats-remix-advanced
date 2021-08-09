@@ -1,2 +1,2 @@
 # stats-remix-advanced
-Remixed Textbook for Advanced Statistics
+A Textbook for Advanced Statistics
