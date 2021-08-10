@@ -14,9 +14,19 @@ description: "A textbook for advanced statistics"
 
 # About this Book {-}
 
+This is a textbook for my advanced statistics course, first used in Fall 2021.
 
+It is a remix of existing open source educational materials. The primary source of content is Danielle Navarro’s textbook (2018).
 
-# License {-}
+## Attribution
+
+Where authors are indicated throughout this text, the content has been copied verbatim with no more than minor editorial changes. Sources include:
+
+Navarro, D. (2018). Learning statistics with R: A tutorial for psychology students and other beginners (version 0.6). Retrieved from https://compcogscisydney.org/learning-statistics-with-r/
+
+Crump, M. J. C., Navarro, D., & Suzuki, J. (2019, June 5). Answering Questions with Data (Textbook): Introductory Statistics for Psychology Students. https://doi.org/10.17605/OSF.IO/JZE52
+
+## License {-}
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
