@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: [book.bib, packages.bib]  
 biblio-style: apalike
 link-citations: yes
 github-repo: vectrlab/stat-course-pack
@@ -16,15 +16,17 @@ description: "A textbook for advanced statistics"
 
 This is a textbook for my advanced statistics course, first used in Fall 2021.
 
-It is a remix of existing open source educational materials. The primary source of content is Danielle Navarro’s textbook (2018).
+It is a remix of existing open source educational materials. I am contributing very little text. The primary source of content is @Navarro2018.
 
-## Attribution
+## Attribution {-}
 
-Where authors are indicated throughout this text, the content has been copied verbatim with no more than minor editorial changes. Sources include:
+Where authors are indicated throughout this text, the content has been copied verbatim with no more than minor editorial changes. Note that this differs from an APA style manuscript in which all verbatim text is typically quoted or blockquoted. 
 
-Navarro, D. (2018). Learning statistics with R: A tutorial for psychology students and other beginners (version 0.6). Retrieved from https://compcogscisydney.org/learning-statistics-with-r/
+Navarro, D. (2018). Learning statistics with R: A tutorial for psychology students and other beginners (version 0.6). Retrieved from https://learningstatisticswithr.com
 
 Crump, M. J. C., Navarro, D., & Suzuki, J. (2019, June 5). Answering Questions with Data (Textbook): Introductory Statistics for Psychology Students. https://doi.org/10.17605/OSF.IO/JZE52
+
+Further, text copied from Navarro (2018) is from the Bookdown translation by Emily Kothe.
 
 ## License {-}
 
@@ -35,4 +37,5 @@ Crump, M. J. C., Navarro, D., & Suzuki, J. (2019, June 5). Answering Questions w
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
+projecthome = getwd() # might be a hack?
 ```

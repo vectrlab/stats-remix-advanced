@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 test | Advanced Statistics Remix</title>
+  <meta name="description" content="A textbook for advanced statistics" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 test | Advanced Statistics Remix" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A textbook for advanced statistics" />
+  <meta name="github-repo" content="vectrlab/stat-course-pack" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 test | Advanced Statistics Remix" />
+  
+  <meta name="twitter:description" content="A textbook for advanced statistics" />
+  
+
+<meta name="author" content="David Schuster" />
+
+
+<meta name="date" content="2021-08-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="statistics-for-research.html"/>
+<link rel="next" href="mechanics.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Course Pack for Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Book</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attribution"><i class="fa fa-check"></i>Attribution</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="statistics-for-research.html"><a href="statistics-for-research.html"><i class="fa fa-check"></i><b>1</b> Statistics for Research</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#measurement"><i class="fa fa-check"></i><b>1.1</b> Measurement</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#level-of-measurement"><i class="fa fa-check"></i><b>1.1.1</b> Level of Measurement</a></li>
+<li class="chapter" data-level="1.1.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#continuous-or-discrete"><i class="fa fa-check"></i><b>1.1.2</b> Continuous or Discrete</a></li>
+<li class="chapter" data-level="1.1.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#qualitative-or-quantitative"><i class="fa fa-check"></i><b>1.1.3</b> Qualitative or Quantitative</a></li>
+<li class="chapter" data-level="1.1.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#distribution-a-collection-of-our-observations"><i class="fa fa-check"></i><b>1.1.4</b> Distribution: A collection of our observations</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#descriptive-statistics-summarizing-our-observations"><i class="fa fa-check"></i><b>1.2</b> Descriptive Statistics: Summarizing our observations</a></li>
+<li class="chapter" data-level="1.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#inferential-statistics-generalizing-from-our-observations"><i class="fa fa-check"></i><b>1.3</b> Inferential Statistics: Generalizing from our observations</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#populations-and-samples-who-or-what-the-research-is-about"><i class="fa fa-check"></i><b>1.3.1</b> Populations and Samples: Who (or what) the research is about</a></li>
+<li class="chapter" data-level="1.3.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#constructs-provide-the-context"><i class="fa fa-check"></i><b>1.3.2</b> Constructs provide the context</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#the-cautionary-tale-of-simpsons-paradox"><i class="fa fa-check"></i><b>1.4</b> The cautionary tale of Simpson’s paradox</a></li>
+<li class="chapter" data-level="1.5" data-path="statistics-for-research.html"><a href="statistics-for-research.html#studydesign"><i class="fa fa-check"></i><b>1.5</b> A brief introduction to research design</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#some-thoughts-about-psychological-measurement"><i class="fa fa-check"></i><b>1.5.1</b> Some thoughts about psychological measurement</a></li>
+<li class="chapter" data-level="1.5.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#operationalisation-defining-your-measurement"><i class="fa fa-check"></i><b>1.5.2</b> Operationalisation: defining your measurement</a></li>
+<li class="chapter" data-level="1.5.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#ivdv"><i class="fa fa-check"></i><b>1.5.3</b> The “role” of variables: predictors and outcomes</a></li>
+<li class="chapter" data-level="1.5.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#researchdesigns"><i class="fa fa-check"></i><b>1.5.4</b> Experimental and non-experimental research</a></li>
+<li class="chapter" data-level="1.5.5" data-path="statistics-for-research.html"><a href="statistics-for-research.html#validity-and-reliability"><i class="fa fa-check"></i><b>1.5.5</b> Validity and Reliability</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>2</b> test</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="test.html"><a href="test.html#summary"><i class="fa fa-check"></i><b>2.1</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mechanics.html"><a href="mechanics.html"><i class="fa fa-check"></i><b>3</b> Additional R concepts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="mechanics.html"><a href="mechanics.html#comments"><i class="fa fa-check"></i><b>3.1</b> Using comments</a></li>
+<li class="chapter" data-level="3.2" data-path="mechanics.html"><a href="mechanics.html#packageinstall"><i class="fa fa-check"></i><b>3.2</b> Installing and loading packages</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="mechanics.html"><a href="mechanics.html#the-package-panel-in-rstudio"><i class="fa fa-check"></i><b>3.2.1</b> The package panel in RStudio</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mechanics.html"><a href="mechanics.html#packageload"><i class="fa fa-check"></i><b>3.2.2</b> Loading a package</a></li>
+<li class="chapter" data-level="3.2.3" data-path="mechanics.html"><a href="mechanics.html#packageunload"><i class="fa fa-check"></i><b>3.2.3</b> Unloading a package</a></li>
+<li class="chapter" data-level="3.2.4" data-path="mechanics.html"><a href="mechanics.html#a-few-extra-comments"><i class="fa fa-check"></i><b>3.2.4</b> A few extra comments</a></li>
+<li class="chapter" data-level="3.2.5" data-path="mechanics.html"><a href="mechanics.html#downloading-new-packages"><i class="fa fa-check"></i><b>3.2.5</b> Downloading new packages</a></li>
+<li class="chapter" data-level="3.2.6" data-path="mechanics.html"><a href="mechanics.html#updating-r-and-r-packages"><i class="fa fa-check"></i><b>3.2.6</b> Updating R and R packages</a></li>
+<li class="chapter" data-level="3.2.7" data-path="mechanics.html"><a href="mechanics.html#what-packages-does-this-book-use"><i class="fa fa-check"></i><b>3.2.7</b> What packages does this book use?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="mechanics.html"><a href="mechanics.html#workspace"><i class="fa fa-check"></i><b>3.3</b> Managing the workspace</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="mechanics.html"><a href="mechanics.html#listing-the-contents-of-the-workspace"><i class="fa fa-check"></i><b>3.3.1</b> Listing the contents of the workspace</a></li>
+<li class="chapter" data-level="3.3.2" data-path="mechanics.html"><a href="mechanics.html#removing-variables-from-the-workspace"><i class="fa fa-check"></i><b>3.3.2</b> Removing variables from the workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="mechanics.html"><a href="mechanics.html#navigation"><i class="fa fa-check"></i><b>3.4</b> Navigating the file system</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="mechanics.html"><a href="mechanics.html#filesystem"><i class="fa fa-check"></i><b>3.4.1</b> The file system itself</a></li>
+<li class="chapter" data-level="3.4.2" data-path="mechanics.html"><a href="mechanics.html#navigationR"><i class="fa fa-check"></i><b>3.4.2</b> Navigating the file system using the R console</a></li>
+<li class="chapter" data-level="3.4.3" data-path="mechanics.html"><a href="mechanics.html#why-do-the-windows-paths-use-the-wrong-slash"><i class="fa fa-check"></i><b>3.4.3</b> Why do the Windows paths use the wrong slash?</a></li>
+<li class="chapter" data-level="3.4.4" data-path="mechanics.html"><a href="mechanics.html#nav3"><i class="fa fa-check"></i><b>3.4.4</b> Navigating the file system using the RStudio file panel</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="mechanics.html"><a href="mechanics.html#load"><i class="fa fa-check"></i><b>3.5</b> Loading and saving data</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="mechanics.html"><a href="mechanics.html#loading-workspace-files-using-r"><i class="fa fa-check"></i><b>3.5.1</b> Loading workspace files using R</a></li>
+<li class="chapter" data-level="3.5.2" data-path="mechanics.html"><a href="mechanics.html#loading-workspace-files-using-rstudio"><i class="fa fa-check"></i><b>3.5.2</b> Loading workspace files using RStudio</a></li>
+<li class="chapter" data-level="3.5.3" data-path="mechanics.html"><a href="mechanics.html#loadingcsv"><i class="fa fa-check"></i><b>3.5.3</b> Importing data from CSV files using loadingcsv</a></li>
+<li class="chapter" data-level="3.5.4" data-path="mechanics.html"><a href="mechanics.html#importing-data-from-csv-files-using-rstudio"><i class="fa fa-check"></i><b>3.5.4</b> Importing data from CSV files using RStudio</a></li>
+<li class="chapter" data-level="3.5.5" data-path="mechanics.html"><a href="mechanics.html#saving-a-workspace-file-using-save"><i class="fa fa-check"></i><b>3.5.5</b> Saving a workspace file using <code>save</code></a></li>
+<li class="chapter" data-level="3.5.6" data-path="mechanics.html"><a href="mechanics.html#save1"><i class="fa fa-check"></i><b>3.5.6</b> Saving a workspace file using RStudio</a></li>
+<li class="chapter" data-level="3.5.7" data-path="mechanics.html"><a href="mechanics.html#other-things-you-might-want-to-save"><i class="fa fa-check"></i><b>3.5.7</b> Other things you might want to save</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="mechanics.html"><a href="mechanics.html#useful"><i class="fa fa-check"></i><b>3.6</b> Useful things to know about variables</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="mechanics.html"><a href="mechanics.html#specials"><i class="fa fa-check"></i><b>3.6.1</b> Special values</a></li>
+<li class="chapter" data-level="3.6.2" data-path="mechanics.html"><a href="mechanics.html#names"><i class="fa fa-check"></i><b>3.6.2</b> Assigning names to vector elements</a></li>
+<li class="chapter" data-level="3.6.3" data-path="mechanics.html"><a href="mechanics.html#variable-classes"><i class="fa fa-check"></i><b>3.6.3</b> Variable classes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="mechanics.html"><a href="mechanics.html#factors"><i class="fa fa-check"></i><b>3.7</b> Factors</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="mechanics.html"><a href="mechanics.html#introducing-factors"><i class="fa fa-check"></i><b>3.7.1</b> Introducing factors</a></li>
+<li class="chapter" data-level="3.7.2" data-path="mechanics.html"><a href="mechanics.html#labelling-the-factor-levels"><i class="fa fa-check"></i><b>3.7.2</b> Labelling the factor levels</a></li>
+<li class="chapter" data-level="3.7.3" data-path="mechanics.html"><a href="mechanics.html#moving-on"><i class="fa fa-check"></i><b>3.7.3</b> Moving on…</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="mechanics.html"><a href="mechanics.html#dataframes"><i class="fa fa-check"></i><b>3.8</b> Data frames</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="mechanics.html"><a href="mechanics.html#introducing-data-frames"><i class="fa fa-check"></i><b>3.8.1</b> Introducing data frames</a></li>
+<li class="chapter" data-level="3.8.2" data-path="mechanics.html"><a href="mechanics.html#pulling-out-the-contents-of-the-data-frame-using"><i class="fa fa-check"></i><b>3.8.2</b> Pulling out the contents of the data frame using <code>$</code></a></li>
+<li class="chapter" data-level="3.8.3" data-path="mechanics.html"><a href="mechanics.html#getting-information-about-a-data-frame"><i class="fa fa-check"></i><b>3.8.3</b> Getting information about a data frame</a></li>
+<li class="chapter" data-level="3.8.4" data-path="mechanics.html"><a href="mechanics.html#looking-for-more-on-data-frames"><i class="fa fa-check"></i><b>3.8.4</b> Looking for more on data frames?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="mechanics.html"><a href="mechanics.html#lists"><i class="fa fa-check"></i><b>3.9</b> Lists</a></li>
+<li class="chapter" data-level="3.10" data-path="mechanics.html"><a href="mechanics.html#formulas"><i class="fa fa-check"></i><b>3.10</b> Formulas</a></li>
+<li class="chapter" data-level="3.11" data-path="mechanics.html"><a href="mechanics.html#generics"><i class="fa fa-check"></i><b>3.11</b> Generic functions</a></li>
+<li class="chapter" data-level="3.12" data-path="mechanics.html"><a href="mechanics.html#help"><i class="fa fa-check"></i><b>3.12</b> Getting help</a>
+<ul>
+<li class="chapter" data-level="3.12.1" data-path="mechanics.html"><a href="mechanics.html#how-to-read-the-help-documentation"><i class="fa fa-check"></i><b>3.12.1</b> How to read the help documentation</a></li>
+<li class="chapter" data-level="3.12.2" data-path="mechanics.html"><a href="mechanics.html#other-resources"><i class="fa fa-check"></i><b>3.12.2</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="mechanics.html"><a href="mechanics.html#summary-1"><i class="fa fa-check"></i><b>3.13</b> Summary</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Advanced Statistics Remix</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="test" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> test</h1>
+<p>There’s one last thing I should cover in this chapter: how to quit R. When I say this, I’m not trying to imply that R is some kind of pathological addition and that you need to call the R QuitLine or wear patches to control the cravings (although you certainly might argue that there’s something seriously pathological about being addicted to R). I just mean how to exit the program. Assuming you’re running R in the usual way (i.e., through RStudio or the default GUI on a Windows or Mac computer), then you can just shut down the application in the normal way. However, R also has a function, called <code>q()</code> that you can use to quit, which is pretty handy if you’re running R in a terminal window.</p>
+<p>Regardless of what method you use to quit R, when you do so for the first time R will probably ask you if you want to save the “workspace image.” We’ll talk a lot more about loading and saving data in Section <a href="mechanics.html#load">3.5</a>, but I figured we’d better quickly cover this now otherwise you’re going to get annoyed when you close R at the end of the chapter. If you’re using RStudio, you’ll see a dialog box that looks like the one shown in Figure <a href="#fig:quitR"><strong>??</strong></a>. If you’re using a text based interface you’ll see this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="test.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">q</span>()</span>
+<span id="cb2-2"><a href="test.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="test.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Save workspace image? [y/n/c]: </span></span></code></pre></div>
+<p>The <code>y/n/c</code> part here is short for “yes / no / cancel.” Type <code>y</code> if you want to save, <code>n</code> if you don’t, and <code>c</code> if you’ve changed your mind and you don’t want to quit after all.</p>
+<p>What does this actually <em>mean</em>? What’s going on is that R wants to know if you want to save all those variables that you’ve been creating, so that you can use them later. This sounds like a great idea, so it’s really tempting to type <code>y</code> or click the “Save” button. To be honest though, I very rarely do this, and it kind of annoys me a little bit… what R is <em>really</em> asking is if you want it to store these variables in a “default” data file, which it will automatically reload for you next time you open R. And quite frankly, if I’d wanted to save the variables, then I’d have already saved them before trying to quit. Not only that, I’d have saved them to a location of <em>my</em> choice, so that I can find it again later. So I personally never bother with this.</p>
+<p>In fact, every time I install R on a new machine one of the first things I do is change the settings so that it never asks me again. You can do this in RStudio really easily: use the menu system to find the RStudio option; the dialog box that comes up will give you an option to tell R never to whine about this again (see Figure <a href="test.html#fig:RStudiooptions">2.1</a>. On a Mac, you can open this window by going to the “RStudio” menu and selecting “Preferences.” On a Windows machine you go to the “Tools” menu and select “Global Options.” Under the “General” tab you’ll see an option that reads “Save workspace to .Rdata on exit.” By default this is set to “ask.” If you want R to stop asking, change it to “never.”</p>
+<div class="figure"><span id="fig:RStudiooptions"></span>
+<img src="bookdown/img/introR/Rstudio_options.png" alt="The options window in RStudio. On a Mac, you can open this window by going to the &quot;RStudio&quot; menu and selecting &quot;Preferences&quot;. On a Windows machine you go to the &quot;Tools&quot; menu and select &quot;Global Options&quot;"  />
+<p class="caption">
+Figure 2.1: The options window in RStudio. On a Mac, you can open this window by going to the “RStudio” menu and selecting “Preferences.” On a Windows machine you go to the “Tools” menu and select “Global Options”
+</p>
+</div>
+<div id="summary" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Summary</h2>
+<p>Every book that tries to introduce basic programming ideas to novices has to cover roughly the same topics, and in roughly the same order. Mine is no exception, and so in the grand tradition of doing it just the same way everyone else did it, this chapter covered the following topics:</p>
+<ul>
+<li><a href="#gettingR">Getting started</a>. We downloaded and installed R and RStudio</li>
+<li><a href="#arithmetic">Basic commands</a>. We talked a bit about the logic of how R works and in particular how to type commands into the R console (Section @ref(#firstcommand), and in doing so learned how to perform basic calculations using the arithmetic operators <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> and <code>^</code>.</li>
+<li><a href="#usingfunctions">Introduction to functions</a>. We saw several different functions, three that are used to perform numeric calculations (<code>sqrt()</code>, <code>abs()</code>, <code>round()</code>, one that applies to text (<code>nchar()</code>; Section <a href="#simpletext"><strong>??</strong></a>), and one that works on any variable (<code>length()</code>; Section <a href="#veclength"><strong>??</strong></a>). In doing so, we talked a bit about how argument names work, and learned about default values for arguments. (Section <a href="#functionarguments"><strong>??</strong></a>)</li>
+<li>Introduction to variables. We learned the basic idea behind variables, and how to assign values to variables using the assignment operator <code>&lt;-</code> (Section <a href="#assign"><strong>??</strong></a>). We also learned how to create vectors using the combine function <code>c()</code> (Section <a href="#vectors"><strong>??</strong></a>).</li>
+<li>Data types. Learned the distinction between numeric, character and logical data; including the basics of how to enter and use each of them. (Sections <a href="#assign"><strong>??</strong></a> to <a href="#logicals"><strong>??</strong></a>)</li>
+<li><a href="#logicals">Logical operations</a>. Learned how to use the logical operators <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>=&gt;</code>, <code>!</code>, <code>&amp;</code> and <code>|</code>. And learned how to use logical indexing. (Section <a href="#indexing"><strong>??</strong></a>)</li>
+</ul>
+<p>We still haven’t arrived at anything that resembles a “data set,” of course. Maybe the next Chapter will get us a bit closer…</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="statistics-for-research.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mechanics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-R.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["schuster-statistics-remix.pdf", "schuster-statistics-remix.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

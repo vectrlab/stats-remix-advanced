@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Statistics for Research | Advanced Statistics Remix</title>
+  <meta name="description" content="A textbook for advanced statistics" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 Statistics for Research | Advanced Statistics Remix" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A textbook for advanced statistics" />
+  <meta name="github-repo" content="vectrlab/stat-course-pack" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Statistics for Research | Advanced Statistics Remix" />
+  
+  <meta name="twitter:description" content="A textbook for advanced statistics" />
+  
+
+<meta name="author" content="David Schuster" />
+
+
+<meta name="date" content="2021-08-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="introR.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Course Pack for Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Book</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attribution"><i class="fa fa-check"></i>Attribution</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="statistics-for-research.html"><a href="statistics-for-research.html"><i class="fa fa-check"></i><b>1</b> Statistics for Research</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#measurement"><i class="fa fa-check"></i><b>1.2</b> Measurement</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#level-of-measurement"><i class="fa fa-check"></i><b>1.2.1</b> Level of Measurement</a></li>
+<li class="chapter" data-level="1.2.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#continuous-or-discrete"><i class="fa fa-check"></i><b>1.2.2</b> Continuous or Discrete</a></li>
+<li class="chapter" data-level="1.2.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#qualitative-or-quantitative"><i class="fa fa-check"></i><b>1.2.3</b> Qualitative or Quantitative</a></li>
+<li class="chapter" data-level="1.2.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#distribution-a-collection-of-our-observations"><i class="fa fa-check"></i><b>1.2.4</b> Distribution: A collection of our observations</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#descriptive-statistics-summarizing-our-observations"><i class="fa fa-check"></i><b>1.3</b> Descriptive Statistics: Summarizing our observations</a></li>
+<li class="chapter" data-level="1.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#inferential-statistics-generalizing-from-our-observations"><i class="fa fa-check"></i><b>1.4</b> Inferential Statistics: Generalizing from our observations</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#populations-and-samples-who-or-what-the-research-is-about"><i class="fa fa-check"></i><b>1.4.1</b> Populations and Samples: Who (or what) the research is about</a></li>
+<li class="chapter" data-level="1.4.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#constructs-provide-the-context"><i class="fa fa-check"></i><b>1.4.2</b> Constructs provide the context</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="statistics-for-research.html"><a href="statistics-for-research.html#the-cautionary-tale-of-simpsons-paradox"><i class="fa fa-check"></i><b>1.5</b> The cautionary tale of Simpson’s paradox</a></li>
+<li class="chapter" data-level="1.6" data-path="statistics-for-research.html"><a href="statistics-for-research.html#studydesign"><i class="fa fa-check"></i><b>1.6</b> A brief introduction to research design</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#some-thoughts-about-psychological-measurement"><i class="fa fa-check"></i><b>1.6.1</b> Some thoughts about psychological measurement</a></li>
+<li class="chapter" data-level="1.6.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#operationalisation-defining-your-measurement"><i class="fa fa-check"></i><b>1.6.2</b> Operationalisation: defining your measurement</a></li>
+<li class="chapter" data-level="1.6.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#ivdv"><i class="fa fa-check"></i><b>1.6.3</b> The “role” of variables: predictors and outcomes</a></li>
+<li class="chapter" data-level="1.6.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#researchdesigns"><i class="fa fa-check"></i><b>1.6.4</b> Experimental and non-experimental research</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="statistics-for-research.html"><a href="statistics-for-research.html#causality-research-and-statistics"><i class="fa fa-check"></i><b>1.7</b> Causality, Research, and Statistics</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#experimental-quasi-experimental-and-non-experimental-studies"><i class="fa fa-check"></i><b>1.7.1</b> Experimental, Quasi-Experimental, and Non-Experimental Studies</a></li>
+<li class="chapter" data-level="1.7.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#demonstrating-causality"><i class="fa fa-check"></i><b>1.7.2</b> Demonstrating Causality</a></li>
+<li class="chapter" data-level="1.7.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#statistics-and-causality"><i class="fa fa-check"></i><b>1.7.3</b> Statistics and Causality</a></li>
+<li class="chapter" data-level="1.7.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#validity-and-reliability"><i class="fa fa-check"></i><b>1.7.4</b> Validity and Reliability</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>2</b> Getting started with R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introR.html"><a href="introR.html#gettingR"><i class="fa fa-check"></i><b>2.1</b> Installing R</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="introR.html"><a href="introR.html#installing-r-on-a-windows-computer"><i class="fa fa-check"></i><b>2.1.1</b> Installing R on a Windows computer</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introR.html"><a href="introR.html#installing-r-on-a-mac"><i class="fa fa-check"></i><b>2.1.2</b> Installing R on a Mac</a></li>
+<li class="chapter" data-level="2.1.3" data-path="introR.html"><a href="introR.html#installing-r-on-a-linux-computer"><i class="fa fa-check"></i><b>2.1.3</b> Installing R on a Linux computer</a></li>
+<li class="chapter" data-level="2.1.4" data-path="introR.html"><a href="introR.html#installingrstudio"><i class="fa fa-check"></i><b>2.1.4</b> Downloading and installing RStudio</a></li>
+<li class="chapter" data-level="2.1.5" data-path="introR.html"><a href="introR.html#startingR"><i class="fa fa-check"></i><b>2.1.5</b> Starting up R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="introR.html"><a href="introR.html#firstcommand"><i class="fa fa-check"></i><b>2.2</b> Typing commands at the R console</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="introR.html"><a href="introR.html#an-important-digression-about-formatting"><i class="fa fa-check"></i><b>2.2.1</b> An important digression about formatting</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introR.html"><a href="introR.html#be-very-careful-to-avoid-typos"><i class="fa fa-check"></i><b>2.2.2</b> Be very careful to avoid typos</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introR.html"><a href="introR.html#r-is-a-bit-flexible-with-spacing"><i class="fa fa-check"></i><b>2.2.3</b> R is (a bit) flexible with spacing</a></li>
+<li class="chapter" data-level="2.2.4" data-path="introR.html"><a href="introR.html#r-can-sometimes-tell-that-youre-not-finished-yet-but-not-often"><i class="fa fa-check"></i><b>2.2.4</b> R can sometimes tell that you’re not finished yet (but not often)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introR.html"><a href="introR.html#arithmetic"><i class="fa fa-check"></i><b>2.3</b> Doing simple calculations with R</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introR.html"><a href="introR.html#adding-subtracting-multiplying-and-dividing"><i class="fa fa-check"></i><b>2.3.1</b> Adding, subtracting, multiplying and dividing</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introR.html"><a href="introR.html#taking-powers"><i class="fa fa-check"></i><b>2.3.2</b> Taking powers</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introR.html"><a href="introR.html#bedmas"><i class="fa fa-check"></i><b>2.3.3</b> Doing calculations in the right order</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introR.html"><a href="introR.html#assign"><i class="fa fa-check"></i><b>2.4</b> Storing a number as a variable</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="introR.html"><a href="introR.html#variable-assignment-using---and--"><i class="fa fa-check"></i><b>2.4.1</b> Variable assignment using <code>&lt;-</code> and <code>-&gt;</code></a></li>
+<li class="chapter" data-level="2.4.2" data-path="introR.html"><a href="introR.html#doing-calculations-using-variables"><i class="fa fa-check"></i><b>2.4.2</b> Doing calculations using variables</a></li>
+<li class="chapter" data-level="2.4.3" data-path="introR.html"><a href="introR.html#rules-and-conventions-for-naming-variables"><i class="fa fa-check"></i><b>2.4.3</b> Rules and conventions for naming variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introR.html"><a href="introR.html#usingfunctions"><i class="fa fa-check"></i><b>2.5</b> Using functions to do calculations</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="introR.html"><a href="introR.html#functionarguments"><i class="fa fa-check"></i><b>2.5.1</b> Function arguments, their names and their defaults</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="introR.html"><a href="introR.html#RStudio1"><i class="fa fa-check"></i><b>2.6</b> Letting RStudio help you with your commands</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="introR.html"><a href="introR.html#autocomplete-using-tab"><i class="fa fa-check"></i><b>2.6.1</b> Autocomplete using “tab”</a></li>
+<li class="chapter" data-level="2.6.2" data-path="introR.html"><a href="introR.html#browsing-your-command-history"><i class="fa fa-check"></i><b>2.6.2</b> Browsing your command history</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="introR.html"><a href="introR.html#vectors"><i class="fa fa-check"></i><b>2.7</b> Storing many numbers as a vector</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="introR.html"><a href="introR.html#creating-a-vector"><i class="fa fa-check"></i><b>2.7.1</b> Creating a vector</a></li>
+<li class="chapter" data-level="2.7.2" data-path="introR.html"><a href="introR.html#a-handy-digression"><i class="fa fa-check"></i><b>2.7.2</b> A handy digression</a></li>
+<li class="chapter" data-level="2.7.3" data-path="introR.html"><a href="introR.html#vectorsubset"><i class="fa fa-check"></i><b>2.7.3</b> Getting information out of vectors</a></li>
+<li class="chapter" data-level="2.7.4" data-path="introR.html"><a href="introR.html#altering-the-elements-of-a-vector"><i class="fa fa-check"></i><b>2.7.4</b> Altering the elements of a vector</a></li>
+<li class="chapter" data-level="2.7.5" data-path="introR.html"><a href="introR.html#veclength"><i class="fa fa-check"></i><b>2.7.5</b> Useful things to know about vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="introR.html"><a href="introR.html#text"><i class="fa fa-check"></i><b>2.8</b> Storing text data</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="introR.html"><a href="introR.html#simpletext"><i class="fa fa-check"></i><b>2.8.1</b> Working with text</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="introR.html"><a href="introR.html#logicals"><i class="fa fa-check"></i><b>2.9</b> Storing “true or false” data</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="introR.html"><a href="introR.html#assessing-mathematical-truths"><i class="fa fa-check"></i><b>2.9.1</b> Assessing mathematical truths</a></li>
+<li class="chapter" data-level="2.9.2" data-path="introR.html"><a href="introR.html#logical-operations"><i class="fa fa-check"></i><b>2.9.2</b> Logical operations</a></li>
+<li class="chapter" data-level="2.9.3" data-path="introR.html"><a href="introR.html#storing-and-using-logical-data"><i class="fa fa-check"></i><b>2.9.3</b> Storing and using logical data</a></li>
+<li class="chapter" data-level="2.9.4" data-path="introR.html"><a href="introR.html#vectors-of-logicals"><i class="fa fa-check"></i><b>2.9.4</b> Vectors of logicals</a></li>
+<li class="chapter" data-level="2.9.5" data-path="introR.html"><a href="introR.html#logictext"><i class="fa fa-check"></i><b>2.9.5</b> Applying logical operation to text</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="introR.html"><a href="introR.html#indexing"><i class="fa fa-check"></i><b>2.10</b> Indexing vectors</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="introR.html"><a href="introR.html#extracting-multiple-elements"><i class="fa fa-check"></i><b>2.10.1</b> Extracting multiple elements</a></li>
+<li class="chapter" data-level="2.10.2" data-path="introR.html"><a href="introR.html#logical-indexing"><i class="fa fa-check"></i><b>2.10.2</b> Logical indexing</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="introR.html"><a href="introR.html#quitting-r"><i class="fa fa-check"></i><b>2.11</b> Quitting R</a></li>
+<li class="chapter" data-level="2.12" data-path="introR.html"><a href="introR.html#summary"><i class="fa fa-check"></i><b>2.12</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mechanics.html"><a href="mechanics.html"><i class="fa fa-check"></i><b>3</b> Additional R concepts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="mechanics.html"><a href="mechanics.html#comments"><i class="fa fa-check"></i><b>3.1</b> Using comments</a></li>
+<li class="chapter" data-level="3.2" data-path="mechanics.html"><a href="mechanics.html#packageinstall"><i class="fa fa-check"></i><b>3.2</b> Installing and loading packages</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="mechanics.html"><a href="mechanics.html#the-package-panel-in-rstudio"><i class="fa fa-check"></i><b>3.2.1</b> The package panel in RStudio</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mechanics.html"><a href="mechanics.html#packageload"><i class="fa fa-check"></i><b>3.2.2</b> Loading a package</a></li>
+<li class="chapter" data-level="3.2.3" data-path="mechanics.html"><a href="mechanics.html#packageunload"><i class="fa fa-check"></i><b>3.2.3</b> Unloading a package</a></li>
+<li class="chapter" data-level="3.2.4" data-path="mechanics.html"><a href="mechanics.html#a-few-extra-comments"><i class="fa fa-check"></i><b>3.2.4</b> A few extra comments</a></li>
+<li class="chapter" data-level="3.2.5" data-path="mechanics.html"><a href="mechanics.html#downloading-new-packages"><i class="fa fa-check"></i><b>3.2.5</b> Downloading new packages</a></li>
+<li class="chapter" data-level="3.2.6" data-path="mechanics.html"><a href="mechanics.html#updating-r-and-r-packages"><i class="fa fa-check"></i><b>3.2.6</b> Updating R and R packages</a></li>
+<li class="chapter" data-level="3.2.7" data-path="mechanics.html"><a href="mechanics.html#what-packages-does-this-book-use"><i class="fa fa-check"></i><b>3.2.7</b> What packages does this book use?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="mechanics.html"><a href="mechanics.html#workspace"><i class="fa fa-check"></i><b>3.3</b> Managing the workspace</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="mechanics.html"><a href="mechanics.html#listing-the-contents-of-the-workspace"><i class="fa fa-check"></i><b>3.3.1</b> Listing the contents of the workspace</a></li>
+<li class="chapter" data-level="3.3.2" data-path="mechanics.html"><a href="mechanics.html#removing-variables-from-the-workspace"><i class="fa fa-check"></i><b>3.3.2</b> Removing variables from the workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="mechanics.html"><a href="mechanics.html#navigation"><i class="fa fa-check"></i><b>3.4</b> Navigating the file system</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="mechanics.html"><a href="mechanics.html#filesystem"><i class="fa fa-check"></i><b>3.4.1</b> The file system itself</a></li>
+<li class="chapter" data-level="3.4.2" data-path="mechanics.html"><a href="mechanics.html#navigationR"><i class="fa fa-check"></i><b>3.4.2</b> Navigating the file system using the R console</a></li>
+<li class="chapter" data-level="3.4.3" data-path="mechanics.html"><a href="mechanics.html#why-do-the-windows-paths-use-the-wrong-slash"><i class="fa fa-check"></i><b>3.4.3</b> Why do the Windows paths use the wrong slash?</a></li>
+<li class="chapter" data-level="3.4.4" data-path="mechanics.html"><a href="mechanics.html#nav3"><i class="fa fa-check"></i><b>3.4.4</b> Navigating the file system using the RStudio file panel</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="mechanics.html"><a href="mechanics.html#load"><i class="fa fa-check"></i><b>3.5</b> Loading and saving data</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="mechanics.html"><a href="mechanics.html#loading-workspace-files-using-r"><i class="fa fa-check"></i><b>3.5.1</b> Loading workspace files using R</a></li>
+<li class="chapter" data-level="3.5.2" data-path="mechanics.html"><a href="mechanics.html#loading-workspace-files-using-rstudio"><i class="fa fa-check"></i><b>3.5.2</b> Loading workspace files using RStudio</a></li>
+<li class="chapter" data-level="3.5.3" data-path="mechanics.html"><a href="mechanics.html#loadingcsv"><i class="fa fa-check"></i><b>3.5.3</b> Importing data from CSV files using loadingcsv</a></li>
+<li class="chapter" data-level="3.5.4" data-path="mechanics.html"><a href="mechanics.html#importing-data-from-csv-files-using-rstudio"><i class="fa fa-check"></i><b>3.5.4</b> Importing data from CSV files using RStudio</a></li>
+<li class="chapter" data-level="3.5.5" data-path="mechanics.html"><a href="mechanics.html#saving-a-workspace-file-using-save"><i class="fa fa-check"></i><b>3.5.5</b> Saving a workspace file using <code>save</code></a></li>
+<li class="chapter" data-level="3.5.6" data-path="mechanics.html"><a href="mechanics.html#save1"><i class="fa fa-check"></i><b>3.5.6</b> Saving a workspace file using RStudio</a></li>
+<li class="chapter" data-level="3.5.7" data-path="mechanics.html"><a href="mechanics.html#other-things-you-might-want-to-save"><i class="fa fa-check"></i><b>3.5.7</b> Other things you might want to save</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="mechanics.html"><a href="mechanics.html#useful"><i class="fa fa-check"></i><b>3.6</b> Useful things to know about variables</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="mechanics.html"><a href="mechanics.html#specials"><i class="fa fa-check"></i><b>3.6.1</b> Special values</a></li>
+<li class="chapter" data-level="3.6.2" data-path="mechanics.html"><a href="mechanics.html#names"><i class="fa fa-check"></i><b>3.6.2</b> Assigning names to vector elements</a></li>
+<li class="chapter" data-level="3.6.3" data-path="mechanics.html"><a href="mechanics.html#variable-classes"><i class="fa fa-check"></i><b>3.6.3</b> Variable classes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="mechanics.html"><a href="mechanics.html#factors"><i class="fa fa-check"></i><b>3.7</b> Factors</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="mechanics.html"><a href="mechanics.html#introducing-factors"><i class="fa fa-check"></i><b>3.7.1</b> Introducing factors</a></li>
+<li class="chapter" data-level="3.7.2" data-path="mechanics.html"><a href="mechanics.html#labelling-the-factor-levels"><i class="fa fa-check"></i><b>3.7.2</b> Labelling the factor levels</a></li>
+<li class="chapter" data-level="3.7.3" data-path="mechanics.html"><a href="mechanics.html#moving-on"><i class="fa fa-check"></i><b>3.7.3</b> Moving on…</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="mechanics.html"><a href="mechanics.html#dataframes"><i class="fa fa-check"></i><b>3.8</b> Data frames</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="mechanics.html"><a href="mechanics.html#introducing-data-frames"><i class="fa fa-check"></i><b>3.8.1</b> Introducing data frames</a></li>
+<li class="chapter" data-level="3.8.2" data-path="mechanics.html"><a href="mechanics.html#pulling-out-the-contents-of-the-data-frame-using"><i class="fa fa-check"></i><b>3.8.2</b> Pulling out the contents of the data frame using <code>$</code></a></li>
+<li class="chapter" data-level="3.8.3" data-path="mechanics.html"><a href="mechanics.html#getting-information-about-a-data-frame"><i class="fa fa-check"></i><b>3.8.3</b> Getting information about a data frame</a></li>
+<li class="chapter" data-level="3.8.4" data-path="mechanics.html"><a href="mechanics.html#looking-for-more-on-data-frames"><i class="fa fa-check"></i><b>3.8.4</b> Looking for more on data frames?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="mechanics.html"><a href="mechanics.html#lists"><i class="fa fa-check"></i><b>3.9</b> Lists</a></li>
+<li class="chapter" data-level="3.10" data-path="mechanics.html"><a href="mechanics.html#formulas"><i class="fa fa-check"></i><b>3.10</b> Formulas</a></li>
+<li class="chapter" data-level="3.11" data-path="mechanics.html"><a href="mechanics.html#generics"><i class="fa fa-check"></i><b>3.11</b> Generic functions</a></li>
+<li class="chapter" data-level="3.12" data-path="mechanics.html"><a href="mechanics.html#help"><i class="fa fa-check"></i><b>3.12</b> Getting help</a>
+<ul>
+<li class="chapter" data-level="3.12.1" data-path="mechanics.html"><a href="mechanics.html#how-to-read-the-help-documentation"><i class="fa fa-check"></i><b>3.12.1</b> How to read the help documentation</a></li>
+<li class="chapter" data-level="3.12.2" data-path="mechanics.html"><a href="mechanics.html#other-resources"><i class="fa fa-check"></i><b>3.12.2</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="mechanics.html"><a href="mechanics.html#summary-1"><i class="fa fa-check"></i><b>3.13</b> Summary</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Advanced Statistics Remix</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistics-for-research" class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Statistics for Research</h1>
+<div id="introduction" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Introduction</h2>
+<p>Text by David Schuster</p>
+<p>Statistics is a rich and diverse field with endless theories and application. To call this a “statistics course” may be too vague to be useful. Will we study the theory behind the statistics or study how statistics are used? Let’s narrow our scope. This course is primarily concerned with statistical methods used by researchers. That is, researchers systematically (deliberately and consistently) gather evidence in order to generate new knowledge. Statistics provide an important tool to help researchers be more systematic in their discovery of new knowledge. Researchers are to statisticians as video game players are to video game designers. Most video game players enjoy playing games but don’t necessarily care about how the game is constructed, coded, developed, and sold. Similarly, most researchers don’t necessarily care about how mathematical theory supports statistical concepts; instead, they want to use statistics to answer their research questions. Unfortunately, unlike playing a video game, statistical methods provide very little feedback (and usually none at all) about whether or not they are being used correctly. Because of this, researchers do have to understand a bit about how statistical methods work.</p>
+<p>You can summarize all of this by saying that you are studying <strong>applied statistics</strong>, the use of statistical methods to address research problems (Cohen). Throughout this course, we will emphasize the statistical knowledge needed to understand and produce research. When theory is introduced (we might think of theoretical statistics as the opposite of applied statistics), it will be included because it helps understanding of concepts we need as researchers.</p>
+<p>Doing research is exciting and important because it’s our best tool for solving big societal problems, discovering solutions, and separating fact from fiction. Because of this, many researchers are more fascinated by science and their field of study than they are about statistical methods. I have been teaching statistics for over ten years and can confirm that student attitudes about this topic vary widely. If you do not feel like you love statistics in this moment, that is a common feeling. At the same time, you should be aware that many professionals happily and confidently use statistics in their careers and/or daily lives without identifying as mathematicians. This is not to disparage the mathematical perspective, only to say research and mathematics are interesting in different ways. If you do not yet think studying statistics is useful or interesting, perhaps you will challenge your attitudes about math and statistics throughout this course. And if not, perhaps you will provide useful feedback to your instructor!</p>
+<p>There are two broad situations where researchers need statistics. Researchers need statistics to:</p>
+<ol style="list-style-type: decimal">
+<li>Gather observations in a systematic way (<strong>measurement</strong>)</li>
+<li>Summarize their observations (<strong>descriptive statistics</strong>)</li>
+<li>Make conclusions about populations based on the observations (<strong>inferential statistics</strong>)</li>
+</ol>
+<p>In the next sections, we will unpack these three functions.</p>
+</div>
+<div id="measurement" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Measurement</h2>
+<p>Text by David Schuster</p>
+<p>The very beginning of statistics, and the most fundamental building block, is data. Data are what we get when we combine numbers and meaning. If I write down any number that comes to mind, I am generating numbers but not data (because there is no meaning). If I wonder about how many students attempt to cross the busy street outside of my office, I am starting to develop a research question (I would say there is meaning involved) but there are no numbers yet, so no data. If I go outside and count the number of pedestrians that cross the street in an hour, I am now gathering data.</p>
+<p>Different kinds of data contain different kinds of information. I have already been simplifying my definitions by suggesting that data always involves numbers. If my research question is, “do students walk across the street?” and I go outside for an hour and observe them to do so, then I have gathered data. But, are these data very informative? What is the difference between observing that “some students cross the street per hour” and “40 students cross the street per hour?” They both say the same thing, but the second version provides more specific information. As another example, I could say that it is hot out today, or I could say that it is 99 degrees Fahrenheit (37 degrees Celsius). I could use either of these labels to describe the same day.</p>
+<p>The process of gathering data is called <strong>measurement</strong>. It will be useful for us to classify measures according to the kind of data they contain. We will classify measurement in three ways (from Stevens, 1946):</p>
+<ol style="list-style-type: decimal">
+<li>According to their <em>level of measurement</em></li>
+<li>Whether or not they are <em>continuous or discrete</em></li>
+<li>Whether they represent <em>qualitative or quantitative</em> data.</li>
+</ol>
+<p>Once you understand these classifications, you should be able to classify a measure in these three ways.</p>
+<div id="level-of-measurement" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Level of Measurement</h3>
+<p>A stair diagram is used because higher levels of measurement satisfy all the requirements of the levels below.</p>
+<pre><code>   Ratio scale/ratio measurement.  Examples: weight, length         
+  Interval scale/interval measurement.  Example: Fahrenheit temperature     
+ Ordinal scale/ordinal measurement.  Example: the order in which people finish a race 
+Nominal scale/Nominal measurement.  Example: which is your favorite fruit?</code></pre>
+<p>Notice that these levels are stair steps. Each level has all the characteristics of the level below it. Interval scales meet all the requirements of ordinal and nominal scales as well (plus they meet the additional requirement for interval scales).</p>
+<p>To determine the level of measurement, ask yourself these questions:</p>
+<ol style="list-style-type: decimal">
+<li>Can you rank/order the numbers? (if no, nominal scale. if yes, keep going) example: kinds of fish. can you rank halibut and mullet? (no, nominal scale) example: Olympic medals, can you rank gold, silver, and bronze? (yes, keep going)</li>
+<li>If you add/subtract the numbers, does the result have meaning? (if no, ordinal scale. if yes, keep going) example: 30 degrees F plus 10 degrees equals 40 degrees (yes, keep going) example: 1st place plus 2 equals 3rd place? (no, this does not make sense, ordinal scale)</li>
+<li>Does the score have a value of 0 that means ‘none’ or ‘nothing?’ (if no, interval scale. if yes, ratio scale) example: counting people; 0 people means no people (yes, ratio scale) example: 0 degrees F means no heat? (no, interval scale)</li>
+</ol>
+<p>That last property, having a zero meaning none/nothing/not any is called a <strong>true zero</strong>. Fahrenheit temperature does not have a true zero (it is just another temperature), but Kelvin does (zero degrees is absolute zero and indicates no heat energy).</p>
+<p>I find making up values to be a helpful strategy, as I did when I asked Question 2, above. It does not matter what the values are, so you can invent ones to make the questions more concrete.</p>
+<p>When students are confused about classifying measures, the most common pattern I see is that they abandon the stair-step-question method. I recommend not trying to skip answering the questions, even as you start to get comfortable with this concept. Start from question 1, and continue up the levels until the answer is no. It takes a few more seconds but is much more reliable. And, remember that each level has all the properties of the levels below it. In other words, ratio scales meet all the requirements of interval scales, ordinal scales, and nominal scales. For this reason, I find trying to match definitions to examples is more confusing than the stair-step method (which was taught to me by my graduate advisor, and I am still using it!).</p>
+<p>The second common point of confusion happens when students focus on the data instead of the measurement scale. When we classify measures, we are classifying the measurement scale. The measurement scale includes all possible data that could ever be observed (even if only theoretically). I usually use an exercise question that asks students to classify the level of measurement of the age of a football stadium. Like all measures of duration, the best answer is ratio. Often students are uncomfortable picking that answer, because they do not see anyone observing a football stadium to be 0 years (or days, hours, or minutes) old. How could a football stadium have no age? Even though it is unlikely that a list of football stadium ages would ever observe this, there is an instant where a football stadium has been constructed or opened and is therefore 0 years (days, hours, and minutes) old. All this to say, do not get distracted by what values are the most common or realistic. Instead, when classifying measurement scales, focus on all possible values.</p>
+</div>
+<div id="continuous-or-discrete" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Continuous or Discrete</h3>
+<p>Separately, you can decide if your variable is continuous or discrete. If you can have an infinite number of fractions of a value, it’s continuous. If you cannot, the measure is discrete. example: 5 yards, 5.0005 yards, 5.5 years, and 5.500001 yards are all valid measurements (continuous) example: Olympic medals; the measurement between gold and silver does not exist (discrete)</p>
+<p>There may be instances where a grey area exists; at some level, all variables are discrete. For example, you could subdivide a measurement of length down to the molecule. At that point, you cannot have fractional values. Try to avoid over-thinking this issue. If you can reasonably talk about fractional values (half seconds; twenty-five cents are a fraction of a dollar) then the measure is continuous. If you cannot (there is no such thing as half a dog or an eighth of an employee), then the measure is discrete.</p>
+</div>
+<div id="qualitative-or-quantitative" class="section level3" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Qualitative or Quantitative</h3>
+<p><strong>Quan</strong>titative data is associated with a numerical value. <strong>Qual</strong>itative data is associated with labels that have no numerical value. Nominal and ordinal data are qualitative. Interval and ratio data are quantitative.</p>
+</div>
+<div id="distribution-a-collection-of-our-observations" class="section level3" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> Distribution: A collection of our observations</h3>
+<p>When we make repeated, related observations and collect them together, we have data. When we represent data in numerical or categorical form, we form a <strong>distribution</strong>. When you see distribution, think of a collection of scores.</p>
+</div>
+</div>
+<div id="descriptive-statistics-summarizing-our-observations" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Descriptive Statistics: Summarizing our observations</h2>
+<p>Text by David Schuster</p>
+<p>The problem with distributions is that any collection of more than a couple observations quickly overwhelms our limited working memory and attention. We need a way to summarize distributions. Descriptive statistics does exactly that. A descriptive statistic summarizes a distribution (put another way, it measures a property of a distribution) using a single value.</p>
+<p>Descriptive statistics lets us summarize two properties of distributions:</p>
+<ol style="list-style-type: decimal">
+<li>The value of the scores (central tendency)</li>
+<li>How spread out the scores are from each other (variability)</li>
+</ol>
+<p>Measures of central tendency are averages. There are multiple ways of expressing an average. Mean, median, and mode are different kinds of averages. That is about all we need for right now. Later, we will go into more detail on how these useful tools work.</p>
+<p>Measures of variability put a number on how spread out the data are. Think about your workplace–Are some employees more content than others? Is everyone pretty much in agreement that your workplace is great (or awful)? If most people tend to agree, then we might say your workplace satisfaction has low variability. If there was not so much agreement, we might say your workplace satisfaction has high variability. With measures of variability, we can do even better by quantifying variability. Variability is the concept–how different are scores in the distribution? Measures of variability turn this into a value. Measures of variability include range, sum of squares, variance, and standard deviation.</p>
+<p>When there is no variability, we call the value a <em>constant</em>. For almost anything you can think to measure about people, there are no constants. We live in a world of complex variability. For me, this is one of the most fascinating and challenging aspects of psychology. You can easily manufacture a bolt to have the same property as another, but psychologists get a front row seat at the amazing diversity of human thought and behavior. Describing and making predictions about variability is also a linkage between statistics and the study of human diversity, which we will consider in more detail later in this course.</p>
+</div>
+<div id="inferential-statistics-generalizing-from-our-observations" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Inferential Statistics: Generalizing from our observations</h2>
+<p>Inferential statistics is the process of drawing conclusions about a group of interest (called a population) using a limited set of data (called a sample). Fundamentally, inferential statistics uses probability theory and logic that allow you to make conclusions about populations.</p>
+<p>We will cover a number of inferential stat techniques in this course. These include the <em>t</em>-test, ANOVA, multiple regression, and others. Other terms associated with inferential statistics (we will define and discuss later, for now, just know they are part of inferential statistics) include null hypothesis significance testing (NHST) and Bayesian statistics.</p>
+<p>As an example of a population we might want to study, imagine I am interested in studying middle school students’ reading comprehension in the United States, and I want to see if it changes over time. To understand this population directly, I would have to measure the reading comprehension of every member. This is impossible. Instead, I take a random sample from the population by mailing surveys to 50 random middle school students with consent of their parents, I can use descriptive statistics to understand my sample data (50 scores) and inferential statistics to generalize the results to the population (millions of scores).</p>
+<div id="populations-and-samples-who-or-what-the-research-is-about" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Populations and Samples: Who (or what) the research is about</h3>
+<p>A population is the entire group of interest. Examples: people, nursing home residents, repeat customers, etc. The population is the group we want to study.</p>
+<p>Populations can be any group you want to draw conclusions about. The researcher defines the population, and this frames the entire research project. The findings of a study intending to measure college students may not apply to older adults. The population is the group to which you will generalize your findings.</p>
+<p>The descriptive statistics we will cover can be applied to populations. If we can measure everybody and calculate the average, then we have calculated a <strong>population parameter</strong>. A <strong>population distribution</strong>, which is constructed by measuring every member of a population, is called a <strong>census</strong>. Most of the time, our populations of interest are very large, and it is impossible to measure everybody. How could you give a survey to every single college student in the United States? You would first need a list of every college student in the United States. What are some of the problems with conducting a study in this way? You might think of the ethical obstacles, meaning that it is all but guaranteed you would not get every college student to agree to participate. You might also think of the logistical obstacles, such as the time and cost associated with advertising and administering tens of millions of surveys (even digital ones). But even generating a list of the population would be impossible. Imagine these other concerns did not exist and there was such a list of every student in the United States. Would that list be accurate? Put another way, for how long would that list remain accurate? Every day, new students begin college and other students graduate or leave school. A list of all college students in the United States would only be accurate for an instant. In this seemingly-straightforward population example, we see that even the list of members is constantly changing. For all but the smallest populations of people, population-level research is not possible. Even a precise count of such populations are not possible. This hints at a point we will revisit later in the course–sampling and statistics can be useful regardless of the population size. For this reason, sampling is a powerful tool for understanding populations.</p>
+<p>A <strong>sample</strong> is a smaller set from the population. The collection of scores from a sample is called a <strong>sample distribution</strong>. When statistics are computed from a sample distribution, they are called sample statistics, or just statistics.</p>
+<p>There are many ways to measure a subset of a population; we call the strategy for obtaining a sample the <strong>sampling method</strong>. The best sampling method is <strong>random sampling</strong>. It has a precise definition: A random sample means that every member of the population has an equal chance of being selected. To do this properly, a researcher should generate a list of every member of the population and select from the list at random. To be a truly random sample, every individual selected would have to participate in your study. True random samples meet this definition but there are other, more practical, sampling techniques that approximate random sampling; the closer to a random sample of the population, the more likely the sample will represent the population.</p>
+<p>We can think of random sampling as one end of a spectrum with <strong>convenience sampling</strong> at the other. A researcher using a convenience sample asks whoever is available to participate in the study. The resulting sample is biased due to proximity, availability, and convenience. Put another way, convenience sampling is less systematic and more…well, convenient. The further away from a true random sample, the less likely it is that the sample collected will represent the population.</p>
+<p>Inferential statistics are a collection of techniques to make conclusions about populations based on sample data. As you have seen, without this tool, we could never measure all the individuals we would wish to study. If you have not studied inferential statistics before, it may seem surprising, perhaps a bit unbelievable, that we could make conclusions from such little data. Inferential statistics is not magic; it does not guarantee perfect conclusions. We will see that researchers make certain assumptions when they use inferential statistics and they generate tentative conclusions. Often, the data suggest an answer rather than provide a definitive answer. Sometimes, the research results in more new questions than answers. These features suggest that science is challenging and takes skill to be done well. One of the goals of this course is to help you be a better researcher and a better evaluator of others’ research.</p>
+<p>Psychologists and others who study people often take for granted that the <strong>units of analysis</strong> are people. Often, this is the case. Through this lens, populations are groups of people and samples are made up of people. Nothing about statistics requires our observations to be about people, however. We could just as easily measure the number of miles a tire will last before it fails or the loudness of a lion’s roar. We can also measure collections of people, such as the performance of a company, the frequency of communication of team members, or the outcomes of students in a school.</p>
+</div>
+<div id="constructs-provide-the-context" class="section level3" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Constructs provide the context</h3>
+<p>The idea or concept represented by our data is called the <strong>construct</strong>. There is an important distinction between constructs and measures. A construct is a “concept, model, or schematic idea” (Shadish, Cook, &amp; Campbell, 2002, p. 506). Constructs are the big ideas that researchers are interested in measuring: depression, patient outcomes, prevalence of cumulative trauma disorders, or even sales. For constructs in the social sciences, there is often disagreement and debate about how to define a construct. To do science, we must be able to quantify our observations (collect data) on the constructs. To go from a construct (the idea) to a measure requires an operational definition. An <em>operational definition</em> describes how a construct is measured.</p>
+</div>
+</div>
+<div id="the-cautionary-tale-of-simpsons-paradox" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> The cautionary tale of Simpson’s paradox</h2>
+<p>Text by <span class="citation"><a href="#ref-Navarro2018" role="doc-biblioref">Navarro</a> (<a href="#ref-Navarro2018" role="doc-biblioref">2018</a>)</span></p>
+<p>The following is a true story (I think…). In 1973, the University of California, Berkeley had some worries about the admissions of students into their postgraduate courses. Specifically, the thing that caused the problem was that the gender breakdown of their admissions, which looked like this…</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Number of applicants</th>
+<th align="center">Percent admitted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Males</td>
+<td align="center">8442</td>
+<td align="center">46%</td>
+</tr>
+<tr class="even">
+<td>Females</td>
+<td align="center">4321</td>
+<td align="center">35%</td>
+</tr>
+</tbody>
+</table>
+<p>…and the were worried about being sued.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Given that there were nearly 13,000 applicants, a difference of 9% in admission rates between males and females is just way too big to be a coincidence. Pretty compelling data, right? And if I were to say to you that these data <em>actually</em> reflect a weak bias in favour of women (sort of!), you’d probably think that I was either crazy or sexist.</p>
+<p>Oddly, it’s actually sort of true …when people started looking more carefully at the admissions data <span class="citation">(<a href="#ref-Bickel1975" role="doc-biblioref">Bickel, Hammel, and O’Connell 1975</a>)</span> they told a rather different story. Specifically, when they looked at it on a department by department basis, it turned out that most of the departments actually had a slightly <em>higher</em> success rate for female applicants than for male applicants. Table <a href="statistics-for-research.html#tab:simpsontable">1.1</a> shows the admission figures for the six largest departments (with the names of the departments removed for privacy reasons):</p>
+<table>
+<caption><span id="tab:simpsontable">Table 1.1: </span>Admission figures for the six largest departments by gender</caption>
+<colgroup>
+<col width="12%" />
+<col width="17%" />
+<col width="23%" />
+<col width="19%" />
+<col width="26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Department</th>
+<th align="center">Male Applicants</th>
+<th align="center">Male Percent Admitted</th>
+<th align="center">Female Applicants</th>
+<th align="center">Female Percent admitted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">A</td>
+<td align="center">825</td>
+<td align="center">62%</td>
+<td align="center">108</td>
+<td align="center">82%</td>
+</tr>
+<tr class="even">
+<td align="center">B</td>
+<td align="center">560</td>
+<td align="center">63%</td>
+<td align="center">25</td>
+<td align="center">68%</td>
+</tr>
+<tr class="odd">
+<td align="center">C</td>
+<td align="center">325</td>
+<td align="center">37%</td>
+<td align="center">593</td>
+<td align="center">34%</td>
+</tr>
+<tr class="even">
+<td align="center">D</td>
+<td align="center">417</td>
+<td align="center">33%</td>
+<td align="center">375</td>
+<td align="center">35%</td>
+</tr>
+<tr class="odd">
+<td align="center">E</td>
+<td align="center">191</td>
+<td align="center">28%</td>
+<td align="center">393</td>
+<td align="center">24%</td>
+</tr>
+<tr class="even">
+<td align="center">F</td>
+<td align="center">272</td>
+<td align="center">6%</td>
+<td align="center">341</td>
+<td align="center">7%</td>
+</tr>
+</tbody>
+</table>
+<p>Remarkably, most departments had a <em>higher</em> rate of admissions for females than for males! Yet the overall rate of admission across the university for females was <em>lower</em> than for males. How can this be? How can both of these statements be true at the same time?</p>
+<p>Here’s what’s going on. Firstly, notice that the departments are <em>not</em> equal to one another in terms of their admission percentages: some departments (e.g., engineering, chemistry) tended to admit a high percentage of the qualified applicants, whereas others (e.g., English) tended to reject most of the candidates, even if they were high quality. So, among the six departments shown above, notice that department A is the most generous, followed by B, C, D, E and F in that order. Next, notice that males and females tended to apply to different departments. If we rank the departments in terms of the total number of male applicants, we get <strong>A</strong>&gt;<strong>B</strong>&gt;D&gt;C&gt;F&gt;E (the “easy” departments are in bold). On the whole, males tended to apply to the departments that had high admission rates. Now compare this to how the female applicants distributed themselves. Ranking the departments in terms of the total number of female applicants produces a quite different ordering C&gt;E&gt;D&gt;F&gt;<strong>A</strong>&gt;<strong>B</strong>. In other words, what these data seem to be suggesting is that the female applicants tended to apply to “harder” departments. And in fact, if we look at all Figure <a href="statistics-for-research.html#fig:berkeley">1.1</a> we see that this trend is systematic, and quite striking. This effect is known as Simpson’s paradox. It’s not common, but it does happen in real life, and most people are very surprised by it when they first encounter it, and many people refuse to even believe that it’s real. It is very real. And while there are lots of very subtle statistical lessons buried in there, I want to use it to make a much more important point …doing research is hard, and there are <em>lots</em> of subtle, counterintuitive traps lying in wait for the unwary. That’s reason #2 why scientists love statistics, and why we teach research methods. Because science is hard, and the truth is sometimes cunningly hidden in the nooks and crannies of complicated data.</p>
+<div class="figure"><span id="fig:berkeley"></span>
+<img src="schuster-statistics-remix_files/figure-html/berkeley-1.png" alt="The Berkeley 1973 college admissions data. This figure plots the admission rate for the 85 departments that had at least one female applicant, as a function of the percentage of applicants that were female. The plot is a redrawing of Figure 1 from @Bickel1975. Circles plot departments with more than 40 applicants; the area of the circle is proportional to the total number of applicants. The crosses plot department with fewer than 40 applicants." width="672" />
+<p class="caption">
+Figure 1.1: The Berkeley 1973 college admissions data. This figure plots the admission rate for the 85 departments that had at least one female applicant, as a function of the percentage of applicants that were female. The plot is a redrawing of Figure 1 from <span class="citation"><a href="#ref-Bickel1975" role="doc-biblioref">Bickel, Hammel, and O’Connell</a> (<a href="#ref-Bickel1975" role="doc-biblioref">1975</a>)</span>. Circles plot departments with more than 40 applicants; the area of the circle is proportional to the total number of applicants. The crosses plot department with fewer than 40 applicants.
+</p>
+</div>
+<p>Before leaving this topic entirely, I want to point out something else really critical that is often overlooked in a research methods class. Statistics only solves <em>part</em> of the problem. Remember that we started all this with the concern that Berkeley’s admissions processes might be unfairly biased against female applicants. When we looked at the “aggregated” data, it did seem like the university was discriminating against women, but when we “disaggregate” and looked at the individual behaviour of all the departments, it turned out that the actual departments were, if anything, slightly biased in favour of women. The gender bias in total admissions was caused by the fact that women tended to self-select for harder departments. From a legal perspective, that would probably put the university in the clear. Postgraduate admissions are determined at the level of the individual department (and there are good reasons to do that), and at the level of individual departments, the decisions are more or less unbiased (the weak bias in favour of females at that level is small, and not consistent across departments). Since the university can’t dictate which departments people choose to apply to, and the decision making takes place at the level of the department it can hardly be held accountable for any biases that those choices produce.</p>
+<p>That was the basis for my somewhat glib remarks earlier, but that’s not exactly the whole story, is it? After all, if we’re interested in this from a more sociological and psychological perspective, we might want to ask <em>why</em> there are such strong gender differences in applications. Why do males tend to apply to engineering more often than females, and why is this reversed for the English department? And why is it it the case that the departments that tend to have a female-application bias tend to have lower overall admission rates than those departments that have a male-application bias? Might this not still reflect a gender bias, even though every single department is itself unbiased? It might. Suppose, hypothetically, that males preferred to apply to “hard sciences” and females prefer “humanities.” And suppose further that the reason for why the humanities departments have low admission rates is because the government doesn’t want to fund the humanities (Ph.D. places, for instance, are often tied to government funded research projects). Does that constitute a gender bias? Or just an unenlightened view of the value of the humanities? What if someone at a high level in the government cut the humanities funds because they felt that the humanities are “useless chick stuff.” That seems pretty <em>blatantly</em> gender biased. None of this falls within the purview of statistics, but it matters to the research project. If you’re interested in the overall structural effects of subtle gender biases, then you probably want to look at <em>both</em> the aggregated and disaggregated data. If you’re interested in the decision making process at Berkeley itself then you’re probably only interested in the disaggregated data.</p>
+<p>In short there are a lot of critical questions that you can’t answer with statistics, but the answers to those questions will have a huge impact on how you analyse and interpret data. And this is the reason why you should always think of statistics as a <em>tool</em> to help you learn about your data, no more and no less. It’s a powerful tool to that end, but there’s no substitute for careful thought.</p>
+</div>
+<div id="studydesign" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> A brief introduction to research design</h2>
+<p>Text by <span class="citation"><a href="#ref-Navarro2018" role="doc-biblioref">Navarro</a> (<a href="#ref-Navarro2018" role="doc-biblioref">2018</a>)</span></p>
+<blockquote>
+<p><em>To consult the statistician after an experiment is finished is often merely to ask him to conduct a post mortem examination. He can perhaps say what the experiment died of.</em></p>
+<p>– Sir Ronald Fisher<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+</blockquote>
+<p>Note that this section is “special” in two ways. Firstly, it’s much more psychology-specific than the later chapters. Secondly, it focuses much more heavily on the scientific problem of research methodology, and much less on the statistical problem of data analysis. Nevertheless, the two problems are related to one another, so it’s traditional for stats textbooks to discuss the problem in a little detail. This chapter relies heavily on <span class="citation"><a href="#ref-Campbell1963" role="doc-biblioref">Campbell and Stanley</a> (<a href="#ref-Campbell1963" role="doc-biblioref">1963</a>)</span> for the discussion of study design, and <span class="citation"><a href="#ref-Stevens1946" role="doc-biblioref">Stevens</a> (<a href="#ref-Stevens1946" role="doc-biblioref">1946</a>)</span> for the discussion of scales of measurement. Later versions will attempt to be more precise in the citations.</p>
+<div id="some-thoughts-about-psychological-measurement" class="section level3" number="1.6.1">
+<h3><span class="header-section-number">1.6.1</span> Some thoughts about psychological measurement</h3>
+<p>Measurement itself is a subtle concept, but basically it comes down to finding some way of assigning numbers, or labels, or some other kind of well-defined descriptions to “stuff.” So, any of the following would count as a psychological measurement:</p>
+<ul>
+<li>My <strong>age</strong> is <em>33 years</em>.</li>
+<li>I <em>do not</em> <strong>like anchovies</strong>.</li>
+<li>My <strong>chromosomal gender</strong> is <em>male</em>.</li>
+<li>My <strong>self-identified gender</strong> is <em>male</em>.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
+</ul>
+<p>In the short list above, the <strong>bolded part</strong> is “the thing to be measured,” and the <em>italicised part</em> is “the measurement itself.” In fact, we can expand on this a little bit, by thinking about the set of possible measurements that could have arisen in each case:</p>
+<ul>
+<li>My <strong>age</strong> (in years) could have been <em>0, 1, 2, 3 …</em>, etc. The upper bound on what my age could possibly be is a bit fuzzy, but in practice you’d be safe in saying that the largest possible age is <em>150</em>, since no human has ever lived that long.</li>
+<li>When asked if I <strong>like anchovies</strong>, I might have said that <em>I do</em>, or <em>I do not</em>, or <em>I have no opinion</em>, or <em>I sometimes do</em>.</li>
+<li>My <strong>chromosomal gender</strong> is almost certainly going to be <em>male (XY)</em> or <em>female (XX)</em>, but there are a few other possibilities. I could also have <em>Klinfelter’s syndrome (XXY)</em>, which is more similar to male than to female. And I imagine there are other possibilities too.</li>
+<li>My <strong>self-identified gender</strong> is also very likely to be <em>male</em> or <em>female</em>, but it doesn’t have to agree with my chromosomal gender. I may also choose to identify with <em>neither</em>, or to explicitly call myself <em>transgender</em>.</li>
+</ul>
+<p>As you can see, for some things (like age) it seems fairly obvious what the set of possible measurements should be, whereas for other things it gets a bit tricky. But I want to point out that even in the case of someone’s age, it’s much more subtle than this. For instance, in the example above, I assumed that it was okay to measure age in years. But if you’re a developmental psychologist, that’s way too crude, and so you often measure age in <em>years and months</em> (if a child is 2 years and 11 months, this is usually written as “2;11”). If you’re interested in newborns, you might want to measure age in <em>days since birth</em>, maybe even <em>hours since birth</em>. In other words, the way in which you specify the allowable measurement values is important.</p>
+<p>Looking at this a bit more closely, you might also realise that the concept of “age” isn’t actually all that precise. In general, when we say “age” we implicitly mean “the length of time since birth.” But that’s not always the right way to do it. Suppose you’re interested in how newborn babies control their eye movements. If you’re interested in kids that young, you might also start to worry that “birth” is not the only meaningful point in time to care about. If Baby Alice is born 3 weeks premature and Baby Bianca is born 1 week late, would it really make sense to say that they are the “same age” if we encountered them “2 hours after birth?” In one sense, yes: by social convention, we use birth as our reference point for talking about age in everyday life, since it defines the amount of time the person has been operating as an independent entity in the world, but from a scientific perspective that’s not the only thing we care about. When we think about the biology of human beings, it’s often useful to think of ourselves as organisms that have been growing and maturing since conception, and from that perspective Alice and Bianca aren’t the same age at all. So you might want to define the concept of “age” in two different ways: the length of time since conception, and the length of time since birth. When dealing with adults, it won’t make much difference, but when dealing with newborns it might.</p>
+<p>Moving beyond these issues, there’s the question of methodology. What specific “measurement method” are you going to use to find out someone’s age? As before, there are lots of different possibilities:</p>
+<ul>
+<li>You could just ask people “how old are you?” The method of self-report is fast, cheap and easy, but it only works with people old enough to understand the question, and some people lie about their age.</li>
+<li>You could ask an authority (e.g., a parent) “how old is your child?” This method is fast, and when dealing with kids it’s not all that hard since the parent is almost always around. It doesn’t work as well if you want to know “age since conception,” since a lot of parents can’t say for sure when conception took place. For that, you might need a different authority (e.g., an obstetrician).</li>
+<li>You could look up official records, like birth certificates. This is time consuming and annoying, but it has its uses (e.g., if the person is now dead).</li>
+</ul>
+</div>
+<div id="operationalisation-defining-your-measurement" class="section level3" number="1.6.2">
+<h3><span class="header-section-number">1.6.2</span> Operationalisation: defining your measurement</h3>
+<p>All of the ideas discussed in the previous section all relate to the concept of <strong><em>operationalisation</em></strong>. To be a bit more precise about the idea, operationalisation is the process by which we take a meaningful but somewhat vague concept, and turn it into a precise measurement. The process of operationalisation can involve several different things:</p>
+<ul>
+<li>Being precise about what you are trying to measure. For instance, does “age” mean “time since birth” or “time since conception” in the context of your research?</li>
+<li>Determining what method you will use to measure it. Will you use self-report to measure age, ask a parent, or look up an official record? If you’re using self-report, how will you phrase the question?</li>
+<li>Defining the set of the allowable values that the measurement can take. Note that these values don’t always have to be numerical, though they often are. When measuring age, the values are numerical, but we still need to think carefully about what numbers are allowed. Do we want age in years, years and months, days, hours? Etc. For other types of measurements (e.g., gender), the values aren’t numerical. But, just as before, we need to think about what values are allowed. If we’re asking people to self-report their gender, what options to we allow them to choose between? Is it enough to allow only “male” or “female?” Do you need an “other” option? Or should we not give people any specific options, and let them answer in their own words? And if you open up the set of possible values to include all verbal response, how will you interpret their answers?</li>
+</ul>
+<p>Operationalisation is a tricky business, and there’s no “one, true way” to do it. The way in which you choose to operationalise the informal concept of “age” or “gender” into a formal measurement depends on what you need to use the measurement for. Often you’ll find that the community of scientists who work in your area have some fairly well-established ideas for how to go about it. In other words, operationalisation needs to be thought through on a case by case basis. Nevertheless, while there a lot of issues that are specific to each individual research project, there are some aspects to it that are pretty general.</p>
+<p>Before moving on, I want to take a moment to clear up our terminology, and in the process introduce one more term. Here are four different things that are closely related to each other:</p>
+<ul>
+<li><strong><em>A theoretical construct</em></strong>. This is the thing that you’re trying to take a measurement of, like “age,” “gender” or an “opinion.” A theoretical construct can’t be directly observed, and often they’re actually a bit vague.</li>
+<li><strong><em>A measure</em></strong>. The measure refers to the method or the tool that you use to make your observations. A question in a survey, a behavioural observation or a brain scan could all count as a measure.</li>
+<li><strong><em>An operationalisation</em></strong>. The term “operationalisation” refers to the logical connection between the measure and the theoretical construct, or to the process by which we try to derive a measure from a theoretical construct.</li>
+<li><strong><em>A variable</em></strong>. Finally, a new term. A variable is what we end up with when we apply our measure to something in the world. That is, variables are the actual “data” that we end up with in our data sets.</li>
+</ul>
+<p>In practice, even scientists tend to blur the distinction between these things, but it’s very helpful to try to understand the differences.</p>
+</div>
+<div id="ivdv" class="section level3" number="1.6.3">
+<h3><span class="header-section-number">1.6.3</span> The “role” of variables: predictors and outcomes</h3>
+<p>Okay, I’ve got one last piece of terminology that I need to explain to you before moving away from variables. Normally, when we do some research we end up with lots of different variables. Then, when we analyse our data we usually try to explain some of the variables in terms of some of the other variables. It’s important to keep the two roles “thing doing the explaining” and “thing being explained” distinct. So let’s be clear about this now. Firstly, we might as well get used to the idea of using mathematical symbols to describe variables, since it’s going to happen over and over again. Let’s denote the “to be explained” variable <span class="math inline">\(Y\)</span>, and denote the variables “doing the explaining” as <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, etc.</p>
+<p>Now, when we doing an analysis, we have different names for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, since they play different roles in the analysis. The classical names for these roles are <strong><em>independent variable</em></strong> (IV) and <strong><em>dependent variable</em></strong> (DV). The IV is the variable that you use to do the explaining (i.e., <span class="math inline">\(X\)</span>) and the DV is the variable being explained (i.e., <span class="math inline">\(Y\)</span>). The logic behind these names goes like this: if there really is a relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> then we can say that <span class="math inline">\(Y\)</span> depends on <span class="math inline">\(X\)</span>, and if we have designed our study “properly” then <span class="math inline">\(X\)</span> isn’t dependent on anything else. However, I personally find those names horrible: they’re hard to remember and they’re highly misleading, because (a) the IV is never actually “independent of everything else” and (b) if there’s no relationship, then the DV doesn’t actually depend on the IV. And in fact, because I’m not the only person who thinks that IV and DV are just awful names, there are a number of alternatives that I find more appealing. The terms that I’ll use in these notes are <strong><em>predictors</em></strong> and <strong><em>outcomes</em></strong>. The idea here is that what you’re trying to do is use <span class="math inline">\(X\)</span> (the predictors) to make guesses about <span class="math inline">\(Y\)</span> (the outcomes).<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> This is summarised in Table <a href="statistics-for-research.html#tab:ivdv">1.2</a>.</p>
+<table>
+<caption><span id="tab:ivdv">Table 1.2: </span>The terminology used to distinguish between different roles that a variable can play when analysing a data set. Note that this book will tend to avoid the classical terminology in favour of the newer names.</caption>
+<thead>
+<tr class="header">
+<th align="left">role of the variable</th>
+<th align="left">classical name</th>
+<th align="left">modern name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">to be explained</td>
+<td align="left">dependent variable (DV)</td>
+<td align="left">outcome</td>
+</tr>
+<tr class="even">
+<td align="left">to do the explaining</td>
+<td align="left">independent variable (IV)</td>
+<td align="left">predictor</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="researchdesigns" class="section level3" number="1.6.4">
+<h3><span class="header-section-number">1.6.4</span> Experimental and non-experimental research</h3>
+<p>One of the big distinctions that you should be aware of is the distinction between “experimental research” and “non-experimental research.” When we make this distinction, what we’re really talking about is the degree of control that the researcher exercises over the people and events in the study.</p>
+<div id="experimental-research" class="section level4" number="1.6.4.1">
+<h4><span class="header-section-number">1.6.4.1</span> Experimental research</h4>
+<p>The key features of <strong><em>experimental research</em></strong> is that the researcher controls all aspects of the study, especially what participants experience during the study. In particular, the researcher manipulates or varies the predictor variables (IVs), and then allows the outcome variable (DV) to vary naturally. The idea here is to deliberately vary the predictors (IVs) to see if they have any causal effects on the outcomes. Moreover, in order to ensure that there’s no chance that something other than the predictor variables is causing the outcomes, everything else is kept constant or is in some other way “balanced” to ensure that they have no effect on the results. In practice, it’s almost impossible to <em>think</em> of everything else that might have an influence on the outcome of an experiment, much less keep it constant. The standard solution to this is <strong><em>randomisation</em></strong>: that is, we randomly assign people to different groups, and then give each group a different treatment (i.e., assign them different values of the predictor variables). We’ll talk more about randomisation later in this course, but for now, it’s enough to say that what randomisation does is minimise (but not eliminate) the chances that there are any systematic difference between groups.</p>
+<p>Let’s consider a very simple, completely unrealistic and grossly unethical example. Suppose you wanted to find out if smoking causes lung cancer. One way to do this would be to find people who smoke and people who don’t smoke, and look to see if smokers have a higher rate of lung cancer. This is <em>not</em> a proper experiment, since the researcher doesn’t have a lot of control over who is and isn’t a smoker. And this really matters: for instance, it might be that people who choose to smoke cigarettes also tend to have poor diets, or maybe they tend to work in asbestos mines, or whatever. The point here is that the groups (smokers and non-smokers) actually differ on lots of things, not <em>just</em> smoking. So it might be that the higher incidence of lung cancer among smokers is caused by something else, not by smoking per se. In technical terms, these other things (e.g. diet) are called “confounds,” and we’ll talk about those in just a moment.</p>
+<p>In the meantime, let’s now consider what a proper experiment might look like. Recall that our concern was that smokers and non-smokers might differ in lots of ways. The solution, as long as you have no ethics, is to <em>control</em> who smokes and who doesn’t. Specifically, if we randomly divide participants into two groups, and force half of them to become smokers, then it’s very unlikely that the groups will differ in any respect other than the fact that half of them smoke. That way, if our smoking group gets cancer at a higher rate than the non-smoking group, then we can feel pretty confident that (a) smoking does cause cancer and (b) we’re murderers.</p>
+</div>
+</div>
+</div>
+<div id="causality-research-and-statistics" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Causality, Research, and Statistics</h2>
+<p>Text by David Schuster</p>
+<div id="experimental-quasi-experimental-and-non-experimental-studies" class="section level3" number="1.7.1">
+<h3><span class="header-section-number">1.7.1</span> Experimental, Quasi-Experimental, and Non-Experimental Studies</h3>
+<p>In this section, I would like to add a bit more precision to the general concepts explained by <span class="citation"><a href="#ref-Navarro2018" role="doc-biblioref">Navarro</a> (<a href="#ref-Navarro2018" role="doc-biblioref">2018</a>)</span>.</p>
+<p>Research psychology is a process of identifying constructs and describing how they relate to other constructs. We can classify research designs as experiments, quasi-experiments, and non-experiments.</p>
+<p>Experiments are the only kind of research that shows causal relationships (that is, that construct A causes a change in construct B). So an experiment could show if smoking causes lung cancer. To do this, experiments need two things (or they are not experiments)</p>
+<p>All experiments have a manipulation. This means that the experimenter changes something within the environment of the experiment (called an independent variable) to see if it causes a change in the outcome (called a dependent variable). For our smoking example, a manipulation would be assigning one group of participants to a lifetime of smoking and another group of participants to a lifetime of no smoking.</p>
+<p>Experiments require random assignment. The experimenter decides when to vary the levels of the manipulation (change the manipulation) based on random assignment. Random assignment means that every participant has the same chance as being in one condition as another. For our smoking example, random assignment means each participant has a 50% chance of being in the smoking group.</p>
+<p>As may be clear from the smoking example, we cannot always do experiments because of ethical (it would be wrong to assign people to smoke) or practical reasons (you cannot randomly assign people to genders, for example). The solution is a quasi- or non-experimental study.</p>
+<p>In summary: experiments are powerful because they uniquely demonstrate causality (causal relationships). However, experiments require a manipulation and random assignment, which are not always possible.</p>
+<p>In a quasi-experimental study, there is a manipulation but no random assignment. Whenever participants are assigned to levels of a manipulation non-randomly, the research is quasi-experimental. In a quasi-experimental smoking study, we could ask people if they had smoked before and assign them to smoking or non-smoking groups based on that answer.</p>
+<p>In summary: quasi-experiments do not require random assignment, but they do not show casual relationships.</p>
+<p>In a non-experimental study, no manipulation is done. If you want to look at the effects of gender on lung cancer, you would simply observe (collect data on) the genders of patients. By only observing, you would not be manipulating gender.</p>
+<p>The differences between quasi- and non-experimental studies are sometimes slight (Pedhauzer &amp; Schmelkin, 1991); if the researcher is manipulating an IV, then the work is quasi-experimental.</p>
+<p>In summary: non-experimental studies are observational. Like quasi-experimental studies, they do not show causal relationships.</p>
+<p>It’s worth repeating that only experiments demonstrate causality. Quasi- and non-experiments can show that a relationship exists but do not say whether one variable causes the other. Any non-causal relationship has three possible explanations:</p>
+<ol style="list-style-type: decimal">
+<li>A <span class="math inline">\(\rightarrow\)</span> B one variable causes another; in an experiment, this is the only explanation</li>
+<li>B <span class="math inline">\(\leftarrow\)</span> A the relationship is reversed; the first variable is actually the outcome</li>
+<li>C <span class="math inline">\(\rightarrow\)</span> A; C <span class="math inline">\(\rightarrow\)</span> B a third variable exists that was not measured in the study; the third variable causes a change in both A and B. There are many ‘C’ variables, potentially.</li>
+</ol>
+<p>In a non-experimental smoking study, you could not say whether smoking causes lung cancer or people who are predisposed to lung cancer are more likely to smoke. A third possibility is that a separate, third variable causes both lung cancer and a desire to smoke.</p>
+</div>
+<div id="demonstrating-causality" class="section level3" number="1.7.2">
+<h3><span class="header-section-number">1.7.2</span> Demonstrating Causality</h3>
+<p>In the 19th century, John Stewart Mill said that we could be satisfied that a relationship is causal if the following three things could be demonstrated:</p>
+<ol style="list-style-type: decimal">
+<li>The cause preceded the effect</li>
+<li>The cause was related to the effect</li>
+<li>We can find no plausible alternative explanation for the effect other than the cause</li>
+</ol>
+<p>Experiments aim to identify causal relationships by manipulating something, observing the outcome, seeing a relationship, and using various methods to reduce other explanations.</p>
+</div>
+<div id="statistics-and-causality" class="section level3" number="1.7.3">
+<h3><span class="header-section-number">1.7.3</span> Statistics and Causality</h3>
+<p>Statistics are an important tool for establishing causality, but it’s important to know that the choice of statistical technique does not affect the level of causal evidence; demonstrating causality is the job of the research design, not the statistics.</p>
+<p>A common misconception arises from the term correlational research design, which people use as a label for quasi-experimental and non-experimental research. It is easy to confuse this term with correlation which is a statistical technique.</p>
+<p>Recall that statistics has two branches: Descriptive stats provides tools to summarize variability. Inferential stats provides tools for generalizing samples to populations.</p>
+<p>To demonstrate causality, we need to satisfy Mill’s second requirement. Inferential statistics can help us do that. Two techniques are particularly useful: correlation (and its statistic r) and the t¬-test (and its statistic, t). Next, we will see how these techniques work.</p>
+</div>
+<div id="validity-and-reliability" class="section level3" number="1.7.4">
+<h3><span class="header-section-number">1.7.4</span> Validity and Reliability</h3>
+<p>Text by David Schuster</p>
+<div id="define-validity-and-reliability" class="section level4" number="1.7.4.1">
+<h4><span class="header-section-number">1.7.4.1</span> Define validity and reliability</h4>
+<p>Reliability and validity are fundamental to critiquing psychological research and to developing your own high-quality research. There are different types of validity and reliability that are relevant to us, which sometimes confuses people. Because of this, introductory textbooks often present convoluted definitions of these concepts. Fortunately, the real definitions are simple:</p>
+<p>Reliability means consistency. Something is reliable if it is consistent. The more consistency, the more reliability.</p>
+<p>Validity means truth. Something is valid if it is true. Truth is either-or; there is no such thing as “more true” or “less true.”</p>
+<p>In other words, good psychological science requires certain types of consistency and for some of the claims we make to be true. Next, we will look at the specific kinds of reliability and validity that are important for scientists.</p>
+</div>
+<div id="types-of-consistency-types-of-reliability" class="section level4" number="1.7.4.2">
+<h4><span class="header-section-number">1.7.4.2</span> Types of consistency = Types of Reliability</h4>
+<p>Here are arguably the three most important types of reliability:</p>
+<table>
+<colgroup>
+<col width="6%" />
+<col width="55%" />
+<col width="22%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type of Reliability</th>
+<th>Situation</th>
+<th>Definition</th>
+<th>How to assess</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Test-retest</td>
+<td>You administer a measure to a participant, then wait some period of time, and give them the test again. The participant’s true score on the measure has not changed (e.g., IQ, personality).</td>
+<td>The extent to which a measure is consistent across different administrations</td>
+<td>Look for a correlation between the two administrations</td>
+</tr>
+<tr class="even">
+<td>Interrater</td>
+<td>A measure involves two or more raters who record subjective observations (e.g., counting the number of times a participant has a tic, counting the number of times a married couple shows affection)</td>
+<td>The extent to which two observers are consistent in their ratings</td>
+<td>Look for a correlation between the two raters</td>
+</tr>
+<tr class="odd">
+<td>Internal consistency</td>
+<td>You are measuring a construct using several items (e.g., five items all rating your enjoyment of a course)</td>
+<td>The extent to which items on a measure are consistent with each other; expected if the items measure the same construct</td>
+<td>Cronbach’s alpha (.7 is acceptable, .8 is good, and .9 is excellent)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="validity-is-a-property-of-inferences" class="section level4" number="1.7.4.3">
+<h4><span class="header-section-number">1.7.4.3</span> Validity is a property of inferences</h4>
+<p>Validity is a specific kind of truth. Validity is the truth of an inference, or a claim. In other words, validity is a property of inferences. An inference (a claim) is valid if it is true.</p>
+<p>For example, I could claim that the earth is round. Hopefully, it is a claim that you accept as being true. If you agree, then you could label my claim as valid.</p>
+<p>Validity in research is frequently misunderstood, which leads to bizarre and confusing definitions of validity. There is no such thing as “a valid study.” Only claims about the study are valid or not. There is also no such thing as “a valid researcher.” A researcher can make claims. Only the researcher’s claims are valid or not. There is also no such thing as “more valid” or “increasing validity.” Validity is truth of a claim. Either a claim is true, or it is not.</p>
+<p>For better or for worse, we usually don’t know with 100% certainty if a claim is true or false (if we did, we wouldn’t need the research). Therefore, research methods get very interesting when we listen to other researcher’s claims and then debate if we agree with them or not. When we do this, we are evaluating the validity of claims made about the study. Next, let’s look at different types of claims (inferences) that are made in research.</p>
+</div>
+<div id="types-of-inferences-in-a-study-types-of-validity" class="section level4" number="1.7.4.4">
+<h4><span class="header-section-number">1.7.4.4</span> Types of inferences in a study = Types of validity</h4>
+<p>Here are some of the most important types of validity.</p>
+<table>
+<colgroup>
+<col width="29%" />
+<col width="25%" />
+<col width="18%" />
+<col width="26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type of Validity</th>
+<th>Type of Claim</th>
+<th>Definition</th>
+<th>Example claim</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Construct validity</td>
+<td>The study operations represent the constructs of interest</td>
+<td>The truth of claims that study operations match study constructs</td>
+<td>“The Stanford-Binet was used to measure IQ”</td>
+</tr>
+<tr class="even">
+<td>Internal validity</td>
+<td>The study IV caused a change in the study DV</td>
+<td>The truth of claims that the IV causes changes in the DV</td>
+<td>“The control group reported lower levels of stress than the experimental group, suggesting that the manipulation raised stress.”</td>
+</tr>
+<tr class="odd">
+<td>External validity</td>
+<td>The study results apply to situation X</td>
+<td>The truth of claims that the findings will apply as participants/units/variables/settings change.</td>
+<td>“Although data were collected from college students, a similar effect would be expected in working adults.”</td>
+</tr>
+<tr class="even">
+<td>Statistical conclusion validity</td>
+<td>The statistical analysis was significant or not significant</td>
+<td>The truth of claims about the size and direction of the relationship between the IV and the DV. Or, that the statistical results are correct.</td>
+<td>“p &lt; .05, indicating a significant difference”</td>
+</tr>
+</tbody>
+</table>
+<p>Finally, you might encounter these other types of validity, but they are less clearly defined and evaluated:</p>
+<ul>
+<li>Content validity: The truth of claims that a measure adequately samples (includes the important elements of) the domain of interest. For example, if IQ includes both verbal and math ability, an IQ test would need to have both verbal and math items.</li>
+<li>Face validity: The truth of claims that a study operation “seems like” the construct. For example, a study about distractions from mobile devices might not support claims of “seeming real” if the phone in the study is a paper mockup.</li>
+<li>Criterion validity: The truth of claims that a measure can predict or correlate with some outcome of interest. A personality test as part of a job application would have criterion validity if it predicted applicants’ success in the job.</li>
+</ul>
+</div>
+<div id="threats-to-validity" class="section level4" number="1.7.4.5">
+<h4><span class="header-section-number">1.7.4.5</span> Threats to validity</h4>
+<p>Threats to validity are specific reasons why an inference about a study is wrong. They can help us anticipate problems in the design of our own research. The best way to address threats to validity is to change the design of our research. Understanding threats to validity also helps you critique research done by others.</p>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Bickel1975" class="csl-entry">
+Bickel, P. J., E. A. Hammel, and J. W. O’Connell. 1975. <span>“Sex Bias in Graduate Admissions: Data from <span>B</span>erkeley.”</span> <em>Science</em> 187: 398–404.
+</div>
+<div id="ref-Campbell1963" class="csl-entry">
+Campbell, D. T., and J. C. Stanley. 1963. <em>Experimental and Quasi-Experimental Designs for Research</em>. Boston, MA: Houghton Mifflin.
+</div>
+<div id="ref-Navarro2018" class="csl-entry">
+Navarro, D. 2018. <em>Learning Statistics with r: A Tutorial for Psychology Students and Other Beginners (Version 0.6)</em>. <a href="https://learningstatisticswithr.com">https://learningstatisticswithr.com</a>.
+</div>
+<div id="ref-Stevens1946" class="csl-entry">
+Stevens, S. S. 1946. <span>“On the Theory of Scales of Measurement.”</span> <em>Science</em> 103: 677–80.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Earlier versions of these notes incorrectly suggested that they actually were sued – apparently that’s not true. There’s a nice commentary on this here: <a href="https://www.refsmmat.com/posts/2016-05-08-simpsons-paradox-berkeley.html" class="uri">https://www.refsmmat.com/posts/2016-05-08-simpsons-paradox-berkeley.html</a>. A big thank you to Wilfried Van Hirtum for pointing this out to me!<a href="statistics-for-research.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Presidential Address to the First Indian Statistical Congress, 1938. Source: <a href="http://en.wikiquote.org/wiki/Ronald_Fisher" class="uri">http://en.wikiquote.org/wiki/Ronald_Fisher</a><a href="statistics-for-research.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Well… now this is awkward, isn’t it? This section is one of the oldest parts of the book, and it’s outdated in a rather embarrassing way. I wrote this in 2010, at which point all of those facts <em>were</em> true. Revisiting this in 2018… well I’m not 33 any more, but that’s not surprising I suppose. I can’t imagine my chromosomes have changed, so I’m going to guess my karyotype was then and is now XY. The self-identified gender, on the other hand… ah. I suppose the fact that the title page now refers to me as Danielle rather than Daniel might possibly be a giveaway, but I don’t typically identify as “male” on a gender questionnaire these days, and I prefer <em>“she/her”</em> pronouns as a default (it’s a long story)! I did think a little about how I was going to handle this in the book, actually. The book has a somewhat distinct authorial voice to it, and I feel like it would be a rather different work if I went back and wrote everything as Danielle and updated all the pronouns in the work. Besides, it would be a lot of work, so I’ve left my name as “Dan” throughout the book, and in ant case “Dan” is a perfectly good nickname for “Danielle,” don’t you think? In any case, it’s not a big deal. I only wanted to mention it to make life a little easier for readers who aren’t sure how to refer to me. I still don’t like anchovies though :-)<a href="statistics-for-research.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Annoyingly, though, there’s a lot of different names used out there. I won’t list all of them – there would be no point in doing that – other than to note that R often uses “response variable” where I’ve used “outcome,” and a traditionalist would use “dependent variable.” Sigh. This sort of terminological confusion is very common, I’m afraid.<a href="statistics-for-research.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introR.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-Intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["schuster-statistics-remix.pdf", "schuster-statistics-remix.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
