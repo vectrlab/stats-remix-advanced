@@ -154,7 +154,7 @@
 
 \title{Advanced Statistics Remix}
 \author{David Schuster}
-\date{2021-08-10}
+\date{2021-08-18}
 
 \begin{document}
 \maketitle
@@ -177,7 +177,7 @@ It is a remix of existing open source educational materials. I am contributing v
 
 Where authors are indicated throughout this text, the content has been copied verbatim with no more than minor editorial changes. Note that this differs from an APA style manuscript in which all verbatim text is typically quoted or blockquoted.
 
-Navarro, D. (2018). Learning statistics with R: A tutorial for psychology students and other beginners (version 0.6). Retrieved from \url{https://compcogscisydney.org/learning-statistics-with-r/}
+Navarro, D. (2018). Learning statistics with R: A tutorial for psychology students and other beginners (version 0.6). Retrieved from \url{https://learningstatisticswithr.com}
 
 Crump, M. J. C., Navarro, D., \& Suzuki, J. (2019, June 5). Answering Questions with Data (Textbook): Introductory Statistics for Psychology Students. \url{https://doi.org/10.17605/OSF.IO/JZE52}
 
@@ -191,6 +191,13 @@ This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 Intern
 
 \hypertarget{statistics-for-research}{%
 \chapter{Statistics for Research}\label{statistics-for-research}}
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Text by David Schuster
+
+\href{https://youtu.be/AFpygj7cnD8}{Video: Applied Statistics}
 
 Statistics is a rich and diverse field with endless theories and application. To call this a ``statistics course'' may be too vague to be useful. Will we study the theory behind the statistics or study how statistics are used? Let's narrow our scope. This course is primarily concerned with statistical methods used by researchers. That is, researchers systematically (deliberately and consistently) gather evidence in order to generate new knowledge. Statistics provide an important tool to help researchers be more systematic in their discovery of new knowledge. Researchers are to statisticians as video game players are to video game designers. Most video game players enjoy playing games but don't necessarily care about how the game is constructed, coded, developed, and sold. Similarly, most researchers don't necessarily care about how mathematical theory supports statistical concepts; instead, they want to use statistics to answer their research questions. Unfortunately, unlike playing a video game, statistical methods provide very little feedback (and usually none at all) about whether or not they are being used correctly. Because of this, researchers do have to understand a bit about how statistical methods work.
 
@@ -215,6 +222,10 @@ In the next sections, we will unpack these three functions.
 
 \hypertarget{measurement}{%
 \section{Measurement}\label{measurement}}
+
+Text by David Schuster
+
+\href{https://youtu.be/E9qRM9l5GNg}{Video: Measurement}
 
 The very beginning of statistics, and the most fundamental building block, is data. Data are what we get when we combine numbers and meaning. If I write down any number that comes to mind, I am generating numbers but not data (because there is no meaning). If I wonder about how many students attempt to cross the busy street outside of my office, I am starting to develop a research question (I would say there is meaning involved) but there are no numbers yet, so no data. If I go outside and count the number of pedestrians that cross the street in an hour, I am now gathering data.
 
@@ -290,6 +301,10 @@ When we make repeated, related observations and collect them together, we have d
 \hypertarget{descriptive-statistics-summarizing-our-observations}{%
 \section{Descriptive Statistics: Summarizing our observations}\label{descriptive-statistics-summarizing-our-observations}}
 
+Text by David Schuster
+
+\href{https://youtu.be/kh3dyECZFBE}{Video: Descriptive Statistics}
+
 The problem with distributions is that any collection of more than a couple observations quickly overwhelms our limited working memory and attention. We need a way to summarize distributions. Descriptive statistics does exactly that. A descriptive statistic summarizes a distribution (put another way, it measures a property of a distribution) using a single value.
 
 Descriptive statistics lets us summarize two properties of distributions:
@@ -311,6 +326,8 @@ When there is no variability, we call the value a \emph{constant}. For almost an
 
 \hypertarget{inferential-statistics-generalizing-from-our-observations}{%
 \section{Inferential Statistics: Generalizing from our observations}\label{inferential-statistics-generalizing-from-our-observations}}
+
+\href{https://youtu.be/AlnqTg8Bl3U}{Video: Inferential Statistics}
 
 Inferential statistics is the process of drawing conclusions about a group of interest (called a population) using a limited set of data (called a sample). Fundamentally, inferential statistics uses probability theory and logic that allow you to make conclusions about populations.
 
@@ -465,6 +482,8 @@ Moving beyond these issues, there's the question of methodology. What specific `
 \hypertarget{operationalisation-defining-your-measurement}{%
 \subsection{Operationalisation: defining your measurement}\label{operationalisation-defining-your-measurement}}
 
+\href{https://youtu.be/p1zqoSSIpsg}{Video: Operationalization}
+
 All of the ideas discussed in the previous section all relate to the concept of \textbf{\emph{operationalisation}}. To be a bit more precise about the idea, operationalisation is the process by which we take a meaningful but somewhat vague concept, and turn it into a precise measurement. The process of operationalisation can involve several different things:
 
 \begin{itemize}
@@ -530,14 +549,83 @@ Let's consider a very simple, completely unrealistic and grossly unethical examp
 
 In the meantime, let's now consider what a proper experiment might look like. Recall that our concern was that smokers and non-smokers might differ in lots of ways. The solution, as long as you have no ethics, is to \emph{control} who smokes and who doesn't. Specifically, if we randomly divide participants into two groups, and force half of them to become smokers, then it's very unlikely that the groups will differ in any respect other than the fact that half of them smoke. That way, if our smoking group gets cancer at a higher rate than the non-smoking group, then we can feel pretty confident that (a) smoking does cause cancer and (b) we're murderers.
 
-\hypertarget{non-experimental-research}{%
-\subsubsection{Non-experimental research}\label{non-experimental-research}}
+\hypertarget{causality-research-and-statistics}{%
+\section{Causality, Research, and Statistics}\label{causality-research-and-statistics}}
 
-\textbf{\emph{Non-experimental research}} is a broad term that covers ``any study in which the researcher doesn't have quite as much control as they do in an experiment''. Obviously, control is something that scientists like to have, but as the previous example illustrates, there are lots of situations in which you can't or shouldn't try to obtain that control. Since it's grossly unethical (and almost certainly criminal) to force people to smoke in order to find out if they get cancer, this is a good example of a situation in which you really shouldn't try to obtain experimental control. But there are other reasons too. Even leaving aside the ethical issues, our ``smoking experiment'' does have a few other issues. For instance, when I suggested that we ``force'' half of the people to become smokers, I must have been talking about \emph{starting} with a sample of non-smokers, and then forcing them to become smokers. While this sounds like the kind of solid, evil experimental design that a mad scientist would love, it might not be a very sound way of investigating the effect in the real world. For instance, suppose that smoking only causes lung cancer when people have poor diets, and suppose also that people who normally smoke do tend to have poor diets. However, since the ``smokers'' in our experiment aren't ``natural'' smokers (i.e., we forced non-smokers to become smokers; they didn't take on all of the other normal, real life characteristics that smokers might tend to possess) they probably have better diets. As such, in this silly example they wouldn't get lung cancer, and our experiment will fail, because it violates the structure of the ``natural'' world (the technical name for this is an ``artifactual'' result; see later).
+Text by David Schuster
 
-One distinction worth making between two types of non-experimental research is the difference between \textbf{\emph{quasi-experimental research}} and \textbf{\emph{case studies}}. The example I discussed earlier -- in which we wanted to examine incidence of lung cancer among smokers and non-smokers, without trying to control who smokes and who doesn't -- is a quasi-experimental design. That is, it's the same as an experiment, but we don't control the predictors (IVs). We can still use statistics to analyse the results, it's just that we have to be a lot more careful.
+\href{https://youtu.be/s9itzrOlnq4}{Video: Causality}
 
-The alternative approach, case studies, aims to provide a very detailed description of one or a few instances. In general, you can't use statistics to analyse the results of case studies, and it's usually very hard to draw any general conclusions about ``people in general'' from a few isolated examples. However, case studies are very useful in some situations. Firstly, there are situations where you don't have any alternative: neuropsychology has this issue a lot. Sometimes, you just can't find a lot of people with brain damage in a specific area, so the only thing you can do is describe those cases that you do have in as much detail and with as much care as you can. However, there's also some genuine advantages to case studies: because you don't have as many people to study, you have the ability to invest lots of time and effort trying to understand the specific factors at play in each case. This is a very valuable thing to do. As a consequence, case studies can complement the more statistically-oriented approaches that you see in experimental and quasi-experimental designs. We won't talk much about case studies in these lectures, but they are nevertheless very valuable tools!
+\hypertarget{experimental-quasi-experimental-and-non-experimental-studies}{%
+\subsection{Experimental, Quasi-Experimental, and Non-Experimental Studies}\label{experimental-quasi-experimental-and-non-experimental-studies}}
+
+In this section, I would like to add a bit more precision to the general concepts explained by \citet{Navarro2018}.
+
+Research psychology is a process of identifying constructs and describing how they relate to other constructs. We can classify research designs as experiments, quasi-experiments, and non-experiments.
+
+Experiments are the only kind of research that shows causal relationships (that is, that construct A causes a change in construct B). So an experiment could show if smoking causes lung cancer. To do this, experiments need two things (or they are not experiments)
+
+All experiments have a manipulation. This means that the experimenter changes something within the environment of the experiment (called an independent variable) to see if it causes a change in the outcome (called a dependent variable). For our smoking example, a manipulation would be assigning one group of participants to a lifetime of smoking and another group of participants to a lifetime of no smoking.
+
+Experiments require random assignment. The experimenter decides when to vary the levels of the manipulation (change the manipulation) based on random assignment. Random assignment means that every participant has the same chance as being in one condition as another. For our smoking example, random assignment means each participant has a 50\% chance of being in the smoking group.
+
+As may be clear from the smoking example, we cannot always do experiments because of ethical (it would be wrong to assign people to smoke) or practical reasons (you cannot randomly assign people to genders, for example). The solution is a quasi- or non-experimental study.
+
+In summary: experiments are powerful because they uniquely demonstrate causality (causal relationships). However, experiments require a manipulation and random assignment, which are not always possible.
+
+In a quasi-experimental study, there is a manipulation but no random assignment. Whenever participants are assigned to levels of a manipulation non-randomly, the research is quasi-experimental. In a quasi-experimental smoking study, we could ask people if they had smoked before and assign them to smoking or non-smoking groups based on that answer.
+
+In summary: quasi-experiments do not require random assignment, but they do not show casual relationships.
+
+In a non-experimental study, no manipulation is done. If you want to look at the effects of gender on lung cancer, you would simply observe (collect data on) the genders of patients. By only observing, you would not be manipulating gender.
+
+The differences between quasi- and non-experimental studies are sometimes slight (Pedhauzer \& Schmelkin, 1991); if the researcher is manipulating an IV, then the work is quasi-experimental.
+
+In summary: non-experimental studies are observational. Like quasi-experimental studies, they do not show causal relationships.
+
+It's worth repeating that only experiments demonstrate causality. Quasi- and non-experiments can show that a relationship exists but do not say whether one variable causes the other. Any non-causal relationship has three possible explanations:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A \(\rightarrow\) B one variable causes another; in an experiment, this is the only explanation
+\item
+  B \(\leftarrow\) A the relationship is reversed; the first variable is actually the outcome
+\item
+  C \(\rightarrow\) A; C \(\rightarrow\) B a third variable exists that was not measured in the study; the third variable causes a change in both A and B. There are many `C' variables, potentially.
+\end{enumerate}
+
+In a non-experimental smoking study, you could not say whether smoking causes lung cancer or people who are predisposed to lung cancer are more likely to smoke. A third possibility is that a separate, third variable causes both lung cancer and a desire to smoke.
+
+\hypertarget{demonstrating-causality}{%
+\subsection{Demonstrating Causality}\label{demonstrating-causality}}
+
+In the 19th century, John Stewart Mill said that we could be satisfied that a relationship is causal if the following three things could be demonstrated:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The cause preceded the effect
+\item
+  The cause was related to the effect
+\item
+  We can find no plausible alternative explanation for the effect other than the cause
+\end{enumerate}
+
+Experiments aim to identify causal relationships by manipulating something, observing the outcome, seeing a relationship, and using various methods to reduce other explanations.
+
+\hypertarget{statistics-and-causality}{%
+\subsection{Statistics and Causality}\label{statistics-and-causality}}
+
+Statistics are an important tool for establishing causality, but it's important to know that the choice of statistical technique does not affect the level of causal evidence; demonstrating causality is the job of the research design, not the statistics.
+
+A common misconception arises from the term correlational research design, which people use as a label for quasi-experimental and non-experimental research. It is easy to confuse this term with correlation which is a statistical technique.
+
+Recall that statistics has two branches: Descriptive stats provides tools to summarize variability. Inferential stats provides tools for generalizing samples to populations.
+
+To demonstrate causality, we need to satisfy Mill's second requirement. Inferential statistics can help us do that. Two techniques are particularly useful: correlation (and its statistic r) and the t¬-test (and its statistic, t). Next, we will see how these techniques work.
 
 \hypertarget{validity-and-reliability}{%
 \subsection{Validity and Reliability}\label{validity-and-reliability}}
@@ -558,6 +646,8 @@ In other words, good psychological science requires certain types of consistency
 \hypertarget{types-of-consistency-types-of-reliability}{%
 \subsubsection{Types of consistency = Types of Reliability}\label{types-of-consistency-types-of-reliability}}
 
+\href{https://youtu.be/EatmTWbD4uo}{Reliability}
+
 Here are arguably the three most important types of reliability:
 
 \begin{longtable}[]{@{}
@@ -577,6 +667,8 @@ Internal consistency & You are measuring a construct using several items (e.g., 
 
 \hypertarget{validity-is-a-property-of-inferences}{%
 \subsubsection{Validity is a property of inferences}\label{validity-is-a-property-of-inferences}}
+
+\href{https://youtu.be/mxZxGttf6sE}{Video: Validity \& Threats}
 
 Validity is a specific kind of truth. Validity is the truth of an inference, or a claim. In other words, validity is a property of inferences. An inference (a claim) is valid if it is true.
 
@@ -2325,7 +2417,7 @@ Every book that tries to introduce basic programming ideas to novices has to cov
 We still haven't arrived at anything that resembles a ``data set'', of course. Maybe the next Chapter will get us a bit closer\ldots{}
 
 \hypertarget{mechanics}{%
-\chapter{Additional R concepts}\label{mechanics}}
+\section{Additional R concepts}\label{mechanics}}
 
 \begin{quote}
 \emph{Form follows function}
@@ -2333,7 +2425,7 @@ We still haven't arrived at anything that resembles a ``data set'', of course. M
 -- Louis Sullivan
 \end{quote}
 
-In Chapter \ref{introR} our main goal was to get started in R. As we go through the book we'll run into a lot of new R concepts, which I'll explain alongside the relevant data analysis concepts. However, there's still quite a few things that I need to talk about now, otherwise we'll run into problems when we start trying to work with data and do statistics. So that's the goal in this chapter: to build on the introductory content from the last chapter, to get you to the point that we can start using R for statistics. Broadly speaking, the chapter comes in two parts. The first half of the chapter is devoted to the ``mechanics'' of R: installing and loading packages, managing the workspace, navigating the file system, and loading and saving data. In the second half, I'll talk more about what kinds of variables exist in R, and introduce three new kinds of variables: factors, data frames and formulas. I'll finish up by talking a little bit about the help documentation in R as well as some other avenues for finding assistance. In general, I'm not trying to be comprehensive in this chapter, I'm trying to make sure that you've got the basic foundations needed to tackle the content that comes later in the book. However, a lot of the topics are revisited in more detail later, especially in Chapters \ref{datahandling} and \ref{scripting}.
+So far, our main goal was to get started in R. As we go through the book we'll run into a lot of new R concepts, which I'll explain alongside the relevant data analysis concepts. However, there's still quite a few things that I need to talk about now, otherwise we'll run into problems when we start trying to work with data and do statistics. So that's the goal in this section: to build on the introductory content from the last section, to get you to the point that we can start using R for statistics. Broadly speaking, the section comes in two parts. The first half of the section is devoted to the ``mechanics'' of R: installing and loading packages, managing the workspace, navigating the file system, and loading and saving data. In the second half, I'll talk more about what kinds of variables exist in R, and introduce three new kinds of variables: factors, data frames and formulas. I'll finish up by talking a little bit about the help documentation in R as well as some other avenues for finding assistance. In general, I'm not trying to be comprehensive in this chapter, I'm trying to make sure that you've got the basic foundations needed to tackle the content that comes later in the book. However, a lot of the topics are revisited in more detail later, especially in Chapters \ref{datahandling} and \ref{scripting}.
 
 \hypertarget{comments}{%
 \section{Using comments}\label{comments}}

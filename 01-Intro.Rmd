@@ -3,6 +3,8 @@
 ## Introduction 
 Text by David Schuster
 
+[Video: Applied Statistics](https://youtu.be/AFpygj7cnD8)
+
 Statistics is a rich and diverse field with endless theories and application. To call this a "statistics course" may be too vague to be useful. Will we study the theory behind the statistics or study how statistics are used? Let's narrow our scope. This course is primarily concerned with statistical methods used by researchers. That is, researchers systematically (deliberately and consistently) gather evidence in order to generate new knowledge. Statistics provide an important tool to help researchers be more systematic in their discovery of new knowledge. Researchers are to statisticians as video game players are to video game designers. Most video game players enjoy playing games but don't necessarily care about how the game is constructed, coded, developed, and sold. Similarly, most researchers don't necessarily care about how mathematical theory supports statistical concepts; instead, they want to use statistics to answer their research questions. Unfortunately, unlike playing a video game, statistical methods provide very little feedback (and usually none at all) about whether or not they are being used correctly. Because of this, researchers do have to understand a bit about how statistical methods work.
 
 You can summarize all of this by saying that you are studying **applied statistics**, the use of statistical methods to address research problems (Cohen). Throughout this course, we will emphasize the statistical knowledge needed to understand and produce research. When theory is introduced (we might think of theoretical statistics as the opposite of applied statistics), it will be included because it helps understanding of concepts we need as researchers.
@@ -19,6 +21,8 @@ In the next sections, we will unpack these three functions.
 
 ## Measurement
 Text by David Schuster
+
+[Video: Measurement](https://youtu.be/E9qRM9l5GNg)
 
 The very beginning of statistics, and the most fundamental building block, is data. Data are what we get when we combine numbers and meaning. If I write down any number that comes to mind, I am generating numbers but not data (because there is no meaning). If I wonder about how many students attempt to cross the busy street outside of my office, I am starting to develop a research question (I would say there is meaning involved) but there are no numbers yet, so no data. If I go outside and count the number of pedestrians that cross the street in an hour, I am now gathering data.
 
@@ -73,6 +77,8 @@ When we make repeated, related observations and collect them together, we have d
 ## Descriptive Statistics: Summarizing our observations
 Text by David Schuster
 
+[Video: Descriptive Statistics](https://youtu.be/kh3dyECZFBE)
+
 The problem with distributions is that any collection of more than a couple observations quickly overwhelms our limited working memory and attention. We need a way to summarize distributions. Descriptive statistics does exactly that. A descriptive statistic summarizes a distribution (put another way, it measures a property of a distribution) using a single value.
 
 Descriptive statistics lets us summarize two properties of distributions:
@@ -87,6 +93,8 @@ Measures of variability put a number on how spread out the data are. Think about
 When there is no variability, we call the value a _constant_. For almost anything you can think to measure about people, there are no constants. We live in a world of complex variability. For me, this is one of the most fascinating and challenging aspects of psychology. You can easily manufacture a bolt to have the same property as another, but psychologists get a front row seat at the amazing diversity of human thought and behavior. Describing and making predictions about variability is also a linkage between statistics and the study of human diversity, which we will consider in more detail later in this course.
 
 ## Inferential Statistics: Generalizing from our observations
+
+[Video: Inferential Statistics](https://youtu.be/AlnqTg8Bl3U)
 
 Inferential statistics is the process of drawing conclusions about a group of interest (called a population) using a limited set of data (called a sample). Fundamentally, inferential statistics uses probability theory and logic that allow you to make conclusions about populations. 
 
@@ -200,6 +208,8 @@ Moving beyond these issues, there's the question of methodology. What specific "
 
 ### Operationalisation: defining your measurement
 
+[Video: Operationalization](https://youtu.be/p1zqoSSIpsg)
+
 All of the ideas discussed in the previous section all relate to the concept of ***operationalisation***. To be a bit more precise about the idea, operationalisation is the process by which we take a meaningful but somewhat vague concept, and turn it into a precise measurement. The process of operationalisation can involve several different things:
 
 
@@ -238,6 +248,8 @@ caption = 'The terminology used to distinguish between different roles that a va
 
 ### Experimental and non-experimental research{#researchdesigns}
 
+[Video: Experimental, Quasi-, and Non-Experimental Research Designs](https://youtu.be/H9uDTWD8R4M)
+
 One of the big distinctions that you should be aware of is the distinction between "experimental research" and "non-experimental research". When we make this distinction, what we're really talking about is the degree of control that the researcher exercises over the people and events in the study.
 
 #### Experimental research
@@ -250,6 +262,8 @@ In the meantime, let's now consider what a proper experiment might look like. Re
 
 ## Causality, Research, and Statistics
 Text by David Schuster
+
+[Video: Causality](https://youtu.be/s9itzrOlnq4)
 
 ### Experimental, Quasi-Experimental, and Non-Experimental Studies
 
@@ -320,6 +334,8 @@ In other words, good psychological science requires certain types of consistency
 
 #### Types of consistency = Types of Reliability
 
+[Reliability](https://youtu.be/EatmTWbD4uo)
+
 Here are arguably the three most important types of reliability:
 
 | Type of Reliability | Situation                                                                                                                                                                                    | Definition                                                                   | How to assess                                          |
@@ -329,6 +345,8 @@ Here are arguably the three most important types of reliability:
 | Internal consistency | You are measuring a construct using several items (e.g., five items all rating your enjoyment of a course) | The extent to which items on a measure are consistent with each other; expected if the items measure the same construct	| Cronbach’s alpha (.7 is acceptable, .8 is good, and .9 is excellent) |
 
 #### Validity is a property of inferences
+
+[Video: Validity & Threats](https://youtu.be/mxZxGttf6sE)
 
 Validity is a specific kind of truth. Validity is the truth of an inference, or a claim. In other words, validity is a property of inferences. An inference (a claim) is valid if it is true.
 
