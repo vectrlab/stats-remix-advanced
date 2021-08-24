@@ -2,7 +2,9 @@
 Text by @Navarro2018
 
 [Video: RStudio for the Total Beginner](https://www.youtube.com/watch?v=FIrsOBy5k58)
+
 [Video: Jump Start Guide to R](https://youtu.be/PVK092WlC4A)
+
 [Video: Robot Metaphor for R - To be posted soon]()
 
 >*Robots are nice to work with.*
