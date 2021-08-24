@@ -74,6 +74,8 @@ validity-is-a-property-of-inferences
 types-of-inferences-in-a-study-types-of-validity
 threats-to-validity
 introR
+videos
+introduction-1
 gettingR
 installing-r-on-a-windows-computer
 installing-r-on-a-mac
