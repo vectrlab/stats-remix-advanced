@@ -166,6 +166,8 @@ how-to-read-the-help-documentation
 other-resources
 summary-1
 descriptives
+videos-1
+introduction-2
 centraltendency
 mean
 calculating-the-mean-in-r
