@@ -6,6 +6,16 @@ output:
 # Descriptive statistics{#descriptives}
 Text by @Navarro2018
 
+## Videos
+
+[Video: Descriptive Stats: Central Tendency](https://youtu.be/uBYjfNj4lT4)
+
+[Video: Descriptive Stats: Variability](https://youtu.be/KpDrrgMSpUU)
+
+[Video: Descriptive Stats: Skewness and Kurtosis](https://youtu.be/3BHpcqXYhtQ)
+
+## Introduction
+
 Any time that you get a new data set to look at, one of the first tasks that you have to do is find ways of summarising the data in a compact, easily understood fashion. This is what **_descriptive statistics_** (as opposed to inferential statistics) is all about. In fact, to many people the term "statistics" is synonymous with descriptive statistics. It is this topic that we'll consider in this chapter, but before going into any details, let's take a moment to get a sense of why we need descriptive statistics. To do this, let's load the `aflsmall.Rdata` file, and use the `who()` function in the `lsr` package to see what variables are stored in the file:
 ```{r}
 load( "./data/aflsmall.Rdata" )
