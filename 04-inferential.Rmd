@@ -1,7 +1,13 @@
 # Inferential statistics: The Central Limit Theorem	
 ## Videos
 
-Coming Soon
+[Video: Are you a Bayesian or a Frequentist?](https://www.youtube.com/watch?v=GEFxFVESQXc)
+
+[Video: Sampling Methods](https://www.youtube.com/watch?v=be9e-Q-jC-0)
+
+[Video: Estimation and Confidence Intervals](https://www.youtube.com/watch?v=_BiVb6neUP0)
+
+[Video: The central limit theorem](https://youtu.be/qpioCUPvyHY)
 
 ## Introduction{#estimation}
 Text by @Navarro2018
