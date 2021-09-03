@@ -458,11 +458,12 @@ for(i in 1:2000){
   onesample <- sample(population, size = 5, replace = TRUE) # take a random sample of size 5 from the population distribution with replacement  
   sampling[i] = mean(onesample) # add the sample's mean to the sampling distribution
 }
-sd(sampling) # Display the standard deviation of our observed (generated) sampling distribution
+sampling_sd <- sqrt(var(sampling) * (length(sampling)-1)/length(sampling)) # Calculate the standard deviation of our observed (generated) sampling distribution
+sampling_sd # Display the standard deviation of our observed (generated) sampling distribution
 pop_sd <- sqrt(var(population) * (length(population)-1)/length(population)) # find population standard deviation (the var() function gives sample variance and this converts it into population standard deviation)
 standard_error <- pop_sd / sqrt(5) # Use the central limit theorem to calculate standard error using the formula
 print(standard_error) # Display the standard error
-standard_error - sd(sampling) # Display the difference between the calculated standard error and our observed standard deviation
+standard_error - sampling_sd # Display the difference between the calculated standard error and our observed standard deviation
 ```
 
 They are pretty close. Why do we need the standard error formula if we could just find the standard deviation of the sampling distribution? Well, we typically do not work with the sampling distribution directly. We simply understand that it exists. Creating a sampling distribution requires the population distribution to be available to us, and this isn't usually the case when we are doing research. Further, the central limit theorem specifies taking an _unlimited_ number of samples in order for the sampling distribution mean to equal the population mean. It also requires a sample size of $N\ge30$ when the population is not normally distributed. We have violated that rule (we used a uniform population distribution and we set our sample size as low as 5), but the numbers still came out pretty close.
