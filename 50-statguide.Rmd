@@ -1,0 +1,109 @@
+# Statistics Reference
+
+## One-Sample _z_-Test
+
+### Definition
+
+The one-sample z-test tests the null hypothesis that a mean is equivalent to the mean of a known population.
+
+### Test Statistic
+
+The test statistic is $z$, which measures the distance between two means. In this case, one mean is from our sample and the other mean is a known constant. The sampling distribution of $z$ is the normal distribution with a standard deviation defined by the formula for standard error ($\sigma_{\bar{X}}$).
+
+$z = \frac{\bar{X}-\mu}{\sigma_{\bar{X}}} = \frac{\bar{X}-\mu_{hyp}}{\frac{\sigma}{\sqrt{N}}}$
+
+```{r znull, fig.cap="The null hypothesis distribution of $z$", echo=FALSE}
+
+library(ggplot2)
+ggplot(NULL, aes(c(-4,4))) +
+  geom_area(stat = "function", fun = dnorm, xlim = c(-4, 4), alpha = 0.75,fill=alpha("grey",0)) 
+
+```
+
+### Assumptions & Required Data
+
+- 1 variable measured using a quantitative, continuous scale
+- The variable was measured for a sample that was taken randomly, with replacement, from a population
+- The normality assumption, meaning at least one of these:
+  - $N \ge 30$
+  - The variable is normally distributed in the population
+- The population mean, $\mu$, is known.
+- The population standard deviation, $\sigma$, is known
+
+### When to use it
+
+Use a $z$-test when you are comparing a single sample mean to a known population parameter and can meet the assumptions.
+
+If the population standard deviation is unknown, or if the normality assumption cannot be met, consider a $t$-test.
+
+### Example
+
+Imagine a high school has a graduation test with $M = .80$ with a standard deviation ($\sigma$) of $\sigma = .10$. A random sample of $N = 35$ students at the high school participate in an after-school program aimed at increasing performance on the graduation test. 
+
+#### Data
+
+The data are test scores from 35 students.
+
+````{r zdata, echo=FALSE}
+sample <-  round(rnorm(35, 0.89, 0.10), 2) # Generate a random, sample for this exercise
+# cat(paste(sample), sep="\n")
+sample
+mean(sample)
+````
+
+The students in the program took the test and performed higher than the population average ($M=$````print(mean(sample))````). Is there evidence that the after school program is effective?
+
+#### Hypotheses
+
+Because researchers are interested in detecting higher performance on the test, a one-tailed test is used to increase statistical power. If, instead, researchers wanted to see if the sample had higher or lower performance, a two-tailed test should be used.
+
+$H_0 = \mu \le .80$
+
+$H_a = \mu \gt .80$
+
+#### Analysis
+
+Set the alpha level. By convention, an alpha level of $\alpha = .05$ will be used. 
+
+Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining a sample mean this distance from the population mean. We will determine this using the sampling distribution of the null hypothesis for $z$ (the normal distribution).
+
+Unlike later statistical tests, R does not provide a built-in $z$-test. This is actually a feature, as it lets us demonstrate the steps in more detail.
+
+The most challenging part is the function ````pnorm()````, which gives the area to the left of a score on the a standard normal distribution. By using the argument ````lower.tail = FALSE```, the function will give the area to the right of the score.
+
+
+````{r zanalysis, echo=TRUE}
+
+mu <- .80
+sigma <- .10
+n <- length(data)
+z <- (mean(sample) - mu) / (sigma / sqrt(n))
+z
+p_value <- pnorm(z, mean = 0, sd = 1, lower.tail = FALSE) # gives area to the right of the score, which is the p-value
+p_value
+````
+
+To visualize this result, we can graph the location of the test statistic in the sampling distribution, shading everything beyond the test statistic in one tail:
+
+````{r zvisualization, echo=TRUE}
+
+library(ggplot2)
+ggplot(NULL, aes(c(-4,4))) +
+  geom_area(stat = "function", fun = dnorm, xlim = c(-4, z), alpha = 0.5,fill=alpha("grey",0)) +
+  geom_area(stat = "function", fun = dnorm, fill="blue", xlim = c(z, 4), alpha = 0.7)
+````
+
+The shaded area is well over 5%, showing visually that $p\gt\alpha$.
+
+#### Decision
+
+Because $p > \alpha$, the null hypothesis is retained and the results are inconclusive. These data do not provide evidence of effectiveness of the program.
+
+#### Variations
+
+- This was a one-tailed test on the right side of the distribution. The use of ````rnorm()```` would need to be adapted if the one-tailed test was on the left side of the distribution (to detect if scores were lower than the population). Simply omit ````lower.tail = FALSE```` to have ````rnorm()```` calculate from the left side (lower tail). 
+
+- In a two-tailed test, the shading would need to be repeated on the left side, and the shaded area on both sides would need to be added together. You can save a step by knowing that each tail is always the same area. To convert this one-tailed p-value into a two-tailed p-value, you would need to double it, giving you a two-tailed p-value of ````print(p_value*2)````. When doing a two-tailed test, check to make sure you are calculating in the correct tail; if your two-tailed test had a sample mean lower than the population mean, you would want to shade/calculate to the left.
+
+- If $p < \alpha$, you would have rejected the null hypothesis and concluded that there was a difference between your sample mean and the population.
+
