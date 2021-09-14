@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Getting started with R | Advanced Statistics Remix</title>
   <meta name="description" content="A textbook for advanced statistics" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Getting started with R | Advanced Statistics Remix" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David Schuster" />
 
 
-<meta name="date" content="2021-09-03" />
+<meta name="date" content="2021-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,8 @@
 <link rel="prev" href="statistics-for-research.html"/>
 <link rel="next" href="descriptives.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -461,15 +461,24 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5.12" data-path="hypothesistesting.html"><a href="hypothesistesting.html#summary-4"><i class="fa fa-check"></i><b>5.12</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="statistics-reference.html"><a href="statistics-reference.html"><i class="fa fa-check"></i><b>6</b> Statistics Reference</a>
+<li class="chapter" data-level="6" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html"><i class="fa fa-check"></i><b>6</b> Issues in Hypothesis Testing</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="statistics-reference.html"><a href="statistics-reference.html#one-sample-z-test"><i class="fa fa-check"></i><b>6.1</b> One-Sample <em>z</em>-Test</a>
+<li class="chapter" data-level="6.1" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#videos-4"><i class="fa fa-check"></i><b>6.1</b> Videos</a></li>
+<li class="chapter" data-level="6.2" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#introduction-4"><i class="fa fa-check"></i><b>6.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.3" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#the-researcher-affects-nhst-outcomes"><i class="fa fa-check"></i><b>6.3</b> The researcher affects NHST outcomes</a></li>
+<li class="chapter" data-level="6.4" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#nhst-misunderstandings"><i class="fa fa-check"></i><b>6.4</b> NHST Misunderstandings</a></li>
+<li class="chapter" data-level="6.5" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#nhst-issues"><i class="fa fa-check"></i><b>6.5</b> NHST Issues</a></li>
+<li class="chapter" data-level="6.6" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#conclusions"><i class="fa fa-check"></i><b>6.6</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistics-reference.html"><a href="statistics-reference.html"><i class="fa fa-check"></i><b>7</b> Statistics Reference</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition"><i class="fa fa-check"></i><b>6.1.1</b> Definition</a></li>
-<li class="chapter" data-level="6.1.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic"><i class="fa fa-check"></i><b>6.1.2</b> Test Statistic</a></li>
-<li class="chapter" data-level="6.1.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data"><i class="fa fa-check"></i><b>6.1.3</b> Assumptions &amp; Required Data</a></li>
-<li class="chapter" data-level="6.1.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it"><i class="fa fa-check"></i><b>6.1.4</b> When to use it</a></li>
-<li class="chapter" data-level="6.1.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example"><i class="fa fa-check"></i><b>6.1.5</b> Example</a></li>
+<li class="chapter" data-level="7.1" data-path="statistics-reference.html"><a href="statistics-reference.html#one-sample-z-test"><i class="fa fa-check"></i><b>7.1</b> One-Sample <em>z</em>-Test</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition"><i class="fa fa-check"></i><b>7.1.1</b> Definition</a></li>
+<li class="chapter" data-level="7.1.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic"><i class="fa fa-check"></i><b>7.1.2</b> Test Statistic</a></li>
+<li class="chapter" data-level="7.1.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data"><i class="fa fa-check"></i><b>7.1.3</b> Assumptions &amp; Required Data</a></li>
+<li class="chapter" data-level="7.1.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it"><i class="fa fa-check"></i><b>7.1.4</b> When to use it</a></li>
+<li class="chapter" data-level="7.1.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example"><i class="fa fa-check"></i><b>7.1.5</b> Example</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -548,7 +557,7 @@ Alternatively, the CRAN site has precompiled binaries for Debian, Red Hat, Suse 
 <p>When you visit the RStudio website, you’ll probably be struck by how much cleaner and simpler it is than the CRAN website,<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> and how obvious it is what you need to do: click the big green button that says “Download.”</p>
 <p>When you click on the download button on the homepage it will ask you to choose whether you want the desktop version or the server version. You want the desktop version. After choosing the desktop version it will take you to a page <a href="http://www.RStudio.org/download/desktop" class="uri">http://www.RStudio.org/download/desktop</a>) that shows several possible downloads: there’s a different one for each operating system. However, the nice people at RStudio have designed the webpage so that it automatically recommends the download that is most appropriate for your computer. Click on the appropriate link, and the RStudio installer file will start downloading.</p>
 <p>Once it’s finished downloading, open the installer file in the usual way to install RStudio. After it’s finished installing, you can start R by opening RStudio. You don’t need to open R.app or R.exe in order to access R. RStudio will take care of that for you. To illustrate what RStudio looks like, Figure <a href="introR.html#fig:RStudio">2.1</a> shows a screenshot of an R session in progress. In this screenshot, you can see that it’s running on a Mac, but it looks almost identical no matter what operating system you have. The Windows version looks more like a Windows application (e.g., the menus are attached to the application window and the colour scheme is slightly different), but it’s more or less identical. There are a few minor differences in where things are located in the menus (I’ll point them out as we go along) and in the shortcut keys, because RStudio is trying to “feel” like a proper Mac application or a proper Windows application, and this means that it has to change its behaviour a little bit depending on what computer it’s running on. Even so, these differences are very small: I started out using the Mac version of RStudio and then started using the Windows version as well in order to write these notes.</p>
-<div class="figure"><span id="fig:RStudio"></span>
+<div class="figure"><span style="display:block;" id="fig:RStudio"></span>
 <img src="bookdown/img/introR/Rstudio2.png" alt="An R session in progress running through RStudio. The picture shows RStudio running on a Mac, but the Windows interface is almost identical."  />
 <p class="caption">
 Figure 2.1: An R session in progress running through RStudio. The picture shows RStudio running on a Mac, but the Windows interface is almost identical.
@@ -901,7 +910,7 @@ This second way of writing it is kind of useful to “remind” you of the mathe
 <h3><span class="header-section-number">2.8.1</span> Autocomplete using “tab”</h3>
 <p>The first thing I want to call your attention to is the <em>autocomplete</em> ability in RStudio.<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a></p>
 <p>Let’s stick to our example above and assume that what you want to do is to round a number. This time around, start typing the name of the function that you want, and then hit the “tab” key. RStudio will then display a little window like the one shown in Figure <a href="introR.html#fig:RStudiotab">2.2</a>. In this figure, I’ve typed the letters <code>ro</code> at the command line, and then hit tab. The window has two panels. On the left, there’s a list of variables and functions that start with the letters that I’ve typed shown in black text, and some grey text that tells you where that variable/function is stored. Ignore the grey text for now: it won’t make much sense to you until we’ve talked about packages in Section <a href="introR.html#packageinstall">2.17</a>. In Figure <a href="introR.html#fig:RStudiotab">2.2</a> you can see that there’s quite a few things that start with the letters <code>ro</code>: there’s something called <code>rock</code>, something called <code>round</code>, something called <code>round.Date</code> and so on. The one we want is <code>round</code>, but if you’re typing this yourself you’ll notice that when you hit the tab key the window pops up with the top entry (i.e., <code>rock</code>) highlighted. You can use the up and down arrow keys to select the one that you want. Or, if none of the options look right to you, you can hit the escape key (“esc”) or the left arrow key to make the window go away.</p>
-<div class="figure"><span id="fig:RStudiotab"></span>
+<div class="figure"><span style="display:block;" id="fig:RStudiotab"></span>
 <img src="bookdown/img/introR/Rstudio_tab.png" alt="Start typing the name of a function or a variable, and hit the &quot;tab&quot; key. RStudio brings up a little dialog box like this one that lets you select the one you want, and even prints out a little information about it."  />
 <p class="caption">
 Figure 2.2: Start typing the name of a function or a variable, and hit the “tab” key. RStudio brings up a little dialog box like this one that lets you select the one you want, and even prints out a little information about it.
@@ -909,7 +918,7 @@ Figure 2.2: Start typing the name of a function or a variable, and hit the “ta
 </div>
 <p>In our case, the thing we want is the <code>round</code> option, so we’ll select that. When you do this, you’ll see that the panel on the right changes. Previously, it had been telling us something about the <code>rock</code> data set (i.e., “Measurements on 48 rock samples…”) that is distributed as part of R. But when we select <code>round</code>, it displays information about the <code>round()</code> function, exactly as it is shown in Figure <a href="introR.html#fig:RStudiotab">2.2</a>. This display is really handy. The very first thing it says is <code>round(x, digits = 0)</code>: what this is telling you is that the <code>round()</code> function has two arguments. The first argument is called <code>x</code>, and it doesn’t have a default value. The second argument is <code>digits</code>, and it has a default value of 0. In a lot of situations, that’s all the information you need. But RStudio goes a bit further, and provides some additional information about the function underneath. Sometimes that additional information is very helpful, sometimes it’s not: RStudio pulls that text from the R help documentation, and my experience is that the helpfulness of that documentation varies wildly. Anyway, if you’ve decided that <code>round()</code> is the function that you want to use, you can hit the right arrow or the enter key, and RStudio will finish typing the rest of the function name for you.</p>
 <p>The RStudio autocomplete tool works slightly differently if you’ve already got the name of the function typed and you’re now trying to type the arguments. For instance, suppose I’ve typed <code>round(</code> into the console, and <em>then</em> I hit tab. RStudio is smart enough to recognise that I already know the name of the function that I want, because I’ve already typed it! Instead, it figures that what I’m interested in is the <em>arguments</em> to that function. So that’s what pops up in the little window. You can see this in Figure <a href="introR.html#fig:RStudiotab2">2.3</a>. Again, the window has two panels, and you can interact with this window in exactly the same way that you did with the window shown in Figure <a href="introR.html#fig:RStudiotab">2.2</a>. On the left hand panel, you can see a list of the argument names. On the right hand side, it displays some information about what the selected argument does.</p>
-<div class="figure"><span id="fig:RStudiotab2"></span>
+<div class="figure"><span style="display:block;" id="fig:RStudiotab2"></span>
 <img src="bookdown/img/introR/Rstudio_tab2.png" alt="If you've typed the name of a function already along with the left parenthesis and then hit the &quot;tab&quot; key, RStudio brings up a different window to the one shown above. This one lists all the arguments to the function on the left, and information about each argument on the right."  />
 <p class="caption">
 Figure 2.3: If you’ve typed the name of a function already along with the left parenthesis and then hit the “tab” key, RStudio brings up a different window to the one shown above. This one lists all the arguments to the function on the left, and information about each argument on the right.
@@ -920,7 +929,7 @@ Figure 2.3: If you’ve typed the name of a function already along with the left
 <h3><span class="header-section-number">2.8.2</span> Browsing your command history</h3>
 <p>One thing that R does automatically is keep track of your “command history.” That is, it remembers all the commands that you’ve previously typed. You can access this history in a few different ways. The simplest way is to use the up and down arrow keys. If you hit the up key, the R console will show you the most recent command that you’ve typed. Hit it again, and it will show you the command before that. If you want the text on the screen to go away, hit escape<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a> Using the up and down keys can be really handy if you’ve typed a long command that had one typo in it. Rather than having to type it all again from scratch, you can use the up key to bring up the command and fix it.</p>
 <p>The second way to get access to your command history is to look at the history panel in RStudio. On the upper right hand side of the RStudio window you’ll see a tab labelled “History.” Click on that, and you’ll see a list of all your recent commands displayed in that panel: it should look something like Figure <a href="introR.html#fig:RStudiohistory">2.4</a>. If you double click on one of the commands, it will be copied to the R console. (You can achieve the same result by selecting the command you want with the mouse and then clicking the “To Console” button).<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a></p>
-<div class="figure"><span id="fig:RStudiohistory"></span>
+<div class="figure"><span style="display:block;" id="fig:RStudiohistory"></span>
 <img src="bookdown/img/introR/historyTab.png" alt="The history panel is located in the top right hand side of the RStudio window. Click on the word &quot;History&quot; and it displays this panel."  />
 <p class="caption">
 Figure 2.4: The history panel is located in the top right hand side of the RStudio window. Click on the word “History” and it displays this panel.
@@ -1265,7 +1274,7 @@ Figure 2.4: The history panel is located in the top right hand side of the RStud
 </div>
 <div id="quitting-r" class="section level2" number="2.13">
 <h2><span class="header-section-number">2.13</span> Quitting R</h2>
-<div class="figure"><span id="fig:quitR"></span>
+<div class="figure"><span style="display:block;" id="fig:quitR"></span>
 <img src="bookdown/img/introR/Rstudio_quit.png" alt="The dialog box that shows up when you try to close RStudio."  />
 <p class="caption">
 Figure 2.5: The dialog box that shows up when you try to close RStudio.
@@ -1279,7 +1288,7 @@ Figure 2.5: The dialog box that shows up when you try to close RStudio.
 <p>The <code>y/n/c</code> part here is short for “yes / no / cancel.” Type <code>y</code> if you want to save, <code>n</code> if you don’t, and <code>c</code> if you’ve changed your mind and you don’t want to quit after all.</p>
 <p>What does this actually <em>mean</em>? What’s going on is that R wants to know if you want to save all those variables that you’ve been creating, so that you can use them later. This sounds like a great idea, so it’s really tempting to type <code>y</code> or click the “Save” button. To be honest though, I very rarely do this, and it kind of annoys me a little bit… what R is <em>really</em> asking is if you want it to store these variables in a “default” data file, which it will automatically reload for you next time you open R. And quite frankly, if I’d wanted to save the variables, then I’d have already saved them before trying to quit. Not only that, I’d have saved them to a location of <em>my</em> choice, so that I can find it again later. So I personally never bother with this.</p>
 <p>In fact, every time I install R on a new machine one of the first things I do is change the settings so that it never asks me again. You can do this in RStudio really easily: use the menu system to find the RStudio option; the dialog box that comes up will give you an option to tell R never to whine about this again (see Figure <a href="introR.html#fig:RStudiooptions">2.6</a>. On a Mac, you can open this window by going to the “RStudio” menu and selecting “Preferences.” On a Windows machine you go to the “Tools” menu and select “Global Options.” Under the “General” tab you’ll see an option that reads “Save workspace to .Rdata on exit.” By default this is set to “ask.” If you want R to stop asking, change it to “never.”</p>
-<div class="figure"><span id="fig:RStudiooptions"></span>
+<div class="figure"><span style="display:block;" id="fig:RStudiooptions"></span>
 <img src="bookdown/img/introR/Rstudio_options.png" alt="The options window in RStudio. On a Mac, you can open this window by going to the &quot;RStudio&quot; menu and selecting &quot;Preferences&quot;. On a Windows machine you go to the &quot;Tools&quot; menu and select &quot;Global Options&quot;"  />
 <p class="caption">
 Figure 2.6: The options window in RStudio. On a Mac, you can open this window by going to the “RStudio” menu and selecting “Preferences.” On a Windows machine you go to the “Tools” menu and select “Global Options”
@@ -1337,7 +1346,7 @@ Figure 2.6: The options window in RStudio. On a Mac, you can open this window by
 <p>This two step process might seem a little odd at first, but the designers of R had very good reasons to do it this way,<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a> and you get the hang of it pretty quickly.</p>
 <div id="the-package-panel-in-rstudio" class="section level3" number="2.17.1">
 <h3><span class="header-section-number">2.17.1</span> The package panel in RStudio</h3>
-<div class="figure"><span id="fig:packagepanel"></span>
+<div class="figure"><span style="display:block;" id="fig:packagepanel"></span>
 <img src="bookdown/img/mechanics/Rstudiopackages.png" alt="The packages panel."  />
 <p class="caption">
 Figure 2.7: The packages panel.
@@ -1404,14 +1413,14 @@ Figure 2.7: The packages panel.
 <h3><span class="header-section-number">2.17.5</span> Downloading new packages</h3>
 <p>One of the main selling points for R is that there are thousands of packages that have been written for it, and these are all available online. So whereabouts online are these packages to be found, and how do we download and install them? There is a big repository of packages called the “Comprehensive R Archive Network” (CRAN), and the easiest way of getting and installing a new package is from one of the many CRAN mirror sites. Conveniently for us, R provides a function called <code>install.packages()</code> that you can use to do this. Even <em>more</em> conveniently, the RStudio team runs its own CRAN mirror and RStudio has a clean interface that lets you install packages without having to learn how to use the <code>install.packages()</code> command<a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a></p>
 <p>Using the RStudio tools is, again, dead simple. In the top left hand corner of the packages panel (Figure <a href="introR.html#fig:packagepanel">2.7</a>) you’ll see a button called “Install Packages.” If you click on that, it will bring up a window like the one shown in Figure <a href="introR.html#fig:packageinstalla">2.8</a>.</p>
-<div class="figure"><span id="fig:packageinstalla"></span>
+<div class="figure"><span style="display:block;" id="fig:packageinstalla"></span>
 <img src="bookdown/img/mechanics/installpackage.png" alt="The package installation dialog box in RStudio"  />
 <p class="caption">
 Figure 2.8: The package installation dialog box in RStudio
 </p>
 </div>
 <p>There are a few different buttons and boxes you can play with. Ignore most of them. Just go to the line that says “Packages” and start typing the name of the package that you want. As you type, you’ll see a dropdown menu appear (Figure <a href="introR.html#fig:packageinstallb">2.9</a>), listing names of packages that start with the letters that you’ve typed so far.</p>
-<div class="figure"><span id="fig:packageinstallb"></span>
+<div class="figure"><span style="display:block;" id="fig:packageinstallb"></span>
 <img src="bookdown/img/mechanics/installpackage2.png" alt="When you start typing, you'll see a dropdown menu suggest a list of possible packages that you might want to install"  />
 <p class="caption">
 Figure 2.9: When you start typing, you’ll see a dropdown menu suggest a list of possible packages that you might want to install
@@ -1434,7 +1443,7 @@ The downloaded binary packages are in
 <div id="updating-r-and-r-packages" class="section level3" number="2.17.6">
 <h3><span class="header-section-number">2.17.6</span> Updating R and R packages</h3>
 <p>Every now and then the authors of packages release updated versions. The updated versions often add new functionality, fix bugs, and so on. It’s generally a good idea to update your packages periodically. There’s an <code>update.packages()</code> function that you can use to do this, but it’s probably easier to stick with the RStudio tool. In the packages panel, click on the “Update Packages” button. This will bring up a window that looks like the one shown in Figure <a href="introR.html#fig:updatepackages">2.10</a>. In this window, each row refers to a package that needs to be updated. You can to tell R which updates you want to install by checking the boxes on the left. If you’re feeling lazy and just want to update everything, click the “Select All” button, and then click the “Install Updates” button. R then prints out a <em>lot</em> of garbage on the screen, individually downloading and installing all the new packages. This might take a while to complete depending on how good your internet connection is. Go make a cup of coffee. Come back, and all will be well.</p>
-<div class="figure"><span id="fig:updatepackages"></span>
+<div class="figure"><span style="display:block;" id="fig:updatepackages"></span>
 <img src="bookdown/img/mechanics/updatepackages.png" alt="The RStudio dialog box for updating packages"  />
 <p class="caption">
 Figure 2.10: The RStudio dialog box for updating packages
@@ -1458,13 +1467,13 @@ Figure 2.10: The RStudio dialog box for updating packages
 <p>Let’s suppose that you’re reading through this book, and what you’re doing is sitting down with it once a week and working through a whole chapter in each sitting. Not only that, you’ve been following my advice and typing in all these commands into R. So far during this chapter, you’d have typed quite a few commands, although the only ones that actually involved creating variables were the ones you typed during Section <a href="introR.html#comments">2.16</a>. As a result, you currently have three variables; <code>seeker</code>, <code>lover</code>, and <code>keeper</code>. These three variables are the contents of your <strong><em>workspace</em></strong>, also referred to as the <strong>global environment</strong>. The workspace is a key concept in R, so in this section we’ll talk a lot about what it is and how to manage its contents.</p>
 <div id="listing-the-contents-of-the-workspace" class="section level3" number="2.18.1">
 <h3><span class="header-section-number">2.18.1</span> Listing the contents of the workspace</h3>
-<div class="figure"><span id="fig:workspace"></span>
+<div class="figure"><span style="display:block;" id="fig:workspace"></span>
 <img src="bookdown/img/mechanics/workspacepanel.png" alt="The RStudio Environment panel shows you the contents of the workspace. The view shown above is the list view. To switch to the grid view, click on the menu item on the top right that currently reads list. Select grid from the dropdown menu, and then it will switch to a view like the one shown in the other workspace figure"  />
 <p class="caption">
 Figure 2.11: The RStudio Environment panel shows you the contents of the workspace. The view shown above is the list view. To switch to the grid view, click on the menu item on the top right that currently reads list. Select grid from the dropdown menu, and then it will switch to a view like the one shown in the other workspace figure
 </p>
 </div>
-<div class="figure"><span id="fig:workspace2"></span>
+<div class="figure"><span style="display:block;" id="fig:workspace2"></span>
 <img src="bookdown/img/mechanics/workspacepanel2.png" alt="The RStudio &quot;Environment&quot; panel shows you the contents of the workspace. Compare this &quot;grid&quot; view to the &quot;list&quot; earlier"  />
 <p class="caption">
 Figure 2.12: The RStudio “Environment” panel shows you the contents of the workspace. Compare this “grid” view to the “list” earlier
@@ -1625,7 +1634,7 @@ setwd( &quot;C:\\Users\\dan&quot; )</code></pre>
 <div id="nav3" class="section level3" number="2.19.4">
 <h3><span class="header-section-number">2.19.4</span> Navigating the file system using the RStudio file panel</h3>
 <p>Although I think it’s important to understand how all this command line stuff works, in many (maybe even most) situations there’s an easier way. For our purposes, the easiest way to navigate the file system is to make use of RStudio’s built in tools. The “file” panel – the lower right hand area in Figure <a href="introR.html#fig:filepanel">2.13</a> – is actually a pretty decent file browser. Not only can you just point and click on the names to move around the file system, you can also use it to set the working directory, and even load files.</p>
-<div class="figure"><span id="fig:filepanel"></span>
+<div class="figure"><span style="display:block;" id="fig:filepanel"></span>
 <img src="bookdown/img/mechanics/filepanel.png" alt="The &quot;file panel&quot; is the area shown in the lower right hand corner. It provides a very easy way to browse and navigate your computer using R. See main text for details."  />
 <p class="caption">
 Figure 2.13: The “file panel” is the area shown in the lower right hand corner. It provides a very easy way to browse and navigate your computer using R. See main text for details.
@@ -1673,7 +1682,7 @@ load( &quot;booksales.Rdata&quot; )  # load the data</code></pre>
 <div id="loadingcsv" class="section level3" number="2.20.3">
 <h3><span class="header-section-number">2.20.3</span> Importing data from CSV files using loadingcsv</h3>
 <p>One quite commonly used data format is the humble “comma separated value” file, also called a CSV file, and usually bearing the file extension .csv. CSV files are just plain old-fashioned text files, and what they store is basically just a table of data. This is illustrated in Figure <a href="introR.html#fig:booksalescsv">2.14</a>, which shows a file called booksales.csv that I’ve created. As you can see, each row corresponds to a variable, and each row represents the book sales data for one month. The first row doesn’t contain actual data though: it has the names of the variables.</p>
-<div class="figure"><span id="fig:booksalescsv"></span>
+<div class="figure"><span style="display:block;" id="fig:booksalescsv"></span>
 <img src="bookdown/img/mechanics/booksalescsv.jpg" alt="The booksales.csv data file. On the left, I've opened the file in using a spreadsheet program (OpenOffice), which shows that the file is basically a table. On the right, the same file is open in a standard text editor (the TextEdit program on a Mac), which shows how the file is formatted. The entries in the table are wrapped in quote marks and separated by commas."  />
 <p class="caption">
 Figure 2.14: The booksales.csv data file. On the left, I’ve opened the file in using a spreadsheet program (OpenOffice), which shows that the file is basically a table. On the right, the same file is open in a standard text editor (the TextEdit program on a Mac), which shows how the file is formatted. The entries in the table are wrapped in quote marks and separated by commas.
@@ -1706,14 +1715,14 @@ Figure 2.14: The booksales.csv data file. On the left, I’ve opened the file in
 <div id="importing-data-from-csv-files-using-rstudio" class="section level3" number="2.20.4">
 <h3><span class="header-section-number">2.20.4</span> Importing data from CSV files using RStudio</h3>
 <p>Yet again, it’s easier in RStudio. In the environment panel in RStudio you should see a button called “Import Dataset.” Click on that, and it will give you a couple of options: select the “From Text File…” option, and it will open up a very familiar dialog box asking you to select a file: if you’re on a Mac, it’ll look like the usual Finder window that you use to choose a file; on Windows it looks like an Explorer window. An example of what it looks like on a Mac is shown in Figure <a href="introR.html#fig:fileopen">2.15</a>. I’m assuming that you’re familiar with your own computer, so you should have no problem finding the CSV file that you want to import! Find the one you want, then click on the “Open” button. When you do this, you’ll see a window that looks like the one in Figure <a href="introR.html#fig:import">2.16</a>.</p>
-<div class="figure"><span id="fig:fileopen"></span>
+<div class="figure"><span style="display:block;" id="fig:fileopen"></span>
 <img src="bookdown/img/mechanics/openscreen.png" alt="A dialog box on a Mac asking you to select the CSV file R should try to import. Mac users will recognise this immediately: it's the usual way in which a Mac asks you to find a file. Windows users won't see this: they'll see the usual explorer window that Windows always gives you when it wants you to select a file."  />
 <p class="caption">
 Figure 2.15: A dialog box on a Mac asking you to select the CSV file R should try to import. Mac users will recognise this immediately: it’s the usual way in which a Mac asks you to find a file. Windows users won’t see this: they’ll see the usual explorer window that Windows always gives you when it wants you to select a file.
 </p>
 </div>
 <p>The import data set window is relatively straightforward to understand.</p>
-<div class="figure"><span id="fig:import"></span>
+<div class="figure"><span style="display:block;" id="fig:import"></span>
 <img src="bookdown/img/mechanics/import.png" alt="The RStudio window for importing a CSV file into R"  />
 <p class="caption">
 Figure 2.16: The RStudio window for importing a CSV file into R
@@ -2401,7 +2410,6 @@ R Core Team. 2013. <em>R: A Language and Environment for Statistical Computing</
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -2441,6 +2449,10 @@ gitbook.start({
 "text": null
 },
 "download": ["schuster-statistics-remix.pdf", "schuster-statistics-remix.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

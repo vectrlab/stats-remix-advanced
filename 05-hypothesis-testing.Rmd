@@ -3,7 +3,9 @@ Text by @Navarro2018
 
 ## Videos
 
-Coming Soon
+- [Video: Statistical power and errors](https://youtu.be/-Cu0E2diTBE)
+
+- [Video: The one-sample Z-test](https://youtu.be/TE61rB6ajTY)
 
 ## Introduction
 

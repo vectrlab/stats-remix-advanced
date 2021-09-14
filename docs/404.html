@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Statistics Reference | Advanced Statistics Remix</title>
+  <title>Page not found | Advanced Statistics Remix</title>
   <meta name="description" content="A textbook for advanced statistics" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Statistics Reference | Advanced Statistics Remix" />
+  <meta property="og:title" content="Page not found | Advanced Statistics Remix" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="vectrlab/stat-course-pack" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Statistics Reference | Advanced Statistics Remix" />
+  <meta name="twitter:title" content="Page not found | Advanced Statistics Remix" />
   
   <meta name="twitter:description" content="A textbook for advanced statistics" />
   
@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="issues-in-hypothesis-testing.html"/>
+
 
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -501,264 +501,18 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="statistics-reference" class="section level1" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Statistics Reference</h1>
-<div id="one-sample-z-test" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> One-Sample <em>z</em>-Test</h2>
-<p><a href="https://youtu.be/TE61rB6ajTY">Video: The one-sample Z-test</a></p>
-<div id="definition" class="section level3" number="7.1.1">
-<h3><span class="header-section-number">7.1.1</span> Definition</h3>
-<p>The one-sample z-test tests the null hypothesis that a mean is equivalent to the mean of a known population.</p>
+<div id="page-not-found" class="section level1">
+<h1>Page not found</h1>
+<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
+<p>You may want to try searching to find the page's new location, or use
+the table of contents to find the page you are looking for.</p>
 </div>
-<div id="test-statistic" class="section level3" number="7.1.2">
-<h3><span class="header-section-number">7.1.2</span> Test Statistic</h3>
-<p>The test statistic is <span class="math inline">\(z\)</span>, which measures the distance between two means. In this case, one mean is from our sample and the other mean is a known constant. The sampling distribution of <span class="math inline">\(z\)</span> is the normal distribution with a standard deviation defined by the formula for standard error (<span class="math inline">\(\sigma_{\bar{X}}\)</span>).</p>
-<p><span class="math inline">\(z = \frac{\bar{X}-\mu}{\sigma_{\bar{X}}} = \frac{\bar{X}-\mu_{hyp}}{\frac{\sigma}{\sqrt{N}}}\)</span></p>
-<div class="figure"><span style="display:block;" id="fig:znull"></span>
-<img src="schuster-statistics-remix_files/figure-html/znull-1.png" alt="The null hypothesis distribution of $z$" width="672" />
-<p class="caption">
-Figure 7.1: The null hypothesis distribution of <span class="math inline">\(z\)</span>
-</p>
-</div>
-</div>
-<div id="assumptions-required-data" class="section level3" number="7.1.3">
-<h3><span class="header-section-number">7.1.3</span> Assumptions &amp; Required Data</h3>
-<ul>
-<li>1 variable measured using a quantitative, continuous scale</li>
-<li>The variable was measured for a sample that was taken randomly, with replacement, from a population</li>
-<li>The normality assumption, meaning at least one of these:
-<ul>
-<li><span class="math inline">\(N \ge 30\)</span></li>
-<li>The variable is normally distributed in the population</li>
-</ul></li>
-<li>The population mean, <span class="math inline">\(\mu\)</span>, is known.</li>
-<li>The population standard deviation, <span class="math inline">\(\sigma\)</span>, is known</li>
-</ul>
-</div>
-<div id="when-to-use-it" class="section level3" number="7.1.4">
-<h3><span class="header-section-number">7.1.4</span> When to use it</h3>
-<p>Use a <span class="math inline">\(z\)</span>-test when you are comparing a single sample mean to a known population parameter and can meet the assumptions.</p>
-<p>If the population standard deviation is unknown, or if the normality assumption cannot be met, consider a <span class="math inline">\(t\)</span>-test.</p>
-</div>
-<div id="example" class="section level3" number="7.1.5">
-<h3><span class="header-section-number">7.1.5</span> Example</h3>
-<p>Imagine a high school has a graduation test with <span class="math inline">\(M = .80\)</span> with a standard deviation (<span class="math inline">\(\sigma\)</span>) of <span class="math inline">\(\sigma = .10\)</span>. A random sample of <span class="math inline">\(N = 35\)</span> students at the high school participate in an after-school program aimed at increasing performance on the graduation test.</p>
-<div id="data" class="section level4" number="7.1.5.1">
-<h4><span class="header-section-number">7.1.5.1</span> Data</h4>
-<p>The data are test scores from 35 students.</p>
-<pre><code>##  [1] 0.85 0.81 1.09 0.99 0.96 0.88 1.00 0.83 0.86 0.99 0.88 1.07 0.84 0.97
-## [15] 0.92 0.77 0.85 0.86 1.02 0.89 0.90 0.86 0.73 0.85 0.83 0.77 1.13 0.96
-## [29] 0.91 0.93 0.98 0.95 0.89 0.94 0.93</code></pre>
-<pre><code>## [1] 0.9111429</code></pre>
-<p>The students in the program took the test and performed higher than the population average (<span class="math inline">\(M=\)</span><code>print(mean(sample))</code>). Is there evidence that the after school program is effective?</p>
-</div>
-<div id="hypotheses-1" class="section level4" number="7.1.5.2">
-<h4><span class="header-section-number">7.1.5.2</span> Hypotheses</h4>
-<p>Because researchers are interested in detecting higher performance on the test, a one-tailed test is used to increase statistical power. If, instead, researchers wanted to see if the sample had higher or lower performance, a two-tailed test should be used.</p>
-<pre><code>$H_0=\mu\le.80$
-
-$H_a=\mu\gt.80$</code></pre>
-</div>
-<div id="analysis" class="section level4" number="7.1.5.3">
-<h4><span class="header-section-number">7.1.5.3</span> Analysis</h4>
-<p>Set the alpha level. By convention, an alpha level of <span class="math inline">\(\alpha = .05\)</span> will be used.</p>
-<p>Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining a sample mean this distance from the population mean. We will determine this using the sampling distribution of the null hypothesis for <span class="math inline">\(z\)</span> (the normal distribution).</p>
-<p>Unlike later statistical tests, R does not provide a built-in <span class="math inline">\(z\)</span>-test. This is actually a feature, as it lets us demonstrate the steps in more detail.</p>
-<p>The most challenging part is the function <code>pnorm()</code>, which gives the area to the left of a score on the a standard normal distribution. By using the argument `<code>lower.tail = FALSE</code>, the function will give the area to the right of the score.</p>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="statistics-reference.html#cb529-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> .<span class="dv">80</span></span>
-<span id="cb529-2"><a href="statistics-reference.html#cb529-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> .<span class="dv">10</span></span>
-<span id="cb529-3"><a href="statistics-reference.html#cb529-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(data)</span>
-<span id="cb529-4"><a href="statistics-reference.html#cb529-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (<span class="fu">mean</span>(sample) <span class="sc">-</span> mu) <span class="sc">/</span> (sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span>
-<span id="cb529-5"><a href="statistics-reference.html#cb529-5" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
-<pre><code>## [1] 1.111429</code></pre>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="statistics-reference.html#cb531-1" aria-hidden="true" tabindex="-1"></a>p_value <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(z, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="co"># gives area to the right of the score, which is the p-value</span></span>
-<span id="cb531-2"><a href="statistics-reference.html#cb531-2" aria-hidden="true" tabindex="-1"></a>p_value</span></code></pre></div>
-<pre><code>## [1] 0.133192</code></pre>
-<p>To visualize this result, we can graph the location of the test statistic in the sampling distribution, shading everything beyond the test statistic in one tail:</p>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="statistics-reference.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb533-2"><a href="statistics-reference.html#cb533-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="cn">NULL</span>, <span class="fu">aes</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>))) <span class="sc">+</span></span>
-<span id="cb533-3"><a href="statistics-reference.html#cb533-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">&quot;function&quot;</span>, <span class="at">fun =</span> dnorm, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, z), <span class="at">alpha =</span> <span class="fl">0.5</span>,<span class="at">fill=</span><span class="fu">alpha</span>(<span class="st">&quot;grey&quot;</span>,<span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb533-4"><a href="statistics-reference.html#cb533-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">&quot;function&quot;</span>, <span class="at">fun =</span> dnorm, <span class="at">fill=</span><span class="st">&quot;blue&quot;</span>, <span class="at">xlim =</span> <span class="fu">c</span>(z, <span class="dv">4</span>), <span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code></pre></div>
-<p><img src="schuster-statistics-remix_files/figure-html/zvisualization-1.png" width="672" /></p>
-<p>The shaded area is well over 5 percent, showing visually that <span class="math inline">\(p&gt;\alpha\)</span>.</p>
-</div>
-<div id="decision" class="section level4" number="7.1.5.4">
-<h4><span class="header-section-number">7.1.5.4</span> Decision</h4>
-<p>Because <span class="math inline">\(p&gt;{\alpha}\)</span>, the null hypothesis is retained and the results are inconclusive. These data do not provide evidence of effectiveness of the program.</p>
-</div>
-<div id="variations" class="section level4" number="7.1.5.5">
-<h4><span class="header-section-number">7.1.5.5</span> Variations</h4>
-<ul>
-<li><p>This was a one-tailed test on the right side of the distribution. The use of <code>rnorm()</code> would need to be adapted if the one-tailed test was on the left side of the distribution (to detect if scores were lower than the population). Simply omit <code>lower.tail = FALSE</code> to have <code>rnorm()</code> calculate from the left side (lower tail).</p></li>
-<li><p>In a two-tailed test, the shading would need to be repeated on the left side, and the shaded area on both sides would need to be added together. You can save a step by knowing that each tail is always the same area. To convert this one-tailed p-value into a two-tailed p-value, you would need to double it, giving you a two-tailed p-value of <code>{r, echo=FALSE} print(p_value*2)</code>. When doing a two-tailed test, check to make sure you are calculating in the correct tail; if your two-tailed test had a sample mean lower than the population mean, you would want to shade/calculate to the left.</p></li>
-<li><p>If <span class="math inline">\(p &lt; \alpha\)</span>, you would have rejected the null hypothesis and concluded that there was a difference between your sample mean and the population.</p></li>
-</ul>
-
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
-Bickel, P. J., E. A. Hammel, and J. W. O’Connell. 1975. <span>“Sex Bias in Graduate Admissions: Data from <span>B</span>erkeley.”</span> <em>Science</em> 187: 398–404.
-</div>
-<div class="csl-entry">
-Campbell, D. T., and J. C. Stanley. 1963. <em>Experimental and Quasi-Experimental Designs for Research</em>. Boston, MA: Houghton Mifflin.
-</div>
-<div class="csl-entry">
-Cohen, J. 1988. <em>Statistical Power Analysis for the Behavioral Sciences</em>. 2nd ed. Lawrence Erlbaum.
-</div>
-<div class="csl-entry">
-Ellis, P. D. 2010. <em>The Essential Guide to Effect Sizes: Statistical Power, Meta-Analysis, and the Interpretation of Research Results</em>. Cambridge, UK: Cambridge University Press.
-</div>
-<div class="csl-entry">
-Ellman, Michael. 2002. <span>“Soviet Repression Statistics: Some Comments.”</span> <em>Europe-Asia Studies</em> 54 (7): 1151–72.
-</div>
-<div class="csl-entry">
-Fisher, R. A. 1922. <span>“On the Mathematical Foundation of Theoretical Statistics.”</span> <em>Philosophical Transactions of the Royal Society A</em> 222: 309–68.
-</div>
-<div class="csl-entry">
-Fox, J., and S. Weisberg. 2011. <em>An <span>R</span> Companion to Applied Regression</em>. 2nd ed. Los Angeles: Sage.
-</div>
-<div class="csl-entry">
-Gelman, A., and H. Stern. 2006. <span>“The Difference Between <span>‘Significant’</span> and <span>‘Not Significant’</span> Is Not Itself Statistically Significant.”</span> <em>The American Statistician</em> 60: 328–31.
-</div>
-<div class="csl-entry">
-Keynes, John Maynard. 1923. <em>A Tract on Monetary Reform</em>. London: Macmillan; Company.
-</div>
-<div class="csl-entry">
-Lehmann, Erich L. 2011. <em>Fisher, <span>N</span>eyman, and the Creation of Classical Statistics</em>. Springer.
-</div>
-<div class="csl-entry">
-Meehl, P. H. 1967. <span>“Theory Testing in Psychology and Physics: A Methodological Paradox.”</span> <em>Philosophy of Science</em> 34: 103–15.
-</div>
-<div class="csl-entry">
-Navarro, D. 2018. <em>Learning Statistics with r: A Tutorial for Psychology Students and Other Beginners (Version 0.6)</em>. <a href="https://learningstatisticswithr.com">https://learningstatisticswithr.com</a>.
-</div>
-<div class="csl-entry">
-R Core Team. 2013. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing.
-</div>
-<div class="csl-entry">
-Stevens, S. S. 1946. <span>“On the Theory of Scales of Measurement.”</span> <em>Science</em> 103: 677–80.
-</div>
-<div class="csl-entry">
-Stigler, S. M. 1986. <em>The History of Statistics</em>. Cambridge, MA: Harvard University Press.
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="issues-in-hypothesis-testing.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
 
     </div>
   </div>
@@ -790,7 +544,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/50-statguide.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/%s",
 "text": "Edit"
 },
 "history": {

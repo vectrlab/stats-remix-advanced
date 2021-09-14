@@ -2,6 +2,8 @@
 
 ## One-Sample _z_-Test
 
+[Video: The one-sample Z-test](https://youtu.be/TE61rB6ajTY)
+
 ### Definition
 
 The one-sample z-test tests the null hypothesis that a mean is equivalent to the mean of a known population.
@@ -57,9 +59,11 @@ The students in the program took the test and performed higher than the populati
 
 Because researchers are interested in detecting higher performance on the test, a one-tailed test is used to increase statistical power. If, instead, researchers wanted to see if the sample had higher or lower performance, a two-tailed test should be used.
 
-$H_0 = \mu \le .80$
+````
+$H_0=\mu\le.80$
 
-$H_a = \mu \gt .80$
+$H_a=\mu\gt.80$
+````
 
 #### Analysis
 
@@ -81,6 +85,7 @@ z <- (mean(sample) - mu) / (sigma / sqrt(n))
 z
 p_value <- pnorm(z, mean = 0, sd = 1, lower.tail = FALSE) # gives area to the right of the score, which is the p-value
 p_value
+
 ````
 
 To visualize this result, we can graph the location of the test statistic in the sampling distribution, shading everything beyond the test statistic in one tail:
@@ -91,19 +96,20 @@ library(ggplot2)
 ggplot(NULL, aes(c(-4,4))) +
   geom_area(stat = "function", fun = dnorm, xlim = c(-4, z), alpha = 0.5,fill=alpha("grey",0)) +
   geom_area(stat = "function", fun = dnorm, fill="blue", xlim = c(z, 4), alpha = 0.7)
+
 ````
 
-The shaded area is well over 5%, showing visually that $p\gt\alpha$.
+The shaded area is well over 5 percent, showing visually that $p>\alpha$.
 
 #### Decision
 
-Because $p > \alpha$, the null hypothesis is retained and the results are inconclusive. These data do not provide evidence of effectiveness of the program.
+Because $p>{\alpha}$, the null hypothesis is retained and the results are inconclusive. These data do not provide evidence of effectiveness of the program.
 
 #### Variations
 
 - This was a one-tailed test on the right side of the distribution. The use of ````rnorm()```` would need to be adapted if the one-tailed test was on the left side of the distribution (to detect if scores were lower than the population). Simply omit ````lower.tail = FALSE```` to have ````rnorm()```` calculate from the left side (lower tail). 
 
-- In a two-tailed test, the shading would need to be repeated on the left side, and the shaded area on both sides would need to be added together. You can save a step by knowing that each tail is always the same area. To convert this one-tailed p-value into a two-tailed p-value, you would need to double it, giving you a two-tailed p-value of ````print(p_value*2)````. When doing a two-tailed test, check to make sure you are calculating in the correct tail; if your two-tailed test had a sample mean lower than the population mean, you would want to shade/calculate to the left.
+- In a two-tailed test, the shading would need to be repeated on the left side, and the shaded area on both sides would need to be added together. You can save a step by knowing that each tail is always the same area. To convert this one-tailed p-value into a two-tailed p-value, you would need to double it, giving you a two-tailed p-value of ````{r, echo=FALSE} print(p_value*2)````. When doing a two-tailed test, check to make sure you are calculating in the correct tail; if your two-tailed test had a sample mean lower than the population mean, you would want to shade/calculate to the left.
 
 - If $p < \alpha$, you would have rejected the null hypothesis and concluded that there was a difference between your sample mean and the population.
 

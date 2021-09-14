@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.9.3)  3 SEP 2021 19:09
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.9.13)  13 SEP 2021 19:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -426,8 +426,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip64
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count314
-)
-No file schuster-statistics-remix.aux.
+) (./schuster-statistics-remix.aux)
 \openout1 = `schuster-statistics-remix.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 159.
@@ -732,11 +731,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 159.
 LaTeX Info: Redefining \pageref on input line 159.
 LaTeX Info: Redefining \nameref on input line 159.
+(./schuster-statistics-remix.out) (./schuster-statistics-remix.out)
 \@outlinefile=\write4
 \openout4 = `schuster-statistics-remix.out'.
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 12.0pt on input line 161.
@@ -775,34 +772,28 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [2
 
-]
+] (./schuster-statistics-remix.toc
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 2.
+[3] [4] [5])
 \tf@toc=\write5
 \openout5 = `schuster-statistics-remix.toc'.
 
-[3] [4
-
-]
-
-Package natbib Warning: Citation `Navarro2018' on page 5 undefined on input lin
-e 172.
-
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 180.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 180.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 180.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 180.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 180.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 180.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 180.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 180.
-
+[6]
 Underfull \hbox (badness 1960) in paragraph at lines 180--181
 []\TU/lmr/m/n/10 Navarro, D. (2018). Learning statistics with R: A tutorial for
  psy-
@@ -814,16 +805,18 @@ Underfull \hbox (badness 2941) in paragraph at lines 180--181
 om
  []
 
-[5] [6
+[7
+
+] [8
 
 ]
 Chapter 1.
-[7]
+[9]
 Underfull \hbox (badness 5817) in paragraph at lines 218--219
 []\TU/lmr/m/n/10 Make conclusions about populations based on the observations
  []
 
-[8]
+[10]
 Overfull \hbox (27.75pt too wide) in paragraph at lines 259--259
 []  \TU/lmtt/m/n/10 Interval scale/interval measurement.  Example: Fahrenheit t
 emperature[] 
@@ -841,96 +834,45 @@ Overfull \hbox (43.5pt too wide) in paragraph at lines 259--259
 vorite fruit?[] 
  []
 
-[9] [10]
+[11] [12]
 Overfull \hbox (3.06674pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 1.3.  DESCRIPTIVE STATISTICS: SUMMARIZING OUR OBSERVATIONS \TU/
-lmr/m/n/10 11
- []
-
-[11]
-Underfull \vbox (badness 4048) has occurred while \output is active []
-
-[12]
-Overfull \hbox (40.21564pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 1.4.  INFERENTIAL STATISTICS: GENERALIZING FROM OUR OBSERVATION
-S \TU/lmr/m/n/10 13
+lmr/m/n/10 13
  []
 
 [13]
-
-Package natbib Warning: Citation `Navarro2018' on page 14 undefined on input li
-ne 365.
+Underfull \vbox (badness 4048) has occurred while \output is active []
 
 [14]
+Overfull \hbox (40.21564pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 1.4.  INFERENTIAL STATISTICS: GENERALIZING FROM OUR OBSERVATION
+S \TU/lmr/m/n/10 15
+ []
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1.1 on input line 377.
-
-
-Package natbib Warning: Citation `Bickel1975' on page 15 undefined on input lin
-e 381.
-
-
-LaTeX Warning: Reference `tab:simpsontable' on page 15 undefined on input line 
-381.
-
-
+[15] [16]
 Overfull \hbox (133.59006pt too wide) in paragraph at lines 387--404
  [][] 
  []
 
-
-LaTeX Warning: Reference `fig:berkeley' on page 15 undefined on input line 408.
-
-
-[15]
+[17]
 File: schuster-statistics-remix_files/figure-latex/berkeley-1.pdf Graphic file 
 (type pdf)
 <use schuster-statistics-remix_files/figure-latex/berkeley-1.pdf>
-
-Package natbib Warning: Citation `Bickel1975' on page 16 undefined on input lin
-e 413.
-
-
-Package natbib Warning: Citation `Bickel1975' on page 16 undefined on input lin
-e 413.
-
-[16] [17]
-
-Package natbib Warning: Citation `Navarro2018' on page 18 undefined on input li
-ne 425.
-
-
-Package natbib Warning: Citation `Campbell1963' on page 18 undefined on input l
-ine 433.
-
-
-Package natbib Warning: Citation `Stevens1946' on page 18 undefined on input li
-ne 433.
-
-[18] [19]
+[18] [19] [20] [21]
 Underfull \vbox (badness 4492) has occurred while \output is active []
 
-[20] [21]
-
-LaTeX Warning: Reference `tab:ivdv' on page 22 undefined on input line 522.
-
-[22] [23]
+[22] [23] [24] [25]
 Underfull \hbox (badness 10000) in paragraph at lines 562--562
 []\TU/lmr/bx/n/12 Experimental, Quasi-Experimental, and Non-
  []
 
-
-Package natbib Warning: Citation `Navarro2018' on page 24 undefined on input li
-ne 564.
-
-[24]
+[26]
 Underfull \hbox (badness 1728) in paragraph at lines 586--587
 []\TU/lmr/m/n/10 In summary: non-experimental studies are observational. Like q
 uasi-
  []
 
-[25] [26]
+[27] [28]
 Overfull \hbox (3.96075pt too wide) in paragraph at lines 661--661
 []|\TU/lmr/m/n/10 Type 
  []
@@ -960,7 +902,7 @@ Overfull \hbox (5.07076pt too wide) in paragraph at lines 666--666
 \TU/lmr/m/n/10 tency|  
  []
 
-[27]
+[29]
 Overfull \hbox (3.09302pt too wide) in alignment at lines 692--696
  [] [] [] [] 
  []
@@ -975,43 +917,21 @@ Overfull \hbox (3.09302pt too wide) in alignment at lines 696--702
  [] [] [] [] 
  []
 
-[28] [29] [30
+[30] [31] [32
 
 ]
 Chapter 2.
-
-Package natbib Warning: Citation `Navarro2018' on page 31 undefined on input li
-ne 724.
-
-[31] [32]
-
-LaTeX Warning: Reference `installingrstudio' on page 33 undefined on input line
- 778.
-
-[33]
-
-LaTeX Warning: Reference `installingrstudio' on page 34 undefined on input line
- 785.
-
-[34]
-
-LaTeX Warning: Reference `installingrstudio' on page 35 undefined on input line
- 791.
-
-[35]
-
-LaTeX Warning: Reference `fig:RStudio' on page 36 undefined on input line 806.
-
+[33] [34] [35] [36] [37]
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/introR/RSt
 udio2.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/introR/RStudio2
 .png>
-[36] [37] [38]
+[38] [39] [40]
 Underfull \hbox (badness 10000) in paragraph at lines 904--906
 
  []
 
-[39]
+[41]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 925.
 
@@ -1024,11 +944,7 @@ Overfull \hbox (1.5pt too wide) in paragraph at lines 942--942
 nment[] 
  []
 
-[40]
-
-LaTeX Warning: Reference `startingR' on page 41 undefined on input line 989.
-
-[41]
+[42] [43]
 Overfull \hbox (22.5pt too wide) in paragraph at lines 1019--1019
 []\TU/lmtt/m/n/10 ##   R Core Team (2020). R: A language and environment for st
 atistical[] 
@@ -1058,185 +974,80 @@ Overfull \hbox (22.5pt too wide) in paragraph at lines 1019--1019
 me")' for[] 
  []
 
-
-Package natbib Warning: Citation `R2013' on page 42 undefined on input line 102
-1.
-
-[42] [43]
+[44] [45]
 Overfull \hbox (38.25pt too wide) in paragraph at lines 1107--1107
 []\TU/lmtt/m/n/10 ##         stop(gettextf("package '%s' not found", package), 
 domain = NA)[] 
  []
 
-[44]
+[46] [47]
 
-LaTeX Warning: Reference `tab:arithmetic1' on page 45 undefined on input line 1
-119.
-
-[45]
-
-LaTeX Warning: Reference `tab:arithmetic1' on page 46 undefined on input line 1
-155.
-
-
-LaTeX Warning: Reference `datahandling' on page 46 undefined on input line 1155
+LaTeX Warning: Reference `datahandling' on page 48 undefined on input line 1155
 .
 
-[46] [47]
+[48] [49]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1239.
-[48]
+[50] [51] [52] [53]
 
-LaTeX Warning: Reference `functionarguments' on page 49 undefined on input line
- 1263.
+LaTeX Warning: Reference `functions' on page 54 undefined on input line 1371.
 
-[49] [50] [51]
-
-LaTeX Warning: Reference `functions' on page 52 undefined on input line 1371.
-
-[52] [53] [54]
-
-LaTeX Warning: Reference `assign' on page 55 undefined on input line 1486.
-
-[55]
-
-LaTeX Warning: Reference `help' on page 56 undefined on input line 1532.
-
-[56]
-
-LaTeX Warning: Reference `help' on page 57 undefined on input line 1539.
-
-
-LaTeX Warning: Reference `fig:RStudiotab' on page 57 undefined on input line 15
-46.
-
-
-LaTeX Warning: Reference `packageinstall' on page 57 undefined on input line 15
-46.
-
-
-LaTeX Warning: Reference `fig:RStudiotab' on page 57 undefined on input line 15
-46.
-
-[57]
+[54] [55] [56] [57] [58] [59]
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/introR/RSt
 udio_tab.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/introR/RStudio_
 tab.png>
-
-LaTeX Warning: Reference `fig:RStudiotab' on page 58 undefined on input line 15
-54.
-
-
-LaTeX Warning: Reference `fig:RStudiotab2' on page 58 undefined on input line 1
-556.
-
-
-LaTeX Warning: Reference `fig:RStudiotab' on page 58 undefined on input line 15
-56.
-
-[58]
+[60]
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/introR/RSt
 udio_tab2.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/introR/RStudio_
 tab2.png>
-
-LaTeX Warning: Reference `fig:RStudiohistory' on page 59 undefined on input lin
-e 1569.
-
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/introR/his
 toryTab.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/introR/historyT
 ab.png>
-
-LaTeX Warning: Reference `generics' on page 59 undefined on input line 1580.
-
-
-LaTeX Warning: Reference `assign' on page 59 undefined on input line 1580.
-
-[59] [60] [61]
-
-LaTeX Warning: Reference `indexing' on page 62 undefined on input line 1647.
-
-[62]
+[61] [62] [63] [64]
 Overfull \hbox (6.75pt too wide) in paragraph at lines 1692--1692
 []\TU/lmtt/m/n/10 ##  [1]    0  700 1400  350  175    0    0    0    0    0    
 0    0[] 
  []
 
-[63]
+[65]
 Overfull \hbox (59.25pt too wide) in paragraph at lines 1714--1714
 []\TU/lmtt/m/n/10 ##  [1]  0.000000 25.000000 45.161290 11.666667  5.645161  0.
 000000  0.000000[] 
  []
 
 
-LaTeX Warning: Reference `recycling' on page 64 undefined on input line 1716.
+LaTeX Warning: Reference `recycling' on page 66 undefined on input line 1716.
 
-[64]
+[66]
 
-LaTeX Warning: Reference `textprocessing' on page 65 undefined on input line 17
+LaTeX Warning: Reference `textprocessing' on page 67 undefined on input line 17
 73.
 
-[65] [66]
-
-LaTeX Warning: Reference `assign' on page 67 undefined on input line 1833.
-
-
+[67] [68]
 Overfull \hbox (43.5pt too wide) in paragraph at lines 1855--1855
 []\TU/lmtt/m/n/10 ## Error in 2 + 2 = 5: target of assignment expands to non-la
 nguage object[] 
  []
 
-[67]
-
-LaTeX Warning: Reference `tab:logicals' on page 68 undefined on input line 1888
-.
-
-[68]
-
-LaTeX Warning: Reference `tab:logicals2' on page 69 undefined on input line 197
-7.
-
-[69] [70]
-
-LaTeX Warning: Reference `assign' on page 71 undefined on input line 2059.
-
-
-LaTeX Warning: Reference `vectors' on page 71 undefined on input line 2059.
-
-
-LaTeX Warning: Reference `text' on page 71 undefined on input line 2059.
-
-[71]
-
-LaTeX Warning: Reference `vectors' on page 72 undefined on input line 2113.
-
-
-LaTeX Warning: Reference `text' on page 72 undefined on input line 2113.
-
-
-LaTeX Warning: Reference `vectors' on page 72 undefined on input line 2126.
-
-
+[69] [70] [71] [72] [73]
 Overfull \hbox (38.25pt too wide) in paragraph at lines 2137--2137
 []\TU/lmtt/m/n/10 ##  [1] FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE
  FALSE FALSE[] 
  []
 
-[72]
+[74]
 Overfull \hbox (38.25pt too wide) in paragraph at lines 2151--2151
 []\TU/lmtt/m/n/10 ##  [1] FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE
  FALSE FALSE[] 
  []
 
 
-LaTeX Warning: Reference `indexing' on page 73 undefined on input line 2158.
+LaTeX Warning: Reference `logictext2' on page 75 undefined on input line 2158.
 
-
-LaTeX Warning: Reference `logictext2' on page 73 undefined on input line 2158.
-
-[73] [74]
+[75] [76]
 Overfull \hbox (2.60202pt too wide) in paragraph at lines 2301--2302
 []\TU/lmr/m/n/10 To understand what’s happening here, it’s helpful to notice th
 at \TU/lmtt/m/n/10 sales.by.month
@@ -1248,118 +1059,53 @@ Overfull \hbox (15.48003pt too wide) in paragraph at lines 2301--2302
 to create the \TU/lmtt/m/n/10 any.sales.this.month
  []
 
-[75]
+[77]
 Overfull \hbox (59.25pt too wide) in paragraph at lines 2339--2339
 []\TU/lmtt/m/n/10 ##  [1] "high" "high" "low"  "out"  "out"  "high" "high" "hig
 h" "high" "high"[] 
  []
 
-[76]
+[78]
 
-LaTeX Warning: Reference `datahandling' on page 77 undefined on input line 2379
+LaTeX Warning: Reference `datahandling' on page 79 undefined on input line 2379
 .
 
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/introR/Rst
 udio_quit.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/introR/Rstudio_
 quit.png>
-
-LaTeX Warning: Reference `load' on page 77 undefined on input line 2392.
-
-
-LaTeX Warning: Reference `fig:quitR' on page 77 undefined on input line 2392.
-
-[77]
-
-LaTeX Warning: Reference `fig:RStudiooptions' on page 78 undefined on input lin
-e 2406.
-
-[78]
+[79] [80]
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/introR/Rst
 udio_options.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/introR/Rstudio_
 options.png>
-[79]
+[81]
 
-LaTeX Warning: Reference `simpletext' on page 80 undefined on input line 2426.
-
-
-LaTeX Warning: Reference `veclength' on page 80 undefined on input line 2426.
-
-
-LaTeX Warning: Reference `functionarguments' on page 80 undefined on input line
- 2426.
-
-
-LaTeX Warning: Reference `assign' on page 80 undefined on input line 2428.
-
-
-LaTeX Warning: Reference `vectors' on page 80 undefined on input line 2428.
-
-
-LaTeX Warning: Reference `assign' on page 80 undefined on input line 2430.
-
-
-LaTeX Warning: Reference `logicals' on page 80 undefined on input line 2430.
-
-
-LaTeX Warning: Reference `indexing' on page 80 undefined on input line 2432.
-
-
-LaTeX Warning: Reference `datahandling' on page 80 undefined on input line 2446
+LaTeX Warning: Reference `datahandling' on page 82 undefined on input line 2446
 .
 
 
-LaTeX Warning: Reference `scripting' on page 80 undefined on input line 2446.
+LaTeX Warning: Reference `scripting' on page 82 undefined on input line 2446.
 
-[80]
+[82]
 
-LaTeX Warning: Reference `scripting' on page 81 undefined on input line 2451.
+LaTeX Warning: Reference `scripting' on page 83 undefined on input line 2451.
 
-
-LaTeX Warning: Reference `introR' on page 81 undefined on input line 2481.
-
-[81]
+[83]
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/
 Rstudiopackages.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/Rstud
 iopackages.png>
-[82]
-
-LaTeX Warning: Reference `fig:packagepanel' on page 83 undefined on input line 
-2511.
-
-[83] [84]
-
-LaTeX Warning: Reference `packageload' on page 85 undefined on input line 2608.
-
-
-
-LaTeX Warning: Reference `packageunload' on page 85 undefined on input line 260
-8.
-
-[85] [86]
-
-LaTeX Warning: Reference `fig:packagepanel' on page 87 undefined on input line 
-2668.
-
-
-LaTeX Warning: Reference `fig:packageinstalla' on page 87 undefined on input li
-ne 2668.
-
+[84] [85] [86] [87] [88]
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/
 installpackage.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/insta
 llpackage.png>
-
-LaTeX Warning: Reference `fig:packageinstallb' on page 87 undefined on input li
-ne 2676.
-
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/
 installpackage2.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/insta
 llpackage2.png>
-[87]
+[89]
 Overfull \hbox (48.75pt too wide) in paragraph at lines 2704--2704
 []\TU/lmtt/m/n/10 trying URL 'http://cran.rstudio.com/bin/macosx/contrib/3.0/ps
 ych_1.4.1.tgz'[] 
@@ -1371,23 +1117,12 @@ Overfull \hbox (96.0pt too wide) in paragraph at lines 2704--2704
 VT3/downloaded_packages[] 
  []
 
-[88] [89]
-
-LaTeX Warning: Reference `fig:updatepackages' on page 90 undefined on input lin
-e 2711.
-
+[90] [91]
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/
 updatepackages.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/updat
 epackages.png>
-[90] [91]
-
-Package natbib Warning: Citation `Fox2011' on page 92 undefined on input line 2
-733.
-
-
-LaTeX Warning: Reference `comments' on page 92 undefined on input line 2741.
-
+[92] [93]
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/
 workspacepanel.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/works
@@ -1396,14 +1131,6 @@ File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/
 workspacepanel2.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/works
 pacepanel2.png>
-
-LaTeX Warning: Reference `fig:workspace' on page 92 undefined on input line 275
-8.
-
-
-LaTeX Warning: Reference `fig:workspace2' on page 92 undefined on input line 27
-58.
-
 
 Overfull \hbox (22.5pt too wide) in paragraph at lines 2775--2775
 []\TU/lmtt/m/n/10 ##  [1] "any.sales.this.month" "berkeley"             "berkel
@@ -1416,31 +1143,12 @@ Overfull \hbox (22.5pt too wide) in paragraph at lines 2775--2775
 ry.sales"[] 
  []
 
-[92] [93] [94]
-
-LaTeX Warning: Reference `load' on page 95 undefined on input line 2824.
-
-
-LaTeX Warning: Reference `fig:workspace2' on page 95 undefined on input line 28
-26.
-
-[95]
-
-LaTeX Warning: Reference `filesystem' on page 96 undefined on input line 2873.
-
-
-LaTeX Warning: Reference `navigationR' on page 96 undefined on input line 2873.
-
-
-[96] [97]
+[94] [95] [96] [97] [98] [99]
 Overfull \hbox (11.10004pt too wide) in paragraph at lines 2900--2910
  [][] 
  []
 
-
-LaTeX Warning: Reference `nav3' on page 98 undefined on input line 2923.
-
-[98]
+[100]
 Overfull \hbox (54.0pt too wide) in paragraph at lines 2955--2955
 []\TU/lmtt/m/n/10 ## [1] "afl24.Rdata"             "aflsmall.Rdata"          "a
 flsmall2.Rdata"[] 
@@ -1506,38 +1214,26 @@ Overfull \hbox (33.0pt too wide) in paragraph at lines 2955--2955
 rtfm.Rdata"[] 
  []
 
-[99]
+[101]
 
-LaTeX Warning: Reference `escapechars' on page 100 undefined on input line 2976
+LaTeX Warning: Reference `escapechars' on page 102 undefined on input line 2976
 .
 
 
-LaTeX Warning: Reference `escapechars' on page 100 undefined on input line 2983
+LaTeX Warning: Reference `escapechars' on page 102 undefined on input line 2983
 .
-
-
-LaTeX Warning: Reference `fig:filepanel' on page 100 undefined on input line 29
-88.
 
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/
 filepanel.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/filep
 anel.png>
+[102] [103]
 
-LaTeX Warning: Reference `fig:filepanel' on page 100 undefined on input line 29
-96.
+LaTeX Warning: Reference `scripting' on page 104 undefined on input line 3024.
 
-[100] [101]
+[104]
 
-LaTeX Warning: Reference `scripting' on page 102 undefined on input line 3024.
-
-[102]
-
-LaTeX Warning: Reference `importing' on page 103 undefined on input line 3027.
-
-
-LaTeX Warning: Reference `navigationR' on page 103 undefined on input line 3033
-.
+LaTeX Warning: Reference `importing' on page 105 undefined on input line 3027.
 
 
 Underfull \hbox (badness 1584) in paragraph at lines 3033--3034
@@ -1545,38 +1241,15 @@ Underfull \hbox (badness 1584) in paragraph at lines 3033--3034
 and to list the contents of the
  []
 
-
-LaTeX Warning: Reference `nav3' on page 103 undefined on input line 3047.
-
-[103]
-
-LaTeX Warning: Reference `fig:filepanel' on page 104 undefined on input line 30
-65.
-
-
-LaTeX Warning: Reference `fig:booksalescsv' on page 104 undefined on input line
- 3076.
-
+[105]
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/
 booksalescsv.jpg Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/books
 alescsv.jpg>
 
-LaTeX Warning: Reference `importing' on page 104 undefined on input line 3084.
+LaTeX Warning: Reference `importing' on page 106 undefined on input line 3084.
 
-[104] [105]
-
-LaTeX Warning: Reference `dataframes' on page 106 undefined on input line 3126.
-
-
-
-LaTeX Warning: Reference `fig:fileopen' on page 106 undefined on input line 313
-1.
-
-
-LaTeX Warning: Reference `fig:import' on page 106 undefined on input line 3131.
-
-
+[106] [107]
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/
 openscreen.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/opens
@@ -1585,68 +1258,40 @@ File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/
 import.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/mechanics/impor
 t.png>
-[106] [107] [108]
-
-LaTeX Warning: Reference `navigation' on page 109 undefined on input line 3181.
-
-
-
+[108] [109] [110]
 Overfull \hbox (32.752pt too wide) in paragraph at lines 3181--3182
 []\TU/lmr/m/n/10 Since \TU/lmtt/m/n/10 file \TU/lmr/m/n/10 is the first argumen
 t, you can shorten this to \TU/lmtt/m/n/10 save.image("myfile.Rdata")\TU/lmr/m/
 n/10 ;
  []
 
-[109]
+[111]
 
-LaTeX Warning: Reference `fig:workspace' on page 110 undefined on input line 32
-13.
-
-
-LaTeX Warning: Reference `fig:workspace2' on page 110 undefined on input line 3
-213.
+LaTeX Warning: Reference `scripting' on page 112 undefined on input line 3213.
 
 
-LaTeX Warning: Reference `scripting' on page 110 undefined on input line 3213.
+LaTeX Warning: Reference `scripting' on page 112 undefined on input line 3232.
 
+[112] [113] [114] [115] [116]
 
-LaTeX Warning: Reference `fig:fileopen' on page 110 undefined on input line 321
-3.
-
-
-LaTeX Warning: Reference `scripting' on page 110 undefined on input line 3232.
-
-[110]
-
-LaTeX Warning: Reference `introR' on page 111 undefined on input line 3238.
-
-[111] [112] [113] [114]
-
-LaTeX Warning: Reference `coercion' on page 115 undefined on input line 3409.
-
-[115]
-
-LaTeX Warning: Reference `studydesign' on page 116 undefined on input line 3449
-.
-
-
-LaTeX Warning: Reference `orderedfactors' on page 116 undefined on input line 3
-481.
-
-[116]
-
-LaTeX Warning: Reference `coercion' on page 117 undefined on input line 3506.
+LaTeX Warning: Reference `coercion' on page 117 undefined on input line 3409.
 
 [117]
+
+LaTeX Warning: Reference `orderedfactors' on page 118 undefined on input line 3
+481.
+
+[118]
+
+LaTeX Warning: Reference `coercion' on page 119 undefined on input line 3506.
+
+[119]
 Overfull \hbox (1.5pt too wide) in paragraph at lines 3542--3542
 []\TU/lmtt/m/n/10 ## Warning in Ops.factor(group, 2): '+' not meaningful for fa
 ctors[] 
  []
 
-
-LaTeX Warning: Reference `specials' on page 118 undefined on input line 3548.
-
-[118]
+[120]
 Overfull \hbox (64.5pt too wide) in paragraph at lines 3578--3578
 []\TU/lmtt/m/n/10 ## [1] group 1 group 1 group 1 group 2 group 2 group 2 group 
 3 group 3 group 3[] 
@@ -1659,86 +1304,32 @@ e female[]
  []
 
 
-LaTeX Warning: Reference `orderedfactors' on page 119 undefined on input line 3
+LaTeX Warning: Reference `orderedfactors' on page 121 undefined on input line 3
 597.
 
+[121] [122] [123] [124]
 
-LaTeX Warning: Reference `loadingcsv' on page 119 undefined on input line 3602.
-
-
-
-LaTeX Warning: Reference `factors' on page 119 undefined on input line 3607.
-
-[119] [120] [121] [122]
-
-LaTeX Warning: Reference `datahandling' on page 123 undefined on input line 376
+LaTeX Warning: Reference `datahandling' on page 125 undefined on input line 376
 5.
 
-[123] [124]
+[125] [126]
 
-LaTeX Warning: Reference `regression' on page 125 undefined on input line 3825.
-
-
-
-LaTeX Warning: Reference `usingfunctions' on page 125 undefined on input line 3
-855.
-
-[125] [126] [127] [128] [129] [130] [131]
-
-LaTeX Warning: Reference `introR' on page 132 undefined on input line 4080.
+LaTeX Warning: Reference `regression' on page 127 undefined on input line 3825.
 
 
-LaTeX Warning: Reference `workspace' on page 132 undefined on input line 4087.
+[127] [128] [129] [130] [131] [132] [133] [134]
 
-
-LaTeX Warning: Reference `navigation' on page 132 undefined on input line 4087.
-
-
-
-LaTeX Warning: Reference `load' on page 132 undefined on input line 4089.
-
-
-LaTeX Warning: Reference `factors' on page 132 undefined on input line 4093.
-
-
-LaTeX Warning: Reference `dataframes' on page 132 undefined on input line 4093.
-
-
-
-LaTeX Warning: Reference `lists' on page 132 undefined on input line 4093.
-
-
-LaTeX Warning: Reference `formulas' on page 132 undefined on input line 4093.
-
-
-LaTeX Warning: Reference `generics' on page 132 undefined on input line 4095.
-
-[132]
-
-LaTeX Warning: Reference `help' on page 133 undefined on input line 4097.
-
-
-LaTeX Warning: Reference `introR' on page 133 undefined on input line 4100.
-
-
-LaTeX Warning: Reference `mechanics' on page 133 undefined on input line 4100.
-
-
-LaTeX Warning: Reference `datahandling' on page 133 undefined on input line 410
+LaTeX Warning: Reference `datahandling' on page 135 undefined on input line 410
 0.
 
 
-LaTeX Warning: Reference `scripting' on page 133 undefined on input line 4100.
+LaTeX Warning: Reference `scripting' on page 135 undefined on input line 4100.
 
-[133] [134
+[135] [136
 
 ]
 Chapter 3.
-
-Package natbib Warning: Citation `Navarro2018' on page 135 undefined on input l
-ine 4105.
-
-[135]
+[137]
 Overfull \hbox (54.0pt too wide) in paragraph at lines 4179--4179
 []\TU/lmtt/m/n/10 ##   [1]  56  31  56   8  32  14  36  56  19   1   3 104  43 
  44  72   9  28[] 
@@ -1780,7 +1371,7 @@ Overfull \hbox (54.0pt too wide) in paragraph at lines 4179--4179
  14  19  30  19[] 
  []
 
-[136]
+[138]
 Overfull \hbox (54.0pt too wide) in paragraph at lines 4179--4179
 []\TU/lmtt/m/n/10 ## [120]  68  11  75  48  32  36  39  50  11   0  63  82  26 
   3  82  73  19[] 
@@ -1798,16 +1389,6 @@ Overfull \hbox (54.0pt too wide) in paragraph at lines 4179--4179
  27  16   6  44[] 
  []
 
-
-LaTeX Warning: Reference `graphics' on page 137 undefined on input line 4181.
-
-
-LaTeX Warning: Reference `fig:histogram1' on page 137 undefined on input line 4
-181.
-
-
-LaTeX Warning: Reference `hist' on page 137 undefined on input line 4181.
-
 File: schuster-statistics-remix_files/figure-latex/histogram1-1.pdf Graphic fil
 e (type pdf)
 <use schuster-statistics-remix_files/figure-latex/histogram1-1.pdf>
@@ -1817,18 +1398,14 @@ Underfull \hbox (badness 1389) in paragraph at lines 4186--4186
 a (the
  []
 
+[139] [140] [141]
 
-LaTeX Warning: Reference `fig:histogram1' on page 137 undefined on input line 4
-192.
-
-[137] [138] [139]
-
-LaTeX Warning: Reference `dotsargument' on page 140 undefined on input line 424
+LaTeX Warning: Reference `dotsargument' on page 142 undefined on input line 424
 7.
 
-[140]
+[142]
 
-LaTeX Warning: Reference `datahandling' on page 141 undefined on input line 432
+LaTeX Warning: Reference `datahandling' on page 143 undefined on input line 432
 0.
 
 
@@ -1873,7 +1450,7 @@ Overfull \hbox (54.0pt too wide) in paragraph at lines 4340--4340
  44  44  44  44[] 
  []
 
-[141]
+[143]
 Overfull \hbox (54.0pt too wide) in paragraph at lines 4340--4340
 []\TU/lmtt/m/n/10 ## [120]  44  47  47  47  48  48  48  49  49  50  50  50  50 
  52  52  53  53[] 
@@ -1893,30 +1470,10 @@ Overfull \hbox (54.0pt too wide) in paragraph at lines 4340--4340
 
 File: ./img/descriptives2/meanmedian.png Graphic file (type bmp)
 <./img/descriptives2/meanmedian.png>
-
-LaTeX Warning: Reference `fig:meanmedian' on page 142 undefined on input line 4
-365.
-
-
-LaTeX Warning: Reference `mode' on page 142 undefined on input line 4370.
-
-
-LaTeX Warning: Reference `trimmedmean' on page 142 undefined on input line 4374
-.
-
-[142]
-
-LaTeX Warning: Reference `skewandkurtosis' on page 143 undefined on input line 
-4377.
-
-
-LaTeX Warning: Reference `fig:meanmedian' on page 143 undefined on input line 4
-377.
-
-
+[144]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[143] [144] [145] [146]
+[145] [146] [147] [148]
 Overfull \hbox (6.75pt too wide) in paragraph at lines 4501--4501
 []\TU/lmtt/m/n/10 ## [21] Collingwood West Coast  Collingwood Essendon    Colli
 ngwood[] 
@@ -1929,10 +1486,10 @@ Overfull \hbox (80.25pt too wide) in paragraph at lines 4501--4501
  []
 
 
-LaTeX Warning: Reference `freqtables' on page 147 undefined on input line 4503.
+LaTeX Warning: Reference `freqtables' on page 149 undefined on input line 4503.
 
 
-[147]
+[149]
 Overfull \hbox (22.5pt too wide) in paragraph at lines 4523--4523
 []\TU/lmtt/m/n/10 ##         Adelaide         Brisbane          Carlton      Co
 llingwood[] 
@@ -1981,67 +1538,35 @@ Overfull \hbox (22.5pt too wide) in paragraph at lines 4523--4523
  []
 
 
-LaTeX Warning: Reference `scales' on page 148 undefined on input line 4551.
+LaTeX Warning: Reference `scales' on page 150 undefined on input line 4551.
 
-[148] [149] [150]
-
-LaTeX Warning: Reference `usingfunctions' on page 151 undefined on input line 4
-671.
-
-[151] [152] [153]
+[150] [151] [152] [153] [154] [155]
 Overfull \hbox (283.16011pt too wide) in paragraph at lines 4743--4754
  [][] 
  []
 
-[154]
+[156]
 Underfull \hbox (badness 10000) in paragraph at lines 4820--4821
 
  []
 
-[155]
+[157] [158]
 
-LaTeX Warning: Reference `estimation' on page 156 undefined on input line 4836.
-
-
-
-LaTeX Warning: Reference `estimation' on page 156 undefined on input line 4836.
-
-
-[156]
-
-LaTeX Warning: Reference `probability' on page 157 undefined on input line 4863
+LaTeX Warning: Reference `probability' on page 159 undefined on input line 4863
 .
 
-
-LaTeX Warning: Reference `fig:histogram1' on page 157 undefined on input line 4
-863.
-
-
-LaTeX Warning: Reference `fig:aflsd' on page 157 undefined on input line 4863.
-
-[157]
+[159]
 File: schuster-statistics-remix_files/figure-latex/aflsd-1.pdf Graphic file (ty
 pe pdf)
 <use schuster-statistics-remix_files/figure-latex/aflsd-1.pdf>
 
-LaTeX Warning: Reference `aad' on page 158 undefined on input line 4874.
-
-
 Underfull \vbox (badness 2762) has occurred while \output is active []
 
-[158] [159] [160]
-
-Package natbib Warning: Citation `Navarro2018' on page 161 undefined on input l
-ine 4962.
-
+[160] [161] [162]
 File: schuster-statistics-remix_files/figure-latex/skewness-1.pdf Graphic file 
 (type pdf)
 <use schuster-statistics-remix_files/figure-latex/skewness-1.pdf>
-
-LaTeX Warning: Reference `fig:skewness' on page 161 undefined on input line 498
-2.
-
-[161] [162] [163] [164]
+[163] [164] [165] [166]
 Overfull \hbox (22.11194pt too wide) in paragraph at lines 5093--5095
 []\TU/lmr/m/n/10 Find $[]$ using the R formula: \TU/lmtt/m/n/10 sqrt(6*n*(n-1) 
 / ((n-2)*(n+1)*(n+3))) 
@@ -2053,31 +1578,18 @@ hic file (type pdf)
 
 Underfull \vbox (badness 8170) has occurred while \output is active []
 
-[165]
+[167]
 File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-208-1.pdf Grap
 hic file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/unnamed-chunk-208-1.pdf>
 
 Underfull \vbox (badness 1424) has occurred while \output is active []
 
-[166] [167]
-
-LaTeX Warning: Reference `fig:kurtosis' on page 168 undefined on input line 517
-1.
-
+[168] [169]
 File: schuster-statistics-remix_files/figure-latex/kurtosis-1.pdf Graphic file 
 (type pdf)
 <use schuster-statistics-remix_files/figure-latex/kurtosis-1.pdf>
-[168]
-
-LaTeX Warning: Reference `generics' on page 169 undefined on input line 5229.
-
-[169]
-
-LaTeX Warning: Reference `studydesign' on page 170 undefined on input line 5244
-.
-
-
+[170] [171]
 Overfull \hbox (43.5pt too wide) in paragraph at lines 5270--5270
 []\TU/lmtt/m/n/10 ##   [1]  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALS
 E FALSE FALSE[] 
@@ -2173,7 +1685,7 @@ Overfull \hbox (43.5pt too wide) in paragraph at lines 5270--5270
 E FALSE FALSE[] 
  []
 
-[170]
+[172]
 Overfull \hbox (22.5pt too wide) in paragraph at lines 5306--5306
 []\TU/lmtt/m/n/10 ##         Adelaide         Brisbane          Carlton      Co
 llingwood[] 
@@ -2222,47 +1734,12 @@ Overfull \hbox (22.5pt too wide) in paragraph at lines 5306--5306
  []
 
 
-LaTeX Warning: Reference `coercion' on page 171 undefined on input line 5308.
+LaTeX Warning: Reference `coercion' on page 173 undefined on input line 5308.
 
 
-LaTeX Warning: Reference `factors' on page 171 undefined on input line 5322.
+LaTeX Warning: Reference `anova' on page 173 undefined on input line 5327.
 
-
-LaTeX Warning: Reference `anova' on page 171 undefined on input line 5327.
-
-[171] [172]
-
-LaTeX Warning: Reference `mean' on page 173 undefined on input line 5376.
-
-
-LaTeX Warning: Reference `sd' on page 173 undefined on input line 5378.
-
-
-LaTeX Warning: Reference `median' on page 173 undefined on input line 5380.
-
-
-LaTeX Warning: Reference `trimmedmean' on page 173 undefined on input line 5382
-.
-
-
-LaTeX Warning: Reference `mad' on page 173 undefined on input line 5384.
-
-
-LaTeX Warning: Reference `range' on page 173 undefined on input line 5390.
-
-
-LaTeX Warning: Reference `skewandkurtosis' on page 173 undefined on input line 
-5392.
-
-
-LaTeX Warning: Reference `skewandkurtosis' on page 173 undefined on input line 
-5394.
-
-
-LaTeX Warning: Reference `estimation' on page 173 undefined on input line 5396.
-
-
-
+[173] [174]
 Overfull \hbox (17.25pt too wide) in paragraph at lines 5418--5418
 []\TU/lmtt/m/n/10 ##           vars  n mean   sd median trimmed  mad min max ra
 nge skew[] 
@@ -2286,7 +1763,7 @@ Overfull \hbox (17.25pt too wide) in paragraph at lines 5418--5418
 1.7 0.13[] 
  []
 
-[173]
+[175]
 Underfull \hbox (badness 1043) in paragraph at lines 5423--5423
 []\TU/lmr/bx/n/14.4 Descriptive statistics separately for each
  []
@@ -2339,7 +1816,7 @@ Overfull \hbox (17.25pt too wide) in paragraph at lines 5455--5455
 .5 -0.03[] 
  []
 
-[174]
+[176]
 Overfull \hbox (59.25pt too wide) in paragraph at lines 5487--5487
 []\TU/lmtt/m/n/10 ##           vars n mean   sd median trimmed  mad min max ran
 ge skew kurtosis[] 
@@ -2387,419 +1864,148 @@ Overfull \hbox (17.25pt too wide) in paragraph at lines 5487--5487
 .5 -0.03[] 
  []
 
-[175] [176]
-
-Package natbib Warning: Citation `Ellman2002' on page 177 undefined on input li
-ne 5572.
-
-[177]
+[177] [178] [179]
 File: schuster-statistics-remix_files/figure-latex/snowmap1-1.pdf Graphic file 
 (type pdf)
 <use schuster-statistics-remix_files/figure-latex/snowmap1-1.pdf>
-
-LaTeX Warning: Reference `fig:snowmap1' on page 178 undefined on input line 559
-8.
-
-[178] [179]
-
-Package natbib Warning: Citation `Navarro2018' on page 180 undefined on input l
-ine 5602.
-
-
-LaTeX Warning: Reference `fig:firstplot' on page 180 undefined on input line 56
-07.
-
-[180]
+[180] [181] [182]
 File: schuster-statistics-remix_files/figure-latex/firstplot-1.pdf Graphic file
  (type pdf)
 <use schuster-statistics-remix_files/figure-latex/firstplot-1.pdf>
-
-LaTeX Warning: Reference `fig:firstplot' on page 181 undefined on input line 56
-22.
-
-
-LaTeX Warning: Reference `fig:secondplot' on page 181 undefined on input line 5
-641.
-
-[181]
+[183]
 File: schuster-statistics-remix_files/figure-latex/secondplot-1.pdf Graphic fil
 e (type pdf)
 <use schuster-statistics-remix_files/figure-latex/secondplot-1.pdf>
-
-LaTeX Warning: Reference `fig:firstplot' on page 182 undefined on input line 56
-60.
-
-[182]
-
-LaTeX Warning: Reference `fig:thirdplot' on page 183 undefined on input line 56
-74.
-
-[183]
+[184] [185]
 File: schuster-statistics-remix_files/figure-latex/thirdplot-1.pdf Graphic file
  (type pdf)
 <use schuster-statistics-remix_files/figure-latex/thirdplot-1.pdf>
-
-LaTeX Warning: Reference `descriptives' on page 184 undefined on input line 570
-0.
-
-
-LaTeX Warning: Reference `fig:hist1a' on page 184 undefined on input line 5700.
-
-
-
-LaTeX Warning: Reference `fig:hist1a' on page 184 undefined on input line 5700.
-
-
-[184]
+[186]
 File: schuster-statistics-remix_files/figure-latex/hist1a-1.pdf Graphic file (t
 ype pdf)
 <use schuster-statistics-remix_files/figure-latex/hist1a-1.pdf>
-[185]
-
-LaTeX Warning: Reference `fig:hist1a' on page 186 undefined on input line 5716.
-
-
-
-LaTeX Warning: Reference `fig:hist1b' on page 186 undefined on input line 5716.
-
-
-
-LaTeX Warning: Reference `fig:hist1c' on page 186 undefined on input line 5716.
-
-
+[187]
 File: schuster-statistics-remix_files/figure-latex/hist1b-1.pdf Graphic file (t
 ype pdf)
 <use schuster-statistics-remix_files/figure-latex/hist1b-1.pdf>
 File: schuster-statistics-remix_files/figure-latex/hist1c-1.pdf Graphic file (t
 ype pdf)
 <use schuster-statistics-remix_files/figure-latex/hist1c-1.pdf>
-
-LaTeX Warning: Reference `fig:hist1c' on page 186 undefined on input line 5742.
-
-
-
-LaTeX Warning: Reference `fig:hist1b' on page 186 undefined on input line 5742.
-
-
-[186] [187]
-
-LaTeX Warning: Reference `fig:hist1a' on page 188 undefined on input line 5749.
-
-
-
-LaTeX Warning: Reference `fig:hist1b' on page 188 undefined on input line 5749.
-
-
-
-LaTeX Warning: Reference `fig:hist1c' on page 188 undefined on input line 5749.
-
-
-
-LaTeX Warning: Reference `introplotting' on page 188 undefined on input line 57
-49.
-
-
-LaTeX Warning: Reference `introplotting' on page 188 undefined on input line 57
-61.
-
-
-LaTeX Warning: Reference `fig:hist1d' on page 188 undefined on input line 5761.
-
-
-
+[188] [189]
 Underfull \hbox (badness 2495) in paragraph at lines 5761--5762
 []\TU/lmr/m/n/10 Not surprisingly, this doesn’t exhaust the possibilities. If y
 ou type
  []
 
-[188]
+[190]
 File: schuster-statistics-remix_files/figure-latex/hist1d-1.pdf Graphic file (t
 ype pdf)
 <use schuster-statistics-remix_files/figure-latex/hist1d-1.pdf>
-[189]
+[191]
 File: schuster-statistics-remix_files/figure-latex/boxplot1a-1.pdf Graphic file
  (type pdf)
 <use schuster-statistics-remix_files/figure-latex/boxplot1a-1.pdf>
-
-LaTeX Warning: Reference `fig:boxplot1a' on page 190 undefined on input line 58
-16.
-
-
-LaTeX Warning: Reference `fig:boxplot1b' on page 190 undefined on input line 58
-16.
-
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/graphics2/
 boxplot1_annotated.png Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/bookdown/img/graphics2/boxpl
 ot1_annotated.png>
-
-LaTeX Warning: Reference `fig:boxplot2a' on page 190 undefined on input line 58
-24.
-
-[190] [191]
+[192] [193]
 File: schuster-statistics-remix_files/figure-latex/boxplot2a-1.pdf Graphic file
  (type pdf)
 <use schuster-statistics-remix_files/figure-latex/boxplot2a-1.pdf>
 
-LaTeX Warning: Reference `boxplotoutliers' on page 192 undefined on input line 
-5841.
-
-
-LaTeX Warning: Reference `fig:boxplot2b' on page 192 undefined on input line 58
-41.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[192]
+[194]
 File: schuster-statistics-remix_files/figure-latex/boxplot2b-1.pdf Graphic file
  (type pdf)
 <use schuster-statistics-remix_files/figure-latex/boxplot2b-1.pdf>
-[193]
-
-LaTeX Warning: Reference `fig:boxplotoutlier' on page 194 undefined on input li
-ne 5871.
-
+[195]
 File: schuster-statistics-remix_files/figure-latex/boxplotoutlier-1.pdf Graphic
  file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/boxplotoutlier-1.pdf>
-
-LaTeX Warning: Reference `fig:boxplot2b' on page 194 undefined on input line 58
-76.
-
-
-LaTeX Warning: Reference `fig:boxplot2b' on page 194 undefined on input line 58
-76.
-
-[194] [195]
-
-LaTeX Warning: Reference `regressiondiagnostics' on page 196 undefined on input
- line 5908.
-
 [196] [197]
 
-LaTeX Warning: Reference `fig:multipleboxplots' on page 198 undefined on input 
-line 5946.
+LaTeX Warning: Reference `regressiondiagnostics' on page 198 undefined on input
+ line 5908.
 
-
-LaTeX Warning: Reference `lists' on page 198 undefined on input line 5946.
-
-
-LaTeX Warning: Reference `generics' on page 198 undefined on input line 5946.
-
+[198] [199]
 File: schuster-statistics-remix_files/figure-latex/multipleboxplots-1.pdf Graph
 ic file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/multipleboxplots-1.pdf>
-
-LaTeX Warning: Reference `fig:multipleboxplots2' on page 198 undefined on input
- line 5959.
-
-
-LaTeX Warning: Reference `fig:multipleboxplots2' on page 198 undefined on input
- line 5959.
-
-
-LaTeX Warning: Reference `fig:multipleboxplots2' on page 198 undefined on input
- line 5964.
-
-[198] [199]
+[200] [201]
 File: schuster-statistics-remix_files/figure-latex/multipleboxplots2-1.pdf Grap
 hic file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/multipleboxplots2-1.pdf>
 
-LaTeX Warning: Reference `fig:multipleboxplots' on page 200 undefined on input 
-line 5993.
+LaTeX Warning: Reference `scripts' on page 202 undefined on input line 5996.
 
 
-LaTeX Warning: Reference `fig:multipleboxplots' on page 200 undefined on input 
-line 5993.
+LaTeX Warning: Reference `freqtables' on page 202 undefined on input line 6001.
 
 
-LaTeX Warning: Reference `scripts' on page 200 undefined on input line 5996.
-
-
-LaTeX Warning: Reference `mode' on page 200 undefined on input line 6001.
-
-
-LaTeX Warning: Reference `freqtables' on page 200 undefined on input line 6001.
-
-
-[200] [201]
-
-LaTeX Warning: Reference `factors' on page 202 undefined on input line 6014.
-
-
-LaTeX Warning: Reference `fig:bar1a' on page 202 undefined on input line 6041.
-
+[202] [203]
 File: schuster-statistics-remix_files/figure-latex/bar1a-1.pdf Graphic file (ty
 pe pdf)
 <use schuster-statistics-remix_files/figure-latex/bar1a-1.pdf>
 File: schuster-statistics-remix_files/figure-latex/bar1b-1.pdf Graphic file (ty
 pe pdf)
 <use schuster-statistics-remix_files/figure-latex/bar1b-1.pdf>
-
-LaTeX Warning: Reference `fig:multipleboxplots' on page 202 undefined on input 
-line 6063.
-
-
-LaTeX Warning: Reference `fig:multipleboxplots' on page 202 undefined on input 
-line 6063.
-
-[202]
-
-LaTeX Warning: Reference `introplotting' on page 203 undefined on input line 60
-65.
-
+[204]
 File: schuster-statistics-remix_files/figure-latex/bar1c-1.pdf Graphic file (ty
 pe pdf)
 <use schuster-statistics-remix_files/figure-latex/bar1c-1.pdf>
+[205] [206]
 
-LaTeX Warning: Reference `fig:bar1c' on page 203 undefined on input line 6081.
+LaTeX Warning: Reference `rgraphics' on page 207 undefined on input line 6106.
 
-[203] [204]
-
-LaTeX Warning: Reference `centraltendency' on page 205 undefined on input line 
-6100.
-
-
-LaTeX Warning: Reference `var' on page 205 undefined on input line 6102.
-
-
-LaTeX Warning: Reference `summary' on page 205 undefined on input line 6104.
-
-
-LaTeX Warning: Reference `groupdescriptives' on page 205 undefined on input lin
-e 6104.
-
-
-LaTeX Warning: Reference `rgraphics' on page 205 undefined on input line 6106.
-
-
-LaTeX Warning: Reference `introplotting' on page 205 undefined on input line 61
-06.
-
-
-LaTeX Warning: Reference `hist' on page 205 undefined on input line 6108.
-
-
-LaTeX Warning: Reference `boxplots' on page 205 undefined on input line 6108.
-
-
-LaTeX Warning: Reference `bargraph' on page 205 undefined on input line 6108.
-
-[205]
-
-Package natbib Warning: Citation `Navarro2018' on page 206 undefined on input l
-ine 6113.
-
-[206]
+[207] [208]
 Chapter 4.
-
-Package natbib Warning: Citation `Navarro2018' on page 207 undefined on input l
-ine 6132.
-
-
-LaTeX Warning: Reference `srs' on page 207 undefined on input line 6134.
-
-
-LaTeX Warning: Reference `samplesandclt' on page 207 undefined on input line 61
-34.
-
-
-LaTeX Warning: Reference `pointestimates' on page 207 undefined on input line 6
-134.
-
-
-LaTeX Warning: Reference `ci' on page 207 undefined on input line 6134.
-
-
-Package natbib Warning: Citation `Navarro2018' on page 207 undefined on input l
-ine 6139.
-
-[207
+[209
 
 ]
-Overfull \hbox (33.80563pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 208 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
-RAL LIMIT THEOREM
- []
-
-[208]
-
-Package natbib Warning: Citation `Navarro2018' on page 209 undefined on input l
-ine 6181.
-
-[209]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 210 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
-[210]
-
-LaTeX Warning: Reference `fig:frequentistprobability' on page 211 undefined on 
-input line 6256.
-
-File: schuster-statistics-remix_files/figure-latex/frequentistprobability-1.pdf
- Graphic file (type pdf)
-<use schuster-statistics-remix_files/figure-latex/frequentistprobability-1.pdf>
+[210] [211]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `ci' on page 211 undefined on input line 6264.
-
-[211]
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 212 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
-[212] [213]
+[212]
+File: schuster-statistics-remix_files/figure-latex/frequentistprobability-1.pdf
+ Graphic file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/frequentistprobability-1.pdf>
 
-Package natbib Warning: Citation `Fisher1922b' on page 214 undefined on input l
-ine 6281.
-
-
-Package natbib Warning: Citation `Meehl1967' on page 214 undefined on input lin
-e 6281.
-
-
+[213]
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 214 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
-[214]
-
-Package natbib Warning: Citation `Navarro2018' on page 215 undefined on input l
-ine 6288.
-
-
-LaTeX Warning: Reference `descriptives' on page 215 undefined on input line 629
-2.
-
-[215]
+[214] [215]
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 216 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
-[216]
+[216] [217]
+Overfull \hbox (33.80563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 218 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
+RAL LIMIT THEOREM
+ []
+
+[218]
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/srs1.png
  Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/srs1.png>
-
-LaTeX Warning: Reference `fig:srs1' on page 217 undefined on input line 6348.
-
-
-LaTeX Warning: Reference `fig:srs1' on page 217 undefined on input line 6348.
-
-[217]
-
-LaTeX Warning: Reference `fig:brs' on page 218 undefined on input line 6350.
-
+[219]
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/brs.PNG 
 Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/brs.PNG>
@@ -2807,40 +2013,26 @@ File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/srs2.png
  Graphic file (type bmp)
 </Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/srs2.png>
 
-LaTeX Warning: Reference `fig:srs2' on page 218 undefined on input line 6364.
-
-
-Overfull \hbox (33.80563pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 218 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
-RAL LIMIT THEOREM
- []
-
-[218] [219]
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 220 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
-[220]
-
-LaTeX Warning: Reference `fig:srs1' on page 221 undefined on input line 6395.
-
-
-LaTeX Warning: Reference `fig:brs' on page 221 undefined on input line 6395.
-
-[221]
+[220] [221]
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 222 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
-[222]
+[222] [223]
+Overfull \hbox (33.80563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 224 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
+RAL LIMIT THEOREM
+ []
 
-LaTeX Warning: Reference `measurement' on page 223 undefined on input line 6406
-.
+[224]
 
-
-LaTeX Warning: Reference `fig:IQdist' on page 223 undefined on input line 6408.
+LaTeX Warning: Reference `fig:IQdist' on page 225 undefined on input line 6408.
 
 
 File: schuster-statistics-remix_files/figure-latex/IQdist-1.pdf Graphic file (t
@@ -2857,59 +2049,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 6410--6411
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[223]
+[225]
 File: schuster-statistics-remix_files/figure-latex/IQdist-3.pdf Graphic file (t
 ype pdf)
 <use schuster-statistics-remix_files/figure-latex/IQdist-3.pdf>
-
-Overfull \hbox (33.80563pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 224 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
-RAL LIMIT THEOREM
- []
-
-[224] [225]
-
-LaTeX Warning: Reference `fig:IQdist' on page 226 undefined on input line 6432.
-
-
-
-LaTeX Warning: Reference `fig:IQdist' on page 226 undefined on input line 6432.
-
-
-
-LaTeX Warning: Reference `pointestimates' on page 226 undefined on input line 6
-432.
-
-
-LaTeX Warning: Reference `ci' on page 226 undefined on input line 6432.
-
-
-Package natbib Warning: Citation `Navarro2018' on page 226 undefined on input l
-ine 6437.
-
 
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 226 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
-[226]
+[226] [227]
 
-LaTeX Warning: Reference `fig:IQdist' on page 227 undefined on input line 6455.
-
-
-
-Package natbib Warning: Citation `Stigler1986' on page 227 undefined on input l
-ine 6460.
-
-[227]
-
-Package natbib Warning: Citation `Navarro2018' on page 228 undefined on input l
-ine 6470.
+LaTeX Warning: Reference `fig:IQdist' on page 228 undefined on input line 6432.
 
 
-Package natbib Warning: Citation `Keynes1923' on page 228 undefined on input li
-ne 6475.
+
+LaTeX Warning: Reference `fig:IQdist' on page 228 undefined on input line 6432.
+
 
 
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
@@ -2919,7 +2076,18 @@ RAL LIMIT THEOREM
 
 [228]
 
-LaTeX Warning: Reference `tab:replications' on page 229 undefined on input line
+LaTeX Warning: Reference `fig:IQdist' on page 229 undefined on input line 6455.
+
+
+[229]
+Overfull \hbox (33.80563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 230 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
+RAL LIMIT THEOREM
+ []
+
+[230]
+
+LaTeX Warning: Reference `tab:replications' on page 231 undefined on input line
  6499.
 
 
@@ -2928,16 +2096,8 @@ Overfull \hbox (382.77008pt too wide) in paragraph at lines 6501--6526
  []
 
 
-LaTeX Warning: Reference `tab:replications' on page 229 undefined on input line
+LaTeX Warning: Reference `tab:replications' on page 231 undefined on input line
  6527.
-
-
-LaTeX Warning: Reference `fig:sampdistmean' on page 229 undefined on input line
- 6533.
-
-
-LaTeX Warning: Reference `fig:sampdistmean' on page 229 undefined on input line
- 6535.
 
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/sampleDi
 st4.png Graphic file (type bmp)
@@ -2950,22 +2110,22 @@ stMax.png Graphic file (type bmp)
 
 Overfull \hbox (17.20343pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 4.7.  SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM \TU/
-lmr/m/n/10 229
- []
-
-[229]
-Overfull \hbox (33.80563pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 230 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
-RAL LIMIT THEOREM
- []
-
-[230]
-Overfull \hbox (17.20343pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 4.7.  SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM \TU/
 lmr/m/n/10 231
  []
 
 [231]
+Overfull \hbox (33.80563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 232 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
+RAL LIMIT THEOREM
+ []
+
+[232]
+Overfull \hbox (17.20343pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 4.7.  SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM \TU/
+lmr/m/n/10 233
+ []
+
+[233]
 File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-240-1.pdf Grap
 hic file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/unnamed-chunk-240-1.pdf>
@@ -2974,34 +2134,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 232 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
-RAL LIMIT THEOREM
- []
-
-[232]
-File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-240-2.pdf Grap
-hic file (type pdf)
-<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-240-2.pdf>
-
-Overfull \hbox (17.20343pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 4.7.  SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM \TU/
-lmr/m/n/10 233
- []
-
-[233]
-File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-241-1.pdf Grap
-hic file (type pdf)
-<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-241-1.pdf>
-
-Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 234 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
 [234]
-File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-241-2.pdf Grap
+File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-240-2.pdf Grap
 hic file (type pdf)
-<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-241-2.pdf>
+<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-240-2.pdf>
 
 Overfull \hbox (17.20343pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 4.7.  SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM \TU/
@@ -3009,9 +2149,9 @@ lmr/m/n/10 235
  []
 
 [235]
-File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-242-1.pdf Grap
+File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-241-1.pdf Grap
 hic file (type pdf)
-<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-242-1.pdf>
+<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-241-1.pdf>
 
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 236 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
@@ -3019,9 +2159,9 @@ RAL LIMIT THEOREM
  []
 
 [236]
-File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-242-2.pdf Grap
+File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-241-2.pdf Grap
 hic file (type pdf)
-<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-242-2.pdf>
+<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-241-2.pdf>
 
 Overfull \hbox (17.20343pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 4.7.  SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM \TU/
@@ -3029,55 +2169,36 @@ lmr/m/n/10 237
  []
 
 [237]
+File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-242-1.pdf Grap
+hic file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-242-1.pdf>
+
+Overfull \vbox (0.29398pt too high) detected at line 6668
+ []
+
+
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 238 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
 [238]
+File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-242-2.pdf Grap
+hic file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-242-2.pdf>
+
 Overfull \hbox (17.20343pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 4.7.  SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM \TU/
 lmr/m/n/10 239
  []
 
 [239]
-
-Package natbib Warning: Citation `Navarro2018' on page 240 undefined on input l
-ine 6798.
-
-
-LaTeX Warning: Reference `fig:sampdistmax' on page 240 undefined on input line 
-6806.
-
-
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 240 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
 [240]
-File: schuster-statistics-remix_files/figure-latex/IQsampa-1.pdf Graphic file (
-type pdf)
-<use schuster-statistics-remix_files/figure-latex/IQsampa-1.pdf>
-File: schuster-statistics-remix_files/figure-latex/IQsampb-1.pdf Graphic file (
-type pdf)
-<use schuster-statistics-remix_files/figure-latex/IQsampb-1.pdf>
-File: schuster-statistics-remix_files/figure-latex/IQsampc-1.pdf Graphic file (
-type pdf)
-<use schuster-statistics-remix_files/figure-latex/IQsampc-1.pdf>
-
-LaTeX Warning: Reference `fig:IQsampa' on page 241 undefined on input line 6831
-.
-
-
-LaTeX Warning: Reference `fig:IQsampb' on page 241 undefined on input line 6831
-.
-
-
-LaTeX Warning: Reference `fig:IQsampc' on page 241 undefined on input line 6831
-.
-
-
 Overfull \hbox (17.20343pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 4.7.  SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM \TU/
 lmr/m/n/10 241
@@ -3090,35 +2211,57 @@ RAL LIMIT THEOREM
  []
 
 [242]
+File: schuster-statistics-remix_files/figure-latex/IQsampa-1.pdf Graphic file (
+type pdf)
+<use schuster-statistics-remix_files/figure-latex/IQsampa-1.pdf>
+File: schuster-statistics-remix_files/figure-latex/IQsampb-1.pdf Graphic file (
+type pdf)
+<use schuster-statistics-remix_files/figure-latex/IQsampb-1.pdf>
+File: schuster-statistics-remix_files/figure-latex/IQsampc-1.pdf Graphic file (
+type pdf)
+<use schuster-statistics-remix_files/figure-latex/IQsampc-1.pdf>
+
 Overfull \hbox (17.20343pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 4.7.  SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM \TU/
 lmr/m/n/10 243
  []
 
 [243]
-
-LaTeX Warning: Reference `fig:cltdemo' on page 244 undefined on input line 6833
-.
-
-
-LaTeX Warning: Reference `fig:cltdemo' on page 244 undefined on input line 6833
-.
-
-
-LaTeX Warning: Reference `fig:cltdemo' on page 244 undefined on input line 6833
-.
-
-
-LaTeX Warning: Reference `fig:cltdemo' on page 244 undefined on input line 6833
-.
-
-
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 244 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
 [244]
+Overfull \hbox (17.20343pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 4.7.  SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM \TU/
+lmr/m/n/10 245
+ []
+
+[245]
+
+LaTeX Warning: Reference `fig:cltdemo' on page 246 undefined on input line 6832
+.
+
+
+LaTeX Warning: Reference `fig:cltdemo' on page 246 undefined on input line 6832
+.
+
+
+LaTeX Warning: Reference `fig:cltdemo' on page 246 undefined on input line 6832
+.
+
+
+LaTeX Warning: Reference `fig:cltdemo' on page 246 undefined on input line 6832
+.
+
+
+Overfull \hbox (33.80563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 246 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
+RAL LIMIT THEOREM
+ []
+
+[246]
 File: schuster-statistics-remix_files/figure-latex/cltdemo-1.pdf Graphic file (
 type pdf)
 <use schuster-statistics-remix_files/figure-latex/cltdemo-1.pdf>
@@ -3132,17 +2275,17 @@ File: schuster-statistics-remix_files/figure-latex/cltdemo-4.pdf Graphic file (
 type pdf)
 <use schuster-statistics-remix_files/figure-latex/cltdemo-4.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 6878--6879
+Underfull \hbox (badness 10000) in paragraph at lines 6877--6878
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6878--6879
+Underfull \hbox (badness 10000) in paragraph at lines 6877--6878
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6878--6879
+Underfull \hbox (badness 10000) in paragraph at lines 6877--6878
 []
  []
 
@@ -3150,30 +2293,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 6878--6879
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (17.20343pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 4.7.  SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM \TU/
-lmr/m/n/10 245
- []
-
-[245]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (33.80563pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 246 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
-RAL LIMIT THEOREM
- []
-
-[246]
 Overfull \hbox (17.20343pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 4.7.  SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM \TU/
 lmr/m/n/10 247
  []
 
 [247]
-
-Package natbib Warning: Citation `Navarro2018' on page 248 undefined on input l
-ine 6903.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
@@ -3182,90 +2308,57 @@ RAL LIMIT THEOREM
  []
 
 [248]
-
-LaTeX Warning: Reference `studydesign' on page 249 undefined on input line 6907
-.
-
-[249]
-Overfull \hbox (39.61005pt too wide) in paragraph at lines 6928--6939
-[][] 
+Overfull \hbox (17.20343pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 4.7.  SAMPLING DISTRIBUTIONS AND THE CENTRAL LIMIT THEOREM \TU/
+lmr/m/n/10 249
  []
 
-
+[249]
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 250 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
-[250]
-File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/sampling
-DistSampleSD.png Graphic file (type bmp)
-</Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/samplingDistS
-ampleSD.png>
-
-LaTeX Warning: Reference `fig:sampdistsd' on page 251 undefined on input line 6
-969.
+[250] [251]
+Overfull \hbox (39.61005pt too wide) in paragraph at lines 6927--6938
+[][] 
+ []
 
 
-LaTeX Warning: Reference `fig:IQsampb' on page 251 undefined on input line 6969
-.
-
-[251]
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 252 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
 [252]
-
-LaTeX Warning: Reference `fig:estimatorbias' on page 253 undefined on input lin
-e 6971.
-
-File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/biasMean
-.png Graphic file (type bmp)
-</Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/biasMean.png>
-
-
-LaTeX Warning: Reference `var' on page 253 undefined on input line 6979.
-
-
-LaTeX Warning: Reference `var' on page 253 undefined on input line 6987.
-
+File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/sampling
+DistSampleSD.png Graphic file (type bmp)
+</Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/samplingDistS
+ampleSD.png>
 [253]
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 254 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
-[254] [255]
-Overfull \hbox (223.5701pt too wide) in paragraph at lines 7017--7034
-[][] 
- []
+[254]
+File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/biasMean
+.png Graphic file (type bmp)
+</Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/biasMean.png>
 
-
-Package natbib Warning: Citation `Navarro2018' on page 256 undefined on input l
-ine 7038.
-
-
-LaTeX Warning: Reference `clt' on page 256 undefined on input line 7046.
-
-
-LaTeX Warning: Reference `normal' on page 256 undefined on input line 7046.
-
-
+[255]
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 256 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
 [256] [257]
+Overfull \hbox (223.5701pt too wide) in paragraph at lines 7016--7033
+[][] 
+ []
 
-LaTeX Warning: Reference `pointestimates' on page 258 undefined on input line 7
-087.
 
-
-LaTeX Warning: Reference `probmeaning' on page 258 undefined on input line 7118
-.
+LaTeX Warning: Reference `normal' on page 258 undefined on input line 7045.
 
 
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
@@ -3273,35 +2366,33 @@ Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 RAL LIMIT THEOREM
  []
 
-[258]
-
-LaTeX Warning: Reference `fig:cirep' on page 259 undefined on input line 7120.
-
-File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/confIntR
-eplicated.png Graphic file (type bmp)
-</Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/confIntReplic
-ated.png>
-
-LaTeX Warning: Reference `bayes' on page 259 undefined on input line 7130.
-
-[259]
-
-LaTeX Warning: Reference `regression' on page 260 undefined on input line 7135.
-
-
-
+[258] [259]
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 260 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
 [260]
+File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/confIntR
+eplicated.png Graphic file (type bmp)
+</Users/dave/Documents/GitHub/stats-remix-advanced/img/estimation/confIntReplic
+ated.png>
 
-LaTeX Warning: Reference `packageinstall' on page 261 undefined on input line 7
-158.
+LaTeX Warning: Reference `bayes' on page 261 undefined on input line 7129.
+
+[261]
+
+LaTeX Warning: Reference `regression' on page 262 undefined on input line 7134.
 
 
-Underfull \hbox (badness 3078) in paragraph at lines 7168--7169
+
+Overfull \hbox (33.80563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 262 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
+RAL LIMIT THEOREM
+ []
+
+[262]
+Underfull \hbox (badness 3078) in paragraph at lines 7167--7168
 []\TU/lmr/m/n/10 Here’s how to plot the means and confidence intervals drawn us
 ing
  []
@@ -3310,123 +2401,69 @@ File: schuster-statistics-remix_files/figure-latex/bargraphCI-1.pdf Graphic fil
 e (type pdf)
 <use schuster-statistics-remix_files/figure-latex/bargraphCI-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 7182--7184
+Underfull \hbox (badness 10000) in paragraph at lines 7181--7183
 [][]
  []
 
-[261]
+[263]
 File: schuster-statistics-remix_files/figure-latex/lineplotCI-1.pdf Graphic fil
 e (type pdf)
 <use schuster-statistics-remix_files/figure-latex/lineplotCI-1.pdf>
 
-Package natbib Warning: Citation `Navarro2018' on page 262 undefined on input l
-ine 7206.
-
-
-LaTeX Warning: Reference `srs' on page 262 undefined on input line 7213.
-
-
-LaTeX Warning: Reference `lawlargenumbers' on page 262 undefined on input line 
-7215.
-
-
-LaTeX Warning: Reference `samplesandclt' on page 262 undefined on input line 72
-15.
-
-
-LaTeX Warning: Reference `pointestimates' on page 262 undefined on input line 7
-217.
-
-
-LaTeX Warning: Reference `ci' on page 262 undefined on input line 7219.
-
-
-Overfull \hbox (33.80563pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 262 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
-RAL LIMIT THEOREM
- []
-
-[262] [263]
 Overfull \hbox (33.80563pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 264 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
 RAL LIMIT THEOREM
  []
 
-[264]
+[264] [265]
+Overfull \hbox (33.80563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 266 \TU/lmr/m/sl/10 CHAPTER 4.  INFERENTIAL STATISTICS: THE CENT
+RAL LIMIT THEOREM
+ []
+
+[266]
 Chapter 5.
+[267
 
-Package natbib Warning: Citation `Navarro2018' on page 265 undefined on input l
-ine 7227.
-
-[265
-
-] [266] [267] [268] [269] [270]
-Overfull \hbox (75.44005pt too wide) in paragraph at lines 7337--7346
+] [268] [269] [270] [271] [272]
+Overfull \hbox (75.44005pt too wide) in paragraph at lines 7341--7350
 [][] 
  []
 
-[271]
-
-LaTeX Warning: Reference `samplingdists' on page 272 undefined on input line 73
-54.
-
+[273]
 File: schuster-statistics-remix_files/figure-latex/samplingdist-1.pdf Graphic f
 ile (type pdf)
 <use schuster-statistics-remix_files/figure-latex/samplingdist-1.pdf>
-[272] [273]
-
-LaTeX Warning: Reference `fig:samplingdist' on page 274 undefined on input line
- 7366.
-
-
-Underfull \hbox (badness 1430) in paragraph at lines 7383--7385
+[274] [275]
+Underfull \hbox (badness 1430) in paragraph at lines 7387--7389
 []\TU/lmr/m/n/10 If the null hypothesis is true, the sampling distribution of $
 []$ is
  []
 
-[274]
+[276]
 File: schuster-statistics-remix_files/figure-latex/crit2-1.pdf Graphic file (ty
 pe pdf)
 <use schuster-statistics-remix_files/figure-latex/crit2-1.pdf>
-
-LaTeX Warning: Reference `fig:crit2' on page 275 undefined on input line 7396.
-
-[275] [276]
-
-LaTeX Warning: Reference `fig:crit2' on page 277 undefined on input line 7421.
-
-
-LaTeX Warning: Reference `fig:crit1' on page 277 undefined on input line 7430.
-
+[277] [278]
 File: schuster-statistics-remix_files/figure-latex/crit1-1.pdf Graphic file (ty
 pe pdf)
 <use schuster-statistics-remix_files/figure-latex/crit1-1.pdf>
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 7439.
+(Font)              scaled to size 14.4pt on input line 7443.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.4013pt on input line 7439.
+(Font)              scaled to size 14.4013pt on input line 7443.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 14.39845pt on input line 7439.
-[277] [278] [279]
+(Font)              scaled to size 14.39845pt on input line 7443.
+[279] [280] [281]
 Underfull \vbox (badness 1668) has occurred while \output is active []
 
-[280] [281]
-
-LaTeX Warning: Reference `tab:pvaltable' on page 282 undefined on input line 75
-05.
-
-
-Overfull \hbox (273.8201pt too wide) in paragraph at lines 7511--7524
+[282] [283]
+Overfull \hbox (273.8201pt too wide) in paragraph at lines 7515--7528
  [][] 
  []
 
-[282]
-
-LaTeX Warning: Reference `tab:pvaltable' on page 283 undefined on input line 75
-28.
-
-[283]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7554--7554
+[284] [285]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7558--7558
 []\TU/lmtt/m/n/10 ## alternative hypothesis: true probability of success is not
  equal to 0.5[] 
  []
@@ -3434,138 +2471,110 @@ Overfull \hbox (43.5pt too wide) in paragraph at lines 7554--7554
 File: schuster-statistics-remix_files/figure-latex/crit3-1.pdf Graphic file (ty
 pe pdf)
 <use schuster-statistics-remix_files/figure-latex/crit3-1.pdf>
-
-LaTeX Warning: Reference `fig:crit3' on page 284 undefined on input line 7572.
-
-
-LaTeX Warning: Reference `fig:crit4' on page 284 undefined on input line 7572.
-
-[284] [285]
+[286] [287]
 File: schuster-statistics-remix_files/figure-latex/crit4-1.pdf Graphic file (ty
 pe pdf)
 <use schuster-statistics-remix_files/figure-latex/crit4-1.pdf>
 File: schuster-statistics-remix_files/figure-latex/powerfunction-1.pdf Graphic 
 file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/powerfunction-1.pdf>
-
-LaTeX Warning: Reference `fig:powerfunction' on page 286 undefined on input lin
-e 7586.
-
-[286] [287]
-
-LaTeX Warning: Reference `fig:powerfunction' on page 288 undefined on input lin
-e 7597.
-
-
-Package natbib Warning: Citation `Cohen1988' on page 288 undefined on input lin
-e 7597.
-
-
-Package natbib Warning: Citation `Ellis2010' on page 288 undefined on input lin
-e 7597.
-
-
-Overfull \hbox (182.86005pt too wide) in paragraph at lines 7599--7608
+[288] [289]
+Overfull \hbox (182.86005pt too wide) in paragraph at lines 7603--7612
 [][] 
  []
 
-[288]
-
-LaTeX Warning: Reference `fig:powerfunctionsample' on page 289 undefined on inp
-ut line 7616.
-
-[289]
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+[290] [291]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##   [1] 0.00000000 0.00000000 0.00000000 0.00000000 0.000000
 00 0.11837800[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##   [7] 0.08257300 0.05771362 0.19643626 0.14945203 0.113037
 34 0.25302172[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [13] 0.20255096 0.16086106 0.29695959 0.24588947 0.388792
 91 0.33269435[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [19] 0.28223844 0.41641377 0.36272868 0.31341925 0.439965
 01 0.38859619[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [25] 0.51186665 0.46049782 0.41129777 0.52752694 0.478708
 19 0.58881596[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [31] 0.54162450 0.49507894 0.59933871 0.55446069 0.651558
 26 0.60907715[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [37] 0.69828554 0.65867614 0.61815357 0.70325017 0.665429
 10 0.74296156[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [43] 0.70807163 0.77808343 0.74621569 0.71275488 0.780094
 49 0.74946571[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [49] 0.81000236 0.78219322 0.83626633 0.81119597 0.784356
 05 0.83676444[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [55] 0.81250680 0.85920268 0.83741123 0.87881491 0.859343
 95 0.83818214[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [61] 0.87858194 0.85962510 0.89539581 0.87849413 0.910043
 90 0.89503851[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [67] 0.92276845 0.90949768 0.89480727 0.92209753 0.909072
 63 0.93304809[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [73] 0.92153987 0.94254237 0.93240638 0.92108426 0.941854
 49 0.93185881[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [79] 0.95005094 0.94125189 0.95714694 0.94942195 0.963278
 66 0.95651332[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [85] 0.94886329 0.96265653 0.95594208 0.96796884 0.962089
 09 0.97255504[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 7636--7636
+Overfull \hbox (43.5pt too wide) in paragraph at lines 7640--7640
 []\TU/lmtt/m/n/10 ##  [91] 0.96741721 0.97650832 0.97202770 0.97991117 0.976010
 93 0.97153910[] 
  []
@@ -3576,87 +2585,63 @@ aphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[290] [291]
+[292] [293] [294] [295]
 
-Package natbib Warning: Citation `Lehmann2011' on page 292 undefined on input l
-ine 7654.
-
-[292]
-
-LaTeX Warning: Reference `estimation' on page 293 undefined on input line 7665.
-
-
-[293]
-
-Package natbib Warning: Citation `Gelman2006' on page 294 undefined on input li
-ne 7674.
-
-
-LaTeX Warning: Reference `chisquare' on page 294 undefined on input line 7674.
+LaTeX Warning: Reference `chisquare' on page 296 undefined on input line 7678.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[294]
-
-LaTeX Warning: Reference `hypotheses' on page 295 undefined on input line 7686.
-
-
-
-LaTeX Warning: Reference `errortypes' on page 295 undefined on input line 7688.
-
-
-
-LaTeX Warning: Reference `teststatistics' on page 295 undefined on input line 7
-690.
-
-
-LaTeX Warning: Reference `decisionmaking' on page 295 undefined on input line 7
-692.
-
-
-LaTeX Warning: Reference `pvalue' on page 295 undefined on input line 7694.
-
-
-LaTeX Warning: Reference `writeup' on page 295 undefined on input line 7696.
-
-
-LaTeX Warning: Reference `effectsize' on page 295 undefined on input line 7698.
-
-
-
-LaTeX Warning: Reference `nhstmess' on page 295 undefined on input line 7700.
-
-[295] [296
+[296] [297] [298
 
 ]
 Chapter 6.
+[299] [300]
+Underfull \vbox (badness 6396) has occurred while \output is active []
+
+[301] [302] [303] [304]
+Underfull \vbox (badness 1796) has occurred while \output is active []
+
+[305] [306]
+Chapter 7.
 File: schuster-statistics-remix_files/figure-latex/znull-1.pdf Graphic file (ty
 pe pdf)
 <use schuster-statistics-remix_files/figure-latex/znull-1.pdf>
-[297]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 7773--7773
-[]\TU/lmtt/m/n/10 ##  [1] 0.80 0.74 0.94 0.88 0.87 0.73 0.95 0.85 0.88 1.02 0.7
-9 0.92 0.81 0.93[] 
+[307
+
+]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 7941--7941
+[]\TU/lmtt/m/n/10 ##  [1] 0.98 0.75 0.71 0.78 1.06 0.92 0.81 0.86 0.91 0.82 0.8
+6 1.04 1.08 0.83[] 
  []
 
-
-Overfull \hbox (59.25pt too wide) in paragraph at lines 7773--7773
-[]\TU/lmtt/m/n/10 ## [15] 0.91 0.91 0.79 0.98 0.91 0.84 0.91 0.83 0.84 0.84 0.8
-5 0.93 1.00 0.95[] 
+[308]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 7941--7941
+[]\TU/lmtt/m/n/10 ## [15] 0.91 0.89 0.90 0.96 0.74 0.85 0.91 0.94 0.96 1.04 0.8
+8 0.73 0.87 0.92[] 
  []
 
-[298]
-! Undefined control sequence.
-l.7788 \(H_a = \mu \gt
-                       .80\) 
+[309]
+File: schuster-statistics-remix_files/figure-latex/zvisualization-1.pdf Graphic
+ file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/zvisualization-1.pdf>
+[310] (./schuster-statistics-remix.bbl [311] [312
+
+] [313]) [314] (./schuster-statistics-remix.aux)
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `schuster-statistics-remix.out' has not chang
+ed.
+(rerunfilecheck)             Checksum: 20FD048DA67AF11209D884015522DEF0;14660.
+ ) 
 Here is how much of TeX's memory you used:
- 17646 strings out of 478532
- 341247 string characters out of 5862224
- 771531 words of memory out of 5000000
- 37563 multiletter control sequences out of 15000+600000
+ 17911 strings out of 478532
+ 348236 string characters out of 5861891
+ 811972 words of memory out of 5000000
+ 37811 multiletter control sequences out of 15000+600000
  410970 words of font info for 102 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  87i,8n,120p,2956b,543s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on schuster-statistics-remix.pdf (298 pages).
+Output written on schuster-statistics-remix.pdf (314 pages).

@@ -1,0 +1,109 @@
+# Issues in Hypothesis Testing
+Text by David Schuster
+
+## Videos
+
+- [Video: Introduction to power in significance tests](https://www.youtube.com/watch?v=6_Cuz0QqRWc)
+
+- [Video: P-Hacking](https://www.youtube.com/watch?v=FLNeWgs2n_Q)
+
+- [Video: Publication bias](https://www.youtube.com/watch?v=BenytbfaMMI)
+
+- [Video: Overview of Scholarly Publishing](https://www.youtube.com/watch?v=IZUdd765nA4)
+
+## Introduction
+
+Dave here. In this chapter, I want to dive deeper into the issues involved in the practice of null hypothesis significance testing (NHST) as it is used in science. In the previous chapter, we introduced hypothesis testing and saw how it is supposed to work and how it should be interpreted. Here, we will see that NHST is not a neutral weighing of evidence; rather, the researcher affects NHST outcomes. Following that, we will talk about misunderstandings of NHST so that you do not carry the same misunderstandings with you from this course. Knowing common NHST misunderstandings will also help you when you inevitably encounter classmates, colleagues, and (hopefully not) journal and conference authors make the same mistakes. This chapter concludes with limitations that are inherent to NHST and some conclusions.
+
+## The researcher affects NHST outcomes
+
+Some ways the researcher affects NHST outcomes is strategic and good because it involves more efficient science. Let's start with those more positive ways the researcher can affect NHST.
+
+Researchers want to investigate effects that are present, detect them, and then be able to label them statistically significant. The question a researcher should ask themselves is, "assuming there really is an effect there, what are my chances of getting a significant result." We have already seen the name for that concept, it is statistical power. Statistical power only applies to effects that exist, so we want to maximize it as much as possible. A high probability of finding effects that are present is generally good; running studies where the probability of finding true effects is low is a waste of time and resources. There are many ways researchers can increase statistical power, and we will discover ways to increase power throughout the rest of this course. For now, we will consider a few general approaches:
+
+1. **Increase sample size**. We saw the impact of $N$ on standard error; because it is in the denominator of the standard error formula, larger sample sizes reduce standard error. If you observe the same effect size a second time with a larger sample, the p-value will be lower. Later on we will see that some tests perform better when the sample size for each condition is equal. Despite that, a larger sample size is typically better (at least until you get above a 2:1 ratio), even if it means you have to unbalance your groups. The strategy (and difficulty) of increasing your sample size depends on the research design.
+
+2. **Increase the effect size**. Wait, how can you increase the effect size if that is what you are trying to estimate? This might be better phrased as "increase the observed effect size." In other words, design the study so that you have a better opportunity to see the effects. One way to do this is to increase the size of the treatment, creating a bigger difference between the levels of the independent variable. In a drug study, this could mean giving a stronger dose of the drug under study. As another example, consider a study of human-robot interaction where the independent variable under investigation is the use of multiple robots. If researchers hypothesize that a task is more difficult as people simultaneously use more robots, then they might observe a stronger treatment effect with conditions of 1 robot and 4 robots rather than 1 robot versus 2 robots. I am including this example to show that treatment effects apply across all manipulated IVs.
+
+3. **Use a one-tailed test when appropriate**. Some statistical tests (including $z$ and $t$) are two-tailed, meaning they support testing either one-tailed or two-tailed hypotheses. You may want to reread that, as the terminology is confusing. $F$ is a one-tailed statistic, meaning that all $F$-test (i.e., ANOVA) hypotheses are two-tailed. When I refer to the [tailedness](https://en.wiktionary.org/wiki/tailedness) of a statistic, I mean whether the distribution has two tails on either side like the normal distribution or just one. When there are two tails present, you can choose to test in just one of them (which is a one-tailed test) or both (which is a two-tailed test). Statistics aside, the default is a two-tailed test. It will have lower statistical power than a one-tailed test whenever you can accurately predict the direction of the effect. A good way to decide is __before you run your analysis__. You should choose a one-tailed test if you have a logical reason for expecting (or caring) about effects in one direction only. In a correlation analysis, directionality means whether the relationship is positive (increasing together) or negative (one variable increases as the other decreases). In any test comparing means, directionality means saying which group will have a higher mean and which group a lower mean. If you have good reason to expect one group to be higher than the other, or if you really could care less if the results turned out in the opposite direction, then decide to run a one-tailed test before running your analysis. For example, in a study looking at the effectiveness of an after school program, a non-significant finding or a finding that the program reduced student achievement might be equally meaningful--in neither case would you recommend enrolling in the program. That said, be very careful to avoid drawing conclusions from null findings (non-significant). Would you want to tell a school to cancel a program all because your sample size was too low? We will explore that issue later in this chapter.
+
+4. **Reduce variability in the population**. The lower the population standard deviation, the smaller the standard error. Here's an analogy that I am quite proud of (I believe I thought of it myself, but if you've seen it elsewhere, let me know). Have you ever made a cake? How about some soup from scratch? Imagine you are baking a cake and want to sample it to see if it is done cooking. You take a toothpick, stab the cake in a random spot, and see if the toothpick comes out clean, which would suggest the cake is done. Imagine you are making soup at the same time. You want to see if the soup is seasoned how you like it. You take a sip of the soup. Assuming you are taking random samples of cake and soup, which $N = 1$ sample is stronger? Are you more confident the cake is done, or are you more confident the soup is well-seasoned? Which one would be better with a second check? Probably the cake. If random sampling, you need a larger sample size to discover the doneness of a cake than the taste of soup. Where you place the toothpick matters, since the cake cooks from the outside in. Seasonings dissolve pretty quickly into soup and it matters less where in the soup you taste. Still with me? (I said I was proud of the analogy; I did not claim it was a great analogy) A cake needs to be sampled repeatedly because it is **less consistent** than a soup. This point of this elaborate example is this: The more consistent (less variability, lower standard deviation) a population, the easier it is to sample. 
+
+You usually have little control over this. However, population variability is something to keep in mind when planning your research. If you want to study reading comprehension of elementary school children, you will have less statistical power than the exact same study of reading comprehension in preschoolers.
+
+5. **Choose a simpler design**. Increasing the number of experimental conditions, or choosing more complex designs (such as by adding multiple IVs to make a factorial ANOVA), decreases your statistical power.
+
+4. **Increase the alpha level. Don't do this!** I am including this to complete the list. $alpha$ is our threshold of evidence; by lowering it, we are merely lowering the bar for the magnitude of effects that we will accept as statistically significant. It would be like declaring oneself to pass a test by lowering the passing score.
+
+This last (bad) strategy is a good transition to the more maladaptive ways researchers affect outcomes. These are not strategic; these are gaming the NHST system.
+
+1. **P-hacking**. A significant result says, "There is less than an $alpha$ (.05) chance I could obtain these results under the null hypothesis." P-hacking occurs whenever we make decisions about which statistical test to run on the basis of our observed data. If I collected data on three variables, found correlations between all of them, then ran a statistical test on the strongest correlation, the single test would be p-hacked. There are many variations of p-hacking, including:
+
+- Running many tests and reporting only the significant ones
+
+- Running a test on a study in-progress and stopping data collection if it is significant (or continuing data collection if it is not 'yet' significant)
+
+- Running a test, finding it to be non-significant, removing participants, and then rerunning the test
+
+- Running a two-tailed test, finding it to be non-significant, then running the one-tailed version
+
+What these examples have in common are decisions that are made in response to the significance test. The significance test should always be the outcome of a hypothesis and research design. Using the significance test to write a hypothesis or to change the research design is p-hacking, and its unethical. It is unethical because it makes the alpha level (and the p-value) meaningless. It inflates the Type I error rate.
+
+The best way to avoid problems with p-hacking is to plan your analysis before the data are collected, including your choice of one-tailed or two-tailed test. Even better would be to declare your study design and analysis ahead of time, publicly, so that there is no question you are not p-hacking. This practice is emerging but not widespread, and it's called [**preregistration**](https://www.cos.io/initiatives/prereg).
+
+Finally, this does not mean you cannot collect data without all hypotheses planned ahead of time. Collecting data without strong hypotheses is called exploratory research, distinguished from confirmatory research using NHST. If you are doing exploratory research, you can avoid any implication of p-hacking by admitting that. In the case of exploratory research, either do not use NHST, or make it clear that you are not interpreting and making claims about exploratory use of NHST.
+
+Deliberate p-hacking is fraud, but subtle p-hacking has similar effects (it inflates the Type I error rate). Because of this, researchers need to know how to use statistics responsibly. This is an ethical issue because people (your coworkers, supervisors, editors, advisers, publishers) will largely trust your methods. 
+
+2. **There is more trust than suspicion of statistics in the professional world.** Related to the previous point, the only artifact that any audience of your research will see is usually your write-up. Despite some progress in open data and open science, it is still common for researchers to conduct their study, analyze all data, submit, revise, and publish without very little oversight of their statistical methods. Reviewers can and do comment on statistical methods that are described in a manuscript, but some practices, like p-hacking, are not immediately evident from an author's manuscript alone.
+
+- There are few formal checks on accuracy (data verification project) - statistical conclusion validity. Creeping Type I error rate is a big, largely undetectable problem. What happens in a creeping Type II error rate? Solution: Keep the implications and costs of TI TII in mind! Ethics, people will largely trust your numbers.
+
+3. **The researcher is not an impartial party.** Researchers are incentivized to publish novel (i.e., non-replication) studies that are statistically significant. There are severe disincentives against research fraud, as it can end one's career. Beyond that, there are relatively weak safeguards against mistakes that are not evident in publication. This is also an important consideration outside of academia's incentive to publish. In industry, a researcher may be the only member of a project team with statistics proficiency. Business outcomes may depend on the appropriateness of statistical conclusions.
+
+The name for this concept is **statistical conclusion validity**. Statistical conclusion validity is the truth of claims made from statistical results. Statistical conclusion validity is the absence of a Type I or Type II error. 
+
+## NHST Misunderstandings
+
+Next, we will look at some confusing parts of NHST.
+
+1. **Your decision to retain or reject is all-or-nothing.** When making a statistical decision, you either reject or retain, based on the p-value. There is no grey area. There is no such thing as “highly significant” or “approaching significance.” These lead to misunderstandings of NHST.
+
+2. **The fallacy of affirming the null is widespread.** Affirming the null is a tempting logical fallacy. Affirming the null is when a non-significant effect is taken as evidence of something. If the results of your drug trial are non-significant, you have not shown that your experimental drug has no effect. Rather, you have shown nothing; your results are inconclusive. Only rejecting the null allows conclusions to be made. For this reason, avoid the term “insignificant” because it really confuses non-researchers. Instead, use “not significant” or “did not reach significance.”
+
+3. **The meaning of p is based on conditional probability.** $p$ is not probability of the null being false. Since we really want to know if the null is true or false, it’s natural to think that p provides this information, but it does not. $p$ is the probability of obtaining a sample statistic at least this extreme, assuming the null is true.
+
+$p$ is based on conditional probability, which confuses many people. $p$ is a probability that already assumes the null hypothesis is true. Any statement about p should begin with “Assuming the null is true….” People fall into the trap of reversing the conditional probability when they think p is the probability of a hypothesis. Assuming I start with a brand-new deck of cards, what is the probability of drawing red? It’s 50%. Let’s reverse the conditional probability: Assuming I drew a red card from a second deck, what is the probability of the second deck being new? It’s not 50%; the probability of red depends on the deck being new, but the probability of the deck being new does not depend on drawing a red card. We make same mistake with NHST. $P$ is probability of obtaining these data if the null were true. It is not the probability of the null being true if we obtained these data.
+
+4. **Significance does not mean effect size. Significance does not mean importance.** Just because a result is significant does not mean it is important. For example, would you invest in an insomnia drug that has been shown to help people sleep for one additional minute per night, on average? NHST helps you decide but going back to the data is needed to interpret the real-world meaning of your results.
+
+
+## NHST Issues
+
+All of the issues we have discussed so far could be solved if researchers used NHST properly. This last category of issues are inherent in NHST. 
+
+1. **Retaining the null is informative but provides no information** in NHST, leading to publication bias (also called the file drawer effect). At the same time, it is informative to know about non-significant findings. I do think it matters if this $p = .04$ publication was the first time this study has been run or if it resulted after 10 years of unpublished null findings. We simultaneously want to learn from null findings but are prohibited from drawing inferences about them by NHST.
+
+2. **Outcomes in NHST are affected by the probability that the null is true**, which we never know. As researchers, we do not run studies unless we believe the null to be false. A significant finding when the null is highly unlikely is more likely to be spurious. However, NHST does not consider the probability of the null hypothesis. In fact, it is an elaborate method of avoiding discussing the probability of the null hypothesis. This means that significant results that are very novel or unexpected should be scrutinized more than studies that confirm well-established findings.
+
+3. There is **nothing magical about NHST or $\alpha = .05$**. A 5% chance of significance assuming no effect exists has been established as a good threshold of evidence by convention. By allowing an alpha level of .05 we accept that some studies will lack statistical conclusion validity (i.e., they will be wrong). The cost of a lower alpha level is greater sample size and a greater Type II error rate (unless we do the work to overcome the loss of statistical power). The cost of a higher level is a greater Type I error rate.
+
+4. **NHST can be too sensitive under some conditions.** This is a smaller problem and can be overcome if researchers understand that significance does not mean effect size nor importance. Much of NHST is developed for small sample sizes (up to a few hundred). If NHST is run on big data (many thousands), then the effect size needed to reject the null hypothesis becomes very low. When this happens, even the smallest mean difference or the weakest correlation will be labeled with a low p-value. Researchers simply need to be aware this can happen when working with large sample sizes. A good solution is to **always report effect sizes when reporting p-values** to add context. Would you buy an expensive course shown to significantly increase your IQ by 0.00000001%?
+
+## Conclusions
+
+The issues presented in this chapter are not insurmountable. Hopefully a few themes have become clear:
+
+- Turning NHST into knowledge depends on the statistics being used correctly. We should be skeptical of researchers who make claims from statistics but cannot explain their statistical methods.
+
+- Statistical conclusion validity is our goal. We want the conclusions we make from our statistics to reflect truth in the population. Unfortunately, we will not always achieve this, and we will rarely know with any certainty. We should do what we can to maintain statistical conclusion validity. Because statistical conclusion validity is the absence of a Type I and Type II error, we can learn about these types of errors and the strategies to minimize them.
+
+- **Because of these issues, we can never trust the results of a single study to definitively answer a research question.** To the lay public, the study results and knowledge science generates are the same. Because of the noise involved in statistics and research methods, we understand that we only generate knowledge from the data aggregated across many studies. In a way, every study is tentative. **Meta-analysis** is the process of drawing conclusions across multiple studies. We cannot conclude anything definitely from a single study because of the possibility of Type I and Type II error. This connects to the replication crisis--if we see it as a failure that we publish studies that lack validity (are not true), we are hoping for too much out of a single study and of NHST. 
+
+
+
+
+
+
+
+

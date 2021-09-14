@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Descriptive statistics | Advanced Statistics Remix</title>
   <meta name="description" content="A textbook for advanced statistics" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Descriptive statistics | Advanced Statistics Remix" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David Schuster" />
 
 
-<meta name="date" content="2021-09-03" />
+<meta name="date" content="2021-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,8 @@
 <link rel="prev" href="introR.html"/>
 <link rel="next" href="inferential-statistics-the-central-limit-theorem.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -461,15 +461,24 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5.12" data-path="hypothesistesting.html"><a href="hypothesistesting.html#summary-4"><i class="fa fa-check"></i><b>5.12</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="statistics-reference.html"><a href="statistics-reference.html"><i class="fa fa-check"></i><b>6</b> Statistics Reference</a>
+<li class="chapter" data-level="6" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html"><i class="fa fa-check"></i><b>6</b> Issues in Hypothesis Testing</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="statistics-reference.html"><a href="statistics-reference.html#one-sample-z-test"><i class="fa fa-check"></i><b>6.1</b> One-Sample <em>z</em>-Test</a>
+<li class="chapter" data-level="6.1" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#videos-4"><i class="fa fa-check"></i><b>6.1</b> Videos</a></li>
+<li class="chapter" data-level="6.2" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#introduction-4"><i class="fa fa-check"></i><b>6.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.3" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#the-researcher-affects-nhst-outcomes"><i class="fa fa-check"></i><b>6.3</b> The researcher affects NHST outcomes</a></li>
+<li class="chapter" data-level="6.4" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#nhst-misunderstandings"><i class="fa fa-check"></i><b>6.4</b> NHST Misunderstandings</a></li>
+<li class="chapter" data-level="6.5" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#nhst-issues"><i class="fa fa-check"></i><b>6.5</b> NHST Issues</a></li>
+<li class="chapter" data-level="6.6" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#conclusions"><i class="fa fa-check"></i><b>6.6</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistics-reference.html"><a href="statistics-reference.html"><i class="fa fa-check"></i><b>7</b> Statistics Reference</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition"><i class="fa fa-check"></i><b>6.1.1</b> Definition</a></li>
-<li class="chapter" data-level="6.1.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic"><i class="fa fa-check"></i><b>6.1.2</b> Test Statistic</a></li>
-<li class="chapter" data-level="6.1.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data"><i class="fa fa-check"></i><b>6.1.3</b> Assumptions &amp; Required Data</a></li>
-<li class="chapter" data-level="6.1.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it"><i class="fa fa-check"></i><b>6.1.4</b> When to use it</a></li>
-<li class="chapter" data-level="6.1.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example"><i class="fa fa-check"></i><b>6.1.5</b> Example</a></li>
+<li class="chapter" data-level="7.1" data-path="statistics-reference.html"><a href="statistics-reference.html#one-sample-z-test"><i class="fa fa-check"></i><b>7.1</b> One-Sample <em>z</em>-Test</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition"><i class="fa fa-check"></i><b>7.1.1</b> Definition</a></li>
+<li class="chapter" data-level="7.1.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic"><i class="fa fa-check"></i><b>7.1.2</b> Test Statistic</a></li>
+<li class="chapter" data-level="7.1.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data"><i class="fa fa-check"></i><b>7.1.3</b> Assumptions &amp; Required Data</a></li>
+<li class="chapter" data-level="7.1.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it"><i class="fa fa-check"></i><b>7.1.4</b> When to use it</a></li>
+<li class="chapter" data-level="7.1.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example"><i class="fa fa-check"></i><b>7.1.5</b> Example</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -548,7 +557,7 @@ div.csl-indent {
 ## [154]   9  89   1 101   7  21  52  42  21 116   3  44  29  27  16   6  44
 ## [171]   3  28  38  29  10  10</code></pre>
 <p>This output doesn’t make it easy to get a sense of what the data are actually saying. Just “looking at the data” isn’t a terribly effective way of understanding data. In order to get some idea about what’s going on, we need to calculate some descriptive statistics (this chapter) and draw some nice pictures (Chapter <a href="descriptives.html#graphics">3.9</a>. Since the descriptive statistics are the easier of the two topics, I’ll start with those, but nevertheless I’ll show you a histogram of the <code>afl.margins</code> data, since it should help you get a sense of what the data we’re trying to describe actually look like. But for what it’s worth, this histogram – which is shown in Figure <a href="descriptives.html#fig:histogram1">3.1</a> – was generated using the <code>hist()</code> function. We’ll talk a lot more about how to draw histograms in Section <a href="descriptives.html#hist">3.9.2</a>. For now, it’s enough to look at the histogram and note that it provides a fairly interpretable representation of the <code>afl.margins</code> data.</p>
-<div class="figure"><span id="fig:histogram1"></span>
+<div class="figure"><span style="display:block;" id="fig:histogram1"></span>
 <img src="schuster-statistics-remix_files/figure-html/histogram1-1.png" alt="A histogram of the AFL 2010 winning margin data (the `afl.margins` variable). As you might expect, the larger the margin the less frequently you tend to see it." width="672" />
 <p class="caption">
 Figure 3.1: A histogram of the AFL 2010 winning margin data (the <code>afl.margins</code> variable). As you might expect, the larger the margin the less frequently you tend to see it.
@@ -668,7 +677,7 @@ and there are <em>two</em> middle numbers, 31 and 32. The median is defined as t
 </div>
 <div id="mean-or-median-whats-the-difference" class="section level3" number="3.3.4">
 <h3><span class="header-section-number">3.3.4</span> Mean or median? What’s the difference?</h3>
-<div class="figure"><span id="fig:meanmedian"></span>
+<div class="figure"><span style="display:block;" id="fig:meanmedian"></span>
 <img src="img/descriptives2/meanmedian.png" alt="An illustration of the difference between how the mean and the median should be interpreted. The mean is basically the &quot;centre of gravity&quot; of the data set: if you imagine that the histogram of the data is a solid object, then the point on which you could balance it (as if on a see-saw) is the mean. In contrast, the median is the middle observation. Half of the observations are smaller, and half of the observations are larger."  />
 <p class="caption">
 Figure 3.2: An illustration of the difference between how the mean and the median should be interpreted. The mean is basically the “centre of gravity” of the data set: if you imagine that the histogram of the data is a solid object, then the point on which you could balance it (as if on a see-saw) is the mean. In contrast, the median is the middle observation. Half of the observations are smaller, and half of the observations are larger.
@@ -972,7 +981,7 @@ With that in mind, calculating standard deviations in R is simple:</p>
 <div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="descriptives.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>( afl.margins ) </span></code></pre></div>
 <pre><code>## [1] 26.07364</code></pre>
 <p>Interpreting standard deviations is slightly more complex. Because the standard deviation is derived from the variance, and the variance is a quantity that has little to no meaning that makes sense to us humans, the standard deviation doesn’t have a simple interpretation. As a consequence, most of us just rely on a simple rule of thumb: in general, you should expect 68% of the data to fall within 1 standard deviation of the mean, 95% of the data to fall within 2 standard deviation of the mean, and 99.7% of the data to fall within 3 standard deviations of the mean. This rule tends to work pretty well most of the time, but it’s not exact: it’s actually calculated based on an <em>assumption</em> that the histogram is symmetric and “bell shaped.”<a href="#fn66" class="footnote-ref" id="fnref66"><sup>66</sup></a> As you can tell from looking at the AFL winning margins histogram in Figure <a href="descriptives.html#fig:histogram1">3.1</a>, this isn’t exactly true of our data! Even so, the rule is approximately correct. As it turns out, 65.3% of the AFL margins data fall within one standard deviation of the mean. This is shown visually in Figure <a href="descriptives.html#fig:aflsd">3.3</a>.</p>
-<div class="figure"><span id="fig:aflsd"></span>
+<div class="figure"><span style="display:block;" id="fig:aflsd"></span>
 <img src="schuster-statistics-remix_files/figure-html/aflsd-1.png" alt="An illustration of the standard deviation, applied to the AFL winning margins data. The shaded bars in the histogram show how much of the data fall within one standard deviation of the mean. In this case, 65.3% of the data set lies within this range, which is pretty consistent with the &quot;approximately 68% rule&quot; discussed in the main text." width="672" />
 <p class="caption">
 Figure 3.3: An illustration of the standard deviation, applied to the AFL winning margins data. The shaded bars in the histogram show how much of the data fall within one standard deviation of the mean. In this case, 65.3% of the data set lies within this range, which is pretty consistent with the “approximately 68% rule” discussed in the main text.
@@ -1020,15 +1029,15 @@ Figure 3.3: An illustration of the standard deviation, applied to the AFL winnin
 <p>Text by David Schuster</p>
 <p>There are two more descriptive statistics that you will sometimes see reported in the psychological literature, known as skew and kurtosis. These two measures are useful to diagnose normality (although kurtosis is less useful, in practice). If we find evidence of skewness or kurtosis, we may suspect that our distribution is not normal. Later in this course, we will see that it is generally not a problem for us if one of our sample distributions are non-normal. Regardless, skewness and kurtosis can tell us about the shape of our data.</p>
 <p>Example by <span class="citation"><a href="#ref-Navarro2018" role="doc-biblioref">Navarro</a> (<a href="#ref-Navarro2018" role="doc-biblioref">2018</a>)</span></p>
-<pre><code>## [1] -0.9114449</code></pre>
-<pre><code>## [1] -0.006546958</code></pre>
-<div class="figure"><span id="fig:skewness"></span>
+<pre><code>## [1] -0.9241359</code></pre>
+<pre><code>## [1] -0.004013392</code></pre>
+<div class="figure"><span style="display:block;" id="fig:skewness"></span>
 <img src="schuster-statistics-remix_files/figure-html/skewness-1.png" alt="An illustration of skewness. On the left we have a negatively skewed data set (skewness $= -.93$), in the middle we have a data set with no skew (technically, skewness $= -.006$), and on the right we have a positively skewed data set (skewness $= .93$)." width="672" />
 <p class="caption">
 Figure 3.4: An illustration of skewness. On the left we have a negatively skewed data set (skewness <span class="math inline">\(= -.93\)</span>), in the middle we have a data set with no skew (technically, skewness <span class="math inline">\(= -.006\)</span>), and on the right we have a positively skewed data set (skewness <span class="math inline">\(= .93\)</span>).
 </p>
 </div>
-<pre><code>## [1] 0.9330442</code></pre>
+<pre><code>## [1] 0.9175841</code></pre>
 <p>Since it’s the more interesting of the two, let’s start by talking about the <strong><em>skewness</em></strong>. Skewness is basically a measure of asymmetry, and the easiest way to explain it is by drawing some pictures. As Figure <a href="descriptives.html#fig:skewness">3.4</a> illustrates, if the data tend to have a lot of extreme small values (i.e., the lower tail is “longer” than the upper tail) and not so many extremely large values (left panel), then we say that the data are <em>negatively skewed</em>. On the other hand, if there are more extremely large values than extremely small ones (right panel) we say that the data are <em>positively skewed</em>. That’s the qualitative idea behind skewness. The actual formula for the skewness of a data set is as follows
 <span class="math display">\[
 \mbox{skewness}(X) = \frac{1}{N \hat{\sigma}^3} \sum_{i=1}^N (X_i - \bar{X})^3
@@ -1115,15 +1124,15 @@ where <span class="math inline">\(N\)</span> is the number of observations, <spa
 ## data:  x
 ## W = 0.9398, p-value = 9.481e-07</code></pre>
 <p>The final measure that is sometimes referred to, though very rarely in practice, is the <strong><em>kurtosis</em></strong> of a data set. Put simply, kurtosis is a measure of the “pointiness” of a data set, as illustrated in Figure <a href="descriptives.html#fig:kurtosis">3.5</a>.</p>
-<pre><code>## [1] -0.9647748</code></pre>
-<pre><code>## [1] 0.00630043</code></pre>
-<div class="figure"><span id="fig:kurtosis"></span>
+<pre><code>## [1] -0.9604754</code></pre>
+<pre><code>## [1] -0.009879664</code></pre>
+<div class="figure"><span style="display:block;" id="fig:kurtosis"></span>
 <img src="schuster-statistics-remix_files/figure-html/kurtosis-1.png" alt="An illustration of kurtosis. On the left, we have a &quot;platykurtic&quot; data set (kurtosis = $-.95$), meaning that the data set is &quot;too flat&quot;. In the middle we have a &quot;mesokurtic&quot; data set (kurtosis is almost exactly 0), which means that the pointiness of the data is just about right. Finally, on the right, we have a &quot;leptokurtic&quot; data set (kurtosis $= 2.12$) indicating that the data set is &quot;too pointy&quot;. Note that kurtosis is measured with respect to a normal curve (black line)" width="672" />
 <p class="caption">
 Figure 3.5: An illustration of kurtosis. On the left, we have a “platykurtic” data set (kurtosis = <span class="math inline">\(-.95\)</span>), meaning that the data set is “too flat.” In the middle we have a “mesokurtic” data set (kurtosis is almost exactly 0), which means that the pointiness of the data is just about right. Finally, on the right, we have a “leptokurtic” data set (kurtosis <span class="math inline">\(= 2.12\)</span>) indicating that the data set is “too pointy.” Note that kurtosis is measured with respect to a normal curve (black line)
 </p>
 </div>
-<pre><code>## [1] 2.017764</code></pre>
+<pre><code>## [1] 2.058659</code></pre>
 <p>By convention, we say that the “normal curve” (black lines) has zero kurtosis, so the pointiness of a data set is assessed relative to this curve. In this Figure, the data on the left are not pointy enough, so the kurtosis is negative and we call the data <em>platykurtic</em>. The data on the right are too pointy, so the kurtosis is positive and we say that the data is <em>leptokurtic</em>. But the data in the middle are just pointy enough, so we say that it is <em>mesokurtic</em> and has kurtosis zero. This is summarised in the table below:</p>
 <table>
 <thead>
@@ -1380,7 +1389,7 @@ The death of millions is a statistic.</em></p>
 <p>–Edward Tufte<a href="#fn69" class="footnote-ref" id="fnref69"><sup>69</sup></a></p>
 </blockquote>
 <p>Visualising data is one of the most important tasks facing the data analyst. It’s important for two distinct but closely related reasons. Firstly, there’s the matter of drawing “presentation graphics”: displaying your data in a clean, visually appealing fashion makes it easier for your reader to understand what you’re trying to tell them. Equally important, perhaps even more important, is the fact that drawing graphs helps <em>you</em> to understand the data. To that end, it’s important to draw “exploratory graphics” that help you learn about the data as you go about analysing it. These points might seem pretty obvious, but I cannot count the number of times I’ve seen people forget them.</p>
-<div class="figure"><span id="fig:snowmap1"></span>
+<div class="figure"><span style="display:block;" id="fig:snowmap1"></span>
 <img src="schuster-statistics-remix_files/figure-html/snowmap1-1.png" alt="A stylised redrawing of John Snow's original cholera map. Each small dot represents the location of a cholera case, and each large circle shows the location of a well. As the plot makes clear, the cholera outbreak is centred very closely on the Broad St pump.  This image uses the data from the `HistData` package, and was drawn using minor alterations to the commands provided in the help files. Note that Snow's original hand drawn map used different symbols and labels, but you get the idea." width="672" />
 <p class="caption">
 Figure 3.6: A stylised redrawing of John Snow’s original cholera map. Each small dot represents the location of a cholera case, and each large circle shows the location of a well. As the plot makes clear, the cholera outbreak is centred very closely on the Broad St pump. This image uses the data from the <code>HistData</code> package, and was drawn using minor alterations to the commands provided in the help files. Note that Snow’s original hand drawn map used different symbols and labels, but you get the idea.
@@ -1394,7 +1403,7 @@ Figure 3.6: A stylised redrawing of John Snow’s original cholera map. Each sma
 <p>Before I discuss any specialised graphics, let’s start by drawing a few very simple graphs just to get a feel for what it’s like to draw pictures using R. To that end, let’s create a small vector <code>Fibonacci</code> that contains a few numbers we’d like R to draw for us. Then, we’ll ask R to <code>plot()</code> those numbers. The result is Figure <a href="descriptives.html#fig:firstplot">3.7</a>.</p>
 <div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="descriptives.html#cb452-1" aria-hidden="true" tabindex="-1"></a>Fibonacci <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">13</span> )</span>
 <span id="cb452-2"><a href="descriptives.html#cb452-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>( Fibonacci )</span></code></pre></div>
-<div class="figure"><span id="fig:firstplot"></span>
+<div class="figure"><span style="display:block;" id="fig:firstplot"></span>
 <img src="schuster-statistics-remix_files/figure-html/firstplot-1.png" alt="Our first plot" width="672" />
 <p class="caption">
 Figure 3.7: Our first plot
@@ -1417,7 +1426,7 @@ Figure 3.7: Our first plot
 <span id="cb453-4"><a href="descriptives.html#cb453-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">xlab =</span> <span class="st">&quot;The x-axis label is &#39;xlab&#39;&quot;</span>,</span>
 <span id="cb453-5"><a href="descriptives.html#cb453-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">ylab =</span> <span class="st">&quot;The y-axis label is &#39;ylab&#39;&quot;</span> </span>
 <span id="cb453-6"><a href="descriptives.html#cb453-6" aria-hidden="true" tabindex="-1"></a>            )</span></code></pre></div>
-<div class="figure"><span id="fig:secondplot"></span>
+<div class="figure"><span style="display:block;" id="fig:secondplot"></span>
 <img src="schuster-statistics-remix_files/figure-html/secondplot-1.png" alt="How to add your own title, subtitle, x-axis label and y-axis label to the plot." width="672" />
 <p class="caption">
 Figure 3.8: How to add your own title, subtitle, x-axis label and y-axis label to the plot.
@@ -1439,7 +1448,7 @@ Figure 3.8: How to add your own title, subtitle, x-axis label and y-axis label t
 <span id="cb454-6"><a href="descriptives.html#cb454-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex.main =</span> <span class="dv">1</span>,</span>
 <span id="cb454-7"><a href="descriptives.html#cb454-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">font.axis =</span> <span class="dv">2</span>,</span>
 <span id="cb454-8"><a href="descriptives.html#cb454-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">col.lab =</span> <span class="st">&quot;gray50&quot;</span> )</span></code></pre></div>
-<div class="figure"><span id="fig:thirdplot"></span>
+<div class="figure"><span style="display:block;" id="fig:thirdplot"></span>
 <img src="schuster-statistics-remix_files/figure-html/thirdplot-1.png" alt="How to customise the appearance of the titles and labels." width="672" />
 <p class="caption">
 Figure 3.9: How to customise the appearance of the titles and labels.
@@ -1452,7 +1461,7 @@ Figure 3.9: How to customise the appearance of the titles and labels.
 <h3><span class="header-section-number">3.9.2</span> Histograms</h3>
 <p>Now that we’ve tamed (or possibly fled from) the beast that is R graphical parameters, let’s talk more seriously about some real life graphics that you’ll want to draw. We begin with the humble <strong><em>histogram</em></strong>. Histograms are one of the simplest and most useful ways of visualising data. They make most sense when you have an interval or ratio scale (e.g., the <code>afl.margins</code> data from Chapter <a href="descriptives.html#descriptives">3</a> and what you want to do is get an overall impression of the data. Most of you probably know how histograms work, since they’re so widely used, but for the sake of completeness I’ll describe them. All you do is divide up the possible values into <strong><em>bins</em></strong>, and then count the number of observations that fall within each bin. This count is referred to as the frequency of the bin, and is displayed as a bar: in the AFL winning margins data, there are 33 games in which the winning margin was less than 10 points, and it is this fact that is represented by the height of the leftmost bar in Figure <a href="descriptives.html#fig:hist1a">3.10</a>. Drawing this histogram in R is pretty straightforward. The function you need to use is called <code>hist()</code>, and it has pretty reasonable default settings. In fact, Figure <a href="descriptives.html#fig:hist1a">3.10</a> is exactly what you get if you just type this:</p>
 <div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="descriptives.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>( afl.margins )</span></code></pre></div>
-<div class="figure"><span id="fig:hist1a"></span>
+<div class="figure"><span style="display:block;" id="fig:hist1a"></span>
 <img src="schuster-statistics-remix_files/figure-html/hist1a-1.png" alt="The default histogram that R produces" width="672" />
 <p class="caption">
 Figure 3.10: The default histogram that R produces
@@ -1461,14 +1470,14 @@ Figure 3.10: The default histogram that R produces
 <p>Although this image would need a lot of cleaning up in order to make a good presentation graphic (i.e., one you’d include in a report), it nevertheless does a pretty good job of describing the data. In fact, the big strength of a histogram is that (properly used) it does show the entire spread of the data, so you can get a pretty good sense about what it looks like. The downside to histograms is that they aren’t very compact: unlike some of the other plots I’ll talk about it’s hard to cram 20-30 histograms into a single image without overwhelming the viewer. And of course, if your data are nominal scale (e.g., the <code>afl.finalists</code> data) then histograms are useless.</p>
 <p>The main subtlety that you need to be aware of when drawing histograms is determining where the <code>breaks</code> that separate bins should be located, and (relatedly) how many breaks there should be. In Figure <a href="descriptives.html#fig:hist1a">3.10</a>, you can see that R has made pretty sensible choices all by itself: the breaks are located at 0, 10, 20, … 120, which is exactly what I would have done had I been forced to make a choice myself. On the other hand, consider the two histograms in Figure <a href="descriptives.html#fig:hist1b">3.11</a> and <a href="descriptives.html#fig:hist1c">3.12</a>, which I produced using the following two commands:</p>
 <div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="descriptives.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>( <span class="at">x =</span> afl.margins, <span class="at">breaks =</span> <span class="dv">3</span> )</span></code></pre></div>
-<div class="figure"><span id="fig:hist1b"></span>
+<div class="figure"><span style="display:block;" id="fig:hist1b"></span>
 <img src="schuster-statistics-remix_files/figure-html/hist1b-1.png" alt="A histogram with too few bins" width="672" />
 <p class="caption">
 Figure 3.11: A histogram with too few bins
 </p>
 </div>
 <div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="descriptives.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>( <span class="at">x =</span> afl.margins, <span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">116</span> )</span></code></pre></div>
-<div class="figure"><span id="fig:hist1c"></span>
+<div class="figure"><span style="display:block;" id="fig:hist1c"></span>
 <img src="schuster-statistics-remix_files/figure-html/hist1c-1.png" alt="A histogram with too many bins" width="672" />
 <p class="caption">
 Figure 3.12: A histogram with too many bins
@@ -1495,7 +1504,7 @@ Figure 3.12: A histogram with too many bins
 <span id="cb458-8"><a href="descriptives.html#cb458-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="cn">TRUE</span>,             <span class="co"># add frequency labels to each bar</span></span>
 <span id="cb458-9"><a href="descriptives.html#cb458-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">40</span>)             <span class="co"># change the scale of the y-axis</span></span>
 <span id="cb458-10"><a href="descriptives.html#cb458-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<div class="figure"><span id="fig:hist1d"></span>
+<div class="figure"><span style="display:block;" id="fig:hist1d"></span>
 <img src="schuster-statistics-remix_files/figure-html/hist1d-1.png" alt="A histogram with histogram specific customisations" width="672" />
 <p class="caption">
 Figure 3.13: A histogram with histogram specific customisations
@@ -1512,14 +1521,14 @@ Figure 3.13: A histogram with histogram specific customisations
 ##    0.00   12.75   30.50   35.30   50.50  116.00</code></pre>
 <p>So how does a boxplot capture these numbers? The easiest way to describe what a boxplot looks like is just to draw one. The function for doing this in R is (surprise, surprise) <code>boxplot()</code>. As always there’s a lot of optional arguments that you can specify if you want, but for the most part you can just let R choose the defaults for you. That said, I’m going to override one of the defaults to start with by specifying the <code>range</code> option, but for the most part you won’t want to do this (I’ll explain why in a minute). With that as preamble, let’s try the following command:</p>
 <div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="descriptives.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>( <span class="at">x =</span> afl.margins, <span class="at">range =</span> <span class="dv">100</span> )</span></code></pre></div>
-<div class="figure"><span id="fig:boxplot1a"></span>
+<div class="figure"><span style="display:block;" id="fig:boxplot1a"></span>
 <img src="schuster-statistics-remix_files/figure-html/boxplot1a-1.png" alt="A basic boxplot" width="672" />
 <p class="caption">
 Figure 3.14: A basic boxplot
 </p>
 </div>
 <p>What R draws is shown in Figure <a href="descriptives.html#fig:boxplot1a">3.14</a>, the most basic boxplot possible. When you look at this plot, this is how you should interpret it: the thick line in the middle of the box is the median; the box itself spans the range from the 25th percentile to the 75th percentile; and the “whiskers” cover the full range from the minimum value to the maximum value. This is summarised in the annotated plot in Figure <a href="descriptives.html#fig:boxplot1b">3.15</a>.</p>
-<div class="figure"><span id="fig:boxplot1b"></span>
+<div class="figure"><span style="display:block;" id="fig:boxplot1b"></span>
 <img src="bookdown/img/graphics2/boxplot1_annotated.png" alt="An annotated boxplot"  />
 <p class="caption">
 Figure 3.15: An annotated boxplot
@@ -1527,7 +1536,7 @@ Figure 3.15: An annotated boxplot
 </div>
 <p>In practice, this isn’t quite how boxplots usually work. In most applications, the “whiskers” don’t cover the full range from minimum to maximum. Instead, they actually go out to the most extreme data point that doesn’t exceed a certain bound. By default, this value is 1.5 times the interquartile range, corresponding to a <code>range</code> value of 1.5. Any observation whose value falls outside this range is plotted as a circle instead of being covered by the whiskers, and is commonly referred to as an <strong><em>outlier</em></strong>. For our AFL margins data, there is one observation (a game with a margin of 116 points) that falls outside this range. As a consequence, the upper whisker is pulled back to the next largest observation (a value of 108), and the observation at 116 is plotted as a circle. This is illustrated in Figure <a href="descriptives.html#fig:boxplot2a">3.16</a>. Since the default value is <code>range = 1.5</code> we can draw this plot using the simple command</p>
 <div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="descriptives.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>( afl.margins )</span></code></pre></div>
-<div class="figure"><span id="fig:boxplot2a"></span>
+<div class="figure"><span style="display:block;" id="fig:boxplot2a"></span>
 <img src="schuster-statistics-remix_files/figure-html/boxplot2a-1.png" alt="By default, R will only extent the whiskers a distance of 1.5 times the interquartile range, and will plot any points that fall outside that range separately" width="672" />
 <p class="caption">
 Figure 3.16: By default, R will only extent the whiskers a distance of 1.5 times the interquartile range, and will plot any points that fall outside that range separately
@@ -1536,7 +1545,7 @@ Figure 3.16: By default, R will only extent the whiskers a distance of 1.5 times
 <div id="visual-style-of-your-boxplot" class="section level4" number="3.9.3.1">
 <h4><span class="header-section-number">3.9.3.1</span> Visual style of your boxplot</h4>
 <p>I’ll talk a little more about the relationship between boxplots and outliers in the Section <a href="descriptives.html#boxplotoutliers">3.9.3.2</a>, but before I do let’s take the time to clean this figure up. Boxplots in R are extremely customisable. In addition to the usual range of graphical parameters that you can tweak to make the plot look nice, you can also exercise nearly complete control over every element to the plot. Consider the boxplot in Figure <a href="descriptives.html#fig:boxplot2b">3.17</a>: in this version of the plot, not only have I added labels (<code>xlab</code>, <code>ylab</code>) and removed the stupid border (<code>frame.plot</code>), I’ve also dimmed all of the graphical elements of the boxplot except the central bar that plots the median (<code>border</code>) so as to draw more attention to the median rather than the rest of the boxplot.</p>
-<div class="figure"><span id="fig:boxplot2b"></span>
+<div class="figure"><span style="display:block;" id="fig:boxplot2b"></span>
 <img src="schuster-statistics-remix_files/figure-html/boxplot2b-1.png" alt="A boxplot with boxplot specific customisations" width="672" />
 <p class="caption">
 Figure 3.17: A boxplot with boxplot specific customisations
@@ -1557,7 +1566,7 @@ Figure 3.17: A boxplot with boxplot specific customisations
 <div id="boxplotoutliers" class="section level4" number="3.9.3.2">
 <h4><span class="header-section-number">3.9.3.2</span> Using box plots to detect outliers</h4>
 <p>Because the boxplot automatically (unless you change the <code>range</code> argument) separates out those observations that lie within a certain range, people often use them as an informal method for detecting <strong><em>outliers</em></strong>: observations that are “suspiciously” distant from the rest of the data. Here’s an example. Suppose that I’d drawn the boxplot for the AFL margins data, and it came up looking like Figure <a href="descriptives.html#fig:boxplotoutlier">3.18</a>.</p>
-<div class="figure"><span id="fig:boxplotoutlier"></span>
+<div class="figure"><span style="display:block;" id="fig:boxplotoutlier"></span>
 <img src="schuster-statistics-remix_files/figure-html/boxplotoutlier-1.png" alt="A boxplot showing one very suspicious outlier! I've drawn this plot in a similar, minimalist style to the one in Figure \@ref(fig:boxplot2b), but I've used the `horizontal` argument to draw it sideways in order to save space." width="672" />
 <p class="caption">
 Figure 3.18: A boxplot showing one very suspicious outlier! I’ve drawn this plot in a similar, minimalist style to the one in Figure <a href="descriptives.html#fig:boxplot2b">3.17</a>, but I’ve used the <code>horizontal</code> argument to draw it sideways in order to save space.
@@ -1597,7 +1606,7 @@ Figure 3.18: A boxplot showing one very suspicious outlier! I’ve drawn this pl
 <div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="descriptives.html#cb471-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>( <span class="at">formula =</span> margin <span class="sc">~</span> year,</span>
 <span id="cb471-2"><a href="descriptives.html#cb471-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> afl2</span>
 <span id="cb471-3"><a href="descriptives.html#cb471-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<div class="figure"><span id="fig:multipleboxplots"></span>
+<div class="figure"><span style="display:block;" id="fig:multipleboxplots"></span>
 <img src="schuster-statistics-remix_files/figure-html/multipleboxplots-1.png" alt="Boxplots showing the AFL winning margins for the 24 years from 1987 to 2010 inclusive. This is the default plot created by R, with no annotations added and no changes to the visual design. It's pretty readable, though at a minimum you'd want to include some basic annotations labelling the axes. Compare and contrast with Figure \@ref(fig:multipleboxplots2)" width="672" />
 <p class="caption">
 Figure 3.19: Boxplots showing the AFL winning margins for the 24 years from 1987 to 2010 inclusive. This is the default plot created by R, with no annotations added and no changes to the visual design. It’s pretty readable, though at a minimum you’d want to include some basic annotations labelling the axes. Compare and contrast with Figure <a href="descriptives.html#fig:multipleboxplots2">3.20</a>
@@ -1624,7 +1633,7 @@ Figure 3.19: Boxplots showing the AFL winning margins for the 24 years from 1987
 <span id="cb472-17"><a href="descriptives.html#cb472-17" aria-hidden="true" tabindex="-1"></a>           <span class="at">medpch =</span> <span class="dv">20</span>,                <span class="co"># instead, draw solid dots</span></span>
 <span id="cb472-18"><a href="descriptives.html#cb472-18" aria-hidden="true" tabindex="-1"></a>           <span class="at">medlwd =</span> <span class="fl">1.5</span>                <span class="co"># make them larger</span></span>
 <span id="cb472-19"><a href="descriptives.html#cb472-19" aria-hidden="true" tabindex="-1"></a> )</span></code></pre></div>
-<div class="figure"><span id="fig:multipleboxplots2"></span>
+<div class="figure"><span style="display:block;" id="fig:multipleboxplots2"></span>
 <img src="schuster-statistics-remix_files/figure-html/multipleboxplots2-1.png" alt="A cleaned up version of Figure \@ref(fig:multipleboxplots). Notice that I've used a very minimalist design for the boxplots, so as to focus the eye on the medians. I've also converted the medians to solid dots, to convey a sense that year to year variation in the median should be thought of as a single coherent plot (similar to what we did when plotting the `Fibonacci` variable earlier). The size of outliers has been shrunk, because they aren't actually very interesting. In contrast, I've added a fill colour to the boxes, to make it easier to look at the trend in the interquartile range across years." width="672" />
 <p class="caption">
 Figure 3.20: A cleaned up version of Figure <a href="descriptives.html#fig:multipleboxplots">3.19</a>. Notice that I’ve used a very minimalist design for the boxplots, so as to focus the eye on the medians. I’ve also converted the medians to solid dots, to convey a sense that year to year variation in the median should be thought of as a single coherent plot (similar to what we did when plotting the <code>Fibonacci</code> variable earlier). The size of outliers has been shrunk, because they aren’t actually very interesting. In contrast, I’ve added a fill colour to the boxes, to make it easier to look at the trend in the interquartile range across years.
@@ -1652,7 +1661,7 @@ Figure 3.20: A cleaned up version of Figure <a href="descriptives.html#fig:multi
 <div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="descriptives.html#cb477-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>( <span class="at">height =</span> freq )  <span class="co"># specifying the argument name</span></span>
 <span id="cb477-2"><a href="descriptives.html#cb477-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>( freq )           <span class="co"># the lazier version</span></span></code></pre></div>
 <p>Either of these two commands will produce the simple bar graph shown in Figure <a href="descriptives.html#fig:bar1a">3.21</a>.</p>
-<div class="figure"><span id="fig:bar1a"></span>
+<div class="figure"><span style="display:block;" id="fig:bar1a"></span>
 <img src="schuster-statistics-remix_files/figure-html/bar1a-1.png" alt="the simplest version of a bargraph, containing the data but no labels" width="672" />
 <p class="caption">
 Figure 3.21: the simplest version of a bargraph, containing the data but no labels
@@ -1660,7 +1669,7 @@ Figure 3.21: the simplest version of a bargraph, containing the data but no labe
 </div>
 <p>As you can see, R has drawn a pretty minimal plot. It doesn’t have any labels, obviously, because we didn’t actually tell the <code>barplot()</code> function what the labels are! To do this, we need to specify the <code>names.arg</code> argument. The <code>names.arg</code> argument needs to be a vector of character strings containing the text that needs to be used as the label for each of the items. In this case, the <code>teams</code> vector is exactly what we need, so the command we’re looking for is:</p>
 <div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="descriptives.html#cb478-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">barplot</span>( <span class="at">height =</span> freq, <span class="at">names.arg =</span> teams ) </span></code></pre></div>
-<div class="figure"><span id="fig:bar1b"></span>
+<div class="figure"><span style="display:block;" id="fig:bar1b"></span>
 <img src="schuster-statistics-remix_files/figure-html/bar1b-1.png" alt="we've added the labels, but because the text runs horizontally R only includes a few of them" width="672" />
 <p class="caption">
 Figure 3.22: we’ve added the labels, but because the text runs horizontally R only includes a few of them
@@ -1671,7 +1680,7 @@ Figure 3.22: we’ve added the labels, but because the text runs horizontally R 
 <div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="descriptives.html#cb479-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">barplot</span>(<span class="at">height =</span> freq,  <span class="co"># the frequencies</span></span>
 <span id="cb479-2"><a href="descriptives.html#cb479-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">names.arg =</span> teams,  <span class="co"># the label</span></span>
 <span id="cb479-3"><a href="descriptives.html#cb479-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">las =</span> <span class="dv">2</span>)            <span class="co"># rotate the labels</span></span></code></pre></div>
-<div class="figure"><span id="fig:bar1c"></span>
+<div class="figure"><span style="display:block;" id="fig:bar1c"></span>
 <img src="schuster-statistics-remix_files/figure-html/bar1c-1.png" alt="we've rotated the labels, but now the text is too long to fit" width="672" />
 <p class="caption">
 Figure 3.23: we’ve rotated the labels, but now the text is too long to fit
@@ -1748,7 +1757,6 @@ Navarro, D. 2018. <em>Learning Statistics with r: A Tutorial for Psychology Stud
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1788,6 +1796,10 @@ gitbook.start({
 "text": null
 },
 "download": ["schuster-statistics-remix.pdf", "schuster-statistics-remix.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
