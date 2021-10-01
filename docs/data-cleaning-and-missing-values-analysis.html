@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Data Cleaning and Missing Values Analysis | Advanced Statistics Remix</title>
+  <meta name="description" content="A textbook for advanced statistics" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Data Cleaning and Missing Values Analysis | Advanced Statistics Remix" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A textbook for advanced statistics" />
+  <meta name="github-repo" content="vectrlab/stat-course-pack" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Data Cleaning and Missing Values Analysis | Advanced Statistics Remix" />
+  
+  <meta name="twitter:description" content="A textbook for advanced statistics" />
+  
+
+<meta name="author" content="David Schuster" />
+
+
+<meta name="date" content="2021-10-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="issues-in-hypothesis-testing.html"/>
+<link rel="next" href="regression.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Course Pack for Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Book</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attribution"><i class="fa fa-check"></i>Attribution</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="statistics-for-research.html"><a href="statistics-for-research.html"><i class="fa fa-check"></i><b>1</b> Statistics for Research</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#measurement"><i class="fa fa-check"></i><b>1.2</b> Measurement</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#level-of-measurement"><i class="fa fa-check"></i><b>1.2.1</b> Level of Measurement</a></li>
+<li class="chapter" data-level="1.2.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#continuous-or-discrete"><i class="fa fa-check"></i><b>1.2.2</b> Continuous or Discrete</a></li>
+<li class="chapter" data-level="1.2.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#qualitative-or-quantitative"><i class="fa fa-check"></i><b>1.2.3</b> Qualitative or Quantitative</a></li>
+<li class="chapter" data-level="1.2.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#distribution-a-collection-of-our-observations"><i class="fa fa-check"></i><b>1.2.4</b> Distribution: A collection of our observations</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#descriptive-statistics-summarizing-our-observations"><i class="fa fa-check"></i><b>1.3</b> Descriptive Statistics: Summarizing our observations</a></li>
+<li class="chapter" data-level="1.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#inferential-statistics-generalizing-from-our-observations"><i class="fa fa-check"></i><b>1.4</b> Inferential Statistics: Generalizing from our observations</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#populations-and-samples-who-or-what-the-research-is-about"><i class="fa fa-check"></i><b>1.4.1</b> Populations and Samples: Who (or what) the research is about</a></li>
+<li class="chapter" data-level="1.4.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#constructs-provide-the-context"><i class="fa fa-check"></i><b>1.4.2</b> Constructs provide the context</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="statistics-for-research.html"><a href="statistics-for-research.html#the-cautionary-tale-of-simpsons-paradox"><i class="fa fa-check"></i><b>1.5</b> The cautionary tale of Simpson’s paradox</a></li>
+<li class="chapter" data-level="1.6" data-path="statistics-for-research.html"><a href="statistics-for-research.html#studydesign"><i class="fa fa-check"></i><b>1.6</b> A brief introduction to research design</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#some-thoughts-about-psychological-measurement"><i class="fa fa-check"></i><b>1.6.1</b> Some thoughts about psychological measurement</a></li>
+<li class="chapter" data-level="1.6.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#operationalisation-defining-your-measurement"><i class="fa fa-check"></i><b>1.6.2</b> Operationalisation: defining your measurement</a></li>
+<li class="chapter" data-level="1.6.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#ivdv"><i class="fa fa-check"></i><b>1.6.3</b> The “role” of variables: predictors and outcomes</a></li>
+<li class="chapter" data-level="1.6.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#researchdesigns"><i class="fa fa-check"></i><b>1.6.4</b> Experimental and non-experimental research</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="statistics-for-research.html"><a href="statistics-for-research.html#causality-research-and-statistics"><i class="fa fa-check"></i><b>1.7</b> Causality, Research, and Statistics</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#experimental-quasi-experimental-and-non-experimental-studies"><i class="fa fa-check"></i><b>1.7.1</b> Experimental, Quasi-Experimental, and Non-Experimental Studies</a></li>
+<li class="chapter" data-level="1.7.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#demonstrating-causality"><i class="fa fa-check"></i><b>1.7.2</b> Demonstrating Causality</a></li>
+<li class="chapter" data-level="1.7.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#statistics-and-causality"><i class="fa fa-check"></i><b>1.7.3</b> Statistics and Causality</a></li>
+<li class="chapter" data-level="1.7.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#validity-and-reliability"><i class="fa fa-check"></i><b>1.7.4</b> Validity and Reliability</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>2</b> Getting started with R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introR.html"><a href="introR.html#videos"><i class="fa fa-check"></i><b>2.1</b> Videos</a></li>
+<li class="chapter" data-level="2.2" data-path="introR.html"><a href="introR.html#introduction-1"><i class="fa fa-check"></i><b>2.2</b> Introduction</a></li>
+<li class="chapter" data-level="2.3" data-path="introR.html"><a href="introR.html#gettingR"><i class="fa fa-check"></i><b>2.3</b> Installing R</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introR.html"><a href="introR.html#installing-r-on-a-windows-computer"><i class="fa fa-check"></i><b>2.3.1</b> Installing R on a Windows computer</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introR.html"><a href="introR.html#installing-r-on-a-mac"><i class="fa fa-check"></i><b>2.3.2</b> Installing R on a Mac</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introR.html"><a href="introR.html#installing-r-on-a-linux-computer"><i class="fa fa-check"></i><b>2.3.3</b> Installing R on a Linux computer</a></li>
+<li class="chapter" data-level="2.3.4" data-path="introR.html"><a href="introR.html#installingrstudio"><i class="fa fa-check"></i><b>2.3.4</b> Downloading and installing RStudio</a></li>
+<li class="chapter" data-level="2.3.5" data-path="introR.html"><a href="introR.html#startingR"><i class="fa fa-check"></i><b>2.3.5</b> Starting up R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introR.html"><a href="introR.html#firstcommand"><i class="fa fa-check"></i><b>2.4</b> Typing commands at the R console</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="introR.html"><a href="introR.html#an-important-digression-about-formatting"><i class="fa fa-check"></i><b>2.4.1</b> An important digression about formatting</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introR.html"><a href="introR.html#be-very-careful-to-avoid-typos"><i class="fa fa-check"></i><b>2.4.2</b> Be very careful to avoid typos</a></li>
+<li class="chapter" data-level="2.4.3" data-path="introR.html"><a href="introR.html#r-is-a-bit-flexible-with-spacing"><i class="fa fa-check"></i><b>2.4.3</b> R is (a bit) flexible with spacing</a></li>
+<li class="chapter" data-level="2.4.4" data-path="introR.html"><a href="introR.html#r-can-sometimes-tell-that-youre-not-finished-yet-but-not-often"><i class="fa fa-check"></i><b>2.4.4</b> R can sometimes tell that you’re not finished yet (but not often)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introR.html"><a href="introR.html#arithmetic"><i class="fa fa-check"></i><b>2.5</b> Doing simple calculations with R</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="introR.html"><a href="introR.html#adding-subtracting-multiplying-and-dividing"><i class="fa fa-check"></i><b>2.5.1</b> Adding, subtracting, multiplying and dividing</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introR.html"><a href="introR.html#taking-powers"><i class="fa fa-check"></i><b>2.5.2</b> Taking powers</a></li>
+<li class="chapter" data-level="2.5.3" data-path="introR.html"><a href="introR.html#bedmas"><i class="fa fa-check"></i><b>2.5.3</b> Doing calculations in the right order</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="introR.html"><a href="introR.html#assign"><i class="fa fa-check"></i><b>2.6</b> Storing a number as a variable</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="introR.html"><a href="introR.html#variable-assignment-using---and--"><i class="fa fa-check"></i><b>2.6.1</b> Variable assignment using <code>&lt;-</code> and <code>-&gt;</code></a></li>
+<li class="chapter" data-level="2.6.2" data-path="introR.html"><a href="introR.html#doing-calculations-using-variables"><i class="fa fa-check"></i><b>2.6.2</b> Doing calculations using variables</a></li>
+<li class="chapter" data-level="2.6.3" data-path="introR.html"><a href="introR.html#rules-and-conventions-for-naming-variables"><i class="fa fa-check"></i><b>2.6.3</b> Rules and conventions for naming variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="introR.html"><a href="introR.html#usingfunctions"><i class="fa fa-check"></i><b>2.7</b> Using functions to do calculations</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="introR.html"><a href="introR.html#functionarguments"><i class="fa fa-check"></i><b>2.7.1</b> Function arguments, their names and their defaults</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="introR.html"><a href="introR.html#RStudio1"><i class="fa fa-check"></i><b>2.8</b> Letting RStudio help you with your commands</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="introR.html"><a href="introR.html#autocomplete-using-tab"><i class="fa fa-check"></i><b>2.8.1</b> Autocomplete using “tab”</a></li>
+<li class="chapter" data-level="2.8.2" data-path="introR.html"><a href="introR.html#browsing-your-command-history"><i class="fa fa-check"></i><b>2.8.2</b> Browsing your command history</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="introR.html"><a href="introR.html#vectors"><i class="fa fa-check"></i><b>2.9</b> Storing many numbers as a vector</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="introR.html"><a href="introR.html#creating-a-vector"><i class="fa fa-check"></i><b>2.9.1</b> Creating a vector</a></li>
+<li class="chapter" data-level="2.9.2" data-path="introR.html"><a href="introR.html#a-handy-digression"><i class="fa fa-check"></i><b>2.9.2</b> A handy digression</a></li>
+<li class="chapter" data-level="2.9.3" data-path="introR.html"><a href="introR.html#vectorsubset"><i class="fa fa-check"></i><b>2.9.3</b> Getting information out of vectors</a></li>
+<li class="chapter" data-level="2.9.4" data-path="introR.html"><a href="introR.html#altering-the-elements-of-a-vector"><i class="fa fa-check"></i><b>2.9.4</b> Altering the elements of a vector</a></li>
+<li class="chapter" data-level="2.9.5" data-path="introR.html"><a href="introR.html#veclength"><i class="fa fa-check"></i><b>2.9.5</b> Useful things to know about vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="introR.html"><a href="introR.html#text"><i class="fa fa-check"></i><b>2.10</b> Storing text data</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="introR.html"><a href="introR.html#simpletext"><i class="fa fa-check"></i><b>2.10.1</b> Working with text</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="introR.html"><a href="introR.html#logicals"><i class="fa fa-check"></i><b>2.11</b> Storing “true or false” data</a>
+<ul>
+<li class="chapter" data-level="2.11.1" data-path="introR.html"><a href="introR.html#assessing-mathematical-truths"><i class="fa fa-check"></i><b>2.11.1</b> Assessing mathematical truths</a></li>
+<li class="chapter" data-level="2.11.2" data-path="introR.html"><a href="introR.html#logical-operations"><i class="fa fa-check"></i><b>2.11.2</b> Logical operations</a></li>
+<li class="chapter" data-level="2.11.3" data-path="introR.html"><a href="introR.html#storing-and-using-logical-data"><i class="fa fa-check"></i><b>2.11.3</b> Storing and using logical data</a></li>
+<li class="chapter" data-level="2.11.4" data-path="introR.html"><a href="introR.html#vectors-of-logicals"><i class="fa fa-check"></i><b>2.11.4</b> Vectors of logicals</a></li>
+<li class="chapter" data-level="2.11.5" data-path="introR.html"><a href="introR.html#logictext"><i class="fa fa-check"></i><b>2.11.5</b> Applying logical operation to text</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="introR.html"><a href="introR.html#indexing"><i class="fa fa-check"></i><b>2.12</b> Indexing vectors</a>
+<ul>
+<li class="chapter" data-level="2.12.1" data-path="introR.html"><a href="introR.html#extracting-multiple-elements"><i class="fa fa-check"></i><b>2.12.1</b> Extracting multiple elements</a></li>
+<li class="chapter" data-level="2.12.2" data-path="introR.html"><a href="introR.html#logical-indexing"><i class="fa fa-check"></i><b>2.12.2</b> Logical indexing</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="introR.html"><a href="introR.html#quitting-r"><i class="fa fa-check"></i><b>2.13</b> Quitting R</a></li>
+<li class="chapter" data-level="2.14" data-path="introR.html"><a href="introR.html#summary"><i class="fa fa-check"></i><b>2.14</b> Summary</a></li>
+<li class="chapter" data-level="2.15" data-path="introR.html"><a href="introR.html#mechanics"><i class="fa fa-check"></i><b>2.15</b> Additional R concepts</a></li>
+<li class="chapter" data-level="2.16" data-path="introR.html"><a href="introR.html#comments"><i class="fa fa-check"></i><b>2.16</b> Using comments</a></li>
+<li class="chapter" data-level="2.17" data-path="introR.html"><a href="introR.html#packageinstall"><i class="fa fa-check"></i><b>2.17</b> Installing and loading packages</a>
+<ul>
+<li class="chapter" data-level="2.17.1" data-path="introR.html"><a href="introR.html#the-package-panel-in-rstudio"><i class="fa fa-check"></i><b>2.17.1</b> The package panel in RStudio</a></li>
+<li class="chapter" data-level="2.17.2" data-path="introR.html"><a href="introR.html#packageload"><i class="fa fa-check"></i><b>2.17.2</b> Loading a package</a></li>
+<li class="chapter" data-level="2.17.3" data-path="introR.html"><a href="introR.html#packageunload"><i class="fa fa-check"></i><b>2.17.3</b> Unloading a package</a></li>
+<li class="chapter" data-level="2.17.4" data-path="introR.html"><a href="introR.html#a-few-extra-comments"><i class="fa fa-check"></i><b>2.17.4</b> A few extra comments</a></li>
+<li class="chapter" data-level="2.17.5" data-path="introR.html"><a href="introR.html#downloading-new-packages"><i class="fa fa-check"></i><b>2.17.5</b> Downloading new packages</a></li>
+<li class="chapter" data-level="2.17.6" data-path="introR.html"><a href="introR.html#updating-r-and-r-packages"><i class="fa fa-check"></i><b>2.17.6</b> Updating R and R packages</a></li>
+<li class="chapter" data-level="2.17.7" data-path="introR.html"><a href="introR.html#what-packages-does-this-book-use"><i class="fa fa-check"></i><b>2.17.7</b> What packages does this book use?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.18" data-path="introR.html"><a href="introR.html#workspace"><i class="fa fa-check"></i><b>2.18</b> Managing the workspace</a>
+<ul>
+<li class="chapter" data-level="2.18.1" data-path="introR.html"><a href="introR.html#listing-the-contents-of-the-workspace"><i class="fa fa-check"></i><b>2.18.1</b> Listing the contents of the workspace</a></li>
+<li class="chapter" data-level="2.18.2" data-path="introR.html"><a href="introR.html#removing-variables-from-the-workspace"><i class="fa fa-check"></i><b>2.18.2</b> Removing variables from the workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="2.19" data-path="introR.html"><a href="introR.html#navigation"><i class="fa fa-check"></i><b>2.19</b> Navigating the file system</a>
+<ul>
+<li class="chapter" data-level="2.19.1" data-path="introR.html"><a href="introR.html#filesystem"><i class="fa fa-check"></i><b>2.19.1</b> The file system itself</a></li>
+<li class="chapter" data-level="2.19.2" data-path="introR.html"><a href="introR.html#navigationR"><i class="fa fa-check"></i><b>2.19.2</b> Navigating the file system using the R console</a></li>
+<li class="chapter" data-level="2.19.3" data-path="introR.html"><a href="introR.html#why-do-the-windows-paths-use-the-wrong-slash"><i class="fa fa-check"></i><b>2.19.3</b> Why do the Windows paths use the wrong slash?</a></li>
+<li class="chapter" data-level="2.19.4" data-path="introR.html"><a href="introR.html#nav3"><i class="fa fa-check"></i><b>2.19.4</b> Navigating the file system using the RStudio file panel</a></li>
+</ul></li>
+<li class="chapter" data-level="2.20" data-path="introR.html"><a href="introR.html#load"><i class="fa fa-check"></i><b>2.20</b> Loading and saving data</a>
+<ul>
+<li class="chapter" data-level="2.20.1" data-path="introR.html"><a href="introR.html#loading-workspace-files-using-r"><i class="fa fa-check"></i><b>2.20.1</b> Loading workspace files using R</a></li>
+<li class="chapter" data-level="2.20.2" data-path="introR.html"><a href="introR.html#loading-workspace-files-using-rstudio"><i class="fa fa-check"></i><b>2.20.2</b> Loading workspace files using RStudio</a></li>
+<li class="chapter" data-level="2.20.3" data-path="introR.html"><a href="introR.html#loadingcsv"><i class="fa fa-check"></i><b>2.20.3</b> Importing data from CSV files using loadingcsv</a></li>
+<li class="chapter" data-level="2.20.4" data-path="introR.html"><a href="introR.html#importing-data-from-csv-files-using-rstudio"><i class="fa fa-check"></i><b>2.20.4</b> Importing data from CSV files using RStudio</a></li>
+<li class="chapter" data-level="2.20.5" data-path="introR.html"><a href="introR.html#saving-a-workspace-file-using-save"><i class="fa fa-check"></i><b>2.20.5</b> Saving a workspace file using <code>save</code></a></li>
+<li class="chapter" data-level="2.20.6" data-path="introR.html"><a href="introR.html#save1"><i class="fa fa-check"></i><b>2.20.6</b> Saving a workspace file using RStudio</a></li>
+<li class="chapter" data-level="2.20.7" data-path="introR.html"><a href="introR.html#other-things-you-might-want-to-save"><i class="fa fa-check"></i><b>2.20.7</b> Other things you might want to save</a></li>
+</ul></li>
+<li class="chapter" data-level="2.21" data-path="introR.html"><a href="introR.html#useful"><i class="fa fa-check"></i><b>2.21</b> Useful things to know about variables</a>
+<ul>
+<li class="chapter" data-level="2.21.1" data-path="introR.html"><a href="introR.html#specials"><i class="fa fa-check"></i><b>2.21.1</b> Special values</a></li>
+<li class="chapter" data-level="2.21.2" data-path="introR.html"><a href="introR.html#names"><i class="fa fa-check"></i><b>2.21.2</b> Assigning names to vector elements</a></li>
+<li class="chapter" data-level="2.21.3" data-path="introR.html"><a href="introR.html#variable-classes"><i class="fa fa-check"></i><b>2.21.3</b> Variable classes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.22" data-path="introR.html"><a href="introR.html#factors"><i class="fa fa-check"></i><b>2.22</b> Factors</a>
+<ul>
+<li class="chapter" data-level="2.22.1" data-path="introR.html"><a href="introR.html#introducing-factors"><i class="fa fa-check"></i><b>2.22.1</b> Introducing factors</a></li>
+<li class="chapter" data-level="2.22.2" data-path="introR.html"><a href="introR.html#labelling-the-factor-levels"><i class="fa fa-check"></i><b>2.22.2</b> Labelling the factor levels</a></li>
+<li class="chapter" data-level="2.22.3" data-path="introR.html"><a href="introR.html#moving-on"><i class="fa fa-check"></i><b>2.22.3</b> Moving on…</a></li>
+</ul></li>
+<li class="chapter" data-level="2.23" data-path="introR.html"><a href="introR.html#dataframes"><i class="fa fa-check"></i><b>2.23</b> Data frames</a>
+<ul>
+<li class="chapter" data-level="2.23.1" data-path="introR.html"><a href="introR.html#introducing-data-frames"><i class="fa fa-check"></i><b>2.23.1</b> Introducing data frames</a></li>
+<li class="chapter" data-level="2.23.2" data-path="introR.html"><a href="introR.html#pulling-out-the-contents-of-the-data-frame-using"><i class="fa fa-check"></i><b>2.23.2</b> Pulling out the contents of the data frame using <code>$</code></a></li>
+<li class="chapter" data-level="2.23.3" data-path="introR.html"><a href="introR.html#getting-information-about-a-data-frame"><i class="fa fa-check"></i><b>2.23.3</b> Getting information about a data frame</a></li>
+<li class="chapter" data-level="2.23.4" data-path="introR.html"><a href="introR.html#looking-for-more-on-data-frames"><i class="fa fa-check"></i><b>2.23.4</b> Looking for more on data frames?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.24" data-path="introR.html"><a href="introR.html#lists"><i class="fa fa-check"></i><b>2.24</b> Lists</a></li>
+<li class="chapter" data-level="2.25" data-path="introR.html"><a href="introR.html#formulas"><i class="fa fa-check"></i><b>2.25</b> Formulas</a></li>
+<li class="chapter" data-level="2.26" data-path="introR.html"><a href="introR.html#generics"><i class="fa fa-check"></i><b>2.26</b> Generic functions</a></li>
+<li class="chapter" data-level="2.27" data-path="introR.html"><a href="introR.html#help"><i class="fa fa-check"></i><b>2.27</b> Getting help</a>
+<ul>
+<li class="chapter" data-level="2.27.1" data-path="introR.html"><a href="introR.html#how-to-read-the-help-documentation"><i class="fa fa-check"></i><b>2.27.1</b> How to read the help documentation</a></li>
+<li class="chapter" data-level="2.27.2" data-path="introR.html"><a href="introR.html#other-resources"><i class="fa fa-check"></i><b>2.27.2</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="2.28" data-path="introR.html"><a href="introR.html#summary-1"><i class="fa fa-check"></i><b>2.28</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="descriptives.html"><a href="descriptives.html#videos-1"><i class="fa fa-check"></i><b>3.1</b> Videos</a></li>
+<li class="chapter" data-level="3.2" data-path="descriptives.html"><a href="descriptives.html#introduction-2"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="descriptives.html"><a href="descriptives.html#centraltendency"><i class="fa fa-check"></i><b>3.3</b> Measures of central tendency</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="descriptives.html"><a href="descriptives.html#mean"><i class="fa fa-check"></i><b>3.3.1</b> The mean</a></li>
+<li class="chapter" data-level="3.3.2" data-path="descriptives.html"><a href="descriptives.html#calculating-the-mean-in-r"><i class="fa fa-check"></i><b>3.3.2</b> Calculating the mean in R</a></li>
+<li class="chapter" data-level="3.3.3" data-path="descriptives.html"><a href="descriptives.html#median"><i class="fa fa-check"></i><b>3.3.3</b> The median</a></li>
+<li class="chapter" data-level="3.3.4" data-path="descriptives.html"><a href="descriptives.html#mean-or-median-whats-the-difference"><i class="fa fa-check"></i><b>3.3.4</b> Mean or median? What’s the difference?</a></li>
+<li class="chapter" data-level="3.3.5" data-path="descriptives.html"><a href="descriptives.html#housingpriceexample"><i class="fa fa-check"></i><b>3.3.5</b> A real life example</a></li>
+<li class="chapter" data-level="3.3.6" data-path="descriptives.html"><a href="descriptives.html#trimmedmean"><i class="fa fa-check"></i><b>3.3.6</b> Trimmed mean</a></li>
+<li class="chapter" data-level="3.3.7" data-path="descriptives.html"><a href="descriptives.html#mode"><i class="fa fa-check"></i><b>3.3.7</b> Mode</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="descriptives.html"><a href="descriptives.html#var"><i class="fa fa-check"></i><b>3.4</b> Measures of variability</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="descriptives.html"><a href="descriptives.html#range"><i class="fa fa-check"></i><b>3.4.1</b> Range</a></li>
+<li class="chapter" data-level="3.4.2" data-path="descriptives.html"><a href="descriptives.html#interquartile-range"><i class="fa fa-check"></i><b>3.4.2</b> Interquartile range</a></li>
+<li class="chapter" data-level="3.4.3" data-path="descriptives.html"><a href="descriptives.html#aad"><i class="fa fa-check"></i><b>3.4.3</b> Mean absolute deviation</a></li>
+<li class="chapter" data-level="3.4.4" data-path="descriptives.html"><a href="descriptives.html#variance"><i class="fa fa-check"></i><b>3.4.4</b> Variance</a></li>
+<li class="chapter" data-level="3.4.5" data-path="descriptives.html"><a href="descriptives.html#sd"><i class="fa fa-check"></i><b>3.4.5</b> Standard deviation</a></li>
+<li class="chapter" data-level="3.4.6" data-path="descriptives.html"><a href="descriptives.html#mad"><i class="fa fa-check"></i><b>3.4.6</b> Median absolute deviation</a></li>
+<li class="chapter" data-level="3.4.7" data-path="descriptives.html"><a href="descriptives.html#which-measure-to-use"><i class="fa fa-check"></i><b>3.4.7</b> Which measure to use?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="descriptives.html"><a href="descriptives.html#skewandkurtosis"><i class="fa fa-check"></i><b>3.5</b> Skew and kurtosis</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="descriptives.html"><a href="descriptives.html#more-detail-on-skewness-measures"><i class="fa fa-check"></i><b>3.5.1</b> More detail on skewness measures</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="descriptives.html"><a href="descriptives.html#descriptive-summary"><i class="fa fa-check"></i><b>3.6</b> Getting an overall summary of a variable</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="descriptives.html"><a href="descriptives.html#summarising-a-variable"><i class="fa fa-check"></i><b>3.6.1</b> “Summarising” a variable</a></li>
+<li class="chapter" data-level="3.6.2" data-path="descriptives.html"><a href="descriptives.html#summarising-a-data-frame"><i class="fa fa-check"></i><b>3.6.2</b> “Summarising” a data frame</a></li>
+<li class="chapter" data-level="3.6.3" data-path="descriptives.html"><a href="descriptives.html#describing-a-data-frame"><i class="fa fa-check"></i><b>3.6.3</b> “Describing” a data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="descriptives.html"><a href="descriptives.html#groupdescriptives"><i class="fa fa-check"></i><b>3.7</b> Descriptive statistics separately for each group</a></li>
+<li class="chapter" data-level="3.8" data-path="descriptives.html"><a href="descriptives.html#good-descriptive-statistics-are-descriptive"><i class="fa fa-check"></i><b>3.8</b> Good descriptive statistics are descriptive!</a></li>
+<li class="chapter" data-level="3.9" data-path="descriptives.html"><a href="descriptives.html#graphics"><i class="fa fa-check"></i><b>3.9</b> Drawing graphs</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="descriptives.html"><a href="descriptives.html#introplotting"><i class="fa fa-check"></i><b>3.9.1</b> An introduction to plotting</a></li>
+<li class="chapter" data-level="3.9.2" data-path="descriptives.html"><a href="descriptives.html#hist"><i class="fa fa-check"></i><b>3.9.2</b> Histograms</a></li>
+<li class="chapter" data-level="3.9.3" data-path="descriptives.html"><a href="descriptives.html#boxplots"><i class="fa fa-check"></i><b>3.9.3</b> Boxplots</a></li>
+<li class="chapter" data-level="3.9.4" data-path="descriptives.html"><a href="descriptives.html#bargraph"><i class="fa fa-check"></i><b>3.9.4</b> Bar graphs</a></li>
+<li class="chapter" data-level="3.9.5" data-path="descriptives.html"><a href="descriptives.html#saveimage"><i class="fa fa-check"></i><b>3.9.5</b> Saving image files using R and Rstudio</a></li>
+<li class="chapter" data-level="3.9.6" data-path="descriptives.html"><a href="descriptives.html#summary-2"><i class="fa fa-check"></i><b>3.9.6</b> Summary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html"><i class="fa fa-check"></i><b>4</b> Inferential statistics: The Central Limit Theorem</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#videos-2"><i class="fa fa-check"></i><b>4.1</b> Videos</a></li>
+<li class="chapter" data-level="4.2" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#estimation"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
+<li class="chapter" data-level="4.3" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#probstats"><i class="fa fa-check"></i><b>4.3</b> How are probability and statistics different?</a></li>
+<li class="chapter" data-level="4.4" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#probmeaning"><i class="fa fa-check"></i><b>4.4</b> What does probability mean?</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#the-frequentist-view"><i class="fa fa-check"></i><b>4.4.1</b> The frequentist view</a></li>
+<li class="chapter" data-level="4.4.2" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#the-bayesian-view"><i class="fa fa-check"></i><b>4.4.2</b> The Bayesian view</a></li>
+<li class="chapter" data-level="4.4.3" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#whats-the-difference-and-who-is-right"><i class="fa fa-check"></i><b>4.4.3</b> What’s the difference? And who is right?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#srs"><i class="fa fa-check"></i><b>4.5</b> Samples, populations and sampling</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#pop"><i class="fa fa-check"></i><b>4.5.1</b> Defining a population</a></li>
+<li class="chapter" data-level="4.5.2" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#simple-random-samples"><i class="fa fa-check"></i><b>4.5.2</b> Simple random samples</a></li>
+<li class="chapter" data-level="4.5.3" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#most-samples-are-not-simple-random-samples"><i class="fa fa-check"></i><b>4.5.3</b> Most samples are not simple random samples</a></li>
+<li class="chapter" data-level="4.5.4" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#how-much-does-it-matter-if-you-dont-have-a-simple-random-sample"><i class="fa fa-check"></i><b>4.5.4</b> How much does it matter if you don’t have a simple random sample?</a></li>
+<li class="chapter" data-level="4.5.5" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#population-parameters-and-sample-statistics"><i class="fa fa-check"></i><b>4.5.5</b> Population parameters and sample statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#lawlargenumbers"><i class="fa fa-check"></i><b>4.6</b> The law of large numbers</a></li>
+<li class="chapter" data-level="4.7" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#samplesandclt"><i class="fa fa-check"></i><b>4.7</b> Sampling distributions and the central limit theorem</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#samplingdists"><i class="fa fa-check"></i><b>4.7.1</b> Sampling distribution of the mean</a></li>
+<li class="chapter" data-level="4.7.2" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#sample-size-and-population-size"><i class="fa fa-check"></i><b>4.7.2</b> Sample size and population size</a></li>
+<li class="chapter" data-level="4.7.3" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#sampling-error"><i class="fa fa-check"></i><b>4.7.3</b> Sampling error</a></li>
+<li class="chapter" data-level="4.7.4" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#another-sampling-distribution"><i class="fa fa-check"></i><b>4.7.4</b> Another sampling distribution</a></li>
+<li class="chapter" data-level="4.7.5" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#defining-the-central-limit-theorem"><i class="fa fa-check"></i><b>4.7.5</b> Defining the central limit theorem</a></li>
+<li class="chapter" data-level="4.7.6" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#more-on-standard-error"><i class="fa fa-check"></i><b>4.7.6</b> More on standard error</a></li>
+<li class="chapter" data-level="4.7.7" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#the-sampling-distribution-tells-us-about-the-probability-of-sample-means"><i class="fa fa-check"></i><b>4.7.7</b> The sampling distribution tells us about the probability of sample means</a></li>
+<li class="chapter" data-level="4.7.8" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#sampling-distributions-exist-for-any-sample-statistic"><i class="fa fa-check"></i><b>4.7.8</b> Sampling distributions exist for any sample statistic!</a></li>
+<li class="chapter" data-level="4.7.9" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#clt"><i class="fa fa-check"></i><b>4.7.9</b> The central limit theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#pointestimates"><i class="fa fa-check"></i><b>4.8</b> Estimating population parameters</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#estimating-the-population-mean"><i class="fa fa-check"></i><b>4.8.1</b> Estimating the population mean</a></li>
+<li class="chapter" data-level="4.8.2" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#estimating-the-population-standard-deviation"><i class="fa fa-check"></i><b>4.8.2</b> Estimating the population standard deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#ci"><i class="fa fa-check"></i><b>4.9</b> Estimating a confidence interval</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#a-slight-mistake-in-the-formula"><i class="fa fa-check"></i><b>4.9.1</b> A slight mistake in the formula</a></li>
+<li class="chapter" data-level="4.9.2" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#interpreting-a-confidence-interval"><i class="fa fa-check"></i><b>4.9.2</b> Interpreting a confidence interval</a></li>
+<li class="chapter" data-level="4.9.3" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#calculating-confidence-intervals-in-r"><i class="fa fa-check"></i><b>4.9.3</b> Calculating confidence intervals in R</a></li>
+<li class="chapter" data-level="4.9.4" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#ciplots"><i class="fa fa-check"></i><b>4.9.4</b> Plotting confidence intervals in R</a></li>
+</ul></li>
+<li class="chapter" data-level="4.10" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#summary-3"><i class="fa fa-check"></i><b>4.10</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="hypothesistesting.html"><a href="hypothesistesting.html"><i class="fa fa-check"></i><b>5</b> Hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#videos-3"><i class="fa fa-check"></i><b>5.1</b> Videos</a></li>
+<li class="chapter" data-level="5.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#introduction-3"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="hypothesistesting.html"><a href="hypothesistesting.html#hypotheses"><i class="fa fa-check"></i><b>5.3</b> A menagerie of hypotheses</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#research-hypotheses-versus-statistical-hypotheses"><i class="fa fa-check"></i><b>5.3.1</b> Research hypotheses versus statistical hypotheses</a></li>
+<li class="chapter" data-level="5.3.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#null-hypotheses-and-alternative-hypotheses"><i class="fa fa-check"></i><b>5.3.2</b> Null hypotheses and alternative hypotheses</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="hypothesistesting.html"><a href="hypothesistesting.html#errortypes"><i class="fa fa-check"></i><b>5.4</b> Two types of errors</a></li>
+<li class="chapter" data-level="5.5" data-path="hypothesistesting.html"><a href="hypothesistesting.html#teststatistics"><i class="fa fa-check"></i><b>5.5</b> Test statistics and sampling distributions</a></li>
+<li class="chapter" data-level="5.6" data-path="hypothesistesting.html"><a href="hypothesistesting.html#decisionmaking"><i class="fa fa-check"></i><b>5.6</b> Making decisions</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#critical-regions-and-critical-values"><i class="fa fa-check"></i><b>5.6.1</b> Critical regions and critical values</a></li>
+<li class="chapter" data-level="5.6.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#a-note-on-statistical-significance"><i class="fa fa-check"></i><b>5.6.2</b> A note on statistical “significance”</a></li>
+<li class="chapter" data-level="5.6.3" data-path="hypothesistesting.html"><a href="hypothesistesting.html#onesidedtests"><i class="fa fa-check"></i><b>5.6.3</b> The difference between one sided and two sided tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="hypothesistesting.html"><a href="hypothesistesting.html#pvalue"><i class="fa fa-check"></i><b>5.7</b> The <span class="math inline">\(p\)</span> value of a test</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#a-softer-view-of-decision-making"><i class="fa fa-check"></i><b>5.7.1</b> A softer view of decision making</a></li>
+<li class="chapter" data-level="5.7.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#the-probability-of-extreme-data"><i class="fa fa-check"></i><b>5.7.2</b> The probability of extreme data</a></li>
+<li class="chapter" data-level="5.7.3" data-path="hypothesistesting.html"><a href="hypothesistesting.html#a-common-mistake"><i class="fa fa-check"></i><b>5.7.3</b> A common mistake</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="hypothesistesting.html"><a href="hypothesistesting.html#writeup"><i class="fa fa-check"></i><b>5.8</b> Reporting the results of a hypothesis test</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#the-issue"><i class="fa fa-check"></i><b>5.8.1</b> The issue</a></li>
+<li class="chapter" data-level="5.8.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#two-proposed-solutions"><i class="fa fa-check"></i><b>5.8.2</b> Two proposed solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="hypothesistesting.html"><a href="hypothesistesting.html#running-the-hypothesis-test-in-practice"><i class="fa fa-check"></i><b>5.9</b> Running the hypothesis test in practice</a></li>
+<li class="chapter" data-level="5.10" data-path="hypothesistesting.html"><a href="hypothesistesting.html#effectsize"><i class="fa fa-check"></i><b>5.10</b> Effect size, sample size and power</a>
+<ul>
+<li class="chapter" data-level="5.10.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#the-power-function"><i class="fa fa-check"></i><b>5.10.1</b> The power function</a></li>
+<li class="chapter" data-level="5.10.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#effect-size"><i class="fa fa-check"></i><b>5.10.2</b> Effect size</a></li>
+<li class="chapter" data-level="5.10.3" data-path="hypothesistesting.html"><a href="hypothesistesting.html#increasing-the-power-of-your-study"><i class="fa fa-check"></i><b>5.10.3</b> Increasing the power of your study</a></li>
+</ul></li>
+<li class="chapter" data-level="5.11" data-path="hypothesistesting.html"><a href="hypothesistesting.html#nhstmess"><i class="fa fa-check"></i><b>5.11</b> Some issues to consider</a>
+<ul>
+<li class="chapter" data-level="5.11.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#neyman-versus-fisher"><i class="fa fa-check"></i><b>5.11.1</b> Neyman versus Fisher</a></li>
+<li class="chapter" data-level="5.11.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#bayesians-versus-frequentists"><i class="fa fa-check"></i><b>5.11.2</b> Bayesians versus frequentists</a></li>
+<li class="chapter" data-level="5.11.3" data-path="hypothesistesting.html"><a href="hypothesistesting.html#traps"><i class="fa fa-check"></i><b>5.11.3</b> Traps</a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="hypothesistesting.html"><a href="hypothesistesting.html#summary-4"><i class="fa fa-check"></i><b>5.12</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html"><i class="fa fa-check"></i><b>6</b> Issues in Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#videos-4"><i class="fa fa-check"></i><b>6.1</b> Videos</a></li>
+<li class="chapter" data-level="6.2" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#introduction-4"><i class="fa fa-check"></i><b>6.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.3" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#the-researcher-affects-nhst-outcomes"><i class="fa fa-check"></i><b>6.3</b> The researcher affects NHST outcomes</a></li>
+<li class="chapter" data-level="6.4" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#nhst-misunderstandings"><i class="fa fa-check"></i><b>6.4</b> NHST Misunderstandings</a></li>
+<li class="chapter" data-level="6.5" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#nhst-issues"><i class="fa fa-check"></i><b>6.5</b> NHST Issues</a></li>
+<li class="chapter" data-level="6.6" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#conclusions"><i class="fa fa-check"></i><b>6.6</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html"><i class="fa fa-check"></i><b>7</b> Data Cleaning and Missing Values Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#videos-5"><i class="fa fa-check"></i><b>7.1</b> Videos</a></li>
+<li class="chapter" data-level="7.2" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#introduction-dealing-with-the-unexpected"><i class="fa fa-check"></i><b>7.2</b> Introduction: Dealing with the Unexpected</a></li>
+<li class="chapter" data-level="7.3" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#data-cleaning"><i class="fa fa-check"></i><b>7.3</b> Data Cleaning</a></li>
+<li class="chapter" data-level="7.4" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#a-general-plan-for-data-cleaning"><i class="fa fa-check"></i><b>7.4</b> A General Plan for Data Cleaning</a></li>
+<li class="chapter" data-level="7.5" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#step-0.-design-your-research-to-mimimize-data-problems"><i class="fa fa-check"></i><b>7.5</b> Step 0. Design your Research to Mimimize Data Problems</a></li>
+<li class="chapter" data-level="7.6" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#step-1.-examine-your-data"><i class="fa fa-check"></i><b>7.6</b> Step 1. Examine Your Data</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#sort"><i class="fa fa-check"></i><b>7.6.1</b> Sorting, flipping and merging data</a></li>
+<li class="chapter" data-level="7.6.2" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#binding-vectors-together"><i class="fa fa-check"></i><b>7.6.2</b> Binding vectors together</a></li>
+<li class="chapter" data-level="7.6.3" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#reshape"><i class="fa fa-check"></i><b>7.6.3</b> Reshaping a data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#step-2.-outlier-analysis"><i class="fa fa-check"></i><b>7.7</b> Step 2. Outlier Analysis</a></li>
+<li class="chapter" data-level="7.8" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#step-3.-missing-values-analysis"><i class="fa fa-check"></i><b>7.8</b> Step 3. Missing values analysis</a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="introR.html"><a href="introR.html#specials"><i class="fa fa-check"></i><b>7.8.1</b> Special values in R</a></li>
+<li class="chapter" data-level="7.8.2" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#missing"><i class="fa fa-check"></i><b>7.8.2</b> Handling missing values in R</a></li>
+<li class="chapter" data-level="7.8.3" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#why-values-are-missing-mcar-mar-and-mnar"><i class="fa fa-check"></i><b>7.8.3</b> Why values are missing: MCAR, MAR, and MNAR</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#step-4.-test-specific-assumption-checking"><i class="fa fa-check"></i><b>7.9</b> Step 4. Test-specific assumption checking</a></li>
+<li class="chapter" data-level="7.10" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#communicate-results-of-data-cleaning-in-apa-style"><i class="fa fa-check"></i><b>7.10</b> Communicate results of data cleaning in APA style</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> Regression</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="regression.html"><a href="regression.html#videos-6"><i class="fa fa-check"></i><b>8.1</b> Videos</a></li>
+<li class="chapter" data-level="8.2" data-path="regression.html"><a href="regression.html#introduction-5"><i class="fa fa-check"></i><b>8.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.3" data-path="regression.html"><a href="regression.html#towards-statistical-unity-the-glm"><i class="fa fa-check"></i><b>8.3</b> Towards Statistical Unity: The GLM</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="regression.html"><a href="regression.html#traditional-approach-two-kinds-of-parametric-statistical-tests"><i class="fa fa-check"></i><b>8.3.1</b> Traditional approach: Two kinds of parametric statistical tests</a></li>
+<li class="chapter" data-level="8.3.2" data-path="regression.html"><a href="regression.html#the-glm-approach"><i class="fa fa-check"></i><b>8.3.2</b> The GLM approach</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="regression.html"><a href="regression.html#introregression"><i class="fa fa-check"></i><b>8.4</b> What is a linear regression model?</a></li>
+<li class="chapter" data-level="8.5" data-path="regression.html"><a href="regression.html#regressionestimation"><i class="fa fa-check"></i><b>8.5</b> Estimating a linear regression model</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="regression.html"><a href="regression.html#lm"><i class="fa fa-check"></i><b>8.5.1</b> Using the <code>lm()</code> function</a></li>
+<li class="chapter" data-level="8.5.2" data-path="regression.html"><a href="regression.html#interpreting-the-estimated-model"><i class="fa fa-check"></i><b>8.5.2</b> Interpreting the estimated model</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="regression.html"><a href="regression.html#multipleregression"><i class="fa fa-check"></i><b>8.6</b> Multiple linear regression</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="regression.html"><a href="regression.html#doing-it-in-r"><i class="fa fa-check"></i><b>8.6.1</b> Doing it in R</a></li>
+<li class="chapter" data-level="8.6.2" data-path="regression.html"><a href="regression.html#formula-for-the-general-case"><i class="fa fa-check"></i><b>8.6.2</b> Formula for the general case</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="regression.html"><a href="regression.html#r2"><i class="fa fa-check"></i><b>8.7</b> Quantifying the fit of the regression model</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="regression.html"><a href="regression.html#the-r2-value"><i class="fa fa-check"></i><b>8.7.1</b> The <span class="math inline">\(R^2\)</span> value</a></li>
+<li class="chapter" data-level="8.7.2" data-path="regression.html"><a href="regression.html#the-relationship-between-regression-and-correlation"><i class="fa fa-check"></i><b>8.7.2</b> The relationship between regression and correlation</a></li>
+<li class="chapter" data-level="8.7.3" data-path="regression.html"><a href="regression.html#the-adjusted-r2-value"><i class="fa fa-check"></i><b>8.7.3</b> The adjusted <span class="math inline">\(R^2\)</span> value</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="regression.html"><a href="regression.html#regressiontests"><i class="fa fa-check"></i><b>8.8</b> Hypothesis tests for regression models</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="regression.html"><a href="regression.html#testing-the-model-as-a-whole"><i class="fa fa-check"></i><b>8.8.1</b> Testing the model as a whole</a></li>
+<li class="chapter" data-level="8.8.2" data-path="regression.html"><a href="regression.html#tests-for-individual-coefficients"><i class="fa fa-check"></i><b>8.8.2</b> Tests for individual coefficients</a></li>
+<li class="chapter" data-level="8.8.3" data-path="regression.html"><a href="regression.html#regressionsummary"><i class="fa fa-check"></i><b>8.8.3</b> Running the hypothesis tests in R</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="regression.html"><a href="regression.html#corrhyp"><i class="fa fa-check"></i><b>8.9</b> Testing the significance of a correlation</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="regression.html"><a href="regression.html#hypothesis-tests-for-a-single-correlation"><i class="fa fa-check"></i><b>8.9.1</b> Hypothesis tests for a single correlation</a></li>
+<li class="chapter" data-level="8.9.2" data-path="regression.html"><a href="regression.html#corrhyp2"><i class="fa fa-check"></i><b>8.9.2</b> Hypothesis tests for all pairwise correlations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="regression.html"><a href="regression.html#regressioncoefs"><i class="fa fa-check"></i><b>8.10</b> Regarding regression coefficients</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="regression.html"><a href="regression.html#confidence-intervals-for-the-coefficients"><i class="fa fa-check"></i><b>8.10.1</b> Confidence intervals for the coefficients</a></li>
+<li class="chapter" data-level="8.10.2" data-path="regression.html"><a href="regression.html#calculating-standardised-regression-coefficients"><i class="fa fa-check"></i><b>8.10.2</b> Calculating standardised regression coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="regression.html"><a href="regression.html#regressionassumptions"><i class="fa fa-check"></i><b>8.11</b> Assumptions of regression</a></li>
+<li class="chapter" data-level="8.12" data-path="regression.html"><a href="regression.html#regressiondiagnostics"><i class="fa fa-check"></i><b>8.12</b> Model checking</a>
+<ul>
+<li class="chapter" data-level="8.12.1" data-path="regression.html"><a href="regression.html#three-kinds-of-residuals"><i class="fa fa-check"></i><b>8.12.1</b> Three kinds of residuals</a></li>
+<li class="chapter" data-level="8.12.2" data-path="regression.html"><a href="regression.html#regressionoutliers"><i class="fa fa-check"></i><b>8.12.2</b> Three kinds of anomalous data</a></li>
+<li class="chapter" data-level="8.12.3" data-path="regression.html"><a href="regression.html#regressionnormality"><i class="fa fa-check"></i><b>8.12.3</b> Checking the normality of the residuals</a></li>
+<li class="chapter" data-level="8.12.4" data-path="regression.html"><a href="regression.html#regressionlinearity"><i class="fa fa-check"></i><b>8.12.4</b> Checking the linearity of the relationship</a></li>
+<li class="chapter" data-level="8.12.5" data-path="regression.html"><a href="regression.html#regressionhomogeneity"><i class="fa fa-check"></i><b>8.12.5</b> Checking the homogeneity of variance</a></li>
+<li class="chapter" data-level="8.12.6" data-path="regression.html"><a href="regression.html#regressioncollinearity"><i class="fa fa-check"></i><b>8.12.6</b> Checking for collinearity</a></li>
+</ul></li>
+<li class="chapter" data-level="8.13" data-path="regression.html"><a href="regression.html#modelselreg"><i class="fa fa-check"></i><b>8.13</b> Model selection</a>
+<ul>
+<li class="chapter" data-level="8.13.1" data-path="regression.html"><a href="regression.html#backward-elimination"><i class="fa fa-check"></i><b>8.13.1</b> Backward elimination</a></li>
+<li class="chapter" data-level="8.13.2" data-path="regression.html"><a href="regression.html#forward-selection"><i class="fa fa-check"></i><b>8.13.2</b> Forward selection</a></li>
+<li class="chapter" data-level="8.13.3" data-path="regression.html"><a href="regression.html#a-caveat"><i class="fa fa-check"></i><b>8.13.3</b> A caveat</a></li>
+<li class="chapter" data-level="8.13.4" data-path="regression.html"><a href="regression.html#comparing-two-regression-models"><i class="fa fa-check"></i><b>8.13.4</b> Comparing two regression models</a></li>
+</ul></li>
+<li class="chapter" data-level="8.14" data-path="regression.html"><a href="regression.html#summary-5"><i class="fa fa-check"></i><b>8.14</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="statistics-reference.html"><a href="statistics-reference.html"><i class="fa fa-check"></i><b>9</b> Statistics Reference</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="statistics-reference.html"><a href="statistics-reference.html#one-sample-z-test"><i class="fa fa-check"></i><b>9.1</b> One-Sample <em>z</em>-Test</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition"><i class="fa fa-check"></i><b>9.1.1</b> Definition</a></li>
+<li class="chapter" data-level="9.1.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic"><i class="fa fa-check"></i><b>9.1.2</b> Test Statistic</a></li>
+<li class="chapter" data-level="9.1.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data"><i class="fa fa-check"></i><b>9.1.3</b> Assumptions &amp; Required Data</a></li>
+<li class="chapter" data-level="9.1.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it"><i class="fa fa-check"></i><b>9.1.4</b> When to use it</a></li>
+<li class="chapter" data-level="9.1.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example"><i class="fa fa-check"></i><b>9.1.5</b> Example</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Advanced Statistics Remix</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-cleaning-and-missing-values-analysis" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Data Cleaning and Missing Values Analysis</h1>
+<p>Text by David Schuster</p>
+<div id="videos-5" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Videos</h2>
+<ul>
+<li><p><a href="https://youtu.be/uuqcjQPEcuY">Video: Data cleaning overview - 17 min</a></p></li>
+<li><p><a href="https://youtu.be/aGRqG1-QGno">Video: Missing data basics - 12 min</a></p></li>
+<li><p><a href="https://youtu.be/nDNuk2iag_o">Video: Dealing with missing data - 30 min</a></p></li>
+<li><p><a href="https://youtu.be/08fjgHMyNYg">Interpreting Q-Q plots - 6 min</a></p></li>
+<li><p><a href="https://youtu.be/gWEczYFK1gY">Outlier analysis - 16 min</a></p></li>
+</ul>
+</div>
+<div id="introduction-dealing-with-the-unexpected" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Introduction: Dealing with the Unexpected</h2>
+<p>So far, we have largely proceeded under the assumption that our data will be tidy and predictable. We have seen that R is very particular about data formatting and syntax. At least in my experience conducting laboratory experimental research, the actual data never come out this way. Despite the experimentalist’s emphasis on control in the design of research, working with human participants (and human researchers) means that there will be several opportunities for data to be messy. Participants will decline to answer some items; experimental apparatus will occasionally miss data or misreport it; and, anyone doing lengthy data entry will eventually make a typo.</p>
+<p>In this chapter, we will see how we can address problems with our data with the goal of maximizing statistical conclusion validity. As researchers, we solve the problems with messy data through the steps of <strong>data coding</strong> and <strong>data cleaning</strong>. Data coding is the process of translating observations from the format in which they were collected into a format that is suitable for data analysis. For example, if you had a spreadsheet of observations with one score per column (i.e., data in many columns and one row), you would at least need to transpose that spreadsheet so that the observations were collected into one column (i.e., data in one column and many rows) for it to be imported into R as a data frame. If your research involves handwritten data, audio transcription, or interview data, data coding will be needed to turn qualitative observations into quantitative scores.</p>
+</div>
+<div id="data-cleaning" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Data Cleaning</h2>
+<p>Data cleaning is a process of detecting and addressing errors in the data, including missing and erroneous scores. Errors in the data can affect statistical conclusion validity in two ways:</p>
+<ol style="list-style-type: decimal">
+<li><p>Errors in the data can affect the data <strong>randomly</strong> by contributing to error variance. Imagine a ruler printed on a stretchy piece of elastic. Despite your best efforts, you would probably get a slightly different measurement every time. This inconsistency is called unreliability. Unreliable measures are one possible source of random error. Another source of random error could occur if a researcher lost data accidentally and at random, which can happen with paper surveys. If a survey was lost, and the lost survey was effectively lost at random, then the missing data would contribute to random error. The effects of random error in our data are unpredictable. In most cases, higher error variance makes it harder to reject the null and thus increases the Type II error rate. Since we care about statistical power, we want to minimize the Type II error rate. However, when the true effect is near zero, unreliability can actually increase the observed effect size, which would increase the Type I error rate (Rogosa, 1980 as cited in <span class="citation"><a href="#ref-Shadish2002" role="doc-biblioref">T. D. Cook, Campbell, and Shadish</a> (<a href="#ref-Shadish2002" role="doc-biblioref">2002</a>)</span>, 2012). Because the alpha level is our threshold of evidence, we want to minimize the Type I error rate. All this to say, we want to minimize random error in our data.</p></li>
+<li><p>Errors in the data can affect the data <strong>systematically</strong>, resulting in <strong>bias</strong>. Inferential statistics helps us to make statistical conclusions despite the presence of <strong>sampling error</strong>, which is evident in variation across samples and is the difference between an estimate and population parameter. While inferential statistics can help us account for sampling error, our statistics still rely on random sampling. Random sampling is important for two reasons. First, random sampling is important is because it allows us to use our sample statistic for estimation, justified under the central limit theorem. Second, random sampling is important is because it is <strong>unbiased</strong>. That is, in a random sample, the direction of sampling error (either over- or under-estimating) is unpredictable and averages to zero. Unfortunately for the researcher, it is not just the selection of participants that needs to be unbiased, it is also the representation of those participants in the data, as well. Violating this assumption can lead to <strong>selection bias</strong>, which is a research design problem that cannot always be solved by statistics. Imagine you were trying to estimate the prevalence of dementia in adults in a community. To avoid selection bias, participants would need to be sampled in an unbiased way. Conducting this research with only participants living in an assisted living facility would create a bias toward a greater prevalence of dementia. Conducting this research with only participants living in single-family homes would create a bias toward a lower prevalence of dementia.</p></li>
+</ol>
+<p>So far, this is a research design issue, specifically in the selection of a sampling method. Because this issue also applies to the representation of participants in the data, an unbiased sample can also end up biased through <strong>attrition</strong> (leaving the study). I would imagine a psychological study about dementia and its impacts would be sensitive. If researchers began their interview with an insensitive question about dementia, participants with a history of dementia (or a family history of dementia) might be put off and decline to participate. If having a history of dementia or a family history of dementia was correlated with having dementia, then the researchers have unknowingly biased their sample by including fewer participants at risk of dementia. This problem can easily extend past the data collection when participants provide incomplete data or researchers remove participants from a data file in a biased way. Biased data can reduce the size of true effects, create effects that do not exist, or even reverse the direction of a true effect. Because of this, bias has the potential to inflate both Type I and Type II error.</p>
+<p>Although we cannot solve major problems with the research design using statistics, we can and should examine our data to try and detect problems. In some cases, problems can be solvable. In other cases, our solution will be to qualify the conclusions we make with our data. Data cleaning thus involves understanding issues in the data and correcting them while preserving meaning and statistical conclusion validity.</p>
+</div>
+<div id="a-general-plan-for-data-cleaning" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> A General Plan for Data Cleaning</h2>
+<p>Refer to this checklist as a general plan for dealing with new data to be used for research. We’ll go into more detail about how to do these steps in the sections that follow.</p>
+<ol start="0" style="list-style-type: decimal">
+<li><p>Design the study to prevent problems</p></li>
+<li><p>Examine your data</p></li>
+<li><p>Outlier identification and analysis</p></li>
+<li><p>Missing values analysis</p></li>
+<li><p>Test-specific assumption checking</p></li>
+<li><p>Describe your data cleaning in APA style</p></li>
+</ol>
+<p>Next, lets look at each step in more detail.</p>
+</div>
+<div id="step-0.-design-your-research-to-mimimize-data-problems" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Step 0. Design your Research to Mimimize Data Problems</h2>
+<p>I am including this as a reminder, as it is a research design topic and the strategies will differ depending on your research question. As you will see in the sections that follow, we do not have robust ways to correct missing and erroneous data after the fact, so wherever it is possible to increase the reliability and accuracy of data collection and avoid bias, it is worthwhile to do so. If a researcher is manually recording data (i.e., taking notes on a clipboard), having a backup researcher recording data would increase the accuracy of the data. In an online study, adding <strong>input response validation</strong> can help prevent errors, as well. If you ask participants for their age in years, then you may wish to have your survey software prevent any characters except for numbers from being entered in the box for “age.”</p>
+<p>Response validation does require some care, as it borders on the ethical principle of <strong>respect for persons</strong>, which includes informed consent and the avoidance of coercion. The APA Ethics Code requires us to tell participants what is involved in the study, get their permission to participate, and not use status, power, authority, or pressure to get individuals to participate (<span class="citation"><a href="#ref-APA" role="doc-biblioref">Assocation</a> (<a href="#ref-APA" role="doc-biblioref">2020</a>)</span>). This principle applies equally to the study and to individual responses during the study. Just as you cannot tell a participant to stay and complete a study, you also cannot tell a participant that they must answer an item on a survey. Although it may be tempting to mark all your electronic survey items as “required” (which would prevent participants from continuing unless they provide a response), you want to avoid any implication that participants are not free to choose to participate.</p>
+<p>In all, designing backups and cross-checks in your data collection protocol can reduce the amount of missing and erroneous data. Because we follow the ethical principle of respect for persons, we cannot compell our participants to provide data to us, and we will usually have to deal with some missing data regardless.</p>
+</div>
+<div id="step-1.-examine-your-data" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> Step 1. Examine Your Data</h2>
+<p>Descriptive statistics can help you make sense of a new dataset. After importing data into R, check your dataframe to see what variables are included using <code>summary()</code>. Check the minimum and maximum values. Are they reasonable? You can use the function <code>head()</code> to see the first few rows of each variable. As yourself these questions:</p>
+<ul>
+<li><p>What are the variables?</p></li>
+<li><p>What are the levels of measurement of the variables? Are they continuous or discrete?</p></li>
+<li><p>Are the data complete? Which variables have missing values?</p></li>
+<li><p>Does further coding need to be done?</p></li>
+<li><p>Run appropriate descriptive statistics</p></li>
+<li><p>Generate appropriate visualizations (histograms or bar charts)</p></li>
+<li><p>What are the shapes of the distributions?</p></li>
+<li><p>Are the distributions normal? What patterns are evident? Generate Q-Q plots</p></li>
+<li><p>Are the values reasonable?</p></li>
+<li><p>What is the structure of the data? If there are repeated measurements, are the represented as additional columns (called wide format) or additional rows (called long format)</p></li>
+</ul>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="data-cleaning-and-missing-values-analysis.html#cb526-1" aria-hidden="true" tabindex="-1"></a>percentages1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">32</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">32</span>, <span class="dv">32</span>, <span class="dv">45</span>, <span class="dv">101</span>) <span class="co"># participant percentage scores at time1</span></span>
+<span id="cb526-2"><a href="data-cleaning-and-missing-values-analysis.html#cb526-2" aria-hidden="true" tabindex="-1"></a>percentages2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">18</span>, <span class="dv">92</span>, <span class="dv">14</span>) <span class="co"># participant percentage scores at time2</span></span>
+<span id="cb526-3"><a href="data-cleaning-and-missing-values-analysis.html#cb526-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">cbind</span>(percentages1, percentages2) <span class="co"># create a dataframe</span></span>
+<span id="cb526-4"><a href="data-cleaning-and-missing-values-analysis.html#cb526-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df) <span class="co"># list min and max values</span></span></code></pre></div>
+<pre><code>##   percentages1     percentages2  
+##  Min.   :  2.00   Min.   :11.00  
+##  1st Qu.: 17.50   1st Qu.:12.00  
+##  Median : 32.00   Median :12.00  
+##  Mean   : 35.29   Mean   :24.43  
+##  3rd Qu.: 38.50   3rd Qu.:16.00  
+##  Max.   :101.00   Max.   :92.00</code></pre>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="data-cleaning-and-missing-values-analysis.html#cb528-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df) <span class="co"># list first few values</span></span></code></pre></div>
+<pre><code>##      percentages1 percentages2
+## [1,]           32           12
+## [2,]            3           12
+## [3,]            2           12
+## [4,]           32           11
+## [5,]           32           18
+## [6,]           45           92</code></pre>
+<p>In the example above, I have recorded scores for participants at two points in time. The scores are percentages, so acceptable values are between 0 and 100. Percentages are continuous, ratio measures. When I run <code>summary()</code>, I see that percentages1 has a maximum score of 101, so that value is probably an error. I would want to go back to the original source of the data and see if I can find the intended value. I would finish this first pass by running descriptive statistics (note that some are provided by the summary() function) and generating histograms.</p>
+<p>Finally, you should be aware that there are two ways to include repeated measurements from participants. Any study with a within-subjects design will result in repeated observations of the same participants. There are two ways to collect repeated measures for a participant. One option is to add additional columns for each measurement (as I did in my example, a time1 variable and a time2 variable), which is called wide format. The other option is to add additional rows for each measurement, which is called long format. As a side note, SPSS only works with data in wide format. Some procedures in R require wide format while others require long format.</p>
+<p>Next, we will add some useful R functions for managing data and converting between wide and long formats.</p>
+<p><strong>Note that you may not need to use the following R functions immediately. I am including them because they can be useful during data cleaning.</strong></p>
+<div id="sort" class="section level3" number="7.6.1">
+<h3><span class="header-section-number">7.6.1</span> Sorting, flipping and merging data</h3>
+<p>Text by <span class="citation"><a href="#ref-Navarro2018" role="doc-biblioref">Navarro</a> (<a href="#ref-Navarro2018" role="doc-biblioref">2018</a>)</span></p>
+<p>In this section I discuss a few useful operations that I feel are loosely related to one another: sorting a vector, sorting a data frame, binding two or more vectors together into a data frame (or matrix), and flipping a data frame (or matrix) on its side. They’re all fairly straightforward tasks, at least in comparison to some of the more obnoxious data handling problems that turn up in real life.</p>
+<div id="creating-tables-from-vectors" class="section level4" number="7.6.1.1">
+<h4><span class="header-section-number">7.6.1.1</span> Creating tables from vectors</h4>
+<p>Let’s start with a simple example. As the father of a small child, I naturally spend a lot of time watching TV shows like <em>In the Night Garden</em>. In the <code>nightgarden.Rdata</code> file, I’ve transcribed a short section of the dialogue. The file contains two variables, <code>speaker</code> and <code>utterance</code>, and when we take a look at the data, it becomes very clear what happened to my sanity.</p>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="data-cleaning-and-missing-values-analysis.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lsr)</span>
+<span id="cb530-2"><a href="data-cleaning-and-missing-values-analysis.html#cb530-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">file.path</span>(projecthome,<span class="st">&quot;data&quot;</span>,<span class="st">&quot;nightgarden.Rdata&quot;</span>))</span>
+<span id="cb530-3"><a href="data-cleaning-and-missing-values-analysis.html#cb530-3" aria-hidden="true" tabindex="-1"></a><span class="fu">who</span>()</span></code></pre></div>
+<pre><code>##    -- Name --         -- Class --   -- Size --
+##    a                  numeric       1         
+##    addArrow           function                
+##    addDistPlot        function                
+##    afl                data.frame    4296 x 12 
+##    afl.finalists      factor        400       
+##    afl.margins        numeric       176       
+##    afl2               data.frame    4296 x 2  
+##    b                  numeric       1         
+##    clin.trial         data.frame    18 x 3    
+##    colour             logical       1         
+##    crit.hi            numeric       1         
+##    crit.lo            numeric       1         
+##    def.par            list          66        
+##    df                 matrix        7 x 2     
+##    emphCol            character     1         
+##    emphColLight       character     1         
+##    emphGrey           character     1         
+##    eps                logical       1         
+##    estImg             list          0         
+##    Fibonacci          numeric       7         
+##    freq               integer       17        
+##    h                  numeric       1         
+##    height             numeric       1         
+##    i                  integer       1         
+##    IQ                 numeric       10000     
+##    m                  numeric       1         
+##    N                  integer       100       
+##    nhstImg            list          0         
+##    onesample          numeric       5         
+##    percentages1       numeric       7         
+##    percentages2       numeric       7         
+##    plotOne            function                
+##    plotSamples        function                
+##    pop_sd             numeric       1         
+##    population         numeric       1000      
+##    pow                numeric       100       
+##    projecthome        character     1         
+##    s                  numeric       1         
+##    sampling           numeric       2000      
+##    sampling_sd        numeric       1         
+##    setUpPlot          function                
+##    speaker            character     10        
+##    standard_error     numeric       1         
+##    suspicious.cases   logical       176       
+##    teams              character     17        
+##    theta              numeric       1         
+##    utterance          character     10        
+##    width              numeric       1         
+##    x                  integer       101       
+##    X                  numeric       1000      
+##    y                  numeric       101       
+##    z                  logical       101</code></pre>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="data-cleaning-and-missing-values-analysis.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>( speaker )</span></code></pre></div>
+<pre><code>##  [1] &quot;upsy-daisy&quot;  &quot;upsy-daisy&quot;  &quot;upsy-daisy&quot;  &quot;upsy-daisy&quot;  &quot;tombliboo&quot;  
+##  [6] &quot;tombliboo&quot;   &quot;makka-pakka&quot; &quot;makka-pakka&quot; &quot;makka-pakka&quot; &quot;makka-pakka&quot;</code></pre>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="data-cleaning-and-missing-values-analysis.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>( utterance )</span></code></pre></div>
+<pre><code>##  [1] &quot;pip&quot; &quot;pip&quot; &quot;onk&quot; &quot;onk&quot; &quot;ee&quot;  &quot;oo&quot;  &quot;pip&quot; &quot;pip&quot; &quot;onk&quot; &quot;onk&quot;</code></pre>
+<p>With these as my data, one task I might find myself needing to do is construct a frequency count of the number of words each character speaks during the show. The <code>table()</code> function provides a simple way do to this. The basic usage of the <code>table()</code> function is as follows:</p>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="data-cleaning-and-missing-values-analysis.html#cb536-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(speaker)</span></code></pre></div>
+<pre><code>## speaker
+## makka-pakka   tombliboo  upsy-daisy 
+##           4           2           4</code></pre>
+<p>The output here tells us on the first line that what we’re looking at is a tabulation of the <code>speaker</code> variable. On the second line it lists all the different speakers that exist in the data, and on the third line it tells you how many times that speaker appears in the data. In other words, it’s a frequency table<a href="#fn104" class="footnote-ref" id="fnref104"><sup>104</sup></a> Notice that in the command above I didn’t name the argument, since <code>table()</code> is another function that makes use of unnamed arguments. You just type in a list of the variables that you want R to tabulate, and it tabulates them. For instance, if I type in the name of two variables, what I get as the output is a cross-tabulation:</p>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="data-cleaning-and-missing-values-analysis.html#cb538-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(speaker, utterance)</span></code></pre></div>
+<pre><code>##              utterance
+## speaker       ee onk oo pip
+##   makka-pakka  0   2  0   2
+##   tombliboo    1   0  1   0
+##   upsy-daisy   0   2  0   2</code></pre>
+<p>When interpreting this table, remember that these are counts: so the fact that the first row and second column corresponds to a value of 2 indicates that Makka-Pakka (row 1) says “onk” (column 2) twice in this data set. As you’d expect, you can produce three way or higher order cross tabulations just by adding more objects to the list of inputs. However, I won’t discuss that in this section.</p>
+</div>
+<div id="creating-tables-from-data-frames" class="section level4" number="7.6.1.2">
+<h4><span class="header-section-number">7.6.1.2</span> Creating tables from data frames</h4>
+<p>Most of the time your data are stored in a data frame, not kept as separate variables in the workspace. Let’s create one:</p>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="data-cleaning-and-missing-values-analysis.html#cb540-1" aria-hidden="true" tabindex="-1"></a>itng <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( speaker, utterance )</span>
+<span id="cb540-2"><a href="data-cleaning-and-missing-values-analysis.html#cb540-2" aria-hidden="true" tabindex="-1"></a>itng</span></code></pre></div>
+<pre><code>##        speaker utterance
+## 1   upsy-daisy       pip
+## 2   upsy-daisy       pip
+## 3   upsy-daisy       onk
+## 4   upsy-daisy       onk
+## 5    tombliboo        ee
+## 6    tombliboo        oo
+## 7  makka-pakka       pip
+## 8  makka-pakka       pip
+## 9  makka-pakka       onk
+## 10 makka-pakka       onk</code></pre>
+<p>There’s a couple of options under these circumstances. Firstly, if you just want to cross-tabulate all of the variables in the data frame, then it’s really easy:</p>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="data-cleaning-and-missing-values-analysis.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(itng)</span></code></pre></div>
+<pre><code>##              utterance
+## speaker       ee onk oo pip
+##   makka-pakka  0   2  0   2
+##   tombliboo    1   0  1   0
+##   upsy-daisy   0   2  0   2</code></pre>
+<p>However, it’s often the case that you want to select particular variables from the data frame to tabulate. This is where the <code>xtabs()</code> function is useful. In this function, you input a one sided <code>formula</code> in order to list all the variables you want to cross-tabulate, and the name of the <code>data</code> frame that stores the data:</p>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="data-cleaning-and-missing-values-analysis.html#cb544-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>( <span class="at">formula =</span> <span class="sc">~</span> speaker <span class="sc">+</span> utterance, <span class="at">data =</span> itng )</span></code></pre></div>
+<pre><code>##              utterance
+## speaker       ee onk oo pip
+##   makka-pakka  0   2  0   2
+##   tombliboo    1   0  1   0
+##   upsy-daisy   0   2  0   2</code></pre>
+<p>Clearly, this is a totally unnecessary command in the context of the <code>itng</code> data frame, but in most situations when you’re analysing real data this is actually extremely useful, since your data set will almost certainly contain lots of variables and you’ll only want to tabulate a few of them at a time.</p>
+</div>
+<div id="converting-a-table-of-counts-to-a-table-of-proportions" class="section level4" number="7.6.1.3">
+<h4><span class="header-section-number">7.6.1.3</span> Converting a table of counts to a table of proportions</h4>
+<p>The tabulation commands discussed so far all construct a table of raw frequencies: that is, a count of the total number of cases that satisfy certain conditions. However, often you want your data to be organised in terms of proportions rather than counts. This is where the <code>prop.table()</code> function comes in handy. It has two arguments:</p>
+<ul>
+<li><code>x</code>. The frequency table that you want to convert.</li>
+<li><code>margin</code>. Which “dimension” do you want to calculate proportions for. By default, R assumes you want the proportion to be expressed as a fraction of all possible events. See examples for details.</li>
+</ul>
+<p>To see how this works:</p>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="data-cleaning-and-missing-values-analysis.html#cb546-1" aria-hidden="true" tabindex="-1"></a>itng.table <span class="ot">&lt;-</span> <span class="fu">table</span>(itng)  <span class="co"># create the table, and assign it to a variable</span></span>
+<span id="cb546-2"><a href="data-cleaning-and-missing-values-analysis.html#cb546-2" aria-hidden="true" tabindex="-1"></a>itng.table                   <span class="co"># display the table again, as a reminder</span></span></code></pre></div>
+<pre><code>##              utterance
+## speaker       ee onk oo pip
+##   makka-pakka  0   2  0   2
+##   tombliboo    1   0  1   0
+##   upsy-daisy   0   2  0   2</code></pre>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="data-cleaning-and-missing-values-analysis.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>( <span class="at">x =</span> itng.table ) <span class="co"># express as proportion:</span></span></code></pre></div>
+<pre><code>##              utterance
+## speaker        ee onk  oo pip
+##   makka-pakka 0.0 0.2 0.0 0.2
+##   tombliboo   0.1 0.0 0.1 0.0
+##   upsy-daisy  0.0 0.2 0.0 0.2</code></pre>
+<p>Notice that there were 10 observations in our original data set, so all that R has done here is divide all our raw frequencies by 10. That’s a sensible default, but more often you actually want to calculate the proportions separately by row (<code>margin = 1</code>) or by column (<code>margin = 2</code>). Again, this is most clearly seen by looking at examples:</p>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="data-cleaning-and-missing-values-analysis.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>( <span class="at">x =</span> itng.table, <span class="at">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##              utterance
+## speaker        ee onk  oo pip
+##   makka-pakka 0.0 0.5 0.0 0.5
+##   tombliboo   0.5 0.0 0.5 0.0
+##   upsy-daisy  0.0 0.5 0.0 0.5</code></pre>
+<p>Notice that each row now sums to 1, but that’s not true for each column. What we’re looking at here is the proportions of utterances made by each character. In other words, 50% of Makka-Pakka’s utterances are “pip,” and the other 50% are “onk.” Let’s contrast this with the following command:</p>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="data-cleaning-and-missing-values-analysis.html#cb552-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>( <span class="at">x =</span> itng.table, <span class="at">margin =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##              utterance
+## speaker        ee onk  oo pip
+##   makka-pakka 0.0 0.5 0.0 0.5
+##   tombliboo   1.0 0.0 1.0 0.0
+##   upsy-daisy  0.0 0.5 0.0 0.5</code></pre>
+<p>Now the columns all sum to 1 but the rows don’t. In this version, what we’re seeing is the proportion of characters associated with each utterance. For instance, whenever the utterance “ee” is made (in this data set), 100% of the time it’s a Tombliboo saying it.</p>
+</div>
+<div id="sorting-a-numeric-or-character-vector" class="section level4" number="7.6.1.4">
+<h4><span class="header-section-number">7.6.1.4</span> Sorting a numeric or character vector</h4>
+<p>One thing that you often want to do is sort a variable. If it’s a numeric variable you might want to sort in increasing or decreasing order. If it’s a character vector you might want to sort alphabetically, etc. The <code>sort()</code> function provides this capability.</p>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="data-cleaning-and-missing-values-analysis.html#cb554-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>)</span>
+<span id="cb554-2"><a href="data-cleaning-and-missing-values-analysis.html#cb554-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>( <span class="at">x =</span> numbers )</span></code></pre></div>
+<pre><code>## [1] 2 3 4</code></pre>
+<p>You can ask for R to sort in decreasing order rather than increasing:</p>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="data-cleaning-and-missing-values-analysis.html#cb556-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>( <span class="at">x =</span> numbers, <span class="at">decreasing =</span> <span class="cn">TRUE</span> )</span></code></pre></div>
+<pre><code>## [1] 4 3 2</code></pre>
+<p>And you can ask it to sort text data in alphabetical order:</p>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="data-cleaning-and-missing-values-analysis.html#cb558-1" aria-hidden="true" tabindex="-1"></a>text <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;aardvark&quot;</span>, <span class="st">&quot;zebra&quot;</span>, <span class="st">&quot;swing&quot;</span>)</span>
+<span id="cb558-2"><a href="data-cleaning-and-missing-values-analysis.html#cb558-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>( text )</span></code></pre></div>
+<pre><code>## [1] &quot;aardvark&quot; &quot;swing&quot;    &quot;zebra&quot;</code></pre>
+<p>That’s pretty straightforward. That being said, it’s important to note that I’m glossing over something here. When you apply <code>sort()</code> to a character vector it doesn’t strictly sort into alphabetical order. R actually has a slightly different notion of how characters are ordered (see Section <a href="#logictext2"><strong>??</strong></a> and Table <a href="#tab:asciiorder"><strong>??</strong></a>), which is more closely related to how computers store text data than to how letters are ordered in the alphabet. However, that’s a topic we’ll discuss later. For now, the only thing I should note is that the <code>sort()</code> function doesn’t alter the original variable. Rather, it creates a new, sorted variable as the output. So if I inspect my original <code>text</code> variable:</p>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="data-cleaning-and-missing-values-analysis.html#cb560-1" aria-hidden="true" tabindex="-1"></a>text</span></code></pre></div>
+<pre><code>## [1] &quot;aardvark&quot; &quot;zebra&quot;    &quot;swing&quot;</code></pre>
+<p>I can see that it has remained unchanged.</p>
+</div>
+<div id="sorting-a-factor" class="section level4" number="7.6.1.5">
+<h4><span class="header-section-number">7.6.1.5</span> Sorting a factor</h4>
+<p>You can also sort factors, but the story here is slightly more subtle because there’s two different ways you can sort a factor: alphabetically (by label) or by factor level. The <code>sort()</code> function uses the latter. To illustrate, let’s look at the two different examples. First, let’s create a factor in the usual way:</p>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="data-cleaning-and-missing-values-analysis.html#cb562-1" aria-hidden="true" tabindex="-1"></a>fac <span class="ot">&lt;-</span> <span class="fu">factor</span>( text )</span>
+<span id="cb562-2"><a href="data-cleaning-and-missing-values-analysis.html#cb562-2" aria-hidden="true" tabindex="-1"></a>fac</span></code></pre></div>
+<pre><code>## [1] aardvark zebra    swing   
+## Levels: aardvark swing zebra</code></pre>
+<p>Now let’s sort it:</p>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="data-cleaning-and-missing-values-analysis.html#cb564-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(fac)</span></code></pre></div>
+<pre><code>## [1] aardvark swing    zebra   
+## Levels: aardvark swing zebra</code></pre>
+<p>This <em>looks</em> like it’s sorted things into alphabetical order, but that’s only because the factor levels themselves happen to be alphabetically ordered. Suppose I deliberately define the factor levels in a non-alphabetical order:</p>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="data-cleaning-and-missing-values-analysis.html#cb566-1" aria-hidden="true" tabindex="-1"></a>fac <span class="ot">&lt;-</span> <span class="fu">factor</span>( text, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;zebra&quot;</span>,<span class="st">&quot;swing&quot;</span>,<span class="st">&quot;aardvark&quot;</span>) )</span>
+<span id="cb566-2"><a href="data-cleaning-and-missing-values-analysis.html#cb566-2" aria-hidden="true" tabindex="-1"></a>fac</span></code></pre></div>
+<pre><code>## [1] aardvark zebra    swing   
+## Levels: zebra swing aardvark</code></pre>
+<p>Now what happens when we try to sort <code>fac</code> this time? The answer:</p>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="data-cleaning-and-missing-values-analysis.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(fac)</span></code></pre></div>
+<pre><code>## [1] zebra    swing    aardvark
+## Levels: zebra swing aardvark</code></pre>
+<p>It sorts the data into the numerical order implied by the factor levels, not the alphabetical order implied by the labels attached to those levels. Normally you never notice the distinction, because by default the factor levels are assigned in alphabetical order, but it’s important to know the difference:</p>
+</div>
+<div id="sortframe" class="section level4" number="7.6.1.6">
+<h4><span class="header-section-number">7.6.1.6</span> Sorting a data frame</h4>
+<p>The <code>sort()</code> function doesn’t work properly with data frames. If you want to sort a data frame the standard advice that you’ll find online is to use the <code>order()</code> function (not described in this book) to determine what order the rows should be sorted, and then use square brackets to do the shuffling. There’s nothing inherently wrong with this advice, I just find it tedious. To that end, the <code>lsr</code> package includes a function called <code>sortFrame()</code> that you can use to do the sorting. The first argument to the function is named (<code>x</code>), and should correspond to the data frame that you want sorted. After that, all you do is type a list of the names of the variables that you want to use to do the sorting. For instance, if I type this:</p>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="data-cleaning-and-missing-values-analysis.html#cb570-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">file.path</span>(projecthome,<span class="st">&quot;data&quot;</span>,<span class="st">&quot;nightgarden2.Rdata&quot;</span>))</span>
+<span id="cb570-2"><a href="data-cleaning-and-missing-values-analysis.html#cb570-2" aria-hidden="true" tabindex="-1"></a>garden</span></code></pre></div>
+<pre><code>##            speaker utterance line
+## case.1  upsy-daisy       pip    1
+## case.2  upsy-daisy       pip    2
+## case.3   tombliboo        ee    5
+## case.4 makka-pakka       pip    7
+## case.5 makka-pakka       onk    9</code></pre>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="data-cleaning-and-missing-values-analysis.html#cb572-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sortFrame</span>( garden, speaker, line)</span></code></pre></div>
+<pre><code>##            speaker utterance line
+## case.4 makka-pakka       pip    7
+## case.5 makka-pakka       onk    9
+## case.3   tombliboo        ee    5
+## case.1  upsy-daisy       pip    1
+## case.2  upsy-daisy       pip    2</code></pre>
+<p>what R does is first sort by <code>speaker</code> (factor level order). Any ties (i.e., data from the same speaker) are then sorted in order of <code>line</code> (increasing numerical order). You can use the minus sign to indicate that numerical variables should be sorted in reverse order:</p>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="data-cleaning-and-missing-values-analysis.html#cb574-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sortFrame</span>( garden, speaker, <span class="sc">-</span>line)</span></code></pre></div>
+<pre><code>##            speaker utterance line
+## case.5 makka-pakka       onk    9
+## case.4 makka-pakka       pip    7
+## case.3   tombliboo        ee    5
+## case.2  upsy-daisy       pip    2
+## case.1  upsy-daisy       pip    1</code></pre>
+<p>As of the current writing, the <code>sortFrame()</code> function is under development. I’ve started introducing functionality to allow you to use the <code>-</code> sign to non-numeric variables or to make a distinction between sorting factors alphabetically or by factor level. The idea is that you should be able to type in something like this:</p>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="data-cleaning-and-missing-values-analysis.html#cb576-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sortFrame</span>( garden, <span class="sc">-</span>speaker)</span></code></pre></div>
+<p>and have the output correspond to a sort of the <code>garden</code> data frame in <em>reverse</em> alphabetical order (or reverse factor level order) of <code>speaker</code>. As things stand right now, this will actually work, and it will produce sensible output:</p>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="data-cleaning-and-missing-values-analysis.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sortFrame</span>( garden, <span class="sc">-</span>speaker)</span></code></pre></div>
+<pre><code>##            speaker utterance line
+## case.1  upsy-daisy       pip    1
+## case.2  upsy-daisy       pip    2
+## case.3   tombliboo        ee    5
+## case.4 makka-pakka       pip    7
+## case.5 makka-pakka       onk    9</code></pre>
+<p>However, I’m not completely convinced that I’ve set this up in the ideal fashion, so this may change a little bit in the future.</p>
+</div>
+</div>
+<div id="binding-vectors-together" class="section level3" number="7.6.2">
+<h3><span class="header-section-number">7.6.2</span> Binding vectors together</h3>
+<p>A not-uncommon task that you might find yourself needing to undertake is to combine several vectors. For instance, let’s suppose we have the following two numeric vectors:</p>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="data-cleaning-and-missing-values-analysis.html#cb579-1" aria-hidden="true" tabindex="-1"></a>cake<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">80</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb579-2"><a href="data-cleaning-and-missing-values-analysis.html#cb579-2" aria-hidden="true" tabindex="-1"></a>cake<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">90</span>, <span class="dv">30</span>, <span class="dv">10</span>)</span></code></pre></div>
+<p>The numbers here might represent the amount of each of the two cakes that are left at five different time points. Apparently the first cake is tastier, since that one gets devoured faster. We’ve already seen one method for combining these vectors: we could use the <code>data.frame()</code> function to convert them into a data frame with two variables, like so:</p>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="data-cleaning-and-missing-values-analysis.html#cb580-1" aria-hidden="true" tabindex="-1"></a>cake.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( cake<span class="fl">.1</span>, cake<span class="fl">.2</span> )</span>
+<span id="cb580-2"><a href="data-cleaning-and-missing-values-analysis.html#cb580-2" aria-hidden="true" tabindex="-1"></a>cake.df</span></code></pre></div>
+<pre><code>##   cake.1 cake.2
+## 1    100    100
+## 2     80    100
+## 3      0     90
+## 4      0     30
+## 5      0     10</code></pre>
+<p>Two other methods that I want to briefly refer to are the <code>rbind()</code> and <code>cbind()</code> functions, which will convert the vectors into a matrix. I’ll discuss matrices properly in Section <a href="#matrix"><strong>??</strong></a> but the details don’t matter too much for our current purposes. The <code>cbind()</code> function (“column bind”) produces a very similar looking output to the data frame example:</p>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="data-cleaning-and-missing-values-analysis.html#cb582-1" aria-hidden="true" tabindex="-1"></a>cake.mat1 <span class="ot">&lt;-</span> <span class="fu">cbind</span>( cake<span class="fl">.1</span>, cake<span class="fl">.2</span> )</span>
+<span id="cb582-2"><a href="data-cleaning-and-missing-values-analysis.html#cb582-2" aria-hidden="true" tabindex="-1"></a>cake.mat1</span></code></pre></div>
+<pre><code>##      cake.1 cake.2
+## [1,]    100    100
+## [2,]     80    100
+## [3,]      0     90
+## [4,]      0     30
+## [5,]      0     10</code></pre>
+<p>but nevertheless it’s important to keep in mind that <code>cake.mat1</code> is a matrix rather than a data frame, and so has a few differences from the <code>cake.df</code> variable. The <code>rbind()</code> function (“row bind”) produces a somewhat different output: it binds the vectors together row-wise rather than column-wise, so the output now looks like this:</p>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="data-cleaning-and-missing-values-analysis.html#cb584-1" aria-hidden="true" tabindex="-1"></a>cake.mat2 <span class="ot">&lt;-</span> <span class="fu">rbind</span>( cake<span class="fl">.1</span>, cake<span class="fl">.2</span> )</span>
+<span id="cb584-2"><a href="data-cleaning-and-missing-values-analysis.html#cb584-2" aria-hidden="true" tabindex="-1"></a>cake.mat2</span></code></pre></div>
+<pre><code>##        [,1] [,2] [,3] [,4] [,5]
+## cake.1  100   80    0    0    0
+## cake.2  100  100   90   30   10</code></pre>
+<p>You can add names to a matrix by using the <code>rownames()</code> and <code>colnames()</code> functions, and I should also point out that there’s a fancier function in R called <code>merge()</code> that supports more complicated “database like” merging of vectors and data frames, but I won’t go into details here.</p>
+<div id="binding-multiple-copies-of-the-same-vector-together" class="section level4" number="7.6.2.1">
+<h4><span class="header-section-number">7.6.2.1</span> Binding multiple copies of the same vector together</h4>
+<p>It is sometimes very useful to bind together multiple copies of the same vector. You could do this using the <code>rbind</code> and <code>cbind</code> functions, using comands like this one</p>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="data-cleaning-and-missing-values-analysis.html#cb586-1" aria-hidden="true" tabindex="-1"></a>fibonacci <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">8</span> )</span>
+<span id="cb586-2"><a href="data-cleaning-and-missing-values-analysis.html#cb586-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>( fibonacci, fibonacci, fibonacci )</span></code></pre></div>
+<pre><code>##           [,1] [,2] [,3] [,4] [,5] [,6]
+## fibonacci    1    1    2    3    5    8
+## fibonacci    1    1    2    3    5    8
+## fibonacci    1    1    2    3    5    8</code></pre>
+<p>but that can be pretty annoying, especially if you needs lots of copies. To make this a little easier, the <code>lsr</code> package has two additional functions <code>rowCopy</code> and <code>colCopy</code> that do the same job, but all you have to do is specify the number of copies that you want, instead of typing the name in over and over again. The two arguments you need to specify are <code>x</code>, the vector to be copied, and <code>times</code>, indicating how many copies should be created:<a href="#fn105" class="footnote-ref" id="fnref105"><sup>105</sup></a></p>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="data-cleaning-and-missing-values-analysis.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rowCopy</span>( <span class="at">x =</span> fibonacci, <span class="at">times =</span> <span class="dv">3</span> )</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    1    2    3    5    8
+## [2,]    1    1    2    3    5    8
+## [3,]    1    1    2    3    5    8</code></pre>
+<p>Of course, in practice you don’t need to name the arguments all the time. For instance, here’s an example using the <code>colCopy()</code> function with the argument names omitted:</p>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="data-cleaning-and-missing-values-analysis.html#cb590-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colCopy</span>( fibonacci, <span class="dv">3</span> )</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    1    1
+## [2,]    1    1    1
+## [3,]    2    2    2
+## [4,]    3    3    3
+## [5,]    5    5    5
+## [6,]    8    8    8</code></pre>
+</div>
+<div id="transposing-a-matrix-or-data-frame" class="section level4" number="7.6.2.2">
+<h4><span class="header-section-number">7.6.2.2</span> Transposing a matrix or data frame</h4>
+<p>One of the main reasons that I wanted to discuss the <code>rbind()</code> and <code>cbind()</code> functions in the same section as the <code>data.frame()</code> function is that it immediately raises the question of how to “flip” or <strong><em>transpose</em></strong> a matrix or data frame. Notice that in the last section I was able to produce two different matrices, <code>cake.mat1</code> and <code>cake.mat2</code> that were basically mirror images of one another. A natural question to ask is whether you can directly transform one into another. The transpose function <code>t()</code> allows us to do this in a straightforward fashion. To start with, I’ll show you how to transpose a matrix, and then I’ll move onto talk about data frames. Firstly, let’s load a matrix I prepared earlier, from the <code>cakes.Rdata</code> file:</p>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="data-cleaning-and-missing-values-analysis.html#cb592-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">file.path</span>(projecthome,<span class="st">&quot;data&quot;</span>,<span class="st">&quot;cakes.Rdata&quot;</span>))</span>
+<span id="cb592-2"><a href="data-cleaning-and-missing-values-analysis.html#cb592-2" aria-hidden="true" tabindex="-1"></a>cakes</span></code></pre></div>
+<pre><code>##        time.1 time.2 time.3 time.4 time.5
+## cake.1    100     80      0      0      0
+## cake.2    100    100     90     30     10
+## cake.3    100     20     20     20     20
+## cake.4    100    100    100    100    100</code></pre>
+<p>And just to make sure you believe me that this is actually a matrix:</p>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="data-cleaning-and-missing-values-analysis.html#cb594-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>( cakes )</span></code></pre></div>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
+<p>Okay, now let’s transpose the matrix:</p>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="data-cleaning-and-missing-values-analysis.html#cb596-1" aria-hidden="true" tabindex="-1"></a>cakes.flipped <span class="ot">&lt;-</span> <span class="fu">t</span>( cakes )</span>
+<span id="cb596-2"><a href="data-cleaning-and-missing-values-analysis.html#cb596-2" aria-hidden="true" tabindex="-1"></a>cakes.flipped</span></code></pre></div>
+<pre><code>##        cake.1 cake.2 cake.3 cake.4
+## time.1    100    100    100    100
+## time.2     80    100     20    100
+## time.3      0     90     20    100
+## time.4      0     30     20    100
+## time.5      0     10     20    100</code></pre>
+<p>The output here is still a matrix:</p>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="data-cleaning-and-missing-values-analysis.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>( cakes.flipped )</span></code></pre></div>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
+<p>At this point you should have two questions: (1) how do we do the same thing for data frames? and (2) why should we care about this? Let’s start with the how question. First, I should note that you can transpose a data frame just fine using the <code>t()</code> function, but that has the slightly awkward consequence of converting the output from a data frame to a matrix, which isn’t usually what you want. It’s quite easy to convert the output back again, of course,<a href="#fn106" class="footnote-ref" id="fnref106"><sup>106</sup></a> but I hate typing two commands when I can do it with one. To that end, the <code>lsr</code> package has a simple “convenience” function called <code>tFrame()</code> which does exactly the same thing as <code>t()</code> but converts the output to a data frame for you. To illustrate this, let’s transpose the <code>itng</code> data frame that we used earlier. Here’s the original data frame:</p>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="data-cleaning-and-missing-values-analysis.html#cb600-1" aria-hidden="true" tabindex="-1"></a>itng</span></code></pre></div>
+<pre><code>##        speaker utterance
+## 1   upsy-daisy       pip
+## 2   upsy-daisy       pip
+## 3   upsy-daisy       onk
+## 4   upsy-daisy       onk
+## 5    tombliboo        ee
+## 6    tombliboo        oo
+## 7  makka-pakka       pip
+## 8  makka-pakka       pip
+## 9  makka-pakka       onk
+## 10 makka-pakka       onk</code></pre>
+<p>and here’s what happens when you transpose it using <code>tFrame()</code>:</p>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="data-cleaning-and-missing-values-analysis.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tFrame</span>( itng )</span></code></pre></div>
+<pre><code>##                   V1         V2         V3         V4        V5        V6
+## speaker   upsy-daisy upsy-daisy upsy-daisy upsy-daisy tombliboo tombliboo
+## utterance        pip        pip        onk        onk        ee        oo
+##                    V7          V8          V9         V10
+## speaker   makka-pakka makka-pakka makka-pakka makka-pakka
+## utterance         pip         pip         onk         onk</code></pre>
+<p>An important point to recognise is that transposing a data frame is not always a sensible thing to do: in fact, I’d go so far as to argue that it’s usually <em>not</em> sensible. It depends a lot on whether the “cases” from your original data frame would make sense as variables, and to think of each of your original “variables” as cases. I think that’s emphatically <em>not</em> true for our <code>itng</code> data frame, so I wouldn’t advise doing it in this situation.</p>
+<p>That being said, sometimes it really is true. For instance, had we originally stored our <code>cakes</code> variable as a data frame instead of a matrix, then it would absolutely be sensible to flip the data frame!<a href="#fn107" class="footnote-ref" id="fnref107"><sup>107</sup></a> There are some situations where it is useful to flip your data frame, so it’s nice to know that you can do it. Indeed, that’s the main reason why I have spent so much time talking about this topic. A lot of statistical tools make the assumption that the rows of your data frame (or matrix) correspond to observations, and the columns correspond to the variables. That’s not unreasonable, of course, since that is a pretty standard convention. However, think about our <code>cakes</code> example here. This is a situation where you might want do an analysis of the different cakes (i.e. cakes as variables, time points as cases), but equally you might want to do an analysis where you think of the times as being the things of interest (i.e., times as variables, cakes as cases). If so, then it’s useful to know how to flip a matrix or data frame around.</p>
+</div>
+</div>
+<div id="reshape" class="section level3" number="7.6.3">
+<h3><span class="header-section-number">7.6.3</span> Reshaping a data frame</h3>
+<p>Text by <span class="citation"><a href="#ref-Navarro2018" role="doc-biblioref">Navarro</a> (<a href="#ref-Navarro2018" role="doc-biblioref">2018</a>)</span></p>
+<p>One of the most annoying tasks that you need to undertake on a regular basis is that of reshaping a data frame. Framed in the most general way, reshaping the data means taking the data in whatever format it’s given to you, and converting it to the format you need it. Of course, if we’re going to characterise the problem that broadly, then about half of this chapter can probably be thought of as a kind of reshaping. So we’re going to have to narrow things down a little bit. To that end, I’ll talk about a few different tools that you can use for a few different tasks. In particular, I’ll discuss a couple of easy to use (but limited) functions that I’ve included in the <code>lsr</code> package. In future versions of the book I plan to expand this discussion to include some of the more powerful tools that are available in R, but I haven’t had the time to do so yet.</p>
+<div id="long-form-and-wide-form-data" class="section level4" number="7.6.3.1">
+<h4><span class="header-section-number">7.6.3.1</span> Long form and wide form data</h4>
+<p>The most common format in which you might obtain data is as a “case by variable” layout, commonly known as the <strong><em>wide form</em></strong> of the data.</p>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="data-cleaning-and-missing-values-analysis.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">file.path</span>(projecthome,<span class="st">&quot;data&quot;</span>,<span class="st">&quot;repeated.Rdata&quot;</span>))</span>
+<span id="cb604-2"><a href="data-cleaning-and-missing-values-analysis.html#cb604-2" aria-hidden="true" tabindex="-1"></a><span class="fu">who</span>()</span></code></pre></div>
+<pre><code>##    -- Name --         -- Class --   -- Size --
+##    a                  numeric       1         
+##    addArrow           function                
+##    addDistPlot        function                
+##    afl                data.frame    4296 x 12 
+##    afl.finalists      factor        400       
+##    afl.margins        numeric       176       
+##    afl2               data.frame    4296 x 2  
+##    b                  numeric       1         
+##    cake.1             numeric       5         
+##    cake.2             numeric       5         
+##    cake.df            data.frame    5 x 2     
+##    cake.mat1          matrix        5 x 2     
+##    cake.mat2          matrix        2 x 5     
+##    cakes              matrix        4 x 5     
+##    cakes.flipped      matrix        5 x 4     
+##    choice             data.frame    4 x 10    
+##    clin.trial         data.frame    18 x 3    
+##    colour             logical       1         
+##    crit.hi            numeric       1         
+##    crit.lo            numeric       1         
+##    def.par            list          66        
+##    df                 matrix        7 x 2     
+##    drugs              data.frame    10 x 8    
+##    emphCol            character     1         
+##    emphColLight       character     1         
+##    emphGrey           character     1         
+##    eps                logical       1         
+##    estImg             list          0         
+##    fac                factor        3         
+##    fibonacci          numeric       6         
+##    Fibonacci          numeric       7         
+##    freq               integer       17        
+##    garden             data.frame    5 x 3     
+##    h                  numeric       1         
+##    height             numeric       1         
+##    i                  integer       1         
+##    IQ                 numeric       10000     
+##    itng               data.frame    10 x 2    
+##    itng.table         table         3 x 4     
+##    m                  numeric       1         
+##    N                  integer       100       
+##    nhstImg            list          0         
+##    numbers            numeric       3         
+##    onesample          numeric       5         
+##    percentages1       numeric       7         
+##    percentages2       numeric       7         
+##    plotOne            function                
+##    plotSamples        function                
+##    pop_sd             numeric       1         
+##    population         numeric       1000      
+##    pow                numeric       100       
+##    projecthome        character     1         
+##    s                  numeric       1         
+##    sampling           numeric       2000      
+##    sampling_sd        numeric       1         
+##    setUpPlot          function                
+##    speaker            character     10        
+##    standard_error     numeric       1         
+##    suspicious.cases   logical       176       
+##    teams              character     17        
+##    text               character     3         
+##    theta              numeric       1         
+##    utterance          character     10        
+##    width              numeric       1         
+##    x                  integer       101       
+##    X                  numeric       1000      
+##    y                  numeric       101       
+##    z                  logical       101</code></pre>
+<p>To get a sense of what I’m talking about, consider an experiment in which we are interested in the different effects that alcohol and and caffeine have on people’s working memory capacity (WMC) and reaction times (RT). We recruit 10 participants, and measure their WMC and RT under three different conditions: a “no drug” condition, in which they are not under the influence of either caffeine or alcohol, a “caffeine” condition, in which they are under the inflence of caffeine, and an “alcohol” condition, in which… well, you can probably guess. Ideally, I suppose, there would be a fourth condition in which both drugs are administered, but for the sake of simplicity let’s ignore that. The <code>drugs</code> data frame gives you a sense of what kind of data you might observe in an experiment like this:</p>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="data-cleaning-and-missing-values-analysis.html#cb606-1" aria-hidden="true" tabindex="-1"></a>drugs</span></code></pre></div>
+<pre><code>##    id gender WMC_alcohol WMC_caffeine WMC_no.drug RT_alcohol RT_caffeine
+## 1   1 female         3.7          3.7         3.9        488         236
+## 2   2 female         6.4          7.3         7.9        607         376
+## 3   3 female         4.6          7.4         7.3        643         226
+## 4   4   male         6.4          7.8         8.2        684         206
+## 5   5 female         4.9          5.2         7.0        593         262
+## 6   6   male         5.4          6.6         7.2        492         230
+## 7   7   male         7.9          7.9         8.9        690         259
+## 8   8   male         4.1          5.9         4.5        486         230
+## 9   9 female         5.2          6.2         7.2        686         273
+## 10 10 female         6.2          7.4         7.8        645         240
+##    RT_no.drug
+## 1         371
+## 2         349
+## 3         412
+## 4         252
+## 5         439
+## 6         464
+## 7         327
+## 8         305
+## 9         327
+## 10        498</code></pre>
+<p>This is a data set in “wide form,” in which each participant corresponds to a single row. We have two variables that are characteristics of the subject (i.e., their <code>id</code> number and their <code>gender</code>) and six variables that refer to one of the two measured variables (WMC or RT) in one of the three testing conditions (alcohol, caffeine or no drug). Because all of the testing conditions (i.e., the three drug types) are applied to all participants, drug type is an example of a <strong><em>within-subject factor</em></strong>.</p>
+</div>
+<div id="reshaping-data-using-widetolong" class="section level4" number="7.6.3.2">
+<h4><span class="header-section-number">7.6.3.2</span> Reshaping data using <code>wideToLong()</code></h4>
+<p>The “wide form” of this data set is useful for some situations: it is often very useful to have each row correspond to a single subject. However, it is not the only way in which you might want to organise this data. For instance, you might want to have a separate row for each “testing occasion.” That is, “participant 1 under the influence of alcohol” would be one row, and “participant 1 under the influence of caffeine” would be another row. This way of organising the data is generally referred to as the <strong><em>long form</em></strong> of the data. It’s not too difficult to switch between wide and long form, and I’ll explain how it works in a moment; for now, let’s just have a look at what the long form of this data set looks like:</p>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="data-cleaning-and-missing-values-analysis.html#cb608-1" aria-hidden="true" tabindex="-1"></a>drugs<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">wideToLong</span>( <span class="at">data =</span> drugs, <span class="at">within =</span> <span class="st">&quot;drug&quot;</span> )</span>
+<span id="cb608-2"><a href="data-cleaning-and-missing-values-analysis.html#cb608-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(drugs<span class="fl">.2</span>)</span></code></pre></div>
+<pre><code>##   id gender    drug WMC  RT
+## 1  1 female alcohol 3.7 488
+## 2  2 female alcohol 6.4 607
+## 3  3 female alcohol 4.6 643
+## 4  4   male alcohol 6.4 684
+## 5  5 female alcohol 4.9 593
+## 6  6   male alcohol 5.4 492</code></pre>
+<p>The <code>drugs.2</code> data frame that we just created has 30 rows: each of the 10 participants appears in three separate rows, one corresponding to each of the three testing conditions. And instead of having a variable like <code>WMC_caffeine</code> that indicates that we were measuring “WMC” in the “caffeine” condition, this information is now recorded in two separate variables, one called <code>drug</code> and another called <code>WMC</code>. Obviously, the long and wide forms of the data contain the same information, but they represent quite different ways of organising that information. Sometimes you find yourself needing to analyse data in wide form, and sometimes you find that you need long form. So it’s really useful to know how to switch between the two.</p>
+<p>In the example I gave above, I used a function called <code>wideToLong()</code> to do the transformation. The <code>wideToLong()</code> function is part of the <code>lsr</code> package. The key to understanding this function is that it relies on the <em>variable names</em> to do all the work. Notice that the variable names in the <code>drugs</code> data frame follow a very clear scheme. Whenever you have a variable with a name like <code>WMC_caffeine</code> you know that the variable being measured is “WMC,” and that the specific condition in which it is being measured is the “caffeine” condition. Similarly, you know that <code>RT_no.drug</code> refers to the “RT” variable measured in the “no drug” condition. The measured variable comes first (e.g., <code>WMC</code>), followed by a separator character (in this case the separator is an underscore, <code>_</code>), and then the name of the condition in which it is being measured (e.g., <code>caffeine</code>). There are two different prefixes (i.e, the strings before the separator, <code>WMC</code>, <code>RT</code>) which means that there are two separate variables being measured. There are three different suffixes (i.e., the strings after the separtator, <code>caffeine</code>, <code>alcohol</code>, <code>no.drug</code>) meaning that there are three different levels of the within-subject factor. Finally, notice that the separator string (i.e., <code>_</code>) does not appear anywhere in two of the variables (<code>id</code>, <code>gender</code>), indicating that these are <strong><em>between-subject</em></strong> variables, namely variables that do not vary within participant (e.g., a person’s <code>gender</code> is the same regardless of whether they’re under the influence of alcohol, caffeine etc).</p>
+<p>Because of the fact that the variable naming scheme here is so informative, it’s quite possible to reshape the data frame without any additional input from the user. For example, in this particular case, you could just type the following:</p>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="data-cleaning-and-missing-values-analysis.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wideToLong</span>( drugs )</span></code></pre></div>
+<pre><code>##    id gender   within WMC  RT
+## 1   1 female  alcohol 3.7 488
+## 2   2 female  alcohol 6.4 607
+## 3   3 female  alcohol 4.6 643
+## 4   4   male  alcohol 6.4 684
+## 5   5 female  alcohol 4.9 593
+## 6   6   male  alcohol 5.4 492
+## 7   7   male  alcohol 7.9 690
+## 8   8   male  alcohol 4.1 486
+## 9   9 female  alcohol 5.2 686
+## 10 10 female  alcohol 6.2 645
+## 11  1 female caffeine 3.7 236
+## 12  2 female caffeine 7.3 376
+## 13  3 female caffeine 7.4 226
+## 14  4   male caffeine 7.8 206
+## 15  5 female caffeine 5.2 262
+## 16  6   male caffeine 6.6 230
+## 17  7   male caffeine 7.9 259
+## 18  8   male caffeine 5.9 230
+## 19  9 female caffeine 6.2 273
+## 20 10 female caffeine 7.4 240
+## 21  1 female  no.drug 3.9 371
+## 22  2 female  no.drug 7.9 349
+## 23  3 female  no.drug 7.3 412
+## 24  4   male  no.drug 8.2 252
+## 25  5 female  no.drug 7.0 439
+## 26  6   male  no.drug 7.2 464
+## 27  7   male  no.drug 8.9 327
+## 28  8   male  no.drug 4.5 305
+## 29  9 female  no.drug 7.2 327
+## 30 10 female  no.drug 7.8 498</code></pre>
+<p>This is pretty good, actually. The only think it has gotten wrong here is that it doesn’t know what name to assign to the within-subject factor, so instaed of calling it something sensible like <code>drug</code>, it has use the unimaginative name <code>within</code>. If you want to ensure that the <code>wideToLong()</code> function applies a sensible name, you have to specify the <code>within</code> argument, which is just a character string that specifies the name of the within-subject factor. So when I used this command earlier,</p>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="data-cleaning-and-missing-values-analysis.html#cb612-1" aria-hidden="true" tabindex="-1"></a>drugs<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">wideToLong</span>( <span class="at">data =</span> drugs, <span class="at">within =</span> <span class="st">&quot;drug&quot;</span> )</span></code></pre></div>
+<p>all I was doing was telling R to use <code>drug</code> as the name of the within subject factor.</p>
+<p>Now, as I was hinting earlier, the <code>wideToLong()</code> function is very inflexible. It <em>requires</em> that the variable names all follow this naming scheme that I outlined earlier. If you don’t follow this naming scheme it won’t work.<a href="#fn108" class="footnote-ref" id="fnref108"><sup>108</sup></a> The only flexibility that I’ve included here is that you can change the separator character by specifying the <code>sep</code> argument. For instance, if you were using variable names of the form <code>WMC/caffeine</code>, for instance, you could specify that <code>sep="/"</code>, using a command like this</p>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="data-cleaning-and-missing-values-analysis.html#cb613-1" aria-hidden="true" tabindex="-1"></a>drugs<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">wideToLong</span>( <span class="at">data =</span> drugs, <span class="at">within =</span> <span class="st">&quot;drug&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span> )</span></code></pre></div>
+<p>and it would still work.</p>
+</div>
+<div id="reshaping-data-using-longtowide" class="section level4" number="7.6.3.3">
+<h4><span class="header-section-number">7.6.3.3</span> Reshaping data using <code>longToWide()</code></h4>
+<p>To convert data from long form to wide form, the <code>lsr</code> package also includes a function called <code>longToWide()</code>. Recall from earlier that the long form of the data (i.e., the <code>drugs.2</code> data frame) contains variables named <code>id</code>, <code>gender</code>, <code>drug</code>, <code>WMC</code> and <code>RT</code>. In order to convert from long form to wide form, all you need to do is indicate which of these variables are measured separately for each condition (i.e., <code>WMC</code> and <code>RT</code>), and which variable is the within-subject factor that specifies the condition (i.e., <code>drug</code>). You do this via a two-sided formula, in which the measured variables are on the left hand side, and the within-subject factor is on the ritght hand side. In this case, the formula would be <code>WMC + RT ~ drug</code>. So the command that we would use might look like this:</p>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="data-cleaning-and-missing-values-analysis.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="fu">longToWide</span>( <span class="at">data=</span>drugs<span class="fl">.2</span>, <span class="at">formula=</span> WMC<span class="sc">+</span>RT <span class="sc">~</span> drug )</span></code></pre></div>
+<pre><code>##    id gender WMC_alcohol RT_alcohol WMC_caffeine RT_caffeine WMC_no.drug
+## 1   1 female         3.7        488          3.7         236         3.9
+## 2   2 female         6.4        607          7.3         376         7.9
+## 3   3 female         4.6        643          7.4         226         7.3
+## 4   4   male         6.4        684          7.8         206         8.2
+## 5   5 female         4.9        593          5.2         262         7.0
+## 6   6   male         5.4        492          6.6         230         7.2
+## 7   7   male         7.9        690          7.9         259         8.9
+## 8   8   male         4.1        486          5.9         230         4.5
+## 9   9 female         5.2        686          6.2         273         7.2
+## 10 10 female         6.2        645          7.4         240         7.8
+##    RT_no.drug
+## 1         371
+## 2         349
+## 3         412
+## 4         252
+## 5         439
+## 6         464
+## 7         327
+## 8         305
+## 9         327
+## 10        498</code></pre>
+<p>or, if we chose to omit argument names, we could simplify it to this:</p>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="data-cleaning-and-missing-values-analysis.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="fu">longToWide</span>( drugs<span class="fl">.2</span>, WMC<span class="sc">+</span>RT <span class="sc">~</span> drug )</span></code></pre></div>
+<pre><code>##    id gender WMC_alcohol RT_alcohol WMC_caffeine RT_caffeine WMC_no.drug
+## 1   1 female         3.7        488          3.7         236         3.9
+## 2   2 female         6.4        607          7.3         376         7.9
+## 3   3 female         4.6        643          7.4         226         7.3
+## 4   4   male         6.4        684          7.8         206         8.2
+## 5   5 female         4.9        593          5.2         262         7.0
+## 6   6   male         5.4        492          6.6         230         7.2
+## 7   7   male         7.9        690          7.9         259         8.9
+## 8   8   male         4.1        486          5.9         230         4.5
+## 9   9 female         5.2        686          6.2         273         7.2
+## 10 10 female         6.2        645          7.4         240         7.8
+##    RT_no.drug
+## 1         371
+## 2         349
+## 3         412
+## 4         252
+## 5         439
+## 6         464
+## 7         327
+## 8         305
+## 9         327
+## 10        498</code></pre>
+<p>Note that, just like the <code>wideToLong()</code> function, the <code>longToWide()</code> function allows you to override the default separator character. For instance, if the command I used had been</p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="data-cleaning-and-missing-values-analysis.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="fu">longToWide</span>( drugs<span class="fl">.2</span>, WMC<span class="sc">+</span>RT <span class="sc">~</span> drug, <span class="at">sep=</span><span class="st">&quot;/&quot;</span> )</span></code></pre></div>
+<pre><code>##    id gender WMC/alcohol RT/alcohol WMC/caffeine RT/caffeine WMC/no.drug
+## 1   1 female         3.7        488          3.7         236         3.9
+## 2   2 female         6.4        607          7.3         376         7.9
+## 3   3 female         4.6        643          7.4         226         7.3
+## 4   4   male         6.4        684          7.8         206         8.2
+## 5   5 female         4.9        593          5.2         262         7.0
+## 6   6   male         5.4        492          6.6         230         7.2
+## 7   7   male         7.9        690          7.9         259         8.9
+## 8   8   male         4.1        486          5.9         230         4.5
+## 9   9 female         5.2        686          6.2         273         7.2
+## 10 10 female         6.2        645          7.4         240         7.8
+##    RT/no.drug
+## 1         371
+## 2         349
+## 3         412
+## 4         252
+## 5         439
+## 6         464
+## 7         327
+## 8         305
+## 9         327
+## 10        498</code></pre>
+<p>the output would contain variables with names like <code>RT/alcohol</code> instead of <code>RT_alcohol</code>.</p>
+</div>
+<div id="reshaping-with-multiple-within-subject-factors" class="section level4" number="7.6.3.4">
+<h4><span class="header-section-number">7.6.3.4</span> Reshaping with multiple within-subject factors</h4>
+<p>As I mentioned above, the <code>wideToLong()</code> and <code>longToWide()</code> functions are quite limited in terms of what they can do. However, they do handle a broader range of situations than the one outlined above. Consider the following, fairly simple psychological experiment. I’m interested in the effects of practice on some simple decision making problem. It doesn’t really matter what the problem is, other than to note that I’m interested in two distinct outcome variables. Firstly, I care about people’s accuracy, measured by the proportion of decisions that people make correctly, denoted PC. Secondly, I care about people’s speed, measured by the mean response time taken to make those decisions, denoted MRT. That’s standard in psychological experiments: the speed-accuracy trade-off is pretty ubiquitous, so we generally need to care about both variables.</p>
+<p>To look at the effects of practice over the long term, I test each participant on two days, <code>day1</code> and <code>day2</code>, where for the sake of argument I’ll assume that <code>day1</code> and <code>day2</code> are about a week apart. To look at the effects of practice over the short term, the testing during each day is broken into two “blocks,” <code>block1</code> and <code>block2</code>, which are about 20 minutes apart. This isn’t the world’s most complicated experiment, but it’s still a fair bit more complicated than the last one. This time around we have two within-subject factors (i.e., <code>day</code> and <code>block</code>) and we have two measured variables for each condition (i.e., <code>PC</code> and <code>MRT</code>). The <code>choice</code> data frame shows what the wide form of this kind of data might look like:</p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="data-cleaning-and-missing-values-analysis.html#cb620-1" aria-hidden="true" tabindex="-1"></a>choice</span></code></pre></div>
+<pre><code>##   id gender MRT/block1/day1 MRT/block1/day2 MRT/block2/day1
+## 1  1   male             415             400             455
+## 2  2   male             500             490             532
+## 3  3 female             478             468             499
+## 4  4 female             550             502             602
+##   MRT/block2/day2 PC/block1/day1 PC/block1/day2 PC/block2/day1
+## 1             450             79             88             82
+## 2             518             83             92             86
+## 3             474             91             98             90
+## 4             588             75             89             78
+##   PC/block2/day2
+## 1             93
+## 2             97
+## 3            100
+## 4             95</code></pre>
+<p>Notice that this time around we have variable names of the form <code>MRT/block1/day2</code>. As before, the first part of the name refers to the measured variable (response time), but there are now two suffixes, one indicating that the testing took place in block 1, and the other indicating that it took place on day 2. And just to complicate matters, it uses <code>/</code> as the separator character rather than <code>_</code>. Even so, reshaping this data set is pretty easy. The command to do it is,</p>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="data-cleaning-and-missing-values-analysis.html#cb622-1" aria-hidden="true" tabindex="-1"></a>choice<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">wideToLong</span>( choice, <span class="at">within=</span><span class="fu">c</span>(<span class="st">&quot;block&quot;</span>,<span class="st">&quot;day&quot;</span>), <span class="at">sep=</span><span class="st">&quot;/&quot;</span> )</span></code></pre></div>
+<p>which is pretty much the exact same command we used last time. The only difference here is that, because there are two within-subject factors, the <code>within</code> argument is a vector that contains two names. When we look at the long form data frame that this creates, we get this:</p>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="data-cleaning-and-missing-values-analysis.html#cb623-1" aria-hidden="true" tabindex="-1"></a>choice<span class="fl">.2</span></span></code></pre></div>
+<pre><code>##    id gender MRT  PC  block  day
+## 1   1   male 415  79 block1 day1
+## 2   2   male 500  83 block1 day1
+## 3   3 female 478  91 block1 day1
+## 4   4 female 550  75 block1 day1
+## 5   1   male 400  88 block1 day2
+## 6   2   male 490  92 block1 day2
+## 7   3 female 468  98 block1 day2
+## 8   4 female 502  89 block1 day2
+## 9   1   male 455  82 block2 day1
+## 10  2   male 532  86 block2 day1
+## 11  3 female 499  90 block2 day1
+## 12  4 female 602  78 block2 day1
+## 13  1   male 450  93 block2 day2
+## 14  2   male 518  97 block2 day2
+## 15  3 female 474 100 block2 day2
+## 16  4 female 588  95 block2 day2</code></pre>
+<p>In this long form data frame we have two between-subject variables (<code>id</code> and <code>gender</code>), two variables that define our within-subject manipulations (<code>block</code> and <code>day</code>), and two more contain the measurements we took (<code>MRT</code> and <code>PC</code>).</p>
+<p>To convert this back to wide form is equally straightforward. We use the <code>longToWide()</code> function, but this time around we need to alter the formula in order to tell it that we have two within-subject factors. The command is now</p>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="data-cleaning-and-missing-values-analysis.html#cb625-1" aria-hidden="true" tabindex="-1"></a><span class="fu">longToWide</span>( choice<span class="fl">.2</span>, MRT<span class="sc">+</span>PC <span class="sc">~</span> block<span class="sc">+</span>day, <span class="at">sep=</span><span class="st">&quot;/&quot;</span> ) </span></code></pre></div>
+<pre><code>##   id gender MRT/block1/day1 PC/block1/day1 MRT/block1/day2 PC/block1/day2
+## 1  1   male             415             79             400             88
+## 2  2   male             500             83             490             92
+## 3  3 female             478             91             468             98
+## 4  4 female             550             75             502             89
+##   MRT/block2/day1 PC/block2/day1 MRT/block2/day2 PC/block2/day2
+## 1             455             82             450             93
+## 2             532             86             518             97
+## 3             499             90             474            100
+## 4             602             78             588             95</code></pre>
+<p>and this produces a wide form data set containing the same variables as the original <code>choice</code> data frame.</p>
+</div>
+<div id="what-other-options-are-there" class="section level4" number="7.6.3.5">
+<h4><span class="header-section-number">7.6.3.5</span> What other options are there?</h4>
+<p>The advantage to the approach described in the previous section is that it solves a quite specific problem (but a commonly encountered one) with a minimum of fuss. The disadvantage is that the tools are quite limited in scope. They allow you to switch your data back and forth between two different formats that are very common in everyday data analysis. However, there a number of other tools that you can use if need be. Just within the core packages distributed with R there is the <code>reshape()</code> function, as well as the <code>stack()</code> and <code>unstack()</code> functions, all of which can be useful under certain circumstances. And there are of course thousands of packages on CRAN that you can use to help you with different tasks. One popular package for this purpose is the <code>reshape</code> package, written by Hadley Wickham <span class="citation">(<a href="#ref-ref" role="doc-biblioref"><strong>ref?</strong></a>for details see Wickham2007)</span>. There are two key functions in this package, called <code>melt()</code> and <code>cast()</code> that are pretty useful for solving a lot of reshaping problems. In a future version of this book I intend to discuss <code>melt()</code> and <code>cast()</code> in a fair amount of detail.</p>
+</div>
+</div>
+</div>
+<div id="step-2.-outlier-analysis" class="section level2" number="7.7">
+<h2><span class="header-section-number">7.7</span> Step 2. Outlier Analysis</h2>
+<p>An <strong>Outlier</strong> is a low-frequency extreme score. Remember that the mean is the balance point of a distribution, so a single extreme score can cause the mean to shift dramatically.</p>
+<p>Outlier analysis is detecting which variables have outliers, if any, and reasoning about why outliers exist. Often, an extreme value is a typo. Someone meant to enter 10 and they entered 100. Where you can identify such an error and are confident of its true value, then you can correct it. This is an error, not an outlier.</p>
+<p>Here are some helpful questions to ask yourself as you look for outliers:</p>
+<ul>
+<li><p>How do you define an outlier? A commonly accepted definition for outliers is beyond three standard deviations from the mean in either direction.</p></li>
+<li><p>Which variables have outliers? How many outliers are present?</p></li>
+<li><p>How many outliers would you expect to find in sample of this size? To solve this, find the total area under the curve beyond three standard deviations:</p></li>
+</ul>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="data-cleaning-and-missing-values-analysis.html#cb627-1" aria-hidden="true" tabindex="-1"></a>area_above_z3 <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">3</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="co"># find area under curve above z = 3</span></span>
+<span id="cb627-2"><a href="data-cleaning-and-missing-values-analysis.html#cb627-2" aria-hidden="true" tabindex="-1"></a>area_below_z3 <span class="ot">&lt;-</span> area_above_z3 <span class="co"># there will be the same sized area below z = -3</span></span>
+<span id="cb627-3"><a href="data-cleaning-and-missing-values-analysis.html#cb627-3" aria-hidden="true" tabindex="-1"></a>p_z3_outlier <span class="ot">&lt;-</span> area_above_z3 <span class="sc">+</span> area_below_z3 <span class="co"># add the two tails together to get probability of a score beyond z = +/- 3</span></span>
+<span id="cb627-4"><a href="data-cleaning-and-missing-values-analysis.html#cb627-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb627-5"><a href="data-cleaning-and-missing-values-analysis.html#cb627-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb627-6"><a href="data-cleaning-and-missing-values-analysis.html#cb627-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="cn">NULL</span>, <span class="fu">aes</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>))) <span class="sc">+</span></span>
+<span id="cb627-7"><a href="data-cleaning-and-missing-values-analysis.html#cb627-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">&quot;function&quot;</span>, <span class="at">fun =</span> dnorm, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="sc">-</span><span class="dv">3</span>), <span class="at">alpha =</span> <span class="fl">0.5</span>,<span class="at">fill=</span><span class="fu">alpha</span>(<span class="st">&quot;grey&quot;</span>,<span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb627-8"><a href="data-cleaning-and-missing-values-analysis.html#cb627-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">&quot;function&quot;</span>, <span class="at">fun =</span> dnorm, <span class="at">fill=</span><span class="st">&quot;blue&quot;</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb627-9"><a href="data-cleaning-and-missing-values-analysis.html#cb627-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">&quot;function&quot;</span>, <span class="at">fun =</span> dnorm, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="at">alpha =</span> <span class="fl">0.5</span>,<span class="at">fill=</span><span class="fu">alpha</span>(<span class="st">&quot;grey&quot;</span>,<span class="dv">0</span>))</span></code></pre></div>
+<p><img src="schuster-statistics-remix_files/figure-html/outlierp-1.png" width="672" /></p>
+<p>This gives a probability around .001 of obtaining an outlier beyond z = 3. If you multiply this by your sample size, you have a rough estimate of the number of extreme scores you would expect if you were using random sampling. In a sample of <span class="math inline">\(N = 10000\)</span>, you should expect to have some extreme scores and nothing is “wrong,” as this is how random sampling is supposed to work. In a sample of <span class="math inline">\(N = 100\)</span>, the presence of an outlier is more concerning, and additional effort is needed to explain it.</p>
+<ul>
+<li><p>Why do you think the the outlier scores are so extreme? If one individual had exceptionally high or low performance, you may be temped to remove them. However, be careful, as these exclusions can lead to bias. Ask yourself if the outlier is a member of your population, and thus should be included in your sample. This question is key for deciding what, if any, action to take. For example, if you are studying the accuracy of college students’ answers to Jeopardy! questions, one participant getting them all correct may be an outlier. If that participant was an exceptional college student, they should remain in the data to avoid bias to the sample. If, however, that participant was a former Jeopardy! champion, the researchers may decide that this is a study of the amateur public, not actual contests, and exclude that participant on the basis of them not being a true member of the population of interest. Note that regardless of the path, researchers must explain all data exclusions in their results section. Also notice that dealing with outlier scores requires more justification than simply excluding scores because they are unusually high or low.</p></li>
+<li><p>Do you have any reason to suspect bivariate outliers? Finally, participants may be outliers because of their scores on two measures (<span class="citation"><a href="#ref-Cohen2013" role="doc-biblioref">B. H. Cohen</a> (<a href="#ref-Cohen2013" role="doc-biblioref">2013</a>)</span>). Cohen (2013) gives the example of a man 74 inches tall who weighs 140 pounds. Although neither score is extreme, the combination of these scores occurs with a low frequency.</p></li>
+</ul>
+</div>
+<div id="step-3.-missing-values-analysis" class="section level2" number="7.8">
+<h2><span class="header-section-number">7.8</span> Step 3. Missing values analysis</h2>
+<p>Text by David Schuster</p>
+<p>Do not be daunted by missing values analysis. It boils down to three issues:</p>
+<ul>
+<li><p>R will complain if we try to do data analysis with variables with missing data. We need to know how R handles missing data.</p></li>
+<li><p>What proportion of the sample is missing (computed as the number missing divided by the sample size)? The lower the proportion that are missing, the lower the impact.</p></li>
+<li><p>Why are the data missing? We will attach one of three labels (MCAR, MAR, MNAR). The reasons matter because MAR and MNAR will lead to biased estimates.</p></li>
+</ul>
+<div id="specials" class="section level3" number="7.8.1">
+<h3><span class="header-section-number">7.8.1</span> Special values in R</h3>
+<p>Text by <span class="citation"><a href="#ref-Navarro2018" role="doc-biblioref">Navarro</a> (<a href="#ref-Navarro2018" role="doc-biblioref">2018</a>)</span></p>
+<p>The first thing I want to mention are some of the “special” values that you might see R produce. Most likely you’ll see them in situations where you were expecting a number, but there are quite a few other ways you can encounter them. These values are <code>Inf</code>, <code>NaN</code>, <code>NA</code> and <code>NULL</code>. These values can crop up in various different places, and so it’s important to understand what they mean.</p>
+<ul>
+<li><em>Infinity</em> (<code>Inf</code>). The easiest of the special values to explain is <code>Inf</code>, since it corresponds to a value that is infinitely large. You can also have <code>-Inf</code>. The easiest way to get <code>Inf</code> is to divide a positive number by 0:</li>
+</ul>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="data-cleaning-and-missing-values-analysis.html#cb628-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
+<pre><code>## [1] Inf</code></pre>
+<p>In most real world data analysis situations, if you’re ending up with infinite numbers in your data, then something has gone awry. Hopefully you’ll never have to see them.</p>
+<ul>
+<li><em>Not a Number</em> (<code>NaN</code>). The special value of <code>NaN</code> is short for “not a number,” and it’s basically a reserved keyword that means “there isn’t a mathematically defined number for this.” If you can remember your high school maths, remember that it is conventional to say that <span class="math inline">\(0/0\)</span> doesn’t have a proper answer: mathematicians would say that <span class="math inline">\(0/0\)</span> is <em>undefined</em>. R says that it’s not a number:</li>
+</ul>
+<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="data-cleaning-and-missing-values-analysis.html#cb630-1" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+<p>Nevertheless, it’s still treated as a “numeric” value. To oversimplify, <code>NaN</code> corresponds to cases where you asked a proper numerical question that genuinely has <em>no meaningful answer</em>.</p>
+<ul>
+<li><p><em>Not available</em> (<code>NA</code>) - used for missing data.
+<code>NA</code> indicates that the value that is “supposed” to be stored here is missing. To understand what this means, it helps to recognise that the <code>NA</code> value is something that you’re most likely to see when analysing data from real world experiments. Sometimes you get equipment failures, or you lose some of the data, or whatever. The point is that some of the information that you were “expecting” to get from your study is just plain missing. Note the difference between <code>NA</code> and <code>NaN</code>. For <code>NaN</code>, we really do know what’s supposed to be stored; it’s just that it happens to correspond to something like <span class="math inline">\(0/0\)</span> that doesn’t make any sense at all. In contrast, <code>NA</code> indicates that we actually don’t know what was supposed to be there. The information is <em>missing</em>.</p></li>
+<li><p><em>No value</em> (<code>NULL</code>).
+The <code>NULL</code> value takes this “absence” concept even further. It basically asserts that the variable genuinely has no value whatsoever. This is quite different to both <code>NaN</code> and <code>NA</code>. For <code>NaN</code> we actually know what the value is, because it’s something insane like <span class="math inline">\(0/0\)</span>. For <code>NA</code>, we believe that there is supposed to be a value “out there,” but a dog ate our homework and so we don’t quite know what it is. But for <code>NULL</code> we strongly believe that there is <em>no value at all</em>.</p></li>
+</ul>
+</div>
+<div id="missing" class="section level3" number="7.8.2">
+<h3><span class="header-section-number">7.8.2</span> Handling missing values in R</h3>
+<p>Text by <span class="citation"><a href="#ref-Navarro2018" role="doc-biblioref">Navarro</a> (<a href="#ref-Navarro2018" role="doc-biblioref">2018</a>)</span></p>
+<p>Real data sets very frequently turn out to have missing values: perhaps someone forgot to fill in a particular survey question, for instance. Missing data can be the source of a lot of tricky issues, most of which I’m going to gloss over. However, at a minimum, you need to understand the basics of handling missing data in R.</p>
+<div id="the-single-variable-case" class="section level4" number="7.8.2.1">
+<h4><span class="header-section-number">7.8.2.1</span> The single variable case</h4>
+<p>Let’s start with the simplest case, in which you’re trying to calculate descriptive statistics for a single variable which has missing data. In R, this means that there will be <code>NA</code> values in your data vector. Let’s create a variable like that:</p>
+<pre><code>&gt; partial &lt;- c(10, 20, NA, 30)</code></pre>
+<p>Let’s assume that you want to calculate the mean of this variable. By default, R assumes that you want to calculate the mean using all four elements of this vector, which is probably the safest thing for a dumb automaton to do, but it’s rarely what you actually want. Why not? Well, remember that the basic interpretation of <code>NA</code> is “I don’t know what this number is.” This means that <code>1 + NA = NA</code>: if I add 1 to some number that I don’t know (i.e., the <code>NA</code>) then the answer is <em>also</em> a number that I don’t know. As a consequence, if you don’t explicitly tell R to ignore the <code>NA</code> values, and the data set does have missing values, then the output will itself be a missing value. If I try to calculate the mean of the <code>partial</code> vector, without doing anything about the missing value, here’s what happens:</p>
+<pre><code>&gt; mean( x = partial )
+[1] NA</code></pre>
+<p>Technically correct, but deeply unhelpful.</p>
+<p>To fix this, all of the descriptive statistics functions that I’ve discussed in this chapter (with the exception of <code>cor()</code> which is a special case I’ll discuss below) have an optional argument called <code>na.rm</code>, which is shorthand for “remove NA values.” By default, <code>na.rm = FALSE</code>, so R does nothing about the missing data problem. Let’s try setting <code>na.rm = TRUE</code> and see what happens:</p>
+<p>When calculating sums and means when missing data are present (i.e., when there are <code>NA</code> values) there’s actually an additional argument to the function that you should be aware of. This argument is called <code>na.rm</code>, and is a logical value indicating whether R should ignore (or “remove”) the missing data for the purposes of doing the calculations. By default, R assumes that you want to keep the missing values, so unless you say otherwise it will set <code>na.rm = FALSE</code>. However, R assumes that <code>1 + NA = NA</code>: if I add 1 to some number that I don’t know (i.e., the <code>NA</code>) then the answer is <em>also</em> a number that I don’t know. As a consequence, if you don’t explicitly tell R to ignore the <code>NA</code> values, and the data set does have missing values, then the output will itself be a missing value. This is illustrated in the following extract:</p>
+<pre><code>&gt; mean( x = partial, na.rm = TRUE )
+[1] 20</code></pre>
+<p>Notice that the mean is <code>20</code> (i.e., <code>60 / 3</code>) and <em>not</em> <code>15</code>. When R ignores a <code>NA</code> value, it genuinely ignores it. In effect, the calculation above is identical to what you’d get if you asked for the mean of the three-element vector <code>c(10, 20, 30)</code>.</p>
+<p>As indicated above, this isn’t unique to the <code>mean()</code> function. Pretty much all of the other functions that I’ve talked about in this chapter have an <code>na.rm</code> argument that indicates whether it should ignore missing values. However, its behaviour is the same for all these functions, so I won’t waste everyone’s time by demonstrating it separately for each one.</p>
+</div>
+<div id="missing-values-in-pairwise-calculations" class="section level4" number="7.8.2.2">
+<h4><span class="header-section-number">7.8.2.2</span> Missing values in pairwise calculations</h4>
+<p>I mentioned earlier that the <code>cor()</code> function is a special case. It doesn’t have an <code>na.rm</code> argument, because the story becomes a lot more complicated when more than one variable is involved. What it does have is an argument called <code>use</code> which does roughly the same thing, but you need to think little more carefully about what you want this time. To illustrate the issues, let’s open up a data set that has missing values, <code>parenthood2.Rdata</code>. This file contains the same data as the original parenthood data, but with some values deleted. It contains a single data frame, <code>parenthood2</code>:</p>
+<pre><code>&gt; load( &quot;parenthood2.Rdata&quot; )
+&gt; print( parenthood2 )
+  dan.sleep baby.sleep dan.grump day
+1      7.59         NA        56   1
+2      7.91      11.66        60   2
+3      5.14       7.92        82   3
+4      7.71       9.61        55   4
+5      6.68       9.75        NA   5
+6      5.99       5.04        72   6
+BLAH BLAH BLAH</code></pre>
+<p>If I calculate my descriptive statistics using the <code>describe()</code> function</p>
+<pre><code>&gt; describe( parenthood2 )
+           var   n  mean    sd median trimmed   mad   min    max    BLAH
+dan.sleep    1  91  6.98  1.02   7.03    7.02  1.13  4.84   9.00    BLAH
+baby.sleep   2  89  8.11  2.05   8.20    8.13  2.28  3.25  12.07    BLAH
+dan.grump    3  92 63.15  9.85  61.00   62.66 10.38 41.00  89.00    BLAH
+day          4 100 50.50 29.01  50.50   50.50 37.06  1.00 100.00    BLAH</code></pre>
+<p>we can see from the <code>n</code> column that there are 9 missing values for <code>dan.sleep</code>, 11 missing values for <code>baby.sleep</code> and 8 missing values for <code>dan.grump</code>.<a href="#fn109" class="footnote-ref" id="fnref109"><sup>109</sup></a> Suppose what I would like is a correlation matrix. And let’s also suppose that I don’t bother to tell R how to handle those missing values. Here’s what happens:</p>
+<pre><code>&gt; cor( parenthood2 )
+           dan.sleep baby.sleep dan.grump day
+dan.sleep          1         NA        NA  NA
+baby.sleep        NA          1        NA  NA
+dan.grump         NA         NA         1  NA
+day               NA         NA        NA   1</code></pre>
+<p>Annoying, but it kind of makes sense. If I don’t <em>know</em> what some of the values of <code>dan.sleep</code> and <code>baby.sleep</code> actually are, then I can’t possibly <em>know</em> what the correlation between these two variables is either, since the formula for the correlation coefficient makes use of every single observation in the data set. Once again, it makes sense: it’s just not particularly <em>helpful</em>.</p>
+<p>To make R behave more sensibly in this situation, you need to specify the <code>use</code> argument to the <code>cor()</code> function. There are several different values that you can specify for this, but the two that we care most about in practice tend to be <code>"complete.obs"</code> and <code>"pairwise.complete.obs"</code>. If we specify <code>use = "complete.obs"</code>, R will completely ignore all cases (i.e., all rows in our <code>parenthood2</code> data frame) that have any missing values at all. So, for instance, if you look back at the extract earlier when I used the <code>head()</code> function, notice that observation 1 (i.e., day 1) of the <code>parenthood2</code> data set is missing the value for <code>baby.sleep</code>, but is otherwise complete? Well, if you choose <code>use = "complete.obs"</code> R will ignore that row completely: that is, even when it’s trying to calculate the correlation between <code>dan.sleep</code> and <code>dan.grump</code>, observation 1 will be ignored, because the value of <code>baby.sleep</code> is missing for that observation. Here’s what we get:</p>
+<pre><code>&gt; cor(parenthood2, use = &quot;complete.obs&quot;)
+             dan.sleep baby.sleep   dan.grump         day
+dan.sleep   1.00000000  0.6394985 -0.89951468  0.06132891
+baby.sleep  0.63949845  1.0000000 -0.58656066  0.14555814
+dan.grump  -0.89951468 -0.5865607  1.00000000 -0.06816586
+day         0.06132891  0.1455581 -0.06816586  1.00000000</code></pre>
+<p>The other possibility that we care about, and the one that tends to get used more often in practice, is to set <code>use = "pairwise.complete.obs"</code>. When we do that, R only looks at the variables that it’s trying to correlate when determining what to drop. So, for instance, since the only missing value for observation 1 of <code>parenthood2</code> is for <code>baby.sleep</code> R will only drop observation 1 when <code>baby.sleep</code> is one of the variables involved: and so R keeps observation 1 when trying to correlate <code>dan.sleep</code> and <code>dan.grump</code>. When we do it this way, here’s what we get:</p>
+<pre><code>&gt; cor(parenthood2, use = &quot;pairwise.complete.obs&quot;) 
+             dan.sleep  baby.sleep    dan.grump          day
+dan.sleep   1.00000000  0.61472303 -0.903442442 -0.076796665
+baby.sleep  0.61472303  1.00000000 -0.567802669  0.058309485
+dan.grump  -0.90344244 -0.56780267  1.000000000  0.005833399
+day        -0.07679667  0.05830949  0.005833399  1.000000000</code></pre>
+<p>Similar, but not quite the same. It’s also worth noting that the <code>correlate()</code> function (in the <code>lsr</code> package) automatically uses the “pairwise complete” method:</p>
+<pre><code>&gt; correlate(parenthood2)
+
+CORRELATIONS
+============
+- correlation type:  pearson 
+- correlations shown only when both variables are numeric
+
+           dan.sleep baby.sleep dan.grump    day
+dan.sleep          .      0.615    -0.903 -0.077
+baby.sleep     0.615          .    -0.568  0.058
+dan.grump     -0.903     -0.568         .  0.006
+day           -0.077      0.058     0.006      .</code></pre>
+<p>The two approaches have different strengths and weaknesses. The “pairwise complete” approach has the advantage that it keeps more observations, so you’re making use of more of your data and (as we’ll discuss in tedious detail in Chapter <a href="inferential-statistics-the-central-limit-theorem.html#estimation">4.2</a> and it improves the reliability of your estimated correlation. On the other hand, it means that every correlation in your correlation matrix is being computed from a slightly different set of observations, which can be awkward when you want to compare the different correlations that you’ve got.</p>
+<p>So which method should you use? It depends a lot on <em>why</em> you think your values are missing, and probably depends a little on how paranoid you are. For instance, if you think that the missing values were “chosen” completely randomly<a href="#fn110" class="footnote-ref" id="fnref110"><sup>110</sup></a> then you’ll probably want to use the pairwise method. If you think that missing data are a cue to thinking that the whole observation might be rubbish (e.g., someone just selecting arbitrary responses in your questionnaire), but that there’s no pattern to which observations are “rubbish” then it’s probably safer to keep only those observations that are complete. If you think there’s something systematic going on, in that some observations are more likely to be missing than others, then you have a much trickier problem to solve, and one that is beyond the scope of this book.</p>
+</div>
+</div>
+<div id="why-values-are-missing-mcar-mar-and-mnar" class="section level3" number="7.8.3">
+<h3><span class="header-section-number">7.8.3</span> Why values are missing: MCAR, MAR, and MNAR</h3>
+<p>Text by David Schuster</p>
+<p>Next, we will expand the definitions of MCAR, MAR, and MNAR:</p>
+<div id="missing-completely-at-random-mcar" class="section level4" number="7.8.3.1">
+<h4><span class="header-section-number">7.8.3.1</span> Missing completely at random: MCAR</h4>
+<p>In MCAR, the distribution of missing data is totally unpredictable from other variables in data set, including the value of missing values. For example: participants may overlook a survey item on the back page. It could be related to a third, unmeasured variable. The implication is that the missingness is effectively random because it cannot be predicted by any variable of interest.</p>
+<p>How to handle: While there are no acceptable limits, &lt; 5% is unlikely to make a difference. Deletion of missing cases can be appropriate when data are MCAR.</p>
+</div>
+<div id="missing-at-random-mar" class="section level4" number="7.8.3.2">
+<h4><span class="header-section-number">7.8.3.2</span> Missing at random: MAR</h4>
+<p>A better name for this would be missing not-quite-so-randomly. The distribution of missing data is predicable from other variables in the data set. For example: people in a treatment program were not encouraged to complete the survey completely but participants in the control condition were encouraged to complete the survey completely. This would create a pattern where treatment participants would be more likely to have missing data.</p>
+<p>How to handle: While there are no easy solutions, multiple imputation can be used with MAR data to estimate missing values.</p>
+</div>
+<div id="missing-not-at-random-mnar" class="section level4" number="7.8.3.3">
+<h4><span class="header-section-number">7.8.3.3</span> Missing not at random: MNAR</h4>
+<p>Missing data are related to the variable itself. For example: people with low income are less likely to report their income. This type is the most problematic. You cannot ignore this because it may bias results, even when using multiple imputation (Craig, 2010).</p>
+<p>How to handle: If you have variables in the dataset that could explain randomness, you might have MAR instead, which would allow multiple imputation. Therefore, when you suspect MNAR, it is worthwhile to see if you can classify the data as MAR.</p>
+</div>
+<div id="planned-missingness-is-not-missing-data" class="section level4" number="7.8.3.4">
+<h4><span class="header-section-number">7.8.3.4</span> Planned missingness is not missing data</h4>
+<p>Data that you have control over not including is not missing data. For example, if you ask participants how well they get along with their siblings, it is not missing data if that field is blank for participants without siblings. Planned missingness is not missing data.</p>
+</div>
+<div id="dealing-with-missingness" class="section level4" number="7.8.3.5">
+<h4><span class="header-section-number">7.8.3.5</span> Dealing with missingness</h4>
+<p>I recommend viewing the <a href="https://youtu.be/nDNuk2iag_o">Video: Dealing with missing data - 30 min</a> for a more complete discussion of the solutions to missing data. Some of your options are:</p>
+<ul>
+<li><p>Little’s test for MCAR tests the null hypothesis that data are MCAR. This may be appropriate as a diagnostic tool, but even a non-significant Little’s test does not guarantee MCAR. Further, a significant Little’s test does not tell you if the data are MAR or MNAR.</p></li>
+<li><p>You may be able to exclude the variable with missing data completely. This may be the best option when data are MNAR, and it can be used no matter the category. If the variable is not central to the research question, this is an easy strategy. I would recommend reporting that you suspect the data are MNAR to explain why you are not reporting them. Of course, if the variable is your IV or DV, proceeding without the variable may not be an option.</p></li>
+<li><p>Excluding the missing data. This is the default action in SPSS and available in R using the <code>na.rm = TRUE`$</code> argument. The two ways of excluding missing data are listwise (all must be complete to be included in an analysis) and pairwise (use cases wherever possible, even if some variables are missing). <strong>Exclusion of missing data assumes MCAR</strong> to avoid biasing results and also assumes a low proportion are missing.</p></li>
+<li><p>Do nothing. If you are reasonably confident you have MCAR and under 5% missing, you probably do not have an issue.</p></li>
+<li><p>Using missing data as new data: If know why data are missing, you might use it in your analysis.</p></li>
+<li><p>Imputation, which is estimating missing data. There are a variety of methods that have not been demonstrated to have good performance, including prior knowledge, mean substitution (overall or group mean), and using regression. Multiple imputation is the best of these methods but it is complicated. It improves on a regression approach by using sampling (bootstrapping). It uses regression to create a function that estimates the missing cases; random samples are taken with replacement to identify distribution of the variable with missing data. Random samples (about 5) are taken from the distribution of variable with missing data and filled into the dataset. Statistical analysis is done on each new complete dataset and the statistics are averaged. This procedure assumes MAR or MCAR (Craig, 2010).</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="step-4.-test-specific-assumption-checking" class="section level2" number="7.9">
+<h2><span class="header-section-number">7.9</span> Step 4. Test-specific assumption checking</h2>
+<p>Text by David Schuster</p>
+<p>I would like to note that every statistical test you will run carries certain assumptions. Assumptions may include a required level of measurement or a minimum sample size. Often your data need to be checked to see if they meet the assumptions for the statistical test.</p>
+<p>The good news about the statistical techniques we use is that they are sometimes <strong>robust</strong> to violations of some assumptions. Robustness means that statistical conclusion validity is not threatened despite the assumption violation. The bad news about the statistical techniques we use is that some assumptions are more critical than others, and the violation of multiple assumptions can be more severe than just one. Because of this, we need to learn the assumptions of our statistical tests as well as strategies for dealing with assumption violations when they occur. We will look at the assumptions for each test in detail. For now, you should be aware that assumption checking is an important step in preparing for analysis.</p>
+</div>
+<div id="communicate-results-of-data-cleaning-in-apa-style" class="section level2" number="7.10">
+<h2><span class="header-section-number">7.10</span> Communicate results of data cleaning in APA style</h2>
+<p>The first part of your results section should include one or more paragraphs describing the results of your data cleaning. Generally, you can report less detail if you did not find major issues. The bigger the issues, the more detail you will need to explain and justify your methods.</p>
+<p>Assume that reader has a professional knowledge of statistical methods. At minimum, the frequency and proportion of missing data should be reported. Empirical evidence and/or theoretical arguments for the causes of data that are missing are helpful. Describe your methods for addressing missing data, if any were used. Finding examples in journal articles can be helpful. Unless you have implemented a new method, do not include R code or output in your manuscript.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-APA" class="csl-entry">
+Assocation, American Psychological. 2020. <em>Publication Manual of the American Psychological Assocation</em>. 7th ed.
+</div>
+<div id="ref-Cohen2013" class="csl-entry">
+Cohen, Barry H. 2013. <em>Experimental and Quasi-Experimental Designs for Generalized Causal Inference</em>. John Wiley; Sons.
+</div>
+<div id="ref-Shadish2002" class="csl-entry">
+Cook, Thomas D, Donald Thomas Campbell, and William Shadish. 2002. <em>Experimental and Quasi-Experimental Designs for Generalized Causal Inference</em>. Houghton Mifflin Boston, MA.
+</div>
+<div id="ref-Navarro2018" class="csl-entry">
+Navarro, D. 2018. <em>Learning Statistics with r: A Tutorial for Psychology Students and Other Beginners (Version 0.6)</em>. <a href="https://learningstatisticswithr.com">https://learningstatisticswithr.com</a>.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="104">
+<li id="fn104"><p>As usual, you can assign this output to a variable. If you type <code>speaker.freq &lt;- table(speaker)</code> at the command prompt R will store the table as a variable. If you then type <code>class(speaker.freq)</code> you’ll see that the output is actually of class <code>table</code>. The key thing to note about a table object is that it’s basically a matrix (see Section <a href="#matrix"><strong>??</strong></a>.<a href="data-cleaning-and-missing-values-analysis.html#fnref104" class="footnote-back">↩︎</a></p></li>
+<li id="fn105"><p>Note for advanced users: both of these functions are just wrappers to the <code>matrix()</code> function, which is pretty flexible in terms of the ability to convert vectors into matrices. Also, while I’m on this topic, I’ll briefly mention the fact that if you’re a Matlab user and looking for an equivalent of Matlab’s <code>repmat()</code> function, I’d suggest checking out the <code>matlab</code> package which contains R versions of a lot of handy Matlab functions.<a href="data-cleaning-and-missing-values-analysis.html#fnref105" class="footnote-back">↩︎</a></p></li>
+<li id="fn106"><p>The function you need for that is called <code>as.data.frame()</code>.<a href="data-cleaning-and-missing-values-analysis.html#fnref106" class="footnote-back">↩︎</a></p></li>
+<li id="fn107"><p>In truth, I suspect that most of the cases when you can sensibly flip a data frame occur when all of the original variables are measurements of the same type (e.g., all variables are response times), and if so you could easily have chosen to encode your data as a matrix instead of as a data frame. But since people do sometimes prefer to work with data frames, I’ve written the <code>tFrame()</code> function for the sake of convenience. I don’t really think it’s something that is needed very often.<a href="data-cleaning-and-missing-values-analysis.html#fnref107" class="footnote-back">↩︎</a></p></li>
+<li id="fn108"><p>This limitation is deliberate, by the way: if you’re getting to the point where you want to do something more complicated, you should probably start learning how to use <code>reshape()</code>, <code>cast()</code> and <code>melt()</code> or some of other the more advanced tools. The <code>wideToLong()</code> and <code>longToWide()</code> functions are included only to help you out when you’re first starting to use R.<a href="data-cleaning-and-missing-values-analysis.html#fnref108" class="footnote-back">↩︎</a></p></li>
+<li id="fn109"><p>It’s worth noting that, even though we have missing data for each of these variables, the output doesn’t contain any <code>NA</code> values. This is because, while <code>describe()</code> also has an <code>na.rm</code> argument, the default value for this function is <code>na.rm = TRUE</code>.<a href="data-cleaning-and-missing-values-analysis.html#fnref109" class="footnote-back">↩︎</a></p></li>
+<li id="fn110"><p>The technical term here is “missing completely at random” (often written MCAR for short). Makes sense, I suppose, but it does sound ungrammatical to me.<a href="data-cleaning-and-missing-values-analysis.html#fnref110" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="issues-in-hypothesis-testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-datacleaning.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["schuster-statistics-remix.pdf", "schuster-statistics-remix.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
