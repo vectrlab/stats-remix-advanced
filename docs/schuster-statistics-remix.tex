@@ -154,7 +154,7 @@
 
 \title{Advanced Statistics Remix}
 \author{David Schuster}
-\date{2021-10-01}
+\date{2021-10-04}
 
 \begin{document}
 \maketitle
@@ -4962,11 +4962,11 @@ There are two more descriptive statistics that you will sometimes see reported i
 Example by \citet{Navarro2018}
 
 \begin{verbatim}
-## [1] -0.9177028
+## [1] -0.920519
 \end{verbatim}
 
 \begin{verbatim}
-## [1] -0.01750397
+## [1] 0.005674841
 \end{verbatim}
 
 \begin{figure}
@@ -4976,7 +4976,7 @@ Example by \citet{Navarro2018}
 \end{figure}
 
 \begin{verbatim}
-## [1] 0.9145069
+## [1] 0.921304
 \end{verbatim}
 
 Since it's the more interesting of the two, let's start by talking about the \textbf{\emph{skewness}}. Skewness is basically a measure of asymmetry, and the easiest way to explain it is by drawing some pictures. As Figure \ref{fig:skewness} illustrates, if the data tend to have a lot of extreme small values (i.e., the lower tail is ``longer'' than the upper tail) and not so many extremely large values (left panel), then we say that the data are \emph{negatively skewed}. On the other hand, if there are more extremely large values than extremely small ones (right panel) we say that the data are \emph{positively skewed}. That's the qualitative idea behind skewness. The actual formula for the skewness of a data set is as follows
@@ -5171,11 +5171,11 @@ If p \textless{} .05, reject the null and conclude the data are not normal. If p
 The final measure that is sometimes referred to, though very rarely in practice, is the \textbf{\emph{kurtosis}} of a data set. Put simply, kurtosis is a measure of the ``pointiness'' of a data set, as illustrated in Figure \ref{fig:kurtosis}.
 
 \begin{verbatim}
-## [1] -0.9534878
+## [1] -0.9618659
 \end{verbatim}
 
 \begin{verbatim}
-## [1] -0.003435671
+## [1] 0.002912703
 \end{verbatim}
 
 \begin{figure}
@@ -5185,7 +5185,7 @@ The final measure that is sometimes referred to, though very rarely in practice,
 \end{figure}
 
 \begin{verbatim}
-## [1] 2.010427
+## [1] 2.07922
 \end{verbatim}
 
 By convention, we say that the ``normal curve'' (black lines) has zero kurtosis, so the pointiness of a data set is assessed relative to this curve. In this Figure, the data on the left are not pointy enough, so the kurtosis is negative and we call the data \emph{platykurtic}. The data on the right are too pointy, so the kurtosis is positive and we say that the data is \emph{leptokurtic}. But the data in the middle are just pointy enough, so we say that it is \emph{mesokurtic} and has kurtosis zero. This is summarised in the table below:
@@ -6410,7 +6410,7 @@ The idea is quite simple. Let's say we're talking about IQ scores. To a psycholo
 \includegraphics{schuster-statistics-remix_files/figure-latex/IQdist-1.pdf} \includegraphics{schuster-statistics-remix_files/figure-latex/IQdist-2.pdf}
 
 \begin{verbatim}
-## [1] "n= 100 mean= 99.2394342104444 sd= 15.5912955244281"
+## [1] "n= 100 mean= 101.144025046939 sd= 15.1062812516679"
 \end{verbatim}
 
 \begin{figure}
@@ -6420,7 +6420,7 @@ The idea is quite simple. Let's say we're talking about IQ scores. To a psycholo
 \end{figure}
 
 \begin{verbatim}
-## [1] "n= 10000 mean= 100.090714471446 sd= 14.8654747942857"
+## [1] "n= 10000 mean= 99.9007320125907 sd= 14.9044123137765"
 \end{verbatim}
 
 Now suppose I run an experiment. I select 100 people at random and administer an IQ test, giving me a simple random sample from the population. My sample would consist of a collection of numbers like this:
@@ -6449,7 +6449,7 @@ The obvious answer is to collect more data. Suppose that we ran a much larger ex
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  92  94 116  75  81  67
+## [1]  99 109 110 119 119  87
 \end{verbatim}
 
 I can compute the mean IQ using the command \texttt{mean(IQ)} and the standard deviation using the command \texttt{sd(IQ)}, and I can draw a histgram using \texttt{hist()}. The histogram of this much larger sample is shown in Figure \ref{fig:IQdist} c.~Even a moment's inspections makes clear that the larger sample is a much better approximation to the true population distribution than the smaller one. This is reflected in the sample statistics: the mean IQ for the larger sample turns out to be 99.9, and the standard deviation is 15.1. These values are now very close to the true population.
@@ -6566,7 +6566,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 50.74128}
+\DocumentationTok{\#\# [1] 50.18163}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6577,7 +6577,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Highlighting}[]
 \NormalTok{onesample }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(population, }\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# Take a random sample of size 3 from the population distribution with replacement}
 \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# Display the mean of the sample distribution}
-\DocumentationTok{\#\# [1] 54.04146}
+\DocumentationTok{\#\# [1] 50.41156}
 \FunctionTok{hist}\NormalTok{(onesample) }\CommentTok{\# Display a histogram of the sample distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6587,7 +6587,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(onesample) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the sample mean and the population mean}
-\DocumentationTok{\#\# [1] 3.300174}
+\DocumentationTok{\#\# [1] 0.2299236}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6601,7 +6601,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 49.24983}
+\DocumentationTok{\#\# [1] 51.01439}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6612,7 +6612,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Highlighting}[]
 \NormalTok{onesample }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(population, }\AttributeTok{size =} \DecValTok{900}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# Take a random sample of size 900 from the population distribution with replacement}
 \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# Display the mean of the sample distribution}
-\DocumentationTok{\#\# [1] 49.10089}
+\DocumentationTok{\#\# [1] 50.4152}
 \FunctionTok{hist}\NormalTok{(onesample) }\CommentTok{\# Display a histogram of the sample distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6622,7 +6622,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(onesample) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the sample mean and the population mean}
-\DocumentationTok{\#\# [1] {-}0.1489379}
+\DocumentationTok{\#\# [1] {-}0.5991866}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6647,7 +6647,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 49.39994}
+\DocumentationTok{\#\# [1] 51.30037}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6662,7 +6662,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \NormalTok{  sampling[i] }\OtherTok{=} \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# add the sample\textquotesingle{}s mean to the sampling distribution}
 \NormalTok{\}}
 \FunctionTok{mean}\NormalTok{(sampling) }\CommentTok{\# Display the mean of the SAMPLING distribution}
-\DocumentationTok{\#\# [1] 49.4674}
+\DocumentationTok{\#\# [1] 51.28655}
 \FunctionTok{hist}\NormalTok{(sampling) }\CommentTok{\# Display a histogram of the SAMPLING distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6672,7 +6672,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(sampling) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the SAMPLING distribution mean and the population mean}
-\DocumentationTok{\#\# [1] 0.06745836}
+\DocumentationTok{\#\# [1] {-}0.01382115}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6742,7 +6742,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 12.97088
+## [1] 12.69572
 \end{verbatim}
 
 \begin{Shaded}
@@ -6754,7 +6754,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 12.88749
+## [1] 12.44334
 \end{verbatim}
 
 \begin{Shaded}
@@ -6764,7 +6764,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -0.08339534
+## [1] -0.2523725
 \end{verbatim}
 
 They are pretty close. Why do we need the standard error formula if we could just find the standard deviation of the sampling distribution? Well, we typically do not work with the sampling distribution directly. We simply understand that it exists. Creating a sampling distribution requires the population distribution to be available to us, and this isn't usually the case when we are doing research. Further, the central limit theorem specifies taking an \emph{unlimited} number of samples in order for the sampling distribution mean to equal the population mean. It also requires a sample size of \(N\ge30\) when the population is not normally distributed. We have violated that rule (we used a uniform population distribution and we set our sample size as low as 5), but the numbers still came out pretty close.
@@ -9427,11 +9427,14 @@ Text by \citet{Navarro2018}
 \section{Videos}\label{videos-6}}
 
 \begin{itemize}
-\tightlist
 \item
-  What is GLM? modeling is predicting an outcome, equation for a line, everything is GLM
+  \href{https://www.youtube.com/watch?v=sUXh5mY7P9Y}{Video: Correlation Basics - 20 min}
 \item
-  Regression: Conceptual foundations
+  What is GLM? modeling is predicting an outcome, equation for a line, everything is GLM;
+\item
+  Which test? z, t, F, r
+\item
+  Regression: Conceptual foundations - the process
 \item
   How to do regression in R
 \end{itemize}
@@ -9443,17 +9446,17 @@ Text by \citet{Navarro2018}
 
 The goal in this chapter is to introduce \textbf{\emph{linear regression}}, the standard tool that statisticians rely on when analysing the relationship between interval scale predictors and interval scale outcomes. Stripped to its bare essentials, linear regression models are basically a slightly fancier version of the Pearson correlation (Section \ref{correl}) though as we'll see, regression models are much more powerful tools.
 
-\hypertarget{towards-statistical-unity-the-glm}{%
-\section{Towards Statistical Unity: The GLM}\label{towards-statistical-unity-the-glm}}
+\hypertarget{the-general-linear-model-glm}{%
+\section{The General Linear Model (GLM)}\label{the-general-linear-model-glm}}
 
 Text by David Schuster
 
 We have not even done \(t\)-tests in R yet and we are already doing multiple regression! This is intentional. One theme of this course is that statistical concepts that seem to be independent are sometimes mathematically related. Such is the case with regression. Regression is the mathematical basis of most of the inferential statistical procedures we use, including \(t\)-tests, \(F\)-tests (including all variations of analysis of variance, also called ANOVA), and, of course, correlation and multiple regression. Besides introducing linear regression, which is powerful and versatile, this chapter will introduce the mathematical concept that underlies all of these procedures, the \textbf{general linear model} (GLM). As an example of GLM, we will see that linear regression is perhaps the more powerful and versatile technique we will discuss in this class, because everything that follows can be implemented as a GLM model.
 
-The key concept of the GLM is that it measures a linear relationship between one or more outcome variables (in our research they will usually be the dependent variable) and one or more predictor variables (usually independent variables). GLM models that have a single outcome variable are \textbf{univariate statistics}. GLM modeling with a single predictor is called \textbf{simple regression}. In this chapter, we will discover that we can an unlimited number of predictors in a linear model, which is what defines \textbf{multiple regression}. Our course will focus on univariate statistics. You should be aware, however, that a slightly more complex version exists in which combines multiple dependent variables on the left side of the equation. Including more than one outcome variable in a regression model is called \textbf{multivariate statistics}.
+The key concept of the GLM is that it measures a linear relationship between one or more outcome variables (in our research they will usually be the dependent variable) and one or more predictor variables (usually independent variables). GLM models that have a single outcome variable are \textbf{univariate statistics}. GLM modeling with a single predictor is called \textbf{simple regression}. In this chapter, we will discover that we can add unlimited number of predictors in a linear model (although we will discover that there are situations where we can have too many variables), which is what defines \textbf{multiple regression} (it contains \emph{multiple} independent variables). Our course will focus on univariate statistics. You should be aware, however, that a more complex version exists; we can combine multiple dependent variables on the left side of the equation. Including more than one outcome variable in a model is called \textbf{multivariate statistics}.
 
-\hypertarget{traditional-approach-two-kinds-of-parametric-statistical-tests}{%
-\subsection{Traditional approach: Two kinds of parametric statistical tests}\label{traditional-approach-two-kinds-of-parametric-statistical-tests}}
+\hypertarget{the-traditional-approach-two-kinds-of-parametric-statistical-tests}{%
+\subsection{The Traditional approach: Two kinds of parametric statistical tests}\label{the-traditional-approach-two-kinds-of-parametric-statistical-tests}}
 
 Statistics teachers and textbook authors sometimes de-emphasize GLM in favor of presenting statistical tests as being one of two types:
 
@@ -9464,48 +9467,550 @@ Statistics teachers and textbook authors sometimes de-emphasize GLM in favor of 
   Statistical tests that measure differences between groups (e.g., z-test)
 \end{itemize}
 
-This characterization can be useful, as researchers find themselves wanting to measure a linear relationship (i.e., Is there a correlation between A and B?) or measure differences between groups (i.e., Is there a difference between Condition A and Condition B?). Consequently, linear relationships are useful when researchers are doing observational research. You can measure two quantitative variables and see if they are related. Meanwhile, experimental researchers want to see if their discrete manipulation (participants are either in Condition A or Condition B; it is a discrete IV) causes a change in their dependent variable.
+This characterization can be useful, as researchers find themselves wanting to measure a linear relationship (i.e., Is there a correlation between A and B?) or measure differences between groups (i.e., Is there a difference between Condition A and Condition B?). Consequently, linear relationships are useful when researchers are doing observational research. You can measure two quantitative variables and see if they are related. Meanwhile, experimental researchers want to see if their discrete manipulation (participants are either in Condition A or Condition B; it is a discrete IV) causes a change in their dependent variable. This makes multiple regression more convenient for researchers because they have continuous variables. Meanwhile, experimental researchers often have a discrete IV, so software designed to run an ANOVA can make this analysis more convenient than adapting it to run as a multiple regression. It is important to note that this is merely convenience. Both procedures use GLM.
 
-Where this characterization can be misleading is when researchers think that these two techniques are separate. Any t-test or ANOVA could be run as a multiple regression. Or, worse, researchers may mix up the \emph{research design} and the \emph{statistical analysis}. Therefore, it is important to (re)state:
+This distinction between linear relationships and group differences can be misleading when researchers think that these two techniques are separate. Any t-test or ANOVA could be run as a multiple regression. Or, worse, researchers may mix up the \emph{research design} and the \emph{statistical analysis}. Therefore, it is important to state:
 
 \begin{itemize}
 \item
-  Regression can be used with continuous or discrete predictor variables. Discrete predictors are added to regression models using a technique called \textbf{dummy coding} (we will learn how to do this later on).
+  Regression can be used with continuous or discrete predictor variables. There is a rule about this; discrete predictors in a regression must be \textbf{dichotomous} (only having two possible values). A yes/no question could be added to a regression model. A question asking participants their favorite color could not be added to a regression model without an additional step. Non-dichotomous, discrete predictors are added to regression models using a technique called \textbf{dummy coding}, which turns a categorical variable into a series of dichotomous variables (we will learn how to do this later on). Dummy coding would lead researchers to the same answer as running an ANOVA.
 \item
-  The reverse is not always advisable, as ANOVA is a technique to test differences between discrete groups. A continuous variable could be broken up into discrete groups, but doing this throws away information contained in the variable. One way to do this is a \textbf{median split} (scores below the median are 0 and scores above the median are 1). If one participant scores just below the median and another very far below the median, they will both be scored the same. Therefore, this throws away variance and can reduce statistical power.
+  ANOVA is designed for discrete predictor variables (with as many categories or levels as you would like). ANOVA can be used with continuous predictor variables if we make them discrete, but that is rarely advisable. One way to do this is a \textbf{median split} (scores below the median are 0 and scores above the median are 1). If one participant scores just below the median and another very far below the median, they will both be scored the same. Therefore, this throws away variance and can reduce statistical power. For this reason, multiple regression is the more adaptable technique. That said, we will see that we use some ANOVA calculations on our regression models when we do null hypothesis significance testing (NHST).
 \item
   All GLM procedures can be used with non-experimental, quasi-experimental, or experimental research designs. \textbf{Whether inferences can be made about causality is affected by the research design, not the choice of statistical technique}. Both regression and ANOVA can show us if two variables are related. Thus, which one is the right statistic depends on the type of measurement used in the study, not whether the study is an experiment, quasi-experiment, or non-experiment. If you have two continuous variables, you should use a correlation. If you have a discrete IV and a continuous DV, you could use either correlation or a t-test. You can use a correlation to analyze experiments, quasi-experiments, or non-experiments. You can use a t-test to analyze experiments, quasi-experiments, or non-experiments. A correlation analysis is not the same thing as a ``correlational research design.'' For this reason, ``experiment, quasi-experiment, and non-experiment'' are much clearer labels.
 \item
   The same model and data tested as a regression or as an ANOVA will yield the same mean differences, effect size, and p-value. \textbf{Regression and ANOVA, because they are both GLM, have the same statistical power}.
 \end{itemize}
 
-All GLM procedures are \textbf{parametric statistics}, which means that they make assumptions about the population distributions from which we sample. In practice, this means that parametric statistics typically have more assumptions than their \textbf{nonparametric} alternatives. It is an oversimplification to say that nonparametric stats have no assumptions (they just have fewer assumptions).
+All GLM procedures are \textbf{parametric statistics}, which means that they make assumptions about the population distributions from which we sample. In practice, this means that parametric statistics typically have more assumptions than their \textbf{nonparametric} alternatives. We need to learn which assumptions are important and how we can check our data to see if assumptions are met. It is an oversimplification to say that nonparametric stats have no assumptions; they just have fewer assumptions.
 
 \hypertarget{the-glm-approach}{%
 \subsection{The GLM approach}\label{the-glm-approach}}
 
 \[
-Y = XB + E
+Y = XB + I + E
 \]
-With GLM, we are using the equation for a line to assess and describe the relationship between variables. The elements are:
+With GLM, we are using the equation for a line to assess and describe the relationship between variables. You will see this equation several times in this chapter with different letters labeling each element. The elements are:
 
 \begin{itemize}
 \item
-  \(Y\), an outcome variable, also called the regressand
+  \(Y\), an outcome variable, which can also be called the regressand, response variable, predicted variable, or output variable
 \item
-  \(X\), a predictor variable, also called the regressor
+  \(X\), a predictor variable, which can also be called the regressor, independent variable, treatment variable, or factor
 \item
-  \(B\), a model parameter, which defines the relationship between \(X\) and \(Y\)
+  \(B\), a model parameter, also called the weight or the coefficient, which defines the relationship between \(X\) and \(Y\)
+\item
+  \(I\), the intercept, which gives the estimated value of Y when \(X = 0\). It is also the y-intercept of the regression line.
 \item
   \(E\), error, also called the residual
 \end{itemize}
 
-The techniques in this chapter expand upon this general approach. Specifically, we will see that each of these elements can actually be a list (a matrix) of observations. Further, we can expand this model such that \(XB\) is a combination of several predictor variables, not just one.
+The techniques in this chapter expand upon this approach of creating a model and using it to estimate an outcome variable. For example, each of these elements can actually be a list (a matrix) of observations. Further, we can expand this model such that \(XB\) is a combination of several predictor variables, not just one. Or, we could create an even simpler model with no predictors.
 
-It might help to illustrate this as a very simple model. In \citet{Kozma1983} found that good health predicted happiness. Imagine that I wanted to predict your score on this measure right now. However, I know nothing about you, dear reader. What could serve as my best guess of your happiness? I could use the population mean. That would result in a model \(Y = \mu + E\), where Y is your predicted happiness, predicted on the basis of the population mean and nothing else. I could probably do a bit better if I also knew your health score. This new model would be \(Y = XB + \mu + E\), where \(X\) is your health score, and \(B\) is a model parameter that explains how to adjust your predicted happiness score based on the health score (technically, it says to increase \(Y\) by \(B\) units for every 1 unit increase of \(X\)). We have just created a linear regression model. We have also shown how the addition of predictors (assuming they are good predictors that correlate with our outcome variable) can increase the predictive power of a model.
+It might help to illustrate this with an example. In \citet{Kozma1983} found that good health predicted happiness. Imagine that I wanted to predict your score on this measure right now. However, I know nothing about you. What could serve as my best guess of your happiness? I could use the population mean. That would result in a model \(Y = I + E\), where Y is your predicted happiness, predicted on the basis of the population mean (\(I = \mu)\) and nothing else. As there are no variables, there would be no \(XB\) term. I could probably do a bit better if I also knew your health score. This new model would be \(Y = XB + I + E\), where \(X\) is your health score, and \(B\) is a model parameter that explains how to adjust your predicted happiness score based on the health score (technically, it says to increase the predicted \(Y\) by \(B\) units for every 1 unit increase of \(X\)). We have just created a linear regression model, which is a use of the GLM. We have also shown how the addition of predictors (assuming they are good predictors that independently correlate with our outcome variable) can increase the predictive power of a model. This pattern could continue if we added an additional explanatory variable, leading to a multiple regression equation in the form \(Y = X_1B_1 + X_2B_2 + I +E\).
+
+\hypertarget{correl}{%
+\section{Correlations}\label{correl}}
+
+Text by \citet{Navarro2018}
+
+Up to this point we have focused entirely on how to construct descriptive statistics for a single variable. What we haven't done is talked about how to describe the relationships \emph{between} variables in the data. To do that, we want to talk mostly about the \textbf{\emph{correlation}} between variables. But first, we need some data.
+
+\hypertarget{the-data}{%
+\subsection{The data}\label{the-data}}
+
+After spending so much time looking at the AFL data, I'm starting to get bored with sports. Instead, let's turn to a topic close to every parent's heart: sleep. The following data set is fictitious, but based on real events. Suppose I'm curious to find out how much my infant son's sleeping habits affect my mood. Let's say that I can rate my grumpiness very precisely, on a scale from 0 (not at all grumpy) to 100 (grumpy as a very, very grumpy old man). And, lets also assume that I've been measuring my grumpiness, my sleeping patterns and my son's sleeping patterns for quite some time now. Let's say, for 100 days. And, being a nerd, I've saved the data as a file called \texttt{parenthood.Rdata}. If we load the data\ldots{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{load}\NormalTok{( }\StringTok{"./data/parenthood.Rdata"}\NormalTok{ )}
+\FunctionTok{who}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    -- Name --     -- Class --   -- Size --
+##    parenthood     data.frame    100 x 4   
+##     $dan.sleep    numeric       100       
+##     $baby.sleep   numeric       100       
+##     $dan.grump    numeric       100       
+##     $day          integer       100
+\end{verbatim}
+
+\ldots{} we see that the file contains a single data frame called \texttt{parenthood}, which contains four variables \texttt{dan.sleep}, \texttt{baby.sleep}, \texttt{dan.grump} and \texttt{day}. If we peek at the data using \texttt{head()} out the data, here's what we get:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(parenthood,}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    dan.sleep baby.sleep dan.grump day
+## 1       7.59      10.18        56   1
+## 2       7.91      11.66        60   2
+## 3       5.14       7.92        82   3
+## 4       7.71       9.61        55   4
+## 5       6.68       9.75        67   5
+## 6       5.99       5.04        72   6
+## 7       8.19      10.45        53   7
+## 8       7.19       8.27        60   8
+## 9       7.40       6.06        60   9
+## 10      6.58       7.09        71  10
+\end{verbatim}
+
+Next, I'll calculate some basic descriptive statistics:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{describe}\NormalTok{( parenthood )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            vars   n  mean    sd median trimmed   mad   min    max range
+## dan.sleep     1 100  6.97  1.02   7.03    7.00  1.09  4.84   9.00  4.16
+## baby.sleep    2 100  8.05  2.07   7.95    8.05  2.33  3.25  12.07  8.82
+## dan.grump     3 100 63.71 10.05  62.00   63.16  9.64 41.00  91.00 50.00
+## day           4 100 50.50 29.01  50.50   50.50 37.06  1.00 100.00 99.00
+##             skew kurtosis   se
+## dan.sleep  -0.29    -0.72 0.10
+## baby.sleep -0.02    -0.69 0.21
+## dan.grump   0.43    -0.16 1.00
+## day         0.00    -1.24 2.90
+\end{verbatim}
+
+Finally, to give a graphical depiction of what each of the three interesting variables looks like, Figure \ref{fig:parenthood} plots histograms.
+
+\begin{figure}
+\centering
+\includegraphics{schuster-statistics-remix_files/figure-latex/parenthood-1.pdf}
+\caption{\label{fig:parenthood}Histograms for the three interesting variables in the \texttt{parenthood} data set}
+\end{figure}
+
+One thing to note: just because R can calculate dozens of different statistics doesn't mean you should report all of them. If I were writing this up for a report, I'd probably pick out those statistics that are of most interest to me (and to my readership), and then put them into a nice, simple table like the one in Table \ref{tab:parenthoodtab}.\footnote{Actually, even that table is more than I'd bother with. In practice most people pick \emph{one} measure of central tendency, and \emph{one} measure of variability only.} Notice that when I put it into a table, I gave everything ``human readable'' names. This is always good practice. Notice also that I'm not getting enough sleep. This isn't good practice, but other parents tell me that it's standard practice.
+
+\begin{table}
+
+\caption{\label{tab:parenthoodtab}Descriptive statistics for the parenthood data.}
+\centering
+\begin{tabular}[t]{lllllll}
+\toprule
+variable & min & max & mean & median & std. dev & IQR\\
+\midrule
+Dan's grumpiness & 41 & 91 & 63.71 & 62 & 10.05 & 14\\
+Dan's hours slept & 4.84 & 9 & 6.97 & 7.03 & 1.02 & 1.45\\
+Dan's son's hours slept & 3.25 & 12.07 & 8.05 & 7.95 & 2.07 & 3.21\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{the-strength-and-direction-of-a-relationship}{%
+\subsection{The strength and direction of a relationship}\label{the-strength-and-direction-of-a-relationship}}
+
+\begin{figure}
+\centering
+\includegraphics{schuster-statistics-remix_files/figure-latex/scatterparent1a-1.pdf}
+\caption{\label{fig:scatterparent1a}Scatterplot showing the relationship between \texttt{dan.sleep} and \texttt{dan.grump}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{schuster-statistics-remix_files/figure-latex/scatterparent1b-1.pdf}
+\caption{\label{fig:scatterparent1b}Scatterplot showing the relationship between \texttt{baby.sleep} and \texttt{dan.grump}}
+\end{figure}
+
+We can draw scatterplots to give us a general sense of how closely related two variables are. Ideally though, we might want to say a bit more about it than that. For instance, let's compare the relationship between \texttt{dan.sleep} and \texttt{dan.grump} (Figure \ref{fig:scatterparent1a} with that between \texttt{baby.sleep} and \texttt{dan.grump} (Figure \ref{fig:scatterparent1b}. When looking at these two plots side by side, it's clear that the relationship is \emph{qualitatively} the same in both cases: more sleep equals less grump! However, it's also pretty obvious that the relationship between \texttt{dan.sleep} and \texttt{dan.grump} is \emph{stronger} than the relationship between \texttt{baby.sleep} and \texttt{dan.grump}. The plot on the left is ``neater'' than the one on the right. What it feels like is that if you want to predict what my mood is, it'd help you a little bit to know how many hours my son slept, but it'd be \emph{more} helpful to know how many hours I slept.
+
+In contrast, let's consider Figure \ref{fig:scatterparent1b} vs.~Figure \ref{fig:scatterparent2}. If we compare the scatterplot of ``\texttt{baby.sleep} v \texttt{dan.grump}'' to the scatterplot of ```\texttt{baby.sleep} v \texttt{dan.sleep}'', the overall strength of the relationship is the same, but the direction is different. That is, if my son sleeps more, I get \emph{more} sleep (positive relationship, but if he sleeps more then I get \emph{less} grumpy (negative relationship).
+
+\begin{figure}
+\centering
+\includegraphics{schuster-statistics-remix_files/figure-latex/scatterparent2-1.pdf}
+\caption{\label{fig:scatterparent2}Scatterplot showing the relationship between \texttt{baby.sleep} and \texttt{dan.sleep}}
+\end{figure}
+
+\hypertarget{the-correlation-coefficient}{%
+\subsection{The correlation coefficient}\label{the-correlation-coefficient}}
+
+We can make these ideas a bit more explicit by introducing the idea of a \textbf{\emph{correlation coefficient}} (or, more specifically, Pearson's correlation coefficient), which is traditionally denoted by \(r\). The correlation coefficient between two variables \(X\) and \(Y\) (sometimes denoted \(r_{XY}\)), which we'll define more precisely in the next section, is a measure that varies from \(-1\) to \(1\). When \(r = -1\) it means that we have a perfect negative relationship, and when \(r = 1\) it means we have a perfect positive relationship. When \(r = 0\), there's no relationship at all. If you look at Figure \ref{fig:corr}, you can see several plots showing what different correlations look like.
+
+\begin{figure}
+\centering
+\includegraphics{schuster-statistics-remix_files/figure-latex/corr-1.pdf}
+\caption{\label{fig:corr}Illustration of the effect of varying the strength and direction of a correlation}
+\end{figure}
+
+The formula for the Pearson's correlation coefficient can be written in several different ways. I think the simplest way to write down the formula is to break it into two steps. Firstly, let's introduce the idea of a \textbf{\emph{covariance}}. The covariance between two variables \(X\) and \(Y\) is a generalisation of the notion of the variance; it's a mathematically simple way of describing the relationship between two variables that isn't terribly informative to humans:
+\[
+\mbox{Cov}(X,Y) = \frac{1}{N-1} \sum_{i=1}^N \left( X_i - \bar{X} \right) \left( Y_i - \bar{Y} \right)
+\]
+Because we're multiplying (i.e., taking the ``product'' of) a quantity that depends on \(X\) by a quantity that depends on \(Y\) and then averaging\footnote{Just like we saw with the variance and the standard deviation, in practice we divide by \(N-1\) rather than \(N\).}, you can think of the formula for the covariance as an ``average cross product'' between \(X\) and \(Y\). The covariance has the nice property that, if \(X\) and \(Y\) are entirely unrelated, then the covariance is exactly zero. If the relationship between them is positive (in the sense shown in \href{mailto:Figure@reffig}{\nolinkurl{Figure@reffig}}:corr) then the covariance is also positive; and if the relationship is negative then the covariance is also negative. In other words, the covariance captures the basic qualitative idea of correlation. Unfortunately, the raw magnitude of the covariance isn't easy to interpret: it depends on the units in which \(X\) and \(Y\) are expressed, and worse yet, the actual units that the covariance itself is expressed in are really weird. For instance, if \(X\) refers to the \texttt{dan.sleep} variable (units: hours) and \(Y\) refers to the \texttt{dan.grump} variable (units: grumps), then the units for their covariance are ``hours \(\times\) grumps''. And I have no freaking idea what that would even mean.
+
+The Pearson correlation coefficient \(r\) fixes this interpretation problem by standardising the covariance, in pretty much the exact same way that the \(z\)-score standardises a raw score: by dividing by the standard deviation. However, because we have two variables that contribute to the covariance, the standardisation only works if we divide by both standard deviations.\footnote{This is an oversimplification, but it'll do for our purposes.} In other words, the correlation between \(X\) and \(Y\) can be written as follows:
+\[
+r_{XY}  = \frac{\mbox{Cov}(X,Y)}{ \hat{\sigma}_X \ \hat{\sigma}_Y}
+\]
+By doing this standardisation, not only do we keep all of the nice properties of the covariance discussed earlier, but the actual values of \(r\) are on a meaningful scale: \(r= 1\) implies a perfect positive relationship, and \(r = -1\) implies a perfect negative relationship. I'll expand a little more on this point later, in \href{mailto:Section@refsec}{\nolinkurl{Section@refsec}}:interpretingcorrelations. But before I do, let's look at how to calculate correlations in R.
+
+\hypertarget{calculating-correlations-in-r}{%
+\subsection{Calculating correlations in R}\label{calculating-correlations-in-r}}
+
+Calculating correlations in R can be done using the \texttt{cor()} command. The simplest way to use the command is to specify two input arguments \texttt{x} and \texttt{y}, each one corresponding to one of the variables. The following extract illustrates the basic usage of the function:\footnote{If you are reading this after having already completed Chapter \ref{hypothesistesting} you might be wondering about hypothesis tests for correlations. R has a function called \texttt{cor.test()} that runs a hypothesis test for a single correlation, and the \texttt{psych} package contains a version called \texttt{corr.test()} that can run tests for every correlation in a correlation matrix; hypothesis tests for correlations are discussed in more detail in Section \ref{corrhyp}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor}\NormalTok{( }\AttributeTok{x =}\NormalTok{ parenthood}\SpecialCharTok{$}\NormalTok{dan.sleep, }\AttributeTok{y =}\NormalTok{ parenthood}\SpecialCharTok{$}\NormalTok{dan.grump )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -0.903384
+\end{verbatim}
+
+However, the \texttt{cor()} function is a bit more powerful than this simple example suggests. For example, you can also calculate a complete ``correlation matrix'', between all pairs of variables in the data frame:\footnote{An alternative usage of \texttt{cor()} is to correlate one set of variables with another subset of variables. If \texttt{X} and \texttt{Y} are both data frames with the same number of rows, then \texttt{cor(x\ =\ X,\ y\ =\ Y)} will produce a correlation matrix that correlates all variables in \texttt{X} with all variables in \texttt{Y}.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# correlate all pairs of variables in "parenthood":}
+\FunctionTok{cor}\NormalTok{( }\AttributeTok{x =}\NormalTok{ parenthood )  }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              dan.sleep  baby.sleep   dan.grump         day
+## dan.sleep   1.00000000  0.62794934 -0.90338404 -0.09840768
+## baby.sleep  0.62794934  1.00000000 -0.56596373 -0.01043394
+## dan.grump  -0.90338404 -0.56596373  1.00000000  0.07647926
+## day        -0.09840768 -0.01043394  0.07647926  1.00000000
+\end{verbatim}
+
+\hypertarget{interpretingcorrelations}{%
+\subsection{Interpreting a correlation}\label{interpretingcorrelations}}
+
+Naturally, in real life you don't see many correlations of 1. So how should you interpret a correlation of, say \(r= .4\)? The honest answer is that it really depends on what you want to use the data for, and on how strong the correlations in your field tend to be. A friend of mine in engineering once argued that any correlation less than \(.95\) is completely useless (I think he was exaggerating, even for engineering). On the other hand there are real cases -- even in psychology -- where you should really expect correlations that strong. For instance, one of the benchmark data sets used to test theories of how people judge similarities is so clean that any theory that can't achieve a correlation of at least \(.9\) really isn't deemed to be successful. However, when looking for (say) elementary correlates of intelligence (e.g., inspection time, response time), if you get a correlation above \(.3\) you're doing very very well. In short, the interpretation of a correlation depends a lot on the context. That said, the rough guide in Table \ref{tab:interpretingcorrelations} is pretty typical.
+
+\begin{table}
+
+\caption{\label{tab:interpretingcorrelations}Rough guide to interpreting correlations}
+\centering
+\begin{tabular}[t]{lll}
+\toprule
+Correlation & Strength & Direction\\
+\midrule
+-1.0 to -0.9 & Very strong & Negative\\
+-0.9 to -0.7 & Strong & Negative\\
+-0.7 to -0.4 & Moderate & Negative\\
+-0.4 to -0.2 & Weak & Negative\\
+-0.2 to 0 & Negligible & Negative\\
+\addlinespace
+0 to 0.2 & Negligible & Positive\\
+0.2 to 0.4 & Weak & Positive\\
+0.4 to 0.7 & Moderate & Positive\\
+0.7 to 0.9 & Strong & Positive\\
+0.9 to 1.0 & Very strong & Positive\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+However, something that can never be stressed enough is that you should \emph{always} look at the scatterplot before attaching any interpretation to the data. A correlation might not mean what you think it means. The classic illustration of this is ``Anscombe's Quartet'' \citep{Anscombe1973}, which is a collection of four data sets. Each data set has two variables, an \(X\) and a \(Y\). For all four data sets the mean value for \(X\) is 9 and the mean for \(Y\) is 7.5. The, standard deviations for all \(X\) variables are almost identical, as are those for the the \(Y\) variables. And in each case the correlation between \(X\) and \(Y\) is \(r = 0.816\). You can verify this yourself, since the dataset comes distributed with R. The commands would be:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor}\NormalTok{( anscombe}\SpecialCharTok{$}\NormalTok{x1, anscombe}\SpecialCharTok{$}\NormalTok{y1 )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8164205
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor}\NormalTok{( anscombe}\SpecialCharTok{$}\NormalTok{x2, anscombe}\SpecialCharTok{$}\NormalTok{y2 )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8162365
+\end{verbatim}
+
+and so on.
+
+You'd think that these four data sets would look pretty similar to one another. They do not. If we draw scatterplots of \(X\) against \(Y\) for all four variables, as shown in Figure \ref{fig:anscombe} we see that all four of these are \emph{spectacularly} different to each other.
+\includegraphics{schuster-statistics-remix_files/figure-latex/anscombe-1.pdf}
+
+The lesson here, which so very many people seem to forget in real life is ``\emph{always graph your raw data}''. This will be the focus of Chapter \ref{graphics}.
+
+\hypertarget{spearmans-rank-correlations}{%
+\subsection{Spearman's rank correlations}\label{spearmans-rank-correlations}}
+
+\begin{figure}
+\centering
+\includegraphics{schuster-statistics-remix_files/figure-latex/rankcorrpic-1.pdf}
+\caption{\label{fig:rankcorrpic}The relationship between hours worked and grade received, for a toy data set consisting of only 10 students (each circle corresponds to one student). The dashed line through the middle shows the linear relationship between the two variables. This produces a strong Pearson correlation of \(r = .91\). However, the interesting thing to note here is that there's actually a perfect monotonic relationship between the two variables: in this toy example at least, increasing the hours worked always increases the grade received, as illustrated by the solid line. This is reflected in a Spearman correlation of \(rho = 1\). With such a small data set, however, it's an open question as to which version better describes the actual relationship involved.}
+\end{figure}
+
+The Pearson correlation coefficient is useful for a lot of things, but it does have shortcomings. One issue in particular stands out: what it actually measures is the strength of the \emph{linear} relationship between two variables. In other words, what it gives you is a measure of the extent to which the data all tend to fall on a single, perfectly straight line. Often, this is a pretty good approximation to what we mean when we say ``relationship'', and so the Pearson correlation is a good thing to calculation. Sometimes, it isn't.
+
+One very common situation where the Pearson correlation isn't quite the right thing to use arises when an increase in one variable \(X\) really is reflected in an increase in another variable \(Y\), but the nature of the relationship isn't necessarily linear. An example of this might be the relationship between effort and reward when studying for an exam. If you put in zero effort (\(X\)) into learning a subject, then you should expect a grade of 0\% (\(Y\)). However, a little bit of effort will cause a \emph{massive} improvement: just turning up to lectures means that you learn a fair bit, and if you just turn up to classes, and scribble a few things down so your grade might rise to 35\%, all without a lot of effort. However, you just don't get the same effect at the other end of the scale. As everyone knows, it takes \emph{a lot} more effort to get a grade of 90\% than it takes to get a grade of 55\%. What this means is that, if I've got data looking at study effort and grades, there's a pretty good chance that Pearson correlations will be misleading.
+
+To illustrate, consider the data plotted in Figure \ref{fig:rankcorrpic}, showing the relationship between hours worked and grade received for 10 students taking some class. The curious thing about this -- highly fictitious -- data set is that increasing your effort \emph{always} increases your grade. It might be by a lot or it might be by a little, but increasing effort will never decrease your grade. The data are stored in \texttt{effort.Rdata}:
+
+\begin{verbatim}
+> load( "effort.Rdata" )
+> who(TRUE)
+   -- Name --   -- Class --   -- Size --
+   effort       data.frame    10 x 2    
+    $hours      numeric       10        
+    $grade      numeric       10        
+\end{verbatim}
+
+The raw data look like this:
+
+\begin{verbatim}
+> effort
+   hours grade
+1      2    13
+2     76    91
+3     40    79
+4      6    14
+5     16    21
+6     28    74
+7     27    47
+8     59    85
+9     46    84
+10    68    88
+\end{verbatim}
+
+If we run a standard Pearson correlation, it shows a strong relationship between hours worked and grade received,
+
+\begin{verbatim}
+> cor( effort$hours, effort$grade )
+[1] 0.909402
+\end{verbatim}
+
+but this doesn't actually capture the observation that increasing hours worked \emph{always} increases the grade. There's a sense here in which we want to be able to say that the correlation is \emph{perfect} but for a somewhat different notion of what a ``relationship'' is. What we're looking for is something that captures the fact that there is a perfect \textbf{\emph{ordinal relationship}} here. That is, if student 1 works more hours than student 2, then we can guarantee that student 1 will get the better grade. That's not what a correlation of \(r = .91\) says at all.
+
+How should we address this? Actually, it's really easy: if we're looking for ordinal relationships, all we have to do is treat the data as if it were ordinal scale! So, instead of measuring effort in terms of ``hours worked'', lets rank all 10 of our students in order of hours worked. That is, student 1 did the least work out of anyone (2 hours) so they get the lowest rank (rank = 1). Student 4 was the next laziest, putting in only 6 hours of work in over the whole semester, so they get the next lowest rank (rank = 2). Notice that I'm using ``rank =1'' to mean ``low rank''. Sometimes in everyday language we talk about ``rank = 1'' to mean ``top rank'' rather than ``bottom rank''. So be careful: you can rank ``from smallest value to largest value'' (i.e., small equals rank 1) or you can rank ``from largest value to smallest value'' (i.e., large equals rank 1). In this case, I'm ranking from smallest to largest, because that's the default way that R does it. But in real life, it's really easy to forget which way you set things up, so you have to put a bit of effort into remembering!
+
+Okay, so let's have a look at our students when we rank them from worst to best in terms of effort and reward:
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+& rank (hours worked) & rank (grade received) \\
+\midrule
+\endhead
+student & 1 & 1 \\
+student & 2 & 10 \\
+student & 3 & 6 \\
+student & 4 & 2 \\
+student & 5 & 3 \\
+student & 6 & 5 \\
+student & 7 & 4 \\
+student & 8 & 8 \\
+student & 9 & 7 \\
+student & 10 & 9 \\
+\bottomrule
+\end{longtable}
+
+Hm. These are \emph{identical}. The student who put in the most effort got the best grade, the student with the least effort got the worst grade, etc. We can get R to construct these rankings using the \texttt{rank()} function, like this:
+
+\begin{verbatim}
+> hours.rank <- rank( effort$hours )   # rank students by hours worked
+> grade.rank <- rank( effort$grade )   # rank students by grade received
+\end{verbatim}
+
+As the table above shows, these two rankings are identical, so if we now correlate them we get a perfect relationship:
+
+\begin{verbatim}
+> cor( hours.rank, grade.rank )
+[1] 1
+\end{verbatim}
+
+What we've just re-invented is \textbf{\emph{Spearman's rank order correlation}}, usually denoted \(\rho\) to distinguish it from the Pearson correlation \(r\). We can calculate Spearman's \(\rho\) using R in two different ways. Firstly we could do it the way I just showed, using the \texttt{rank()} function to construct the rankings, and then calculate the Pearson correlation on these ranks. However, that's way too much effort to do every time. It's much easier to just specify the \texttt{method} argument of the \texttt{cor()} function.
+
+\begin{verbatim}
+> cor( effort$hours, effort$grade, method = "spearman")
+[1] 1
+\end{verbatim}
+
+The default value of the \texttt{method} argument is \texttt{"pearson"}, which is why we didn't have to specify it earlier on when we were doing Pearson correlations.
+
+\hypertarget{the-correlate-function}{%
+\subsection{\texorpdfstring{The \texttt{correlate()} function}{The correlate() function}}\label{the-correlate-function}}
+
+As we've seen, the \texttt{cor()} function works pretty well, and handles many of the situations that you might be interested in. One thing that many beginners find frustrating, however, is the fact that it's not built to handle non-numeric variables. From a statistical perspective, this is perfectly sensible: Pearson and Spearman correlations are only designed to work for numeric variables, so the \texttt{cor()} function spits out an error.
+
+Here's what I mean. Suppose you were keeping track of how many \texttt{hours} you worked in any given day, and counted how many \texttt{tasks} you completed. If you were doing the tasks for money, you might also want to keep track of how much \texttt{pay} you got for each job. It would also be sensible to keep track of the \texttt{weekday} on which you actually did the work: most of us don't work as much on Saturdays or Sundays. If you did this for 7 weeks, you might end up with a data set that looks like this one:
+
+\begin{verbatim}
+> load("work.Rdata")
+
+> who(TRUE)
+   -- Name --   -- Class --   -- Size --
+   work         data.frame    49 x 7    
+    $hours      numeric       49        
+    $tasks      numeric       49        
+    $pay        numeric       49        
+    $day        integer       49        
+    $weekday    factor        49        
+    $week       numeric       49        
+    $day.type   factor        49   
+    
+> head(work)
+  hours tasks pay day   weekday week day.type
+1   7.2    14  41   1   Tuesday    1  weekday
+2   7.4    11  39   2 Wednesday    1  weekday
+3   6.6    14  13   3  Thursday    1  weekday
+4   6.5    22  47   4    Friday    1  weekday
+5   3.1     5   4   5  Saturday    1  weekend
+6   3.0     7  12   6    Sunday    1  weekend
+\end{verbatim}
+
+Obviously, I'd like to know something about how all these variables correlate with one another. I could correlate \texttt{hours} with \texttt{pay} quite using \texttt{cor()}, like so:
+
+\begin{verbatim}
+> cor(work$hours,work$pay)
+[1] 0.7604283
+\end{verbatim}
+
+But what if I wanted a quick and easy way to calculate all pairwise correlations between the numeric variables? I can't just input the \texttt{work} data frame, because it contains two factor variables, \texttt{weekday} and \texttt{day.type}. If I try this, I get an error:
+
+\begin{verbatim}
+> cor(work)
+Error in cor(work) : 'x' must be numeric
+\end{verbatim}
+
+It order to get the correlations that I want using the \texttt{cor()} function, is create a new data frame that doesn't contain the factor variables, and then feed that new data frame into the \texttt{cor()} function. It's not actually very hard to do that, and I'll talk about how to do it properly in Section \ref{subsetdataframe}. But it would be nice to have some function that is smart enough to just ignore the factor variables. That's where the \texttt{correlate()} function in the \texttt{lsr} package can be handy. If you feed it a data frame that contains factors, it knows to ignore them, and returns the pairwise correlations only between the numeric variables:
+
+\begin{verbatim}
+> correlate(work)
+
+CORRELATIONS
+============
+- correlation type:  pearson 
+- correlations shown only when both variables are numeric
+
+          hours  tasks   pay    day weekday   week day.type
+hours         .  0.800 0.760 -0.049       .  0.018        .
+tasks     0.800      . 0.720 -0.072       . -0.013        .
+pay       0.760  0.720     .  0.137       .  0.196        .
+day      -0.049 -0.072 0.137      .       .  0.990        .
+weekday       .      .     .      .       .      .        .
+week      0.018 -0.013 0.196  0.990       .      .        .
+day.type      .      .     .      .       .      .        .
+\end{verbatim}
+
+The output here shows a \texttt{.} whenever one of the variables is non-numeric. It also shows a \texttt{.} whenever a variable is correlated with itself (it's not a meaningful thing to do). The \texttt{correlate()} function can also do Spearman correlations, by specifying the \texttt{corr.method} to use:
+
+\begin{verbatim}
+> correlate( work, corr.method="spearman" )
+
+CORRELATIONS
+============
+- correlation type:  spearman 
+- correlations shown only when both variables are numeric
+
+          hours  tasks   pay    day weekday   week day.type
+hours         .  0.805 0.745 -0.047       .  0.010        .
+tasks     0.805      . 0.730 -0.068       . -0.008        .
+pay       0.745  0.730     .  0.094       .  0.154        .
+day      -0.047 -0.068 0.094      .       .  0.990        .
+weekday       .      .     .      .       .      .        .
+week      0.010 -0.008 0.154  0.990       .      .        .
+day.type      .      .     .      .       .      .        .
+\end{verbatim}
+
+Obviously, there's no new functionality in the \texttt{correlate()} function, and any advanced R user would be perfectly capable of using the \texttt{cor()} function to get these numbers out. But if you're not yet comfortable with extracting a subset of a data frame, the \texttt{correlate()} function is for you.
+
+\hypertarget{missing-values-in-pairwise-calculations-1}{%
+\subsection{Missing values in pairwise calculations}\label{missing-values-in-pairwise-calculations-1}}
+
+I mentioned earlier that the \texttt{cor()} function is a special case. It doesn't have an \texttt{na.rm} argument, because the story becomes a lot more complicated when more than one variable is involved. What it does have is an argument called \texttt{use} which does roughly the same thing, but you need to think little more carefully about what you want this time. To illustrate the issues, let's open up a data set that has missing values, \texttt{parenthood2.Rdata}. This file contains the same data as the original parenthood data, but with some values deleted. It contains a single data frame, \texttt{parenthood2}:
+
+\begin{verbatim}
+> load( "parenthood2.Rdata" )
+> print( parenthood2 )
+  dan.sleep baby.sleep dan.grump day
+1      7.59         NA        56   1
+2      7.91      11.66        60   2
+3      5.14       7.92        82   3
+4      7.71       9.61        55   4
+5      6.68       9.75        NA   5
+6      5.99       5.04        72   6
+BLAH BLAH BLAH
+\end{verbatim}
+
+If I calculate my descriptive statistics using the \texttt{describe()} function
+
+\begin{verbatim}
+> describe( parenthood2 )
+           var   n  mean    sd median trimmed   mad   min    max    BLAH
+dan.sleep    1  91  6.98  1.02   7.03    7.02  1.13  4.84   9.00    BLAH
+baby.sleep   2  89  8.11  2.05   8.20    8.13  2.28  3.25  12.07    BLAH
+dan.grump    3  92 63.15  9.85  61.00   62.66 10.38 41.00  89.00    BLAH
+day          4 100 50.50 29.01  50.50   50.50 37.06  1.00 100.00    BLAH
+\end{verbatim}
+
+we can see from the \texttt{n} column that there are 9 missing values for \texttt{dan.sleep}, 11 missing values for \texttt{baby.sleep} and 8 missing values for \texttt{dan.grump}.\footnote{It's worth noting that, even though we have missing data for each of these variables, the output doesn't contain any \texttt{NA} values. This is because, while \texttt{describe()} also has an \texttt{na.rm} argument, the default value for this function is \texttt{na.rm\ =\ TRUE}.} Suppose what I would like is a correlation matrix. And let's also suppose that I don't bother to tell R how to handle those missing values. Here's what happens:
+
+\begin{verbatim}
+> cor( parenthood2 )
+           dan.sleep baby.sleep dan.grump day
+dan.sleep          1         NA        NA  NA
+baby.sleep        NA          1        NA  NA
+dan.grump         NA         NA         1  NA
+day               NA         NA        NA   1
+\end{verbatim}
+
+Annoying, but it kind of makes sense. If I don't \emph{know} what some of the values of \texttt{dan.sleep} and \texttt{baby.sleep} actually are, then I can't possibly \emph{know} what the correlation between these two variables is either, since the formula for the correlation coefficient makes use of every single observation in the data set. Once again, it makes sense: it's just not particularly \emph{helpful}.
+
+To make R behave more sensibly in this situation, you need to specify the \texttt{use} argument to the \texttt{cor()} function. There are several different values that you can specify for this, but the two that we care most about in practice tend to be \texttt{"complete.obs"} and \texttt{"pairwise.complete.obs"}. If we specify \texttt{use\ =\ "complete.obs"}, R will completely ignore all cases (i.e., all rows in our \texttt{parenthood2} data frame) that have any missing values at all. So, for instance, if you look back at the extract earlier when I used the \texttt{head()} function, notice that observation 1 (i.e., day 1) of the \texttt{parenthood2} data set is missing the value for \texttt{baby.sleep}, but is otherwise complete? Well, if you choose \texttt{use\ =\ "complete.obs"} R will ignore that row completely: that is, even when it's trying to calculate the correlation between \texttt{dan.sleep} and \texttt{dan.grump}, observation 1 will be ignored, because the value of \texttt{baby.sleep} is missing for that observation. Here's what we get:
+
+\begin{verbatim}
+> cor(parenthood2, use = "complete.obs")
+             dan.sleep baby.sleep   dan.grump         day
+dan.sleep   1.00000000  0.6394985 -0.89951468  0.06132891
+baby.sleep  0.63949845  1.0000000 -0.58656066  0.14555814
+dan.grump  -0.89951468 -0.5865607  1.00000000 -0.06816586
+day         0.06132891  0.1455581 -0.06816586  1.00000000
+\end{verbatim}
+
+The other possibility that we care about, and the one that tends to get used more often in practice, is to set \texttt{use\ =\ "pairwise.complete.obs"}. When we do that, R only looks at the variables that it's trying to correlate when determining what to drop. So, for instance, since the only missing value for observation 1 of \texttt{parenthood2} is for \texttt{baby.sleep} R will only drop observation 1 when \texttt{baby.sleep} is one of the variables involved: and so R keeps observation 1 when trying to correlate \texttt{dan.sleep} and \texttt{dan.grump}. When we do it this way, here's what we get:
+
+\begin{verbatim}
+> cor(parenthood2, use = "pairwise.complete.obs") 
+             dan.sleep  baby.sleep    dan.grump          day
+dan.sleep   1.00000000  0.61472303 -0.903442442 -0.076796665
+baby.sleep  0.61472303  1.00000000 -0.567802669  0.058309485
+dan.grump  -0.90344244 -0.56780267  1.000000000  0.005833399
+day        -0.07679667  0.05830949  0.005833399  1.000000000
+\end{verbatim}
+
+Similar, but not quite the same. It's also worth noting that the \texttt{correlate()} function (in the \texttt{lsr} package) automatically uses the ``pairwise complete'' method:
+
+\begin{verbatim}
+> correlate(parenthood2)
+
+CORRELATIONS
+============
+- correlation type:  pearson 
+- correlations shown only when both variables are numeric
+
+           dan.sleep baby.sleep dan.grump    day
+dan.sleep          .      0.615    -0.903 -0.077
+baby.sleep     0.615          .    -0.568  0.058
+dan.grump     -0.903     -0.568         .  0.006
+day           -0.077      0.058     0.006      .
+\end{verbatim}
+
+The two approaches have different strengths and weaknesses. The ``pairwise complete'' approach has the advantage that it keeps more observations, so you're making use of more of your data and (as we'll discuss in tedious detail in Chapter \ref{estimation} and it improves the reliability of your estimated correlation. On the other hand, it means that every correlation in your correlation matrix is being computed from a slightly different set of observations, which can be awkward when you want to compare the different correlations that you've got.
+
+So which method should you use? It depends a lot on \emph{why} you think your values are missing, and probably depends a little on how paranoid you are. For instance, if you think that the missing values were ``chosen'' completely randomly\footnote{The technical term here is ``missing completely at random'' (often written MCAR for short). Makes sense, I suppose, but it does sound ungrammatical to me.} then you'll probably want to use the pairwise method. If you think that missing data are a cue to thinking that the whole observation might be rubbish (e.g., someone just selecting arbitrary responses in your questionnaire), but that there's no pattern to which observations are ``rubbish'' then it's probably safer to keep only those observations that are complete. If you think there's something systematic going on, in that some observations are more likely to be missing than others, then you have a much trickier problem to solve, and one that is beyond the scope of this book.
 
 \hypertarget{introregression}{%
-\section{What is a linear regression model?}\label{introregression}}
+\section{Linear regression}\label{introregression}}
 
 Text by \citet{Navarro2018}
 
@@ -9527,7 +10032,7 @@ Text by \citet{Navarro2018}
 \caption{\label{fig:regression1b}In contrast, this plot shows the same data, but with a very poor choice of regression line drawn over the top.}
 \end{figure}
 
-Since the basic ideas in regression are closely tied to correlation, we'll return to the \texttt{parenthood.Rdata} file that we were using to illustrate how correlations work. Recall that, in this data set, we were trying to find out why Dan is so very grumpy all the time, and our working hypothesis was that I'm not getting enough sleep. We drew some scatterplots to help us examine the relationship between the amount of sleep I get, and my grumpiness the following day. The actual scatterplot that we draw is the one shown in Figure \ref{fig:regression0}, and as we saw previously this corresponds to a correlation of \(r=-.90\), but what we find ourselves secretly imagining is something that looks closer to Figure \ref{fig:regression1a}. That is, we mentally draw a straight line through the middle of the data. In statistics, this line that we're drawing is called a \textbf{\emph{regression line}}. Notice that -- since we're not idiots -- the regression line goes through the middle of the data. We don't find ourselves imagining anything like the rather silly plot shown in Figure \ref{fig:regression1b}.
+Since the basic ideas in regression are closely tied to correlation, we'll return to the \texttt{parenthood.Rdata} file that we were using to illustrate how correlations work. Recall that, in this data set, we were trying to find out why Dan is so very grumpy all the time, and our working hypothesis was that I'm not getting enough sleep. We drew some scatterplots to help us examine the relationship between the amount of sleep I get, and my grumpiness the following day. The actual scatterplot that we draw is the one shown in Figure \ref{fig:regression0}, and as we saw previously this corresponds to a correlation of \(r=-.90\), but what we find ourselves secretly imagining is something that looks closer to Figure \ref{fig:regression1a}. That is, we mentally draw a straight line through the middle of the data. In statistics, this line that we're drawing is called a \textbf{\emph{regression line}}. Notice that the regression line goes through the middle of the data. We don't find ourselves imagining anything like the rather silly plot shown in Figure \ref{fig:regression1b}.
 
 This is not highly surprising: the line that I've drawn in Figure \ref{fig:regression1b} doesn't ``fit'' the data very well, so it doesn't make a lot of sense to propose it as a way of summarising the data, right? This is a very simple observation to make, but it turns out to be very powerful when we start trying to wrap just a little bit of maths around it. To do so, let's start with a refresher of some high school maths. The formula for a straight line is usually written like this:
 \[
@@ -9588,7 +10093,7 @@ The \texttt{lm()} function is a fairly complicated one: if you type \texttt{?lm}
   \texttt{data}. The data frame containing the variables.
 \end{itemize}
 
-As we saw with \texttt{aov()} in Chapter \ref{anova}, the output of the \texttt{lm()} function is a fairly complicated object, with quite a lot of technical information buried under the hood. Because this technical information is used by other functions, it's generally a good idea to create a variable that stores the results of your regression. With this in mind, to run my linear regression, the command I want to use is this:
+The output of the \texttt{lm()} function is a fairly complicated object, with quite a lot of technical information buried under the hood. Because this technical information is used by other functions, it's generally a good idea to create a variable that stores the results of your regression. With this in mind, to run my linear regression, the command I want to use is this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9804,7 +10309,7 @@ An obvious question then, is whether you should report \(R^2\) or adjusted \(R^2
 
 So far we've talked about what a regression model is, how the coefficients of a regression model are estimated, and how we quantify the performance of the model (the last of these, incidentally, is basically our measure of effect size). The next thing we need to talk about is hypothesis tests. There are two different (but related) kinds of hypothesis tests that we need to talk about: those in which we test whether the regression model as a whole is performing significantly better than a null model; and those in which we test whether a particular regression coefficient is significantly different from zero.
 
-At this point, you're probably groaning internally, thinking that I'm going to introduce a whole new collection of tests. You're probably sick of hypothesis tests by now, and don't want to learn any new ones. Me too. I'm so sick of hypothesis tests that I'm going to shamelessly reuse the \(F\)-test from Chapter \ref{anova} and the \(t\)-test from Chapter \ref{ttest}. In fact, all I'm going to do in this section is show you how those tests are imported wholesale into the regression framework.
+At this point, you're probably groaning internally, thinking that I'm going to introduce a whole new collection of tests\ldots Me too. I'm so sick of hypothesis tests that I'm going to shamelessly reuse the \(F\)-test from ANOVA and the \(t\)-test. In fact, all I'm going to do in this section is show you how those tests are imported wholesale into the regression framework.
 
 \hypertarget{testing-the-model-as-a-whole}{%
 \subsection{Testing the model as a whole}\label{testing-the-model-as-a-whole}}
@@ -9818,11 +10323,11 @@ If our regression model has \(K\) predictors, the ``alternative model'' is descr
 H_1: Y_i = \left( \sum_{k=1}^K b_{k} X_{ik} \right) + b_0 + \epsilon_i
 \]
 
-How can we test these two hypotheses against each other? The trick is to understand that just like we did with ANOVA, it's possible to divide up the total variance \(\mbox{SS}_{tot}\) into the sum of the residual variance \(\mbox{SS}_{res}\) and the regression model variance \(\mbox{SS}_{mod}\). I'll skip over the technicalities, since we covered most of them in the ANOVA chapter, and just note that:
+How can we test these two hypotheses against each other? The trick is to understand that just like we did with ANOVA, it's possible to divide up the total variance \(\mbox{SS}_{tot}\) into the sum of the residual variance \(\mbox{SS}_{res}\) and the regression model variance \(\mbox{SS}_{mod}\). I'll skip over the technicalities, since we will cover most of them in a future ANOVA chapter, and just note that the sum of squares for the model is equal to the total sum of squares minus sum of squares for the residual:
 \[
 \mbox{SS}_{mod} = \mbox{SS}_{tot} - \mbox{SS}_{res}
 \]
-And, just like we did with the ANOVA, we can convert the sums of squares in to mean squares by dividing by the degrees of freedom.
+And, just like we will do with the ANOVA, we can convert the sums of squares in to mean squares by dividing by the degrees of freedom.
 \[
 \begin{array}{rcl}
 \mbox{MS}_{mod} &=& \displaystyle\frac{\mbox{SS}_{mod} }{df_{mod}} \\ \\
@@ -9832,11 +10337,11 @@ And, just like we did with the ANOVA, we can convert the sums of squares in to m
 
 So, how many degrees of freedom do we have? As you might expect, the \(df\) associated with the model is closely tied to the number of predictors that we've included. In fact, it turns out that \(df_{mod} = K\). For the residuals, the total degrees of freedom is \(df_{res} = N -K - 1\).
 
-Now that we've got our mean square values, you're probably going to be entirely unsurprised (possibly even bored) to discover that we can calculate an \(F\)-statistic like this:
+Now that we've got our mean square values, you're probably going to be entirely unsurprised to discover that we can calculate an \(F\)-statistic like this:
 \[
 F =  \frac{\mbox{MS}_{mod}}{\mbox{MS}_{res}}
 \]
-and the degrees of freedom associated with this are \(K\) and \(N-K-1\). This \(F\) statistic has exactly the same interpretation as the one we introduced in Chapter \ref{anova}. Large \(F\) values indicate that the null hypothesis is performing poorly in comparison to the alternative hypothesis. And since we already did some tedious ``do it the long way'' calculations back then, I won't waste your time repeating them. In a moment I'll show you how to do the test in R the easy way, but first, let's have a look at the tests for the individual regression coefficients.
+and the degrees of freedom associated with this are \(K\) and \(N-K-1\). This \(F\) statistic has exactly the same interpretation as for ANOVA. Large \(F\) values indicate that the null hypothesis is performing poorly in comparison to the alternative hypothesis. And since we already did some tedious ``do it the long way'' calculations back then, I won't waste your time repeating them. In a moment I'll show you how to do the test in R the easy way, but first, let's have a look at the tests for the individual regression coefficients.
 
 \hypertarget{tests-for-individual-coefficients}{%
 \subsection{Tests for individual coefficients}\label{tests-for-individual-coefficients}}
@@ -9872,10 +10377,10 @@ How can we test this? Well, if the central limit theorem is kind to us, we might
 \[
 t = \frac{\hat{b}}{\mbox{SE}({\hat{b})}}
 \]
-I'll skip over the reasons why, but our degrees of freedom in this case are \(df = N- K- 1\). Irritatingly, the estimate of the standard error of the regression coefficient, \(\mbox{SE}({\hat{b}})\), is not as easy to calculate as the standard error of the mean that we used for the simpler \(t\)-tests in Chapter \ref{ttest}. In fact, the formula is somewhat ugly, and not terribly helpful to look at.
+I'll skip over the reasons why, but our degrees of freedom in this case are \(df = N- K- 1\). Irritatingly, the estimate of the standard error of the regression coefficient, \(\mbox{SE}({\hat{b}})\), is not as easy to calculate as the standard error of the mean that we used for the simpler \(t\)-tests and \(z\)-tests. In fact, the formula is somewhat ugly, and not terribly helpful to look at.
 For our purposes it's sufficient to point out that the standard error of the estimated regression coefficient depends on both the predictor and outcome variables, and is somewhat sensitive to violations of the homogeneity of variance assumption (discussed shortly).
 
-In any case, this \(t\)-statistic can be interpreted in the same way as the \(t\)-statistics that we discussed in Chapter \ref{ttest}. Assuming that you have a two-sided alternative (i.e., you don't really care if \(b >0\) or \(b < 0\)), then it's the extreme values of \(t\) (i.e., a lot less than zero or a lot greater than zero) that suggest that you should reject the null hypothesis.
+In any case, this \(t\)-statistic can be interpreted in the same way as any \(t\)-statistic. Assuming that you have a two-sided alternative (i.e., you don't really care if \(b >0\) or \(b < 0\)), then it's the extreme values of \(t\) (i.e., a lot less than zero or a lot greater than zero) that suggest that you should reject the null hypothesis.
 
 \hypertarget{regressionsummary}{%
 \subsection{Running the hypothesis tests in R}\label{regressionsummary}}
@@ -9934,7 +10439,7 @@ Coefficients:
 dan.sleep    -8.95025    0.55346 -16.172   <2e-16 ***
 baby.sleep    0.01052    0.27106   0.039    0.969 
 ---
-Signif. codes:  0 �***� 0.001 �**� 0.01 �*� 0.05 �.� 0.1 � � 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 \end{verbatim}
 
 Each row in this table refers to one of the coefficients in the regression model. The first row is the intercept term, and the later ones look at each of the predictors. The columns give you all of the relevant information. The first column is the actual estimate of \(b\) (e.g., 125.96 for the intercept, and -8.9 for the \texttt{dan.sleep} predictor). The second column is the standard error estimate \(\hat\sigma_b\). The third column gives you the \(t\)-statistic, and it's worth noticing that in this table \(t= \hat{b}/\mbox{SE}({\hat{b}})\) every time. Finally, the fourth column gives you the actual \(p\) value for each of these tests.\footnote{Note that, although R has done multiple tests here, it hasn't done a Bonferroni correction or anything. These are standard one-sample \(t\)-tests with a two-sided alternative. If you want to make corrections for multiple tests, you need to do that yourself.} The only thing that the table itself doesn't list is the degrees of freedom used in the \(t\)-test, which is always \(N-K-1\) and is listed immediately below, in this line:
@@ -9951,7 +10456,7 @@ Multiple R-squared: 0.8161, Adjusted R-squared: 0.8123
 F-statistic: 215.2 on 2 and 97 DF,  p-value: < 2.2e-16 
 \end{verbatim}
 
-So in this case, the model performs significantly better than you'd expect by chance (\(F(2,97) = 215.2\), \(p<.001\)), which isn't all that surprising: the \(R^2 = .812\) value indicate that the regression model accounts for 81.2\% of the variability in the outcome measure. However, when we look back up at the \(t\)-tests for each of the individual coefficients, we have pretty strong evidence that the \texttt{baby.sleep} variable has no significant effect; all the work is being done by the \texttt{dan.sleep} variable. Taken together, these results suggest that \texttt{regression.2} is actually the wrong model for the data: you'd probably be better off dropping the \texttt{baby.sleep} predictor entirely. In other words, the \texttt{regression.1} model that we started with is the better model.
+So in this case, the model performs significantly better than you'd expect by chance (\(F(2,97) = 215.2\), \(p<.001\)), which isn't all that surprising: the \(R^2 = .812\) value indicate that the regression model accounts for 81.2\% of the variability in the outcome measure. However, when we look back up at the \(t\)-tests for each of the individual coefficients, we lack evidence that the \texttt{baby.sleep} variable has a significant effect; all the work could be done by the \texttt{dan.sleep} variable. Taken together, these results suggest that \texttt{regression.2} is actually the wrong model for the data: you'd probably be better off dropping the \texttt{baby.sleep} predictor entirely. In other words, the \texttt{regression.1} model that we started with is the better model.
 
 \hypertarget{corrhyp}{%
 \section{Testing the significance of a correlation}\label{corrhyp}}
@@ -10019,7 +10524,7 @@ Okay, one more digression before I return to regression properly. In the previou
 
 The answer is no, and there's a very good reason for this. Testing a single correlation is fine: if you've got some reason to be asking ``is A related to B?'', then you should absolutely run a test to see if there's a significant correlation. But if you've got variables A, B, C, D and E and you're thinking about testing the correlations among all possible pairs of these, a statistician would want to ask: what's your hypothesis? If you're in the position of wanting to test all possible pairs of variables, then you're pretty clearly on a fishing expedition, hunting around in search of significant effects when you don't actually have a clear research hypothesis in mind. This is \emph{dangerous}, and the authors of \texttt{cor.test()} obviously felt that they didn't want to support that kind of behaviour.
 
-On the other hand\ldots{} a somewhat less hardline view might be to argue we've encountered this situation before, back in Section \ref{posthoc} when we talked about \emph{post hoc tests} in ANOVA. When running post hoc tests, we didn't have any specific comparisons in mind, so what we did was apply a correction (e.g., Bonferroni, Holm, etc) in order to avoid the possibility of an inflated Type I error rate. From this perspective, it's okay to run hypothesis tests on all your pairwise correlations, but you must treat them as post hoc analyses, and if so you need to apply a correction for multiple comparisons. That's what the \texttt{correlate()} function in the \texttt{lsr} package does. When we use the \texttt{correlate()} function in Section \ref{correl} all it did was print out the correlation matrix. But you can get it to output the results of all the pairwise tests as well by specifying \texttt{test=TRUE}. Here's what happens with the \texttt{parenthood} data:
+On the other hand\ldots{} a somewhat less hardline view might be to argue we encounter this situation when we talk about \emph{post hoc tests} in ANOVA. When running post hoc tests, we didn't have any specific comparisons in mind, so what we do is apply a correction (e.g., Bonferroni, Holm, etc) in order to avoid the possibility of an inflated Type I error rate. From this perspective, it's okay to run hypothesis tests on all your pairwise correlations, but you must treat them as post hoc analyses, and if so you need to apply a correction for multiple comparisons. That's what the \texttt{correlate()} function in the \texttt{lsr} package does. When we use the \texttt{correlate()} function in Section \ref{correl} all it did was print out the correlation matrix. But you can get it to output the results of all the pairwise tests as well by specifying \texttt{test=TRUE}. Here's what happens with the \texttt{parenthood} data:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10490,7 +10995,7 @@ As you can see, those regression coefficients have barely changed in comparison 
 \hypertarget{regressionnormality}{%
 \subsection{Checking the normality of the residuals}\label{regressionnormality}}
 
-Like many of the statistical tools we've discussed in this book, regression models rely on a normality assumption. In this case, we assume that the residuals are normally distributed. The tools for testing this aren't fundamentally different to those that we discussed earlier in Section \ref{shapiro}. Firstly, I firmly believe that it never hurts to draw an old fashioned histogram. The command I use might be something like this:
+Like many of the statistical tools we've discussed in this book, regression models rely on a normality assumption. In this case, we assume that the residuals are normally distributed. Firstly, I firmly believe that it never hurts to draw an old fashioned histogram. The command I use might be something like this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10588,7 +11093,11 @@ Note that this function also reports the results of a bunch of \textbf{\emph{cur
 
 The third line here is the \textbf{\emph{Tukey test}}, which is basically the same test, except that instead of squaring one of the predictors and adding it to the model, you square the fitted-value. In any case, the fact that the curvature tests have come up significant is hinting that the curvature that we can see in Figures \ref{fig:regressionplot1} and \ref{fig:residualPlots} is genuine;\footnote{And, if you take the time to check the \texttt{residualPlots()} for \texttt{regression.1}, it's pretty clear that this isn't some wacky distortion being caused by the fact that \texttt{baby.sleep} is a useless predictor variable. It's an actual nonlinearity in the relationship between \texttt{dan.sleep} and \texttt{dan.grump}.} although it still bears remembering that the pattern in Figure \ref{fig:regressionlinearity} is pretty damn straight: in other words the deviations from linearity are pretty small, and probably not worth worrying about.
 
-In a lot of cases, the solution to this problem (and many others) is to transform one or more of the variables. We discussed the basics of variable transformation in Sections \ref{transform} and \ref(mathfunc), but I do want to make special note of one additional possibility that I didn't mention earlier: the Box-Cox transform. The Box-Cox function is a fairly simple one, but it's very widely used
+In a lot of cases, the solution to this problem (and many others) is to transform one or more of the variables.
+
+\textbf{Dave note}: In my graduate training, I was taught to be conservative with variable transformations because they improve the statistical performance at the cost of interpretability. A significant relationship between a log-transformed Y and and X needs to be interpreted that way; you can no longer say you found a relationship between Y and X. For this reason, it may be preferable to suffer a decrease in statistical performance (possibly increasing the Type II error probability) rather than end up with a signifcant model that is challenging to interpret. In case you need it (and because \citet{Navarro2018} said it was common), I will leave the following mention of the Box-Cox transform.
+
+We discussed the basics of variable transformation in Sections \ref{transform} and \ref(mathfunc), but I do want to make special note of one additional possibility that I didn't mention earlier: the Box-Cox transform. The Box-Cox function is a fairly simple one, but it's very widely used
 \[
 f(x,\lambda) = \frac{x^\lambda - 1}{\lambda}
 \]
@@ -10714,6 +11223,8 @@ and second, look at the VIFs\ldots{}
 
 Yep, that's some mighty fine collinearity you've got there.
 
+\textbf{Dave note:} A VIF cutoff of 4 is commonly used, where VIF \textless= 4 is not concerning, but VIF \textgreater{} 4 suggests redudnancy of variables in the model. The statistical solution would be to eliminate redundant variables from the model.
+
 \hypertarget{modelselreg}{%
 \section{Model selection}\label{modelselreg}}
 
@@ -10727,13 +11238,15 @@ One fairly major problem that remains is the problem of ``model selection''. Tha
   To the extent that your choices rely on statistical inference, there is a trade off between simplicity and goodness of fit. As you add more predictors to the model, you make it more complex; each predictor adds a new free parameter (i.e., a new regression coefficient), and each new parameter increases the model's capacity to ``absorb'' random variations. So the goodness of fit (e.g., \(R^2\)) continues to rise as you add more predictors no matter what. If you want your model to be able to generalise well to new observations, you need to avoid throwing in too many variables.
 \end{itemize}
 
-This latter principle is often referred to as \textbf{\emph{Ockham's razor}}, and is often summarised in terms of the following pithy saying: \emph{do not multiply entities beyond necessity}. In this context, it means: don't chuck in a bunch of largely irrelevant predictors just to boost your \(R^2\). Hm. Yeah, the original was better.
+This latter principle is often referred to as \textbf{\emph{Ockham's razor}}, and is often summarised in terms of the following pithy saying: \emph{do not multiply entities beyond necessity}. We also calls this \textbf{parsimony.} In this context, it means: don't chuck in a bunch of largely irrelevant predictors just to boost your \(R^2\). Hm. Yeah, the original was better.
 
 In any case, what we need is an actual mathematical criterion that will implement the qualitative principle behind Ockham's razor in the context of selecting a regression model. As it turns out there are several possibilities. The one that I'll talk about is the \textbf{\emph{Akaike information criterion}} {[}AIC; \citet{Akaike1974}{]} simply because it's the default one used in the R function \texttt{step()}. In the context of a linear regression model (and ignoring terms that don't depend on the model in any way!), the AIC for a model that has \(K\) predictor variables plus an intercept is:\footnote{Note, however, that the \texttt{step()} function computes the full version of AIC, including the irrelevant constants that I've dropped here. As a consequence this equation won't correctly describe the AIC values that you see in the outputs here. However, if you calculate the AIC values using my formula for two different regression models and take the difference between them, this will be the same as the differences between AIC values that \texttt{step()} reports. In practice, this is all you care about: the actual value of an AIC statistic isn't very informative, but the differences between two AIC values \emph{are} useful, since these provide a measure of the extent to which one model outperforms another.}
 \[
 \mbox{AIC} = \displaystyle\frac{\mbox{SS}_{res}}{\hat{\sigma}}^2+ 2K
 \]
 The smaller the AIC value, the better the model performance is. If we ignore the low level details, it's fairly obvious what the AIC does: on the left we have a term that increases as the model predictions get worse; on the right we have a term that increases as the model complexity increases. The best model is the one that fits the data well (low residuals; left hand side) using as few predictors as possible (low \(K\); right hand side). In short, this is a simple implementation of Ockham's razor.
+
+\textbf{Dave note:} Please consider the following sections to have a big ``Caution!'' sign next to them when used in confirmatory research. They are inherently exploratory techniques. One assumption common to all automated model selection strategies is that they assume that your sample data are perfect representations of their population distributions. The computer is effectively testing many possible models and picking the one that fits best. The resulting model is always exploratory and tentative. It would need to be tested in a confirmatory study. It would be highly inappropriate and misleading to present a computer-generated model as if it was developed \emph{a priori} or without explaining the process used to create the model.
 
 \hypertarget{backward-elimination}{%
 \subsection{Backward elimination}\label{backward-elimination}}
@@ -11082,13 +11595,13 @@ Imagine a high school has a graduation test with \(M = .80\) with a standard dev
 The data are test scores from 35 students.
 
 \begin{verbatim}
-##  [1] 0.79 1.03 0.80 0.76 1.05 1.03 0.95 1.06 0.93 0.98 0.93 0.92 0.89 0.71
-## [15] 0.98 0.87 0.99 0.86 0.85 0.93 1.12 0.81 0.91 0.94 0.84 0.63 0.67 0.78
-## [29] 1.01 0.81 0.93 0.76 0.89 0.92 1.03
+##  [1] 1.00 0.77 0.66 0.65 1.05 0.97 0.90 0.71 0.88 1.00 0.75 0.67 0.68 0.88
+## [15] 0.92 0.87 0.94 0.78 0.98 0.93 0.93 1.00 0.97 0.95 0.85 1.07 0.87 0.89
+## [29] 0.89 0.89 1.06 1.02 0.69 0.93 0.96
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 0.896
+## [1] 0.8845714
 \end{verbatim}
 
 The students in the program took the test and performed higher than the population average (\(M=\)\texttt{print(mean(sample))}). Is there evidence that the after school program is effective?
@@ -11126,7 +11639,7 @@ The most challenging part is the function \texttt{pnorm()}, which gives the area
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.96
+## [1] 0.8457143
 \end{verbatim}
 
 \begin{Shaded}
@@ -11137,7 +11650,7 @@ The most challenging part is the function \texttt{pnorm()}, which gives the area
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1685276
+## [1] 0.1988561
 \end{verbatim}
 
 To visualize this result, we can graph the location of the test statistic in the sampling distribution, shading everything beyond the test statistic in one tail:
@@ -11171,6 +11684,288 @@ Because \(p>{\alpha}\), the null hypothesis is retained and the results are inco
 \item
   If \(p < \alpha\), you would have rejected the null hypothesis and concluded that there was a difference between your sample mean and the population.
 \end{itemize}
+
+\hypertarget{correlation}{%
+\section{Correlation}\label{correlation}}
+
+\hypertarget{definition-1}{%
+\subsection{Definition}\label{definition-1}}
+
+A correlation analysis measures the strength and direction of a relationship between two variables. The hypothesis test for a correlation tests the null hypothesis that there is no linear relationship between two variables. This is also called a bivariate correlation (because it involves two variables) and the Pearson correlation coefficient.
+
+\hypertarget{test-statistic-1}{%
+\subsection{Test Statistic}\label{test-statistic-1}}
+
+The test statistic is actually a \(t\) distribution calculated from the observed value of \(r\), which measures the strength and direction of the relationship. The statistic \(r\) has values \(-1\le{r}\le 1\), with -1 indicating a perfect negative relationship and +1 indicating a perfect positive relationship. \(r = 0\) indicates no relationship between the variables and is rarely observed to be exactly 0 in practice. To conduct a hypothesis test, \(r\) is converted to a value of \(t\) because this function of the sampling distribution of \(r\) follows a \(t\)-distribution:
+
+\(t = r\sqrt{\frac{n-2}{1-r^2}}\)
+
+This function can be reversed as \(r=\frac{t}{\sqrt{n-2+t^2}}\)
+
+\begin{figure}
+\centering
+\includegraphics{schuster-statistics-remix_files/figure-latex/corrnull-1.pdf}
+\caption{\label{fig:corrnull}The null hypothesis distribution of \(t\) with values of df between 2 and 10. Notice how the curve is starting to converge at the higher values of df.}
+\end{figure}
+
+The \(t\) distribution is actually a family of distributions defined by degrees of freedom. \textbf{Degrees of freedom} is a concept that can be interpreted multiple ways. For now, it is sufficient to say that it is based on sample size. The value of degrees of freedom grows by 1 with each additional unit increased in the sample. In other words, the specific sampling distribution used in the hypothesis test depends on the sample size (and degrees of freedom).
+
+\hypertarget{assumptions-required-data-1}{%
+\subsection{Assumptions \& Required Data}\label{assumptions-required-data-1}}
+
+For more detail, see \ref{regressionassumptions}.
+
+\begin{itemize}
+\tightlist
+\item
+  2 quantitative variables (interval or ratio), or one quantitative variable with a dichotomous (two possible values) variable. The later version is called a point-biserial correlation and is mathematically the same as the Pearson correlation coefficient. Note that this procedure is not appropriate for ordinal variables, and Spearman's rank correlation coefficient should be used instead.
+\item
+  Normality, meaning normal distribution of residuals.
+\item
+  Linearity
+\item
+  Homogeneity of variance (also called homoscedasiticty and equality of variance)
+\item
+  No outliers
+\end{itemize}
+
+\hypertarget{when-to-use-it-1}{%
+\subsection{When to use it}\label{when-to-use-it-1}}
+
+Use a correlation when you want to detect a linear relationship between two variables.
+
+\hypertarget{example-1}{%
+\subsection{Example}\label{example-1}}
+
+\citet{Navarro2018} wanted to see if there was a relationship between hours slept in a night and their rating of grumpiness the next day.
+
+\hypertarget{data-1}{%
+\subsubsection{Data}\label{data-1}}
+
+The data are two variables, one indicating sleep and the other indicating grumpiness. Data were collected for 100 nights.
+
+\begin{verbatim}
+##     dan.sleep baby.sleep dan.grump day
+## 1        7.59      10.18        56   1
+## 2        7.91      11.66        60   2
+## 3        5.14       7.92        82   3
+## 4        7.71       9.61        55   4
+## 5        6.68       9.75        67   5
+## 6        5.99       5.04        72   6
+## 7        8.19      10.45        53   7
+## 8        7.19       8.27        60   8
+## 9        7.40       6.06        60   9
+## 10       6.58       7.09        71  10
+## 11       6.49      11.68        72  11
+## 12       6.27       6.13        65  12
+## 13       5.95       7.83        74  13
+## 14       6.65       5.60        67  14
+## 15       6.41       6.03        66  15
+## 16       6.33       8.19        69  16
+## 17       6.30       6.38        73  17
+## 18       8.47      11.11        52  18
+## 19       7.21       5.51        61  19
+## 20       7.53       6.69        53  20
+## 21       8.00       9.74        54  21
+## 22       7.35       9.02        63  22
+## 23       6.86       6.44        74  23
+## 24       7.86       9.43        56  24
+## 25       4.86       3.46        82  25
+## 26       5.87       6.32        72  26
+## 27       8.40       7.95        59  27
+## 28       6.93       7.69        66  28
+## 29       7.21       7.45        60  29
+## 30       6.99       7.56        67  30
+## 31       8.17       7.95        44  31
+## 32       7.85      11.61        53  32
+## 33       6.27       4.70        76  33
+## 34       8.66       8.52        41  34
+## 35       4.98       4.70        86  35
+## 36       6.19       8.32        60  36
+## 37       6.41       9.38        63  37
+## 38       4.84       4.18        89  38
+## 39       7.03       5.98        61  39
+## 40       7.66       9.29        57  40
+## 41       7.51       6.01        59  41
+## 42       7.92      10.54        60  42
+## 43       8.12      11.78        48  43
+## 44       7.47      11.60        53  44
+## 45       7.99      11.35        50  45
+## 46       5.44       5.63        72  46
+## 47       8.16       6.98        57  47
+## 48       7.62       6.03        60  48
+## 49       5.87       4.66        70  49
+## 50       9.00       9.81        46  50
+## 51       8.31      12.07        58  51
+## 52       6.71       7.57        68  52
+## 53       7.43      11.35        58  53
+## 54       5.90       5.47        71  54
+## 55       8.52       8.29        52  55
+## 56       6.03       6.80        74  56
+## 57       7.29      10.63        59  57
+## 58       7.32       8.59        59  58
+## 59       6.88       7.82        67  59
+## 60       6.22       7.18        67  60
+## 61       6.94       8.29        61  61
+## 62       7.01      11.08        64  62
+## 63       7.20       6.46        61  63
+## 64       6.30       3.25        61  64
+## 65       8.72       9.74        54  65
+## 66       7.82       8.75        62  66
+## 67       8.14      11.75        52  67
+## 68       7.27       9.31        64  68
+## 69       6.70       7.73        65  69
+## 70       7.55       8.68        65  70
+## 71       7.38       9.77        57  71
+## 72       7.73       9.71        59  72
+## 73       5.32       4.17        79  73
+## 74       7.86      10.18        53  74
+## 75       6.35       9.28        67  75
+## 76       7.11       7.23        61  76
+## 77       5.45       6.38        82  77
+## 78       7.80       9.20        68  78
+## 79       7.13       8.20        67  79
+## 80       8.35      10.16        54  80
+## 81       6.93       8.95        53  81
+## 82       7.07       6.80        62  82
+## 83       8.66       8.34        50  83
+## 84       5.09       6.25        80  84
+## 85       4.91       6.75        91  85
+## 86       7.03       9.09        62  86
+## 87       7.02      10.42        64  87
+## 88       7.67       8.89        57  88
+## 89       8.15       9.43        54  89
+## 90       5.88       6.79        72  90
+## 91       5.72       6.91        78  91
+## 92       6.66       6.05        63  92
+## 93       6.85       6.32        59  93
+## 94       5.57       8.62        74  94
+## 95       5.16       7.84        76  95
+## 96       5.31       5.89        79  96
+## 97       7.77       9.77        51  97
+## 98       5.38       6.97        82  98
+## 99       7.02       6.56        55  99
+## 100      6.45       7.93        74 100
+\end{verbatim}
+
+\hypertarget{hypotheses-2}{%
+\subsubsection{Hypotheses}\label{hypotheses-2}}
+
+Given their often-exploratory use, correlations are typically conducted as two-tailed tests. However, a one-tailed correlation could be conducted if researchers predict a direction for the effect.
+
+Hypotheses are always written with population parameters (since we are making hypotheses about truth in the population, not what we have observed in our sample). The population parameter corresponding to the test statistic \(r\) is \(\rho\) (rho). The null is that there is no relationship. The alternative hypothesis is that there is a relationship.
+
+\(H_0=\rho=0\)
+
+\(H_a=\rho\ne0\)
+
+\hypertarget{analysis-1}{%
+\subsubsection{Analysis}\label{analysis-1}}
+
+Set the alpha level. By convention, an alpha level of \(\alpha = .05\) will be used.
+
+Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining an effect size (\(r\)) this strong at our sample size through random sampling from a population with effect size \(\rho=0\). We will determine this using the sampling distribution of the null hypothesis for \(t\).
+
+There are several ways to generate correlations in R:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{cor()} will output just the correlation coefficient
+\item
+  \texttt{cor.test()} will perform NHST and give a p-value
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor}\NormalTok{( }\AttributeTok{x =}\NormalTok{ parenthood}\SpecialCharTok{$}\NormalTok{dan.sleep, }\AttributeTok{y =}\NormalTok{ parenthood}\SpecialCharTok{$}\NormalTok{dan.grump )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -0.903384
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor.test}\NormalTok{(}\AttributeTok{x =}\NormalTok{ parenthood}\SpecialCharTok{$}\NormalTok{dan.sleep, }\AttributeTok{y =}\NormalTok{ parenthood}\SpecialCharTok{$}\NormalTok{dan.grump)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's product-moment correlation
+## 
+## data:  parenthood$dan.sleep and parenthood$dan.grump
+## t = -20.854, df = 98, p-value < 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.9340614 -0.8594714
+## sample estimates:
+##       cor 
+## -0.903384
+\end{verbatim}
+
+To visualize this result, we can graph a scatterplot, with observed values of one variable plotted against the observed value of the second variable:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{oneCorPlot }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x,y,...) \{}
+        
+        \FunctionTok{plot}\NormalTok{(x,y,}\AttributeTok{pch=}\DecValTok{19}\NormalTok{,}\AttributeTok{col=}\NormalTok{(}\StringTok{"black"}\NormalTok{),...)}
+        
+\NormalTok{    \}}
+    
+    \FunctionTok{oneCorPlot}\NormalTok{( parenthood}\SpecialCharTok{$}\NormalTok{dan.sleep, parenthood}\SpecialCharTok{$}\NormalTok{dan.grump, }
+        \AttributeTok{xlab=}\StringTok{"My sleep (hours)"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"My grumpiness"}
+\NormalTok{    )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{schuster-statistics-remix_files/figure-latex/corrvisualization-1.pdf}
+
+The magnitude of r (it's value) indicates the strength of the relationship. The closer the value of \(r\) to \(\pm1\), the more closely the points hug a straight line. The line will have a positive slope if the relationship is positive and a negative slope if the relationship is negative.
+
+\hypertarget{decision-1}{%
+\subsubsection{Decision}\label{decision-1}}
+
+Because \(p<{\alpha}\), the null hypothesis is rejected and we conclude that there is a relationship between sleep and grumpiness. Further, because the value of \(r\) is negative, the relationship between grumpiness and sleep is that higher amounts of sleep are associated with lower levels of grumpiness.
+
+\hypertarget{variations-1}{%
+\subsubsection{Variations}\label{variations-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  If data are ordinal, Spearman's rank order correlation can be calculated by adding the argument method = ``separman'' using the following syntax:
+\end{itemize}
+
+\texttt{cor(\ x,\ y,\ method\ =\ "spearman")}
+
+\begin{itemize}
+\item
+  In a two-tailed test, the shading would need to be repeated on the left side, and the shaded area on both sides would need to be added together. You can save a step by knowing that each tail is always the same area. To convert this one-tailed p-value into a two-tailed p-value, you would need to double it, giving you a two-tailed p-value of \texttt{\{r,\ echo=FALSE\}\ print(p\_value*2)}. When doing a two-tailed test, check to make sure you are calculating in the correct tail; if your two-tailed test had a sample mean lower than the population mean, you would want to shade/calculate to the left.
+\item
+  If \(p \ge \alpha\), you would have retained the null hypothesis and made no conclusion.
+\item
+  You can calculate a \textbf{correlation matrix} that shows all possible bivariate correlations from a dataframe. Simply include the entire dataframe as the argument instead of two variables, like this:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor}\NormalTok{( }\AttributeTok{x =}\NormalTok{ parenthood)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              dan.sleep  baby.sleep   dan.grump         day
+## dan.sleep   1.00000000  0.62794934 -0.90338404 -0.09840768
+## baby.sleep  0.62794934  1.00000000 -0.56596373 -0.01043394
+## dan.grump  -0.90338404 -0.56596373  1.00000000  0.07647926
+## day        -0.09840768 -0.01043394  0.07647926  1.00000000
+\end{verbatim}
+
+When using a correlation matrix, p-values are not interpretable because the probability of a type I error on one or more of these correlations is higher than .05 (because the alpha level of .05 is used on each one, and many tests are being conducted).
 
   \bibliography{book.bib,packages.bib}
 

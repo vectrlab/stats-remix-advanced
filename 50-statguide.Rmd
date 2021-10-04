@@ -113,3 +113,129 @@ Because $p>{\alpha}$, the null hypothesis is retained and the results are inconc
 
 - If $p < \alpha$, you would have rejected the null hypothesis and concluded that there was a difference between your sample mean and the population.
 
+
+## Correlation
+
+### Definition
+
+A correlation analysis measures the strength and direction of a relationship between two variables. The hypothesis test for a correlation tests the null hypothesis that there is no linear relationship between two variables. This is also called a bivariate correlation (because it involves two variables) and the Pearson correlation coefficient.
+
+### Test Statistic
+
+The test statistic is actually a $t$ distribution calculated from the observed value of $r$, which measures the strength and direction of the relationship. The statistic $r$ has values $-1\le{r}\le 1$, with -1 indicating a perfect negative relationship and +1 indicating a perfect positive relationship. $r = 0$ indicates no relationship between the variables and is rarely observed to be exactly 0 in practice. To conduct a hypothesis test, $r$ is converted to a value of $t$ because this function of the sampling distribution of $r$ follows a $t$-distribution:
+
+$t = r\sqrt{\frac{n-2}{1-r^2}}$
+
+This function can be reversed as $r=\frac{t}{\sqrt{n-2+t^2}}$
+
+```{r corrnull, fig.cap="The null hypothesis distribution of $t$ with values of df between 2 and 10. Notice how the curve is starting to converge at the higher values of df.", echo=FALSE}
+curve(dt(x, df=10), from=-4, to=4)
+curve(dt(x, df=2), from=-4, to=4, add=TRUE)
+curve(dt(x, df=4), from=-4, to=4, add=TRUE)
+curve(dt(x, df=6), from=-4, to=4, add=TRUE)
+curve(dt(x, df=8), from=-4, to=4, add=TRUE)
+
+```
+
+The $t$ distribution is actually a family of distributions defined by degrees of freedom. **Degrees of freedom** is a concept that can be interpreted multiple ways. For now, it is sufficient to say that it is based on sample size. The value of degrees of freedom grows by 1 with each additional unit increased in the sample. In other words, the specific sampling distribution used in the hypothesis test depends on the sample size (and degrees of freedom).
+
+### Assumptions & Required Data
+
+For more detail, see \@ref(regressionassumptions).
+
+- 2 quantitative variables (interval or ratio), or one quantitative variable with a dichotomous (two possible values) variable. The later version is called a point-biserial correlation and is mathematically the same as the Pearson correlation coefficient. Note that this procedure is not appropriate for ordinal variables, and Spearman's rank correlation coefficient should be used instead.
+- Normality, meaning normal distribution of residuals.
+- Linearity
+- Homogeneity of variance (also called homoscedasiticty and equality of variance)
+- No outliers
+
+
+### When to use it
+
+Use a correlation when you want to detect a linear relationship between two variables.
+
+### Example
+
+@Navarro2018 wanted to see if there was a relationship between hours slept in a night and their rating of grumpiness the next day.
+
+#### Data
+
+The data are two variables, one indicating sleep and the other indicating grumpiness. Data were collected for 100 nights.
+
+````{r correldata, echo=FALSE}
+rm(list=ls(all=TRUE))
+
+load( "./data/parenthood.Rdata" )
+head(parenthood,100)
+````
+
+#### Hypotheses
+
+Given their often-exploratory use, correlations are typically conducted as two-tailed tests. However, a one-tailed correlation could be conducted if researchers predict a direction for the effect.
+
+Hypotheses are always written with population parameters (since we are making hypotheses about truth in the population, not what we have observed in our sample). The population parameter corresponding to the test statistic $r$ is $\rho$ (rho). The null is that there is no relationship. The alternative hypothesis is that there is a relationship.
+
+$H_0=\rho=0$
+
+$H_a=\rho\ne0$
+
+#### Analysis
+
+Set the alpha level. By convention, an alpha level of $\alpha = .05$ will be used. 
+
+Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining an effect size ($r$) this strong at our sample size through random sampling from a population with effect size $\rho=0$. We will determine this using the sampling distribution of the null hypothesis for $t$.
+
+There are several ways to generate correlations in R:
+
+- ````cor()```` will output just the correlation coefficient
+- ````cor.test()```` will perform NHST and give a p-value
+
+````{r corranalysis, echo=TRUE}
+
+cor( x = parenthood$dan.sleep, y = parenthood$dan.grump )
+cor.test(x = parenthood$dan.sleep, y = parenthood$dan.grump)
+````
+
+To visualize this result, we can graph a scatterplot, with observed values of one variable plotted against the observed value of the second variable:
+
+````{r corrvisualization, echo=TRUE}
+
+oneCorPlot <- function(x,y,...) {
+		
+		plot(x,y,pch=19,col=("black"),...)
+		
+	}
+	
+	oneCorPlot( parenthood$dan.sleep, parenthood$dan.grump, 
+		xlab="My sleep (hours)", ylab="My grumpiness"
+	)
+````
+
+The magnitude of r (it's value) indicates the strength of the relationship. The closer the value of $r$ to $\pm1$, the more closely the points hug a straight line. The line will have a positive slope if the relationship is positive and a negative slope if the relationship is negative.
+
+#### Decision
+
+Because $p<{\alpha}$, the null hypothesis is rejected and we conclude that there is a relationship between sleep and grumpiness. Further, because the value of $r$ is negative, the relationship between grumpiness and sleep is that higher amounts of sleep are associated with lower levels of grumpiness.
+
+#### Variations
+
+- If data are ordinal, Spearman's rank order correlation can be calculated by adding the argument method = "separman" using the following syntax:
+
+```` cor( x, y, method = "spearman") ````
+
+
+- In a two-tailed test, the shading would need to be repeated on the left side, and the shaded area on both sides would need to be added together. You can save a step by knowing that each tail is always the same area. To convert this one-tailed p-value into a two-tailed p-value, you would need to double it, giving you a two-tailed p-value of ````{r, echo=FALSE} print(p_value*2)````. When doing a two-tailed test, check to make sure you are calculating in the correct tail; if your two-tailed test had a sample mean lower than the population mean, you would want to shade/calculate to the left.
+
+- If $p \ge \alpha$, you would have retained the null hypothesis and made no conclusion.
+
+- You can calculate a **correlation matrix** that shows all possible bivariate correlations from a dataframe. Simply include the entire dataframe as the argument instead of two variables, like this:
+
+
+````{r corrvariation, echo=TRUE}
+
+cor( x = parenthood)
+
+````
+
+When using a correlation matrix, p-values are not interpretable because the probability of a type I error on one or more of these correlations is higher than .05 (because the alpha level of .05 is used on each one, and many tests are being conducted).
+
