@@ -24,7 +24,7 @@
 <meta name="author" content="David Schuster" />
 
 
-<meta name="date" content="2021-10-04" />
+<meta name="date" content="2021-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -563,7 +563,17 @@ div.csl-indent {
 <li class="chapter" data-level="8.14.3" data-path="regression.html"><a href="regression.html#a-caveat"><i class="fa fa-check"></i><b>8.14.3</b> A caveat</a></li>
 <li class="chapter" data-level="8.14.4" data-path="regression.html"><a href="regression.html#comparing-two-regression-models"><i class="fa fa-check"></i><b>8.14.4</b> Comparing two regression models</a></li>
 </ul></li>
-<li class="chapter" data-level="8.15" data-path="regression.html"><a href="regression.html#summary-5"><i class="fa fa-check"></i><b>8.15</b> Summary</a></li>
+<li class="chapter" data-level="8.15" data-path="regression.html"><a href="regression.html#practical-issues-in-correlation-and-regression"><i class="fa fa-check"></i><b>8.15</b> Practical Issues in Correlation and Regression</a>
+<ul>
+<li class="chapter" data-level="8.15.1" data-path="regression.html"><a href="regression.html#regdression-toward-the-mean"><i class="fa fa-check"></i><b>8.15.1</b> Regdression Toward the Mean</a></li>
+<li class="chapter" data-level="8.15.2" data-path="regression.html"><a href="regression.html#correl-1"><i class="fa fa-check"></i><b>8.15.2</b> Correl</a></li>
+<li class="chapter" data-level="8.15.3" data-path="regression.html"><a href="regression.html#interpreting-nhst-in-big-data"><i class="fa fa-check"></i><b>8.15.3</b> Interpreting NHST in Big Data</a></li>
+<li class="chapter" data-level="8.15.4" data-path="regression.html"><a href="regression.html#outliers"><i class="fa fa-check"></i><b>8.15.4</b> Outliers</a></li>
+<li class="chapter" data-level="8.15.5" data-path="regression.html"><a href="regression.html#restriction-of-range"><i class="fa fa-check"></i><b>8.15.5</b> Restriction of Range</a></li>
+<li class="chapter" data-level="8.15.6" data-path="regression.html"><a href="regression.html#report-effect-size"><i class="fa fa-check"></i><b>8.15.6</b> Report Effect Size</a></li>
+<li class="chapter" data-level="8.15.7" data-path="regression.html"><a href="regression.html#what-are-degrees-of-freedom-again"><i class="fa fa-check"></i><b>8.15.7</b> What are Degrees of Freedom, again?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.16" data-path="regression.html"><a href="regression.html#summary-5"><i class="fa fa-check"></i><b>8.16</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="statistics-reference.html"><a href="statistics-reference.html"><i class="fa fa-check"></i><b>9</b> Statistics Reference</a>
 <ul>
@@ -607,15 +617,17 @@ div.csl-indent {
 <div id="regression" class="section level1" number="8">
 <h1><span class="header-section-number">Chapter 8</span> Regression</h1>
 <p>Text by <span class="citation"><a href="#ref-Navarro2018" role="doc-biblioref">Navarro</a> (<a href="#ref-Navarro2018" role="doc-biblioref">2018</a>)</span></p>
-<p><strong>This chapter is still under construction and may change.</strong></p>
 <div id="videos-6" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Videos</h2>
+<p>While I had intended on producing my own videos for this chapter, the existing videos I found were just too good.</p>
 <ul>
-<li><p><a href="https://www.youtube.com/watch?v=sUXh5mY7P9Y">Video: Correlation Basics - 20 min</a></p></li>
-<li><p>What is GLM? modeling is predicting an outcome, equation for a line, everything is GLM;</p></li>
-<li><p>Which test? z, t, F, r</p></li>
-<li><p>Regression: Conceptual foundations - the process</p></li>
-<li><p>How to do regression in R</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=GtV-VYdNt_g">Video: Correlation Does’t Equal Causation - 13 min</a> Quick note about this video: This one and the one on regression are excellent. However, I was surprised to see Karl Pearson’s work on the heights of fathers and sons included without editorial comment. The reason <em>why</em> Pearson was studying this problem is worth discussing. Oddly, I found an excellent video describing this from another channel from the same organization. Pearson isn’t discussed specifically, but both <a href="https://en.wikipedia.org/wiki/Karl_Pearson">Pearson</a> and <a href="https://en.wikipedia.org/wiki/Francis_Galton">Galton</a> were British mathematicians who developed many of techniques we are using today (see their Wikipedia pages for a list). Therefore, their legacy lives on in our work, and you’ll find connections between modern psychology and these two in this video: <a href="https://www.youtube.com/watch?v=JeCKftkNKJ0">Video: Eugenics and Francis Galton - 13 min</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=WWqE7YHR4Jc">Video: Regression - 13 min</a>. This is an excellent introduction to GLM and regression. Worth watching more than once.</p></li>
+<li><p><a href="https://www.youtube.com/watch?v=66z_MRwtFJM">Video: How to do regression in R - 6 min</a></p></li>
+</ul>
+<p>Because it’s longer and lower quality than the videos above, you don’t need to watch the following video. But I am including it here to provide as many resources as possible.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=sUXh5mY7P9Y">Dave’s Video: Correlation Basics - 20 min</a></li>
 </ul>
 </div>
 <div id="introduction-5" class="section level2" number="8.2">
@@ -648,13 +660,13 @@ div.csl-indent {
 <div id="the-glm-approach" class="section level3" number="8.3.2">
 <h3><span class="header-section-number">8.3.2</span> The GLM approach</h3>
 <p><span class="math display">\[
-Y = XB + I + E
+Y = BX + I + E
 \]</span>
 With GLM, we are using the equation for a line to assess and describe the relationship between variables. You will see this equation several times in this chapter with different letters labeling each element. The elements are:</p>
 <ul>
 <li><p><span class="math inline">\(Y\)</span>, an outcome variable, which can also be called the regressand, response variable, predicted variable, or output variable</p></li>
 <li><p><span class="math inline">\(X\)</span>, a predictor variable, which can also be called the regressor, independent variable, treatment variable, or factor</p></li>
-<li><p><span class="math inline">\(B\)</span>, a model parameter, also called the weight or the coefficient, which defines the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span></p></li>
+<li><p><span class="math inline">\(B\)</span>, a model parameter, also called the weight, slope or the coefficient, which defines the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span></p></li>
 <li><p><span class="math inline">\(I\)</span>, the intercept, which gives the estimated value of Y when <span class="math inline">\(X = 0\)</span>. It is also the y-intercept of the regression line.</p></li>
 <li><p><span class="math inline">\(E\)</span>, error, also called the residual</p></li>
 </ul>
@@ -2142,8 +2154,103 @@ where <span class="math inline">\(\hat{y}_i^{(0)}\)</span> is the fitted value f
 <p>Note that, just like we saw with the output from the <code>step()</code> function, R has used the acronym <code>RSS</code> to refer to the residual sum of squares from each model. That is, RSS in this output corresponds to SS<span class="math inline">\(_{res}\)</span> in the formula above. Since we have <span class="math inline">\(p&gt;.05\)</span> we retain the null hypothesis (<code>M0</code>). This approach to regression, in which we add all of our covariates into a null model, and then <em>add</em> the variables of interest into an alternative model, and then compare the two models in hypothesis testing framework, is often referred to as <strong><em>hierarchical regression</em></strong>.</p>
 </div>
 </div>
-<div id="summary-5" class="section level2" number="8.15">
-<h2><span class="header-section-number">8.15</span> Summary</h2>
+<div id="practical-issues-in-correlation-and-regression" class="section level2" number="8.15">
+<h2><span class="header-section-number">8.15</span> Practical Issues in Correlation and Regression</h2>
+<p>Text by David Schuster</p>
+<div id="regdression-toward-the-mean" class="section level3" number="8.15.1">
+<h3><span class="header-section-number">8.15.1</span> Regdression Toward the Mean</h3>
+</div>
+<div id="correl-1" class="section level3" number="8.15.2">
+<h3><span class="header-section-number">8.15.2</span> Correl</h3>
+</div>
+<div id="interpreting-nhst-in-big-data" class="section level3" number="8.15.3">
+<h3><span class="header-section-number">8.15.3</span> Interpreting NHST in Big Data</h3>
+<p>Sample size must be sufficiently large to detect a linear relationship. Larger samples increase power. Power is especially important when your measures are not reliable or when there is a weak linear relationship you are trying to find evidence for. You can also have too large of a sample. Extremely large samples with small effect sizes will be significant because it is assumed that your sample is an almost perfect representation of the population. Thus, even the tiniest effects will be significant. Take care to examine effect size and sample size when conducting NHST for correlations. Besides issues of power, a sufficiently large sample size is important to increase the stability of your estimates of the strength and direction of the correlation.</p>
+</div>
+<div id="outliers" class="section level3" number="8.15.4">
+<h3><span class="header-section-number">8.15.4</span> Outliers</h3>
+<p>If either of your variables includes an outlier, it will reduce the strength of your correlation. Because of this, you want to consider whether the extreme score belongs as part of your data set. The most common cause of an outlier in real world data is a mistake during data entry.</p>
+</div>
+<div id="restriction-of-range" class="section level3" number="8.15.5">
+<h3><span class="header-section-number">8.15.5</span> Restriction of Range</h3>
+<p>Range restriction. When scores that are very high or very low on the IV (e.g., floor effects and ceiling effects), range restriction occurs. Range restriction lowers the strength of the correlation. This can be illustrated by drawing a scatterplot and then excluding high or low values of the IV. The fit of a line to the scatterplot will be worse if high and/or low values are cut off.</p>
+</div>
+<div id="report-effect-size" class="section level3" number="8.15.6">
+<h3><span class="header-section-number">8.15.6</span> Report Effect Size</h3>
+<p>Interpretation of the correlation coefficient <span class="math inline">\(r\)</span> (or <span class="math inline">\(R^2\)</span>). The statistic <span class="math inline">\(r\)</span> measures both strength (i.e., it is the measure of effect size) and direction of a correlation. A strong correlation means that the data points of the scatterplot lie close to the line. When you report a correlation, give the proper interpretation of its effect size. Also note that, depending on the research question, small effect sizes can be important and meaningful.</p>
+</div>
+<div id="what-are-degrees-of-freedom-again" class="section level3" number="8.15.7">
+<h3><span class="header-section-number">8.15.7</span> What are Degrees of Freedom, again?</h3>
+<p>This is more of a footnote. The calculation of variance is a fraction. The numerator of the fraction is a sum of squared deviations. The denominator of the fraction is degrees of freedom. I find it helpful to think about degrees of freedom in any of three ways (pick which makes the most sense to you):</p>
+<ol style="list-style-type: decimal">
+<li><p>Degrees of freedom (df), are the number of values free to vary given some constraint. The calculation of a mean has <span class="math inline">\(N - 1\)</span> degrees of freedom because if the mean is known and <span class="math inline">\(N - 1\)</span> of the values are known, then the last value is defined. Thus, only <span class="math inline">\(N - 1\)</span> values are free to vary. This is my least favorite explanation.</p></li>
+<li><p>Degrees of freedom (df) are the number of values that provide information about variability. If you know only your score on the last exam, you could use that as an estimate of the class mean, but you would have no way of estimating variability of test scores in class (df = 0). If you know your score and another classmate’s, you can now estimate variability, albeit crudely (df = 1). With your score and seven others, you can make a better estimate of the variability in the class (df = 7). This is my favorite definition and it comes from <span class="citation"><a href="#ref-Cohen2013" role="doc-biblioref">B. H. Cohen</a> (<a href="#ref-Cohen2013" role="doc-biblioref">2013</a>)</span>.</p></li>
+<li><p>Because degrees of freedom (df) are directly related to sample size, think of degrees of freedom as sample size. I think of the sum of squared deviations as adding up all of the variation that has been observed, and degrees of freedom as being the sample size. Therefore, I think of variance as being roughly the variation per unit, or the average variation. This is the least precise.</p></li>
+</ol>
+<div id="rsquared" class="section level4" number="8.15.7.1">
+<h4><span class="header-section-number">8.15.7.1</span> Interpretation of <span class="math inline">\(\eta^2\)</span> and <span class="math inline">\(r^2\)</span> (Cohen, 1988)</h4>
+<p>These are reference points, not firm cutoffs. For example, .056 is a medium effect size.</p>
+<table style="width:54%;">
+<colgroup>
+<col width="30%" />
+<col width="23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Effect Size</th>
+<th align="left">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\eta^2 = r^2 = .01\)</span></td>
+<td align="left">Small effect</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\eta^2 = r^2 = .06\)</span></td>
+<td align="left">Medium effect</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\eta^2 = r^2 = .14\)</span></td>
+<td align="left">Large effect</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="interpr" class="section level4" number="8.15.7.2">
+<h4><span class="header-section-number">8.15.7.2</span> Interpretation of <span class="math inline">\(r\)</span> (Cohen, 1988; Note: This is not <span class="math inline">\(r^2\)</span>)</h4>
+<p>These are reference points, not firm cutoffs. For example, .056 is a medium effect size.</p>
+<table style="width:54%;">
+<colgroup>
+<col width="30%" />
+<col width="23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Effect Size</th>
+<th align="left">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(r\pm.10\)</span> Small effe</td>
+<td align="left">ct</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(r\pm.30\)</span> Medium e</td>
+<td align="left">ffect</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(r\pm.50\)</span> Large effe</td>
+<td align="left">ct</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="summary-5" class="section level2" number="8.16">
+<h2><span class="header-section-number">8.16</span> Summary</h2>
 <ul>
 <li>Basic ideas in linear regression and how regression models are estimated (Sections <a href="regression.html#introregression">8.5</a> and <a href="regression.html#regressionestimation">8.6</a>).</li>
 <li>Multiple linear regression (Section <a href="regression.html#multipleregression">8.7</a>).</li>
@@ -2163,6 +2270,9 @@ Akaike, H. 1974. <span>“A New Look at the Statistical Model Identification.”
 </div>
 <div id="ref-Anscombe1973" class="csl-entry">
 Anscombe, F. J. 1973. <span>“Graphs in Statistical Analysis.”</span> <em>American Statistician</em> 27: 17–21.
+</div>
+<div id="ref-Cohen2013" class="csl-entry">
+Cohen, Barry H. 2013. <em>Explaining Psychological Statistics</em>. John Wiley; Sons.
 </div>
 <div id="ref-Cook1983" class="csl-entry">
 Cook, R. D., and S. Weisberg. 1983. <span>“Diagnostics for Heteroscedasticity in Regression.”</span> <em>Biometrika</em> 70: 1–10.

@@ -207,7 +207,7 @@ oneCorPlot <- function(x,y,...) {
 	}
 	
 	oneCorPlot( parenthood$dan.sleep, parenthood$dan.grump, 
-		xlab="My sleep (hours)", ylab="My grumpiness"
+		xlab="Sleep (hours)", ylab="Grumpiness"
 	)
 ````
 

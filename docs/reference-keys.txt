@@ -420,6 +420,16 @@ backward-elimination
 forward-selection
 a-caveat
 comparing-two-regression-models
+practical-issues-in-correlation-and-regression
+regdression-toward-the-mean
+correl-1
+interpreting-nhst-in-big-data
+outliers
+restriction-of-range
+report-effect-size
+what-are-degrees-of-freedom-again
+rsquared
+interpr
 summary-5
 statistics-reference
 one-sample-z-test

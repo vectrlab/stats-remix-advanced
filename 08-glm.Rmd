@@ -3,15 +3,17 @@ Text by @Navarro2018
 
 ## Videos
 
-- [Video: Correlation Basics - 20 min](https://www.youtube.com/watch?v=sUXh5mY7P9Y)
+While I had intended on producing my own videos for this chapter, the existing videos I found were just too good.
 
-- What is GLM? modeling is predicting an outcome, equation for a line, everything is GLM; 
+- [Video: Correlation Does't Equal Causation - 13 min](https://www.youtube.com/watch?v=GtV-VYdNt_g) Quick note about this video: This one and the one on regression are excellent. However, I was surprised to see Karl Pearson's work on the heights of fathers and sons included without editorial comment. The reason *why* Pearson was studying this problem is worth discussing. Oddly, I found an excellent video describing this from another channel from the same organization. Pearson isn't discussed specifically, but both [Pearson](https://en.wikipedia.org/wiki/Karl_Pearson) and [Galton](https://en.wikipedia.org/wiki/Francis_Galton) were British mathematicians who developed many of techniques we are using today (see their Wikipedia pages for a list). Therefore, their legacy lives on in our work, and you'll find connections between modern psychology and these two in this video: [Video: Eugenics and Francis Galton - 13 min](https://www.youtube.com/watch?v=JeCKftkNKJ0)
 
-- Which test? z, t, F, r
+- [Video: Regression - 13 min](https://www.youtube.com/watch?v=WWqE7YHR4Jc). This is an excellent introduction to GLM and regression. Worth watching more than once.
 
-- Regression: Conceptual foundations - the process
+- [Video: How to do regression in R - 6 min](https://www.youtube.com/watch?v=66z_MRwtFJM)
 
-- How to do regression in R
+Because it's longer and lower quality than the videos above, you don't need to watch the following video. But I am including it here to provide as many resources as possible.
+
+- [Dave's Video: Correlation Basics - 20 min](https://www.youtube.com/watch?v=sUXh5mY7P9Y)
 
 ## Introduction 
 Text by @Navarro2018
@@ -50,7 +52,7 @@ All GLM procedures are **parametric statistics**, which means that they make ass
 ### The GLM approach
 
 $$
-Y = XB + I + E
+Y = BX + I + E
 $$
 With GLM, we are using the equation for a line to assess and describe the relationship between variables. You will see this equation several times in this chapter with different letters labeling each element. The elements are:
 
@@ -58,7 +60,7 @@ With GLM, we are using the equation for a line to assess and describe the relati
 
 - $X$, a predictor variable, which can also be called the regressor, independent variable, treatment variable, or factor
 
-- $B$, a model parameter, also called the weight or the coefficient, which defines the relationship between $X$ and $Y$
+- $B$, a model parameter, also called the weight, slope or the coefficient, which defines the relationship between $X$ and $Y$
 
 - $I$, the intercept, which gives the estimated value of Y when $X = 0$. It is also the y-intercept of the regression line.
 
@@ -1447,6 +1449,72 @@ Okay, so that's the hypothesis test that we use to compare two regression models
 anova( M0, M1 )
 ```
 Note that, just like we saw with the output from the `step()` function, R has used the acronym `RSS` to refer to the residual sum of squares from each model. That is, RSS in this output corresponds to SS$_{res}$ in the formula above.  Since we have $p>.05$ we retain the null hypothesis (`M0`).  This approach to regression, in which we add all of our covariates into a null model, and then *add* the variables of interest into an alternative model, and then compare the two models in hypothesis testing framework, is often referred to as **_hierarchical regression_**.
+
+## Practical Issues in Correlation and Regression
+Text by David Schuster
+
+### Regdression Toward the Mean
+
+### Correl
+
+
+
+### Interpreting NHST in Big Data
+
+Sample size must be sufficiently large to detect a linear relationship.  Larger samples increase power. Power is especially important when your measures are not reliable or when there is a weak linear relationship you are trying to find evidence for. You can also have too large of a sample.  Extremely large samples with small effect sizes will be significant because it is assumed that your sample is an almost perfect representation of the population. Thus, even the tiniest effects will be significant. Take care to examine effect size and sample size when conducting NHST for correlations. Besides issues of power, a sufficiently large sample size is important to increase the stability of your estimates of the strength and direction of the correlation. 
+
+### Outliers
+
+If either of your variables includes an outlier, it will reduce the strength of your correlation. Because of this, you want to consider whether the extreme score belongs as part of your data set. The most common cause of an outlier in real world data is a mistake during data entry.
+
+### Restriction of Range
+
+Range restriction. When scores that are very high or very low on the IV (e.g., floor effects and ceiling effects), range restriction occurs. Range restriction lowers the strength of the correlation. This can be illustrated by drawing a scatterplot and then excluding high or low values of the IV. The fit of a line to the scatterplot will be worse if high and/or low values are cut off.
+
+### Report Effect Size
+
+Interpretation of the correlation coefficient $r$ (or $R^2$). The statistic $r$ measures both strength (i.e., it is the measure of effect size) and direction of a correlation. A strong correlation means that the data points of the scatterplot lie close to the line. When you report a correlation, give the proper interpretation of its effect size. Also note that, depending on the research question, small effect sizes can be important and meaningful.
+
+### What are Degrees of Freedom, again?
+
+This is more of a footnote. The calculation of variance is a fraction. The numerator of the fraction is a sum of squared deviations. The denominator of the fraction is degrees of freedom. I find it helpful to think about degrees of freedom in any of three ways (pick which makes the most sense to you):
+
+1. Degrees of freedom (df), are the number of values free to vary given some constraint. The calculation of a mean has $N - 1$ degrees of freedom because if the mean is known and $N - 1$ of the values are known, then the last value is defined. Thus, only $N - 1$ values are free to vary. This is my least favorite explanation.
+
+2. Degrees of freedom (df) are the number of values that provide information about variability. If you know only your score on the last exam, you could use that as an estimate of the class mean, but you would have no way of estimating variability of test scores in class (df = 0). If you know your score and another classmate’s, you can now estimate variability, albeit crudely (df = 1). With your score and seven others, you can make a better estimate of the variability in the class (df = 7). This is my favorite definition and it comes from @Cohen2013.
+
+3. Because degrees of freedom (df) are directly related to sample size, think of degrees of freedom as sample size. I think of the sum of squared deviations as adding up all of the variation that has been observed, and degrees of freedom as being the sample size. Therefore, I think of variance as being roughly the variation per unit, or the average variation. This is the least precise.
+
+
+#### Interpretation of $\eta^2$  and $r^2$ (Cohen, 1988) {#rsquared}
+
+These are reference points, not firm cutoffs. For example, .056 is a medium effect size.
+
+--------------------------------------
+Effect Size           Interpretation
+--------------------- ----------------
+$\eta^2 = r^2 = .01$ 	Small effect
+
+$\eta^2 = r^2 = .06$	Medium effect
+
+$\eta^2 = r^2 = .14$	Large effect
+--------------------------------------
+
+#### Interpretation of $r$ (Cohen, 1988; Note: This is not $r^2$) {#interpr}
+
+These are reference points, not firm cutoffs. For example, .056 is a medium effect size.
+
+--------------------------------------
+Effect Size           Interpretation
+--------------------- ----------------
+$r\pm.10$ 	Small effect
+
+$r\pm.30$	  Medium effect
+
+$r\pm.50$	Large effect
+--------------------------------------
+
+
 
 ## Summary
 

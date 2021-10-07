@@ -154,7 +154,7 @@
 
 \title{Advanced Statistics Remix}
 \author{David Schuster}
-\date{2021-10-04}
+\date{2021-10-06}
 
 \begin{document}
 \maketitle
@@ -4962,11 +4962,11 @@ There are two more descriptive statistics that you will sometimes see reported i
 Example by \citet{Navarro2018}
 
 \begin{verbatim}
-## [1] -0.920519
+## [1] -0.9098382
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 0.005674841
+## [1] 0.006800631
 \end{verbatim}
 
 \begin{figure}
@@ -4976,7 +4976,7 @@ Example by \citet{Navarro2018}
 \end{figure}
 
 \begin{verbatim}
-## [1] 0.921304
+## [1] 0.9372823
 \end{verbatim}
 
 Since it's the more interesting of the two, let's start by talking about the \textbf{\emph{skewness}}. Skewness is basically a measure of asymmetry, and the easiest way to explain it is by drawing some pictures. As Figure \ref{fig:skewness} illustrates, if the data tend to have a lot of extreme small values (i.e., the lower tail is ``longer'' than the upper tail) and not so many extremely large values (left panel), then we say that the data are \emph{negatively skewed}. On the other hand, if there are more extremely large values than extremely small ones (right panel) we say that the data are \emph{positively skewed}. That's the qualitative idea behind skewness. The actual formula for the skewness of a data set is as follows
@@ -5171,11 +5171,11 @@ If p \textless{} .05, reject the null and conclude the data are not normal. If p
 The final measure that is sometimes referred to, though very rarely in practice, is the \textbf{\emph{kurtosis}} of a data set. Put simply, kurtosis is a measure of the ``pointiness'' of a data set, as illustrated in Figure \ref{fig:kurtosis}.
 
 \begin{verbatim}
-## [1] -0.9618659
+## [1] -0.9546635
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 0.002912703
+## [1] -0.01530114
 \end{verbatim}
 
 \begin{figure}
@@ -5185,7 +5185,7 @@ The final measure that is sometimes referred to, though very rarely in practice,
 \end{figure}
 
 \begin{verbatim}
-## [1] 2.07922
+## [1] 1.954207
 \end{verbatim}
 
 By convention, we say that the ``normal curve'' (black lines) has zero kurtosis, so the pointiness of a data set is assessed relative to this curve. In this Figure, the data on the left are not pointy enough, so the kurtosis is negative and we call the data \emph{platykurtic}. The data on the right are too pointy, so the kurtosis is positive and we say that the data is \emph{leptokurtic}. But the data in the middle are just pointy enough, so we say that it is \emph{mesokurtic} and has kurtosis zero. This is summarised in the table below:
@@ -6410,7 +6410,7 @@ The idea is quite simple. Let's say we're talking about IQ scores. To a psycholo
 \includegraphics{schuster-statistics-remix_files/figure-latex/IQdist-1.pdf} \includegraphics{schuster-statistics-remix_files/figure-latex/IQdist-2.pdf}
 
 \begin{verbatim}
-## [1] "n= 100 mean= 101.144025046939 sd= 15.1062812516679"
+## [1] "n= 100 mean= 102.527035667151 sd= 15.0266279671764"
 \end{verbatim}
 
 \begin{figure}
@@ -6420,7 +6420,7 @@ The idea is quite simple. Let's say we're talking about IQ scores. To a psycholo
 \end{figure}
 
 \begin{verbatim}
-## [1] "n= 10000 mean= 99.9007320125907 sd= 14.9044123137765"
+## [1] "n= 10000 mean= 100.177311073258 sd= 15.0264829548951"
 \end{verbatim}
 
 Now suppose I run an experiment. I select 100 people at random and administer an IQ test, giving me a simple random sample from the population. My sample would consist of a collection of numbers like this:
@@ -6449,7 +6449,7 @@ The obvious answer is to collect more data. Suppose that we ran a much larger ex
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  99 109 110 119 119  87
+## [1]  77  76  72  93 104 101
 \end{verbatim}
 
 I can compute the mean IQ using the command \texttt{mean(IQ)} and the standard deviation using the command \texttt{sd(IQ)}, and I can draw a histgram using \texttt{hist()}. The histogram of this much larger sample is shown in Figure \ref{fig:IQdist} c.~Even a moment's inspections makes clear that the larger sample is a much better approximation to the true population distribution than the smaller one. This is reflected in the sample statistics: the mean IQ for the larger sample turns out to be 99.9, and the standard deviation is 15.1. These values are now very close to the true population.
@@ -6566,7 +6566,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 50.18163}
+\DocumentationTok{\#\# [1] 49.11419}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6577,7 +6577,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Highlighting}[]
 \NormalTok{onesample }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(population, }\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# Take a random sample of size 3 from the population distribution with replacement}
 \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# Display the mean of the sample distribution}
-\DocumentationTok{\#\# [1] 50.41156}
+\DocumentationTok{\#\# [1] 55.4529}
 \FunctionTok{hist}\NormalTok{(onesample) }\CommentTok{\# Display a histogram of the sample distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6587,7 +6587,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(onesample) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the sample mean and the population mean}
-\DocumentationTok{\#\# [1] 0.2299236}
+\DocumentationTok{\#\# [1] 6.338717}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6601,7 +6601,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 51.01439}
+\DocumentationTok{\#\# [1] 50.03161}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6612,7 +6612,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Highlighting}[]
 \NormalTok{onesample }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(population, }\AttributeTok{size =} \DecValTok{900}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# Take a random sample of size 900 from the population distribution with replacement}
 \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# Display the mean of the sample distribution}
-\DocumentationTok{\#\# [1] 50.4152}
+\DocumentationTok{\#\# [1] 51.45162}
 \FunctionTok{hist}\NormalTok{(onesample) }\CommentTok{\# Display a histogram of the sample distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6622,7 +6622,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(onesample) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the sample mean and the population mean}
-\DocumentationTok{\#\# [1] {-}0.5991866}
+\DocumentationTok{\#\# [1] 1.420008}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6647,7 +6647,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 51.30037}
+\DocumentationTok{\#\# [1] 50.532}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6662,7 +6662,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \NormalTok{  sampling[i] }\OtherTok{=} \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# add the sample\textquotesingle{}s mean to the sampling distribution}
 \NormalTok{\}}
 \FunctionTok{mean}\NormalTok{(sampling) }\CommentTok{\# Display the mean of the SAMPLING distribution}
-\DocumentationTok{\#\# [1] 51.28655}
+\DocumentationTok{\#\# [1] 50.28487}
 \FunctionTok{hist}\NormalTok{(sampling) }\CommentTok{\# Display a histogram of the SAMPLING distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6672,7 +6672,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(sampling) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the SAMPLING distribution mean and the population mean}
-\DocumentationTok{\#\# [1] {-}0.01382115}
+\DocumentationTok{\#\# [1] {-}0.2471257}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6742,7 +6742,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 12.69572
+## [1] 12.75422
 \end{verbatim}
 
 \begin{Shaded}
@@ -6754,7 +6754,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 12.44334
+## [1] 12.59332
 \end{verbatim}
 
 \begin{Shaded}
@@ -6764,7 +6764,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -0.2523725
+## [1] -0.1609079
 \end{verbatim}
 
 They are pretty close. Why do we need the standard error formula if we could just find the standard deviation of the sampling distribution? Well, we typically do not work with the sampling distribution directly. We simply understand that it exists. Creating a sampling distribution requires the population distribution to be available to us, and this isn't usually the case when we are doing research. Further, the central limit theorem specifies taking an \emph{unlimited} number of samples in order for the sampling distribution mean to equal the population mean. It also requires a sample size of \(N\ge30\) when the population is not normally distributed. We have violated that rule (we used a uniform population distribution and we set our sample size as low as 5), but the numbers still came out pretty close.
@@ -9421,22 +9421,26 @@ Assume that reader has a professional knowledge of statistical methods. At minim
 
 Text by \citet{Navarro2018}
 
-\textbf{This chapter is still under construction and may change.}
-
 \hypertarget{videos-6}{%
 \section{Videos}\label{videos-6}}
 
+While I had intended on producing my own videos for this chapter, the existing videos I found were just too good.
+
 \begin{itemize}
 \item
-  \href{https://www.youtube.com/watch?v=sUXh5mY7P9Y}{Video: Correlation Basics - 20 min}
+  \href{https://www.youtube.com/watch?v=GtV-VYdNt_g}{Video: Correlation Does't Equal Causation - 13 min} Quick note about this video: This one and the one on regression are excellent. However, I was surprised to see Karl Pearson's work on the heights of fathers and sons included without editorial comment. The reason \emph{why} Pearson was studying this problem is worth discussing. Oddly, I found an excellent video describing this from another channel from the same organization. Pearson isn't discussed specifically, but both \href{https://en.wikipedia.org/wiki/Karl_Pearson}{Pearson} and \href{https://en.wikipedia.org/wiki/Francis_Galton}{Galton} were British mathematicians who developed many of techniques we are using today (see their Wikipedia pages for a list). Therefore, their legacy lives on in our work, and you'll find connections between modern psychology and these two in this video: \href{https://www.youtube.com/watch?v=JeCKftkNKJ0}{Video: Eugenics and Francis Galton - 13 min}
 \item
-  What is GLM? modeling is predicting an outcome, equation for a line, everything is GLM;
+  \href{https://www.youtube.com/watch?v=WWqE7YHR4Jc}{Video: Regression - 13 min}. This is an excellent introduction to GLM and regression. Worth watching more than once.
 \item
-  Which test? z, t, F, r
+  \href{https://www.youtube.com/watch?v=66z_MRwtFJM}{Video: How to do regression in R - 6 min}
+\end{itemize}
+
+Because it's longer and lower quality than the videos above, you don't need to watch the following video. But I am including it here to provide as many resources as possible.
+
+\begin{itemize}
+\tightlist
 \item
-  Regression: Conceptual foundations - the process
-\item
-  How to do regression in R
+  \href{https://www.youtube.com/watch?v=sUXh5mY7P9Y}{Dave's Video: Correlation Basics - 20 min}
 \end{itemize}
 
 \hypertarget{introduction-5}{%
@@ -9488,7 +9492,7 @@ All GLM procedures are \textbf{parametric statistics}, which means that they mak
 \subsection{The GLM approach}\label{the-glm-approach}}
 
 \[
-Y = XB + I + E
+Y = BX + I + E
 \]
 With GLM, we are using the equation for a line to assess and describe the relationship between variables. You will see this equation several times in this chapter with different letters labeling each element. The elements are:
 
@@ -9498,7 +9502,7 @@ With GLM, we are using the equation for a line to assess and describe the relati
 \item
   \(X\), a predictor variable, which can also be called the regressor, independent variable, treatment variable, or factor
 \item
-  \(B\), a model parameter, also called the weight or the coefficient, which defines the relationship between \(X\) and \(Y\)
+  \(B\), a model parameter, also called the weight, slope or the coefficient, which defines the relationship between \(X\) and \(Y\)
 \item
   \(I\), the intercept, which gives the estimated value of Y when \(X = 0\). It is also the y-intercept of the regression line.
 \item
@@ -11505,6 +11509,88 @@ Okay, so that's the hypothesis test that we use to compare two regression models
 
 Note that, just like we saw with the output from the \texttt{step()} function, R has used the acronym \texttt{RSS} to refer to the residual sum of squares from each model. That is, RSS in this output corresponds to SS\(_{res}\) in the formula above. Since we have \(p>.05\) we retain the null hypothesis (\texttt{M0}). This approach to regression, in which we add all of our covariates into a null model, and then \emph{add} the variables of interest into an alternative model, and then compare the two models in hypothesis testing framework, is often referred to as \textbf{\emph{hierarchical regression}}.
 
+\hypertarget{practical-issues-in-correlation-and-regression}{%
+\section{Practical Issues in Correlation and Regression}\label{practical-issues-in-correlation-and-regression}}
+
+Text by David Schuster
+
+\hypertarget{regdression-toward-the-mean}{%
+\subsection{Regdression Toward the Mean}\label{regdression-toward-the-mean}}
+
+\hypertarget{correl-1}{%
+\subsection{Correl}\label{correl-1}}
+
+\hypertarget{interpreting-nhst-in-big-data}{%
+\subsection{Interpreting NHST in Big Data}\label{interpreting-nhst-in-big-data}}
+
+Sample size must be sufficiently large to detect a linear relationship. Larger samples increase power. Power is especially important when your measures are not reliable or when there is a weak linear relationship you are trying to find evidence for. You can also have too large of a sample. Extremely large samples with small effect sizes will be significant because it is assumed that your sample is an almost perfect representation of the population. Thus, even the tiniest effects will be significant. Take care to examine effect size and sample size when conducting NHST for correlations. Besides issues of power, a sufficiently large sample size is important to increase the stability of your estimates of the strength and direction of the correlation.
+
+\hypertarget{outliers}{%
+\subsection{Outliers}\label{outliers}}
+
+If either of your variables includes an outlier, it will reduce the strength of your correlation. Because of this, you want to consider whether the extreme score belongs as part of your data set. The most common cause of an outlier in real world data is a mistake during data entry.
+
+\hypertarget{restriction-of-range}{%
+\subsection{Restriction of Range}\label{restriction-of-range}}
+
+Range restriction. When scores that are very high or very low on the IV (e.g., floor effects and ceiling effects), range restriction occurs. Range restriction lowers the strength of the correlation. This can be illustrated by drawing a scatterplot and then excluding high or low values of the IV. The fit of a line to the scatterplot will be worse if high and/or low values are cut off.
+
+\hypertarget{report-effect-size}{%
+\subsection{Report Effect Size}\label{report-effect-size}}
+
+Interpretation of the correlation coefficient \(r\) (or \(R^2\)). The statistic \(r\) measures both strength (i.e., it is the measure of effect size) and direction of a correlation. A strong correlation means that the data points of the scatterplot lie close to the line. When you report a correlation, give the proper interpretation of its effect size. Also note that, depending on the research question, small effect sizes can be important and meaningful.
+
+\hypertarget{what-are-degrees-of-freedom-again}{%
+\subsection{What are Degrees of Freedom, again?}\label{what-are-degrees-of-freedom-again}}
+
+This is more of a footnote. The calculation of variance is a fraction. The numerator of the fraction is a sum of squared deviations. The denominator of the fraction is degrees of freedom. I find it helpful to think about degrees of freedom in any of three ways (pick which makes the most sense to you):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Degrees of freedom (df), are the number of values free to vary given some constraint. The calculation of a mean has \(N - 1\) degrees of freedom because if the mean is known and \(N - 1\) of the values are known, then the last value is defined. Thus, only \(N - 1\) values are free to vary. This is my least favorite explanation.
+\item
+  Degrees of freedom (df) are the number of values that provide information about variability. If you know only your score on the last exam, you could use that as an estimate of the class mean, but you would have no way of estimating variability of test scores in class (df = 0). If you know your score and another classmate's, you can now estimate variability, albeit crudely (df = 1). With your score and seven others, you can make a better estimate of the variability in the class (df = 7). This is my favorite definition and it comes from \citet{Cohen2013}.
+\item
+  Because degrees of freedom (df) are directly related to sample size, think of degrees of freedom as sample size. I think of the sum of squared deviations as adding up all of the variation that has been observed, and degrees of freedom as being the sample size. Therefore, I think of variance as being roughly the variation per unit, or the average variation. This is the least precise.
+\end{enumerate}
+
+\hypertarget{rsquared}{%
+\subsubsection{\texorpdfstring{Interpretation of \(\eta^2\) and \(r^2\) (Cohen, 1988)}{Interpretation of \textbackslash eta\^{}2 and r\^{}2 (Cohen, 1988)}}\label{rsquared}}
+
+These are reference points, not firm cutoffs. For example, .056 is a medium effect size.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.31}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.24}}@{}}
+\toprule
+Effect Size & Interpretation \\
+\midrule
+\endhead
+\(\eta^2 = r^2 = .01\) & Small effect \\
+\(\eta^2 = r^2 = .06\) & Medium effect \\
+\(\eta^2 = r^2 = .14\) & Large effect \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{interpr}{%
+\subsubsection{\texorpdfstring{Interpretation of \(r\) (Cohen, 1988; Note: This is not \(r^2\))}{Interpretation of r (Cohen, 1988; Note: This is not r\^{}2)}}\label{interpr}}
+
+These are reference points, not firm cutoffs. For example, .056 is a medium effect size.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.31}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.24}}@{}}
+\toprule
+Effect Size & Interpretation \\
+\midrule
+\endhead
+\(r\pm.10\) Small effe & ct \\
+\(r\pm.30\) Medium e & ffect \\
+\(r\pm.50\) Large effe & ct \\
+\bottomrule
+\end{longtable}
+
 \hypertarget{summary-5}{%
 \section{Summary}\label{summary-5}}
 
@@ -11917,7 +12003,7 @@ To visualize this result, we can graph a scatterplot, with observed values of on
 \NormalTok{    \}}
     
     \FunctionTok{oneCorPlot}\NormalTok{( parenthood}\SpecialCharTok{$}\NormalTok{dan.sleep, parenthood}\SpecialCharTok{$}\NormalTok{dan.grump, }
-        \AttributeTok{xlab=}\StringTok{"My sleep (hours)"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"My grumpiness"}
+        \AttributeTok{xlab=}\StringTok{"Sleep (hours)"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Grumpiness"}
 \NormalTok{    )}
 \end{Highlighting}
 \end{Shaded}
