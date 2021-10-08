@@ -24,7 +24,7 @@
 <meta name="author" content="David Schuster" />
 
 
-<meta name="date" content="2021-10-06" />
+<meta name="date" content="2021-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -532,7 +532,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8.9" data-path="regression.html"><a href="regression.html#regressiontests"><i class="fa fa-check"></i><b>8.9</b> Hypothesis tests for regression models</a>
 <ul>
-<li class="chapter" data-level="8.9.1" data-path="regression.html"><a href="regression.html#testing-the-model-as-a-whole"><i class="fa fa-check"></i><b>8.9.1</b> Testing the model as a whole</a></li>
+<li class="chapter" data-level="8.9.1" data-path="regression.html"><a href="regression.html#testing-the-model-as-a-whole-the-omnibus-test"><i class="fa fa-check"></i><b>8.9.1</b> Testing the model as a whole: The omnibus test</a></li>
 <li class="chapter" data-level="8.9.2" data-path="regression.html"><a href="regression.html#tests-for-individual-coefficients"><i class="fa fa-check"></i><b>8.9.2</b> Tests for individual coefficients</a></li>
 <li class="chapter" data-level="8.9.3" data-path="regression.html"><a href="regression.html#regressionsummary"><i class="fa fa-check"></i><b>8.9.3</b> Running the hypothesis tests in R</a></li>
 </ul></li>
@@ -592,6 +592,14 @@ div.csl-indent {
 <li class="chapter" data-level="9.2.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-1"><i class="fa fa-check"></i><b>9.2.3</b> Assumptions &amp; Required Data</a></li>
 <li class="chapter" data-level="9.2.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-1"><i class="fa fa-check"></i><b>9.2.4</b> When to use it</a></li>
 <li class="chapter" data-level="9.2.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-1"><i class="fa fa-check"></i><b>9.2.5</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="statistics-reference.html"><a href="statistics-reference.html#linear-regression"><i class="fa fa-check"></i><b>9.3</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition-2"><i class="fa fa-check"></i><b>9.3.1</b> Definition</a></li>
+<li class="chapter" data-level="9.3.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-2"><i class="fa fa-check"></i><b>9.3.2</b> Test Statistic</a></li>
+<li class="chapter" data-level="9.3.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-2"><i class="fa fa-check"></i><b>9.3.3</b> Assumptions &amp; Required Data</a></li>
+<li class="chapter" data-level="9.3.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-2"><i class="fa fa-check"></i><b>9.3.4</b> When to use it</a></li>
+<li class="chapter" data-level="9.3.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-2"><i class="fa fa-check"></i><b>9.3.5</b> Example</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -1325,8 +1333,8 @@ This adjustment is an attempt to take the degrees of freedom into account. The b
 <h2><span class="header-section-number">8.9</span> Hypothesis tests for regression models</h2>
 <p>So far we’ve talked about what a regression model is, how the coefficients of a regression model are estimated, and how we quantify the performance of the model (the last of these, incidentally, is basically our measure of effect size). The next thing we need to talk about is hypothesis tests. There are two different (but related) kinds of hypothesis tests that we need to talk about: those in which we test whether the regression model as a whole is performing significantly better than a null model; and those in which we test whether a particular regression coefficient is significantly different from zero.</p>
 <p>At this point, you’re probably groaning internally, thinking that I’m going to introduce a whole new collection of tests…Me too. I’m so sick of hypothesis tests that I’m going to shamelessly reuse the <span class="math inline">\(F\)</span>-test from ANOVA and the <span class="math inline">\(t\)</span>-test. In fact, all I’m going to do in this section is show you how those tests are imported wholesale into the regression framework.</p>
-<div id="testing-the-model-as-a-whole" class="section level3" number="8.9.1">
-<h3><span class="header-section-number">8.9.1</span> Testing the model as a whole</h3>
+<div id="testing-the-model-as-a-whole-the-omnibus-test" class="section level3" number="8.9.1">
+<h3><span class="header-section-number">8.9.1</span> Testing the model as a whole: The omnibus test</h3>
 <p>Okay, suppose you’ve estimated your regression model. The first hypothesis test you might want to try is one in which the null hypothesis that there is <em>no relationship</em> between the predictors and the outcome, and the alternative hypothesis is that <em>the data are distributed in exactly the way that the regression model predicts</em>. Formally, our “null model” corresponds to the fairly trivial “regression” model in which we include 0 predictors, and only include the intercept term <span class="math inline">\(b_0\)</span>
 <span class="math display">\[
 H_0: Y_i = b_0 + \epsilon_i

@@ -102,6 +102,7 @@ fig:residualPlots
 fig:regressionplot3
 fig:znull
 fig:corrnull
+fig:regressionnull
 statistics-for-research
 introduction
 measurement
@@ -398,7 +399,7 @@ the-r2-value
 the-relationship-between-regression-and-correlation
 the-adjusted-r2-value
 regressiontests
-testing-the-model-as-a-whole
+testing-the-model-as-a-whole-the-omnibus-test
 tests-for-individual-coefficients
 regressionsummary
 corrhyp
@@ -454,3 +455,16 @@ hypotheses-2
 analysis-1
 decision-1
 variations-1
+linear-regression
+definition-2
+test-statistic-2
+assumptions-required-data-2
+when-to-use-it-2
+example-2
+data-2
+hypotheses-3
+analysis-2
+decision-2
+omnibus-test
+test-of-coefficients
+variations-2

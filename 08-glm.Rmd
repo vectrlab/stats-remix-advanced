@@ -855,7 +855,7 @@ So far we've talked about what a regression model is, how the coefficients of a 
 At this point, you're probably groaning internally, thinking that I'm going to introduce a whole new collection of tests...Me too. I'm so sick of hypothesis tests that I'm going to shamelessly reuse the $F$-test from ANOVA and the $t$-test. In fact, all I'm going to do in this section is show you how those tests are imported wholesale into the regression framework.  
 
 
-### Testing the model as a whole
+### Testing the model as a whole: The omnibus test
 
 Okay, suppose you've estimated your regression model. The first hypothesis test you might want to try is one in which the null hypothesis that there is *no relationship* between the predictors and the outcome, and the alternative hypothesis is that *the data are distributed in exactly the way that the regression model predicts*. Formally, our "null model" corresponds to the fairly trivial "regression" model in which we include 0 predictors, and only include the intercept term $b_0$
 $$

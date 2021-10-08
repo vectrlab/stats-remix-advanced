@@ -24,7 +24,7 @@
 <meta name="author" content="David Schuster" />
 
 
-<meta name="date" content="2021-10-06" />
+<meta name="date" content="2021-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -532,7 +532,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8.9" data-path="regression.html"><a href="regression.html#regressiontests"><i class="fa fa-check"></i><b>8.9</b> Hypothesis tests for regression models</a>
 <ul>
-<li class="chapter" data-level="8.9.1" data-path="regression.html"><a href="regression.html#testing-the-model-as-a-whole"><i class="fa fa-check"></i><b>8.9.1</b> Testing the model as a whole</a></li>
+<li class="chapter" data-level="8.9.1" data-path="regression.html"><a href="regression.html#testing-the-model-as-a-whole-the-omnibus-test"><i class="fa fa-check"></i><b>8.9.1</b> Testing the model as a whole: The omnibus test</a></li>
 <li class="chapter" data-level="8.9.2" data-path="regression.html"><a href="regression.html#tests-for-individual-coefficients"><i class="fa fa-check"></i><b>8.9.2</b> Tests for individual coefficients</a></li>
 <li class="chapter" data-level="8.9.3" data-path="regression.html"><a href="regression.html#regressionsummary"><i class="fa fa-check"></i><b>8.9.3</b> Running the hypothesis tests in R</a></li>
 </ul></li>
@@ -592,6 +592,14 @@ div.csl-indent {
 <li class="chapter" data-level="9.2.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-1"><i class="fa fa-check"></i><b>9.2.3</b> Assumptions &amp; Required Data</a></li>
 <li class="chapter" data-level="9.2.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-1"><i class="fa fa-check"></i><b>9.2.4</b> When to use it</a></li>
 <li class="chapter" data-level="9.2.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-1"><i class="fa fa-check"></i><b>9.2.5</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="statistics-reference.html"><a href="statistics-reference.html#linear-regression"><i class="fa fa-check"></i><b>9.3</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition-2"><i class="fa fa-check"></i><b>9.3.1</b> Definition</a></li>
+<li class="chapter" data-level="9.3.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-2"><i class="fa fa-check"></i><b>9.3.2</b> Test Statistic</a></li>
+<li class="chapter" data-level="9.3.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-2"><i class="fa fa-check"></i><b>9.3.3</b> Assumptions &amp; Required Data</a></li>
+<li class="chapter" data-level="9.3.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-2"><i class="fa fa-check"></i><b>9.3.4</b> When to use it</a></li>
+<li class="chapter" data-level="9.3.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-2"><i class="fa fa-check"></i><b>9.3.5</b> Example</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -1142,15 +1150,15 @@ Figure 3.3: An illustration of the standard deviation, applied to the AFL winnin
 <p>Text by David Schuster</p>
 <p>There are two more descriptive statistics that you will sometimes see reported in the psychological literature, known as skew and kurtosis. These two measures are useful to diagnose normality (although kurtosis is less useful, in practice). If we find evidence of skewness or kurtosis, we may suspect that our distribution is not normal. Later in this course, we will see that it is generally not a problem for us if one of our sample distributions are non-normal. Regardless, skewness and kurtosis can tell us about the shape of our data.</p>
 <p>Example by <span class="citation"><a href="#ref-Navarro2018" role="doc-biblioref">Navarro</a> (<a href="#ref-Navarro2018" role="doc-biblioref">2018</a>)</span></p>
-<pre><code>## [1] -0.9160449</code></pre>
-<pre><code>## [1] 3.854343e-05</code></pre>
+<pre><code>## [1] -0.9332882</code></pre>
+<pre><code>## [1] -0.006258458</code></pre>
 <div class="figure"><span style="display:block;" id="fig:skewness"></span>
 <img src="schuster-statistics-remix_files/figure-html/skewness-1.png" alt="An illustration of skewness. On the left we have a negatively skewed data set (skewness $= -.93$), in the middle we have a data set with no skew (technically, skewness $= -.006$), and on the right we have a positively skewed data set (skewness $= .93$)." width="672" />
 <p class="caption">
 Figure 3.4: An illustration of skewness. On the left we have a negatively skewed data set (skewness <span class="math inline">\(= -.93\)</span>), in the middle we have a data set with no skew (technically, skewness <span class="math inline">\(= -.006\)</span>), and on the right we have a positively skewed data set (skewness <span class="math inline">\(= .93\)</span>).
 </p>
 </div>
-<pre><code>## [1] 0.9135572</code></pre>
+<pre><code>## [1] 0.9249848</code></pre>
 <p>Since it’s the more interesting of the two, let’s start by talking about the <strong><em>skewness</em></strong>. Skewness is basically a measure of asymmetry, and the easiest way to explain it is by drawing some pictures. As Figure <a href="descriptives.html#fig:skewness">3.4</a> illustrates, if the data tend to have a lot of extreme small values (i.e., the lower tail is “longer” than the upper tail) and not so many extremely large values (left panel), then we say that the data are <em>negatively skewed</em>. On the other hand, if there are more extremely large values than extremely small ones (right panel) we say that the data are <em>positively skewed</em>. That’s the qualitative idea behind skewness. The actual formula for the skewness of a data set is as follows
 <span class="math display">\[
 \mbox{skewness}(X) = \frac{1}{N \hat{\sigma}^3} \sum_{i=1}^N (X_i - \bar{X})^3
@@ -1237,15 +1245,15 @@ where <span class="math inline">\(N\)</span> is the number of observations, <spa
 ## data:  x
 ## W = 0.9398, p-value = 9.481e-07</code></pre>
 <p>The final measure that is sometimes referred to, though very rarely in practice, is the <strong><em>kurtosis</em></strong> of a data set. Put simply, kurtosis is a measure of the “pointiness” of a data set, as illustrated in Figure <a href="descriptives.html#fig:kurtosis">3.5</a>.</p>
-<pre><code>## [1] -0.9598938</code></pre>
-<pre><code>## [1] 0.01042027</code></pre>
+<pre><code>## [1] -0.9637252</code></pre>
+<pre><code>## [1] -0.003902041</code></pre>
 <div class="figure"><span style="display:block;" id="fig:kurtosis"></span>
 <img src="schuster-statistics-remix_files/figure-html/kurtosis-1.png" alt="An illustration of kurtosis. On the left, we have a &quot;platykurtic&quot; data set (kurtosis = $-.95$), meaning that the data set is &quot;too flat&quot;. In the middle we have a &quot;mesokurtic&quot; data set (kurtosis is almost exactly 0), which means that the pointiness of the data is just about right. Finally, on the right, we have a &quot;leptokurtic&quot; data set (kurtosis $= 2.12$) indicating that the data set is &quot;too pointy&quot;. Note that kurtosis is measured with respect to a normal curve (black line)" width="672" />
 <p class="caption">
 Figure 3.5: An illustration of kurtosis. On the left, we have a “platykurtic” data set (kurtosis = <span class="math inline">\(-.95\)</span>), meaning that the data set is “too flat.” In the middle we have a “mesokurtic” data set (kurtosis is almost exactly 0), which means that the pointiness of the data is just about right. Finally, on the right, we have a “leptokurtic” data set (kurtosis <span class="math inline">\(= 2.12\)</span>) indicating that the data set is “too pointy.” Note that kurtosis is measured with respect to a normal curve (black line)
 </p>
 </div>
-<pre><code>## [1] 2.017214</code></pre>
+<pre><code>## [1] 1.957055</code></pre>
 <p>By convention, we say that the “normal curve” (black lines) has zero kurtosis, so the pointiness of a data set is assessed relative to this curve. In this Figure, the data on the left are not pointy enough, so the kurtosis is negative and we call the data <em>platykurtic</em>. The data on the right are too pointy, so the kurtosis is positive and we say that the data is <em>leptokurtic</em>. But the data in the middle are just pointy enough, so we say that it is <em>mesokurtic</em> and has kurtosis zero. This is summarised in the table below:</p>
 <table>
 <thead>

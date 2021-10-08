@@ -239,3 +239,114 @@ cor( x = parenthood)
 
 When using a correlation matrix, p-values are not interpretable because the probability of a type I error on one or more of these correlations is higher than .05 (because the alpha level of .05 is used on each one, and many tests are being conducted).
 
+## Linear Regression
+
+### Definition
+
+Linear regression creates a linear model that can be used to predict an outcome variable from one or more predictor variables. The hypothesis test for a linear regression occurs in two stages. The first stage, called the **omnibus test**, is a hypothesis test of the entire model. If this test is significant, researchers can conclude that the collection of variables significantly predicts the outcome. Assuming significance, the second stage follows in which each predictor variable is tested with a against the null hypothesis that its regression coefficient is zero. 
+
+### Test Statistic
+
+The omnibus test uses an $F$-test to test the null hypothesis that there is no linear relationship between the outcome variable and the linear combination of the predictor variables. Or, that the variance explained by the predictor variables is no more than the variance explained by the mean. Tests of each coefficient use $t$-tests. The statistics $F$ and $t$ are related such that $t=\sqrt{F}$ and $F=t^2$.
+
+$$
+F =  \frac{\mbox{MS}_{model}}{\mbox{MS}_{residual}}
+$$
+$$
+t = \frac{\hat{b}}{\mbox{SE}({\hat{b})}}
+$$
+
+As with $t$, $F$ is a family of distributions defined around two degrees of freedom.
+
+```{r regressionnull, fig.cap="Graph of the sampling distribution of F used under Creative Commons License from Hartmann, K., Krois, J., Waske, B. (2018): E-Learning Project SOGA: Statistics and Geospatial Data Analysis. Department of Earth Sciences, Freie Universitaet Berlin.", echo=FALSE}
+x <- rf(100000, df1 = 10, df2 = 20)
+hist(x, 
+     breaks = 'fd', 
+     freq = FALSE, 
+     xlim = c(0,3), 
+     ylim = c(0,1),
+     xlab = '', 
+     main = 'Sampling Distribution of F(10,20)',
+          cex.main=0.9)
+curve(df(x, df1 = 10, df2 = 20), from = 0, to = 4, n = 5000, col= 'pink', lwd=2, add = T)
+
+```
+
+### Assumptions & Required Data
+
+For more detail, see \@ref(regressionassumptions).
+
+- A single quantitative outcome variable (interval or ratio), and one or more quantitative or  dichotomous (two possible values) variables. Note that this procedure is not appropriate for ordinal variables.
+- Normality of residuals 
+- Linearity
+- Homogeneity of variance (also called homoscedasiticty and equality of variance)
+- Uncorrelated predictors
+- Residuals that are independent of each other
+- No outliers
+
+### When to use it
+
+Use a regression when you want to formulate and test a linear model, including mediating and moderating variables. Regression can also be used to run ANOVAs.
+
+### Example
+
+The same data from the correlation guide will be used. @Navarro2018 wanted to see if  hours slept in a night and hours the baby slept in a night could predict their rating of grumpiness the next day.
+
+#### Data
+
+The data are three variables, one indicating hours slept (predictor 1), one indicating the hours slept by the baby (predictor 2), and the other (the outcome) indicating grumpiness. Data were collected for 100 nights.
+
+````{r regressiondata, echo=FALSE}
+rm(list=ls(all=TRUE))
+
+load( "./data/parenthood.Rdata" )
+head(parenthood,100)
+````
+
+#### Hypotheses
+
+All $F$-tests have two-tailed, directionless hypotheses. Because the omnibus test uses the $F$-distribution, all regression omnibus tests are two-tailed.
+
+The null is that the mean (which is the y-intercept, or $b_0$) predicts the outcome variable ($Y_i$) as well as the model. The alternative hypothesis is that the predictors add explained variance.
+
+$$
+H_0: Y_i = b_0 + \epsilon_i
+$$
+$$
+H_a: Y_i = \left( \sum_{k=1}^K b_{k} X_{ik} \right) + b_0 + \epsilon_i
+$$
+
+#### Analysis
+
+Set the alpha level. By convention, an alpha level of $\alpha = .05$ will be used. 
+
+Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining an effect size (in this case, the predictive power of our model over the null model with only the mean, measured using $R^2$) this strong at our sample size through random sampling from a population with no effect (a null model). We will determine this using an analysis of variance using the sampling distribution of the null hypothesis for $F$.
+
+````{r regressionnalysis, echo=TRUE}
+
+regression.2 <- lm( formula = dan.grump ~ dan.sleep + baby.sleep,  
+                     data = parenthood )
+summary(regression.2)
+confint(regression.2, level = 0.95)
+````
+
+The omnibus test can be found in the last row as F-statistic. Here, the omnibus test was significant, $F$(2, 97) = 215.2, $p$ < .001, $R^2=0.82$, suggesting that the model significantly predicts grumpiness.
+
+While a multiple regression with more than one predictor cannot be visualized easily, you could generate [added variable plots](https://www.statology.org/plot-multiple-linear-regression-in-r/) for each predictor.
+
+#### Decision
+
+##### Omnibus Test
+
+Because $p<{\alpha}$, the null hypothesis is rejected and we conclude that grumpiness can be predicted by the linear combination of hours slept and hours the baby slept. However, we do not know which variable(s) significantly explain variance. Because we have a significant omnibus test, we are now justified in testing the coefficients.
+
+##### Test of Coefficients
+
+
+$t$-tests are conducted for each coefficient in the ````summary()```` table. The hours slept coefficient was a significant predictor, $t$(97) = -16.17, $p$ < .001, 95% CI [-10.05, -7.85]. As hours slept increased, grumpiness decreased. The hours the baby slept was not a significant predictor, $t$(97) = -16.17, $p$ < .001, 95% CI [-0.53, 0.55]. 
+
+Note that the degrees of freedom are the residual degrees of freedom (the second number). $F$ tests are always reported with the model degrees of freedom first (2) and the residual degrees of freedom second (97).
+
+#### Variations
+
+This guide will be updated to add assumption checking and diagnostics procedures for regression.
