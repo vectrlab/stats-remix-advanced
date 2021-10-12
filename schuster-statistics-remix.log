@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.9.13)  7 OCT 2021 17:23
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.11)  11 OCT 2021 18:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -4250,128 +4250,140 @@ Underfull \hbox (badness 6608) in paragraph at lines 10966--10966
  influenceIndexPlot() \TU/lmr/m/n/8 and
  []
 
-
-LaTeX Warning: Reference `fig:regressionplot4' on page 410 undefined on input l
-ine 10966.
-
 File: schuster-statistics-remix_files/figure-latex/regressionplot4-1.pdf Graphi
 c file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/regressionplot4-1.pdf>
+[410] [411]
 File: schuster-statistics-remix_files/figure-latex/regressionplot5-1.pdf Graphi
 c file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/regressionplot5-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[410]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[411]
-Overfull \hbox (22.5pt too wide) in paragraph at lines 10995--10995
+[412]
+Overfull \hbox (22.5pt too wide) in paragraph at lines 11012--11012
 []\TU/lmtt/m/n/10 ## lm(formula = dan.grump ~ dan.sleep + baby.sleep, data = pa
 renthood,[] 
  []
 
-[412]
 File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/regression2/residhi
 st-eps-converted-to.pdf Graphic file (type pdf)
 <use /Users/dave/Documents/GitHub/stats-remix-advanced/img/regression2/residhis
 t-eps-converted-to.pdf>
-[413]
+[413] [414]
 File: schuster-statistics-remix_files/figure-latex/regressionplot2-1.pdf Graphi
 c file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/regressionplot2-1.pdf>
 File: schuster-statistics-remix_files/figure-latex/regressionlinearity-1.pdf Gr
 aphic file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/regressionlinearity-1.pdf>
-[414] [415]
+[415] [416]
 File: schuster-statistics-remix_files/figure-latex/regressionplot1-1.pdf Graphi
 c file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/regressionplot1-1.pdf>
 
-LaTeX Warning: Reference `fig:regressionplot1' on page 416 undefined on input l
-ine 11071.
+LaTeX Warning: Reference `fig:regressionplot1' on page 417 undefined on input l
+ine 11088.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 11070--11072
+Underfull \hbox (badness 10000) in paragraph at lines 11087--11089
 [][]
  []
 
-[416]
+[417]
 File: schuster-statistics-remix_files/figure-latex/residualPlots-1.pdf Graphic 
 file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/residualPlots-1.pdf>
-[417]
+[418]
 
-LaTeX Warning: Reference `fig:regressionplot1' on page 418 undefined on input l
-ine 11098.
-
-
-LaTeX Warning: Reference `transform' on page 418 undefined on input line 11104.
+LaTeX Warning: Reference `fig:regressionplot1' on page 419 undefined on input l
+ine 11115.
 
 
+LaTeX Warning: Reference `transform' on page 419 undefined on input line 11121.
 
-LaTeX Warning: Reference `(' on page 418 undefined on input line 11104.
 
 
-Underfull \hbox (badness 1389) in paragraph at lines 11104--11105
+LaTeX Warning: Reference `(' on page 419 undefined on input line 11121.
+
+
+Underfull \hbox (badness 1389) in paragraph at lines 11121--11122
 []\TU/lmr/m/n/10 We discussed the basics of variable transformation in Sections
  [] and
  []
 
-[418]
+[419]
 File: schuster-statistics-remix_files/figure-latex/regressionplot3-1.pdf Graphi
 c file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/regressionplot3-1.pdf>
-[419] [420] [421] [422] [423] [424] [425] [426] [427] [428] [429] [430] [431] [
-432] [433] [434]
+[420] [421] [422] [423] [424] [425] [426] [427] [428] [429] [430] [431] [432] [
+433]
+File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-354-1.pdf Grap
+hic file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-354-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 11581--11583
+[][]
+ []
+
+[434]
+File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-355-1.pdf Grap
+hic file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-355-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 11606--11608
+[][]
+ []
+
+[435]
+File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-356-1.pdf Grap
+hic file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-356-1.pdf>
+[436] [437] [438]
 Chapter 9.
 File: schuster-statistics-remix_files/figure-latex/znull-1.pdf Graphic file (ty
 pe pdf)
 <use schuster-statistics-remix_files/figure-latex/znull-1.pdf>
-[435
+[439
 
 ]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 11687--11687
+Overfull \hbox (59.25pt too wide) in paragraph at lines 11788--11788
 []\TU/lmtt/m/n/10 ##  [1] 1.00 0.77 0.66 0.65 1.05 0.97 0.90 0.71 0.88 1.00 0.7
 5 0.67 0.68 0.88[] 
  []
 
-[436]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 11687--11687
+[440]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 11788--11788
 []\TU/lmtt/m/n/10 ## [15] 0.92 0.87 0.94 0.78 0.98 0.93 0.93 1.00 0.97 0.95 0.8
 5 1.07 0.87 0.89[] 
  []
 
-[437]
+[441]
 File: schuster-statistics-remix_files/figure-latex/zvisualization-1.pdf Graphic
  file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/zvisualization-1.pdf>
-[438]
+[442]
 File: schuster-statistics-remix_files/figure-latex/corrnull-1.pdf Graphic file 
 (type pdf)
 <use schuster-statistics-remix_files/figure-latex/corrnull-1.pdf>
-[439] [440] [441] [442] [443]
+[443] [444] [445] [446] [447]
 File: schuster-statistics-remix_files/figure-latex/corrvisualization-1.pdf Grap
 hic file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/corrvisualization-1.pdf>
-[444] [445] [446]
+[448] [449] [450]
 File: schuster-statistics-remix_files/figure-latex/regressionnull-1.pdf Graphic
  file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/regressionnull-1.pdf>
-[447] [448] [449] [450]
-Overfull \hbox (22.5pt too wide) in paragraph at lines 12275--12275
+[451] [452] [453] [454]
+Overfull \hbox (22.5pt too wide) in paragraph at lines 12376--12376
 []\TU/lmtt/m/n/10 ## lm(formula = dan.grump ~ dan.sleep + baby.sleep, data = pa
 renthood)[] 
  []
 
-[451] (./schuster-statistics-remix.bbl [452] [453
+[455] (./schuster-statistics-remix.bbl [456] [457
 
 ])
 
 Package natbib Warning: There were undefined citations.
 
-[454] (./schuster-statistics-remix.aux)
+[458] (./schuster-statistics-remix.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -4383,12 +4395,12 @@ ed.
 (rerunfilecheck)             Checksum: 8F00F054570896674E406A29AF5DB118;20545.
  ) 
 Here is how much of TeX's memory you used:
- 18324 strings out of 478532
- 368052 string characters out of 5861891
- 839287 words of memory out of 5000000
- 38193 multiletter control sequences out of 15000+600000
+ 18348 strings out of 478492
+ 369611 string characters out of 5861347
+ 839685 words of memory out of 5000000
+ 38257 multiletter control sequences out of 15000+600000
  410978 words of font info for 103 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  87i,8n,120p,2956b,543s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on schuster-statistics-remix.pdf (454 pages).
+Output written on schuster-statistics-remix.pdf (458 pages).

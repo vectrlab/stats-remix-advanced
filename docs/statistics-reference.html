@@ -24,7 +24,7 @@
 <meta name="author" content="David Schuster" />
 
 
-<meta name="date" content="2021-10-07" />
+<meta name="date" content="2021-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -565,11 +565,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8.15" data-path="regression.html"><a href="regression.html#practical-issues-in-correlation-and-regression"><i class="fa fa-check"></i><b>8.15</b> Practical Issues in Correlation and Regression</a>
 <ul>
-<li class="chapter" data-level="8.15.1" data-path="regression.html"><a href="regression.html#regdression-toward-the-mean"><i class="fa fa-check"></i><b>8.15.1</b> Regdression Toward the Mean</a></li>
-<li class="chapter" data-level="8.15.2" data-path="regression.html"><a href="regression.html#correl-1"><i class="fa fa-check"></i><b>8.15.2</b> Correl</a></li>
-<li class="chapter" data-level="8.15.3" data-path="regression.html"><a href="regression.html#interpreting-nhst-in-big-data"><i class="fa fa-check"></i><b>8.15.3</b> Interpreting NHST in Big Data</a></li>
-<li class="chapter" data-level="8.15.4" data-path="regression.html"><a href="regression.html#outliers"><i class="fa fa-check"></i><b>8.15.4</b> Outliers</a></li>
-<li class="chapter" data-level="8.15.5" data-path="regression.html"><a href="regression.html#restriction-of-range"><i class="fa fa-check"></i><b>8.15.5</b> Restriction of Range</a></li>
+<li class="chapter" data-level="8.15.1" data-path="regression.html"><a href="regression.html#correlation-is-not-causation"><i class="fa fa-check"></i><b>8.15.1</b> Correlation is not causation</a></li>
+<li class="chapter" data-level="8.15.2" data-path="regression.html"><a href="regression.html#interpreting-nhst-in-big-data"><i class="fa fa-check"></i><b>8.15.2</b> Interpreting NHST in Big Data</a></li>
+<li class="chapter" data-level="8.15.3" data-path="regression.html"><a href="regression.html#outliers"><i class="fa fa-check"></i><b>8.15.3</b> Outliers</a></li>
+<li class="chapter" data-level="8.15.4" data-path="regression.html"><a href="regression.html#restriction-of-range"><i class="fa fa-check"></i><b>8.15.4</b> Restriction of Range</a></li>
+<li class="chapter" data-level="8.15.5" data-path="regression.html"><a href="regression.html#regression-toward-the-mean"><i class="fa fa-check"></i><b>8.15.5</b> Regression Toward the Mean</a></li>
 <li class="chapter" data-level="8.15.6" data-path="regression.html"><a href="regression.html#report-effect-size"><i class="fa fa-check"></i><b>8.15.6</b> Report Effect Size</a></li>
 <li class="chapter" data-level="8.15.7" data-path="regression.html"><a href="regression.html#what-are-degrees-of-freedom-again"><i class="fa fa-check"></i><b>8.15.7</b> What are Degrees of Freedom, again?</a></li>
 </ul></li>
@@ -686,20 +686,20 @@ $H_a=\mu\gt.80$</code></pre>
 <p>Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining a sample mean this distance from the population mean. We will determine this using the sampling distribution of the null hypothesis for <span class="math inline">\(z\)</span> (the normal distribution).</p>
 <p>Unlike later statistical tests, R does not provide a built-in <span class="math inline">\(z\)</span>-test. This is actually a feature, as it lets us demonstrate the steps in more detail.</p>
 <p>The most challenging part is the function <code>pnorm()</code>, which gives the area to the left of a score on the a standard normal distribution. By using the argument `<code>lower.tail = FALSE</code>, the function will give the area to the right of the score.</p>
-<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="statistics-reference.html#cb759-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> .<span class="dv">80</span></span>
-<span id="cb759-2"><a href="statistics-reference.html#cb759-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> .<span class="dv">10</span></span>
-<span id="cb759-3"><a href="statistics-reference.html#cb759-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(data)</span>
-<span id="cb759-4"><a href="statistics-reference.html#cb759-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (<span class="fu">mean</span>(sample) <span class="sc">-</span> mu) <span class="sc">/</span> (sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span>
-<span id="cb759-5"><a href="statistics-reference.html#cb759-5" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
+<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb770-1"><a href="statistics-reference.html#cb770-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> .<span class="dv">80</span></span>
+<span id="cb770-2"><a href="statistics-reference.html#cb770-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> .<span class="dv">10</span></span>
+<span id="cb770-3"><a href="statistics-reference.html#cb770-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(data)</span>
+<span id="cb770-4"><a href="statistics-reference.html#cb770-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (<span class="fu">mean</span>(sample) <span class="sc">-</span> mu) <span class="sc">/</span> (sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n))</span>
+<span id="cb770-5"><a href="statistics-reference.html#cb770-5" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
 <pre><code>## [1] 0.8457143</code></pre>
-<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="statistics-reference.html#cb761-1" aria-hidden="true" tabindex="-1"></a>p_value <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(z, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="co"># gives area to the right of the score, which is the p-value</span></span>
-<span id="cb761-2"><a href="statistics-reference.html#cb761-2" aria-hidden="true" tabindex="-1"></a>p_value</span></code></pre></div>
+<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb772-1"><a href="statistics-reference.html#cb772-1" aria-hidden="true" tabindex="-1"></a>p_value <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(z, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>) <span class="co"># gives area to the right of the score, which is the p-value</span></span>
+<span id="cb772-2"><a href="statistics-reference.html#cb772-2" aria-hidden="true" tabindex="-1"></a>p_value</span></code></pre></div>
 <pre><code>## [1] 0.1988561</code></pre>
 <p>To visualize this result, we can graph the location of the test statistic in the sampling distribution, shading everything beyond the test statistic in one tail:</p>
-<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="statistics-reference.html#cb763-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb763-2"><a href="statistics-reference.html#cb763-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="cn">NULL</span>, <span class="fu">aes</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>))) <span class="sc">+</span></span>
-<span id="cb763-3"><a href="statistics-reference.html#cb763-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">&quot;function&quot;</span>, <span class="at">fun =</span> dnorm, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, z), <span class="at">alpha =</span> <span class="fl">0.5</span>,<span class="at">fill=</span><span class="fu">alpha</span>(<span class="st">&quot;grey&quot;</span>,<span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb763-4"><a href="statistics-reference.html#cb763-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">&quot;function&quot;</span>, <span class="at">fun =</span> dnorm, <span class="at">fill=</span><span class="st">&quot;blue&quot;</span>, <span class="at">xlim =</span> <span class="fu">c</span>(z, <span class="dv">4</span>), <span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb774"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb774-1"><a href="statistics-reference.html#cb774-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb774-2"><a href="statistics-reference.html#cb774-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="cn">NULL</span>, <span class="fu">aes</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>))) <span class="sc">+</span></span>
+<span id="cb774-3"><a href="statistics-reference.html#cb774-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">&quot;function&quot;</span>, <span class="at">fun =</span> dnorm, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, z), <span class="at">alpha =</span> <span class="fl">0.5</span>,<span class="at">fill=</span><span class="fu">alpha</span>(<span class="st">&quot;grey&quot;</span>,<span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb774-4"><a href="statistics-reference.html#cb774-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">&quot;function&quot;</span>, <span class="at">fun =</span> dnorm, <span class="at">fill=</span><span class="st">&quot;blue&quot;</span>, <span class="at">xlim =</span> <span class="fu">c</span>(z, <span class="dv">4</span>), <span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code></pre></div>
 <p><img src="schuster-statistics-remix_files/figure-html/zvisualization-1.png" width="672" /></p>
 <p>The shaded area is well over 5 percent, showing visually that <span class="math inline">\(p&gt;\alpha\)</span>.</p>
 </div>
@@ -875,9 +875,9 @@ Figure 9.2: The null hypothesis distribution of <span class="math inline">\(t\)<
 <li><code>cor()</code> will output just the correlation coefficient</li>
 <li><code>cor.test()</code> will perform NHST and give a p-value</li>
 </ul>
-<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="statistics-reference.html#cb765-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>( <span class="at">x =</span> parenthood<span class="sc">$</span>dan.sleep, <span class="at">y =</span> parenthood<span class="sc">$</span>dan.grump )</span></code></pre></div>
+<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb776-1"><a href="statistics-reference.html#cb776-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>( <span class="at">x =</span> parenthood<span class="sc">$</span>dan.sleep, <span class="at">y =</span> parenthood<span class="sc">$</span>dan.grump )</span></code></pre></div>
 <pre><code>## [1] -0.903384</code></pre>
-<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="statistics-reference.html#cb767-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">x =</span> parenthood<span class="sc">$</span>dan.sleep, <span class="at">y =</span> parenthood<span class="sc">$</span>dan.grump)</span></code></pre></div>
+<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb778-1"><a href="statistics-reference.html#cb778-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="at">x =</span> parenthood<span class="sc">$</span>dan.sleep, <span class="at">y =</span> parenthood<span class="sc">$</span>dan.grump)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -890,15 +890,15 @@ Figure 9.2: The null hypothesis distribution of <span class="math inline">\(t\)<
 ##       cor 
 ## -0.903384</code></pre>
 <p>To visualize this result, we can graph a scatterplot, with observed values of one variable plotted against the observed value of the second variable:</p>
-<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="statistics-reference.html#cb769-1" aria-hidden="true" tabindex="-1"></a>oneCorPlot <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y,...) {</span>
-<span id="cb769-2"><a href="statistics-reference.html#cb769-2" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb769-3"><a href="statistics-reference.html#cb769-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plot</span>(x,y,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">col=</span>(<span class="st">&quot;black&quot;</span>),...)</span>
-<span id="cb769-4"><a href="statistics-reference.html#cb769-4" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb769-5"><a href="statistics-reference.html#cb769-5" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb769-6"><a href="statistics-reference.html#cb769-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb769-7"><a href="statistics-reference.html#cb769-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">oneCorPlot</span>( parenthood<span class="sc">$</span>dan.sleep, parenthood<span class="sc">$</span>dan.grump, </span>
-<span id="cb769-8"><a href="statistics-reference.html#cb769-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Sleep (hours)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Grumpiness&quot;</span></span>
-<span id="cb769-9"><a href="statistics-reference.html#cb769-9" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<div class="sourceCode" id="cb780"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb780-1"><a href="statistics-reference.html#cb780-1" aria-hidden="true" tabindex="-1"></a>oneCorPlot <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y,...) {</span>
+<span id="cb780-2"><a href="statistics-reference.html#cb780-2" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb780-3"><a href="statistics-reference.html#cb780-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plot</span>(x,y,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">col=</span>(<span class="st">&quot;black&quot;</span>),...)</span>
+<span id="cb780-4"><a href="statistics-reference.html#cb780-4" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb780-5"><a href="statistics-reference.html#cb780-5" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb780-6"><a href="statistics-reference.html#cb780-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb780-7"><a href="statistics-reference.html#cb780-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">oneCorPlot</span>( parenthood<span class="sc">$</span>dan.sleep, parenthood<span class="sc">$</span>dan.grump, </span>
+<span id="cb780-8"><a href="statistics-reference.html#cb780-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Sleep (hours)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Grumpiness&quot;</span></span>
+<span id="cb780-9"><a href="statistics-reference.html#cb780-9" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <p><img src="schuster-statistics-remix_files/figure-html/corrvisualization-1.png" width="672" /></p>
 <p>The magnitude of r (it’s value) indicates the strength of the relationship. The closer the value of <span class="math inline">\(r\)</span> to <span class="math inline">\(\pm1\)</span>, the more closely the points hug a straight line. The line will have a positive slope if the relationship is positive and a negative slope if the relationship is negative.</p>
 </div>
@@ -917,7 +917,7 @@ Figure 9.2: The null hypothesis distribution of <span class="math inline">\(t\)<
 <li><p>If <span class="math inline">\(p \ge \alpha\)</span>, you would have retained the null hypothesis and made no conclusion.</p></li>
 <li><p>You can calculate a <strong>correlation matrix</strong> that shows all possible bivariate correlations from a dataframe. Simply include the entire dataframe as the argument instead of two variables, like this:</p></li>
 </ul>
-<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb770-1"><a href="statistics-reference.html#cb770-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>( <span class="at">x =</span> parenthood)</span></code></pre></div>
+<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb781-1"><a href="statistics-reference.html#cb781-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>( <span class="at">x =</span> parenthood)</span></code></pre></div>
 <pre><code>##              dan.sleep  baby.sleep   dan.grump         day
 ## dan.sleep   1.00000000  0.62794934 -0.90338404 -0.09840768
 ## baby.sleep  0.62794934  1.00000000 -0.56596373 -0.01043394
@@ -1090,9 +1090,9 @@ H_a: Y_i = \left( \sum_{k=1}^K b_{k} X_{ik} \right) + b_0 + \epsilon_i
 <h4><span class="header-section-number">9.3.5.3</span> Analysis</h4>
 <p>Set the alpha level. By convention, an alpha level of <span class="math inline">\(\alpha = .05\)</span> will be used.</p>
 <p>Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining an effect size (in this case, the predictive power of our model over the null model with only the mean, measured using <span class="math inline">\(R^2\)</span>) this strong at our sample size through random sampling from a population with no effect (a null model). We will determine this using an analysis of variance using the sampling distribution of the null hypothesis for <span class="math inline">\(F\)</span>.</p>
-<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="statistics-reference.html#cb773-1" aria-hidden="true" tabindex="-1"></a>regression<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">lm</span>( <span class="at">formula =</span> dan.grump <span class="sc">~</span> dan.sleep <span class="sc">+</span> baby.sleep,  </span>
-<span id="cb773-2"><a href="statistics-reference.html#cb773-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">data =</span> parenthood )</span>
-<span id="cb773-3"><a href="statistics-reference.html#cb773-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(regression<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb784"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb784-1"><a href="statistics-reference.html#cb784-1" aria-hidden="true" tabindex="-1"></a>regression<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">lm</span>( <span class="at">formula =</span> dan.grump <span class="sc">~</span> dan.sleep <span class="sc">+</span> baby.sleep,  </span>
+<span id="cb784-2"><a href="statistics-reference.html#cb784-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">data =</span> parenthood )</span>
+<span id="cb784-3"><a href="statistics-reference.html#cb784-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(regression<span class="fl">.2</span>)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = dan.grump ~ dan.sleep + baby.sleep, data = parenthood)
@@ -1112,7 +1112,7 @@ H_a: Y_i = \left( \sum_{k=1}^K b_{k} X_{ik} \right) + b_0 + \epsilon_i
 ## Residual standard error: 4.354 on 97 degrees of freedom
 ## Multiple R-squared:  0.8161, Adjusted R-squared:  0.8123 
 ## F-statistic: 215.2 on 2 and 97 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="statistics-reference.html#cb775-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(regression<span class="fl">.2</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb786"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb786-1"><a href="statistics-reference.html#cb786-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(regression<span class="fl">.2</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>##                  2.5 %      97.5 %
 ## (Intercept) 119.930125 132.0010063
 ## dan.sleep   -10.048710  -7.8517895
@@ -1175,6 +1175,9 @@ Fisher, R. A. 1922. <span>“On the Mathematical Foundation of Theoretical Stati
 </div>
 <div class="csl-entry">
 Fox, J., and S. Weisberg. 2011. <em>An <span>R</span> Companion to Applied Regression</em>. 2nd ed. Los Angeles: Sage.
+</div>
+<div class="csl-entry">
+Galton, Francis. 1886. <span>“Regression Towards Mediocrity in Hereditary Stature.”</span> <a href="https://doi.org/10.2307/2841583">https://doi.org/10.2307/2841583</a>.
 </div>
 <div class="csl-entry">
 Gelman, A., and H. Stern. 2006. <span>“The Difference Between <span>‘Significant’</span> and <span>‘Not Significant’</span> Is Not Itself Statistically Significant.”</span> <em>The American Statistician</em> 60: 328–31.

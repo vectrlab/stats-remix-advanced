@@ -24,7 +24,7 @@
 <meta name="author" content="David Schuster" />
 
 
-<meta name="date" content="2021-10-07" />
+<meta name="date" content="2021-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -565,11 +565,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8.15" data-path="regression.html"><a href="regression.html#practical-issues-in-correlation-and-regression"><i class="fa fa-check"></i><b>8.15</b> Practical Issues in Correlation and Regression</a>
 <ul>
-<li class="chapter" data-level="8.15.1" data-path="regression.html"><a href="regression.html#regdression-toward-the-mean"><i class="fa fa-check"></i><b>8.15.1</b> Regdression Toward the Mean</a></li>
-<li class="chapter" data-level="8.15.2" data-path="regression.html"><a href="regression.html#correl-1"><i class="fa fa-check"></i><b>8.15.2</b> Correl</a></li>
-<li class="chapter" data-level="8.15.3" data-path="regression.html"><a href="regression.html#interpreting-nhst-in-big-data"><i class="fa fa-check"></i><b>8.15.3</b> Interpreting NHST in Big Data</a></li>
-<li class="chapter" data-level="8.15.4" data-path="regression.html"><a href="regression.html#outliers"><i class="fa fa-check"></i><b>8.15.4</b> Outliers</a></li>
-<li class="chapter" data-level="8.15.5" data-path="regression.html"><a href="regression.html#restriction-of-range"><i class="fa fa-check"></i><b>8.15.5</b> Restriction of Range</a></li>
+<li class="chapter" data-level="8.15.1" data-path="regression.html"><a href="regression.html#correlation-is-not-causation"><i class="fa fa-check"></i><b>8.15.1</b> Correlation is not causation</a></li>
+<li class="chapter" data-level="8.15.2" data-path="regression.html"><a href="regression.html#interpreting-nhst-in-big-data"><i class="fa fa-check"></i><b>8.15.2</b> Interpreting NHST in Big Data</a></li>
+<li class="chapter" data-level="8.15.3" data-path="regression.html"><a href="regression.html#outliers"><i class="fa fa-check"></i><b>8.15.3</b> Outliers</a></li>
+<li class="chapter" data-level="8.15.4" data-path="regression.html"><a href="regression.html#restriction-of-range"><i class="fa fa-check"></i><b>8.15.4</b> Restriction of Range</a></li>
+<li class="chapter" data-level="8.15.5" data-path="regression.html"><a href="regression.html#regression-toward-the-mean"><i class="fa fa-check"></i><b>8.15.5</b> Regression Toward the Mean</a></li>
 <li class="chapter" data-level="8.15.6" data-path="regression.html"><a href="regression.html#report-effect-size"><i class="fa fa-check"></i><b>8.15.6</b> Report Effect Size</a></li>
 <li class="chapter" data-level="8.15.7" data-path="regression.html"><a href="regression.html#what-are-degrees-of-freedom-again"><i class="fa fa-check"></i><b>8.15.7</b> What are Degrees of Freedom, again?</a></li>
 </ul></li>
@@ -1150,15 +1150,15 @@ Figure 3.3: An illustration of the standard deviation, applied to the AFL winnin
 <p>Text by David Schuster</p>
 <p>There are two more descriptive statistics that you will sometimes see reported in the psychological literature, known as skew and kurtosis. These two measures are useful to diagnose normality (although kurtosis is less useful, in practice). If we find evidence of skewness or kurtosis, we may suspect that our distribution is not normal. Later in this course, we will see that it is generally not a problem for us if one of our sample distributions are non-normal. Regardless, skewness and kurtosis can tell us about the shape of our data.</p>
 <p>Example by <span class="citation"><a href="#ref-Navarro2018" role="doc-biblioref">Navarro</a> (<a href="#ref-Navarro2018" role="doc-biblioref">2018</a>)</span></p>
-<pre><code>## [1] -0.9332882</code></pre>
-<pre><code>## [1] -0.006258458</code></pre>
+<pre><code>## [1] -0.9253141</code></pre>
+<pre><code>## [1] 0.006344309</code></pre>
 <div class="figure"><span style="display:block;" id="fig:skewness"></span>
 <img src="schuster-statistics-remix_files/figure-html/skewness-1.png" alt="An illustration of skewness. On the left we have a negatively skewed data set (skewness $= -.93$), in the middle we have a data set with no skew (technically, skewness $= -.006$), and on the right we have a positively skewed data set (skewness $= .93$)." width="672" />
 <p class="caption">
 Figure 3.4: An illustration of skewness. On the left we have a negatively skewed data set (skewness <span class="math inline">\(= -.93\)</span>), in the middle we have a data set with no skew (technically, skewness <span class="math inline">\(= -.006\)</span>), and on the right we have a positively skewed data set (skewness <span class="math inline">\(= .93\)</span>).
 </p>
 </div>
-<pre><code>## [1] 0.9249848</code></pre>
+<pre><code>## [1] 0.9322717</code></pre>
 <p>Since it’s the more interesting of the two, let’s start by talking about the <strong><em>skewness</em></strong>. Skewness is basically a measure of asymmetry, and the easiest way to explain it is by drawing some pictures. As Figure <a href="descriptives.html#fig:skewness">3.4</a> illustrates, if the data tend to have a lot of extreme small values (i.e., the lower tail is “longer” than the upper tail) and not so many extremely large values (left panel), then we say that the data are <em>negatively skewed</em>. On the other hand, if there are more extremely large values than extremely small ones (right panel) we say that the data are <em>positively skewed</em>. That’s the qualitative idea behind skewness. The actual formula for the skewness of a data set is as follows
 <span class="math display">\[
 \mbox{skewness}(X) = \frac{1}{N \hat{\sigma}^3} \sum_{i=1}^N (X_i - \bar{X})^3
@@ -1245,15 +1245,15 @@ where <span class="math inline">\(N\)</span> is the number of observations, <spa
 ## data:  x
 ## W = 0.9398, p-value = 9.481e-07</code></pre>
 <p>The final measure that is sometimes referred to, though very rarely in practice, is the <strong><em>kurtosis</em></strong> of a data set. Put simply, kurtosis is a measure of the “pointiness” of a data set, as illustrated in Figure <a href="descriptives.html#fig:kurtosis">3.5</a>.</p>
-<pre><code>## [1] -0.9637252</code></pre>
-<pre><code>## [1] -0.003902041</code></pre>
+<pre><code>## [1] -0.9550639</code></pre>
+<pre><code>## [1] -0.02563215</code></pre>
 <div class="figure"><span style="display:block;" id="fig:kurtosis"></span>
 <img src="schuster-statistics-remix_files/figure-html/kurtosis-1.png" alt="An illustration of kurtosis. On the left, we have a &quot;platykurtic&quot; data set (kurtosis = $-.95$), meaning that the data set is &quot;too flat&quot;. In the middle we have a &quot;mesokurtic&quot; data set (kurtosis is almost exactly 0), which means that the pointiness of the data is just about right. Finally, on the right, we have a &quot;leptokurtic&quot; data set (kurtosis $= 2.12$) indicating that the data set is &quot;too pointy&quot;. Note that kurtosis is measured with respect to a normal curve (black line)" width="672" />
 <p class="caption">
 Figure 3.5: An illustration of kurtosis. On the left, we have a “platykurtic” data set (kurtosis = <span class="math inline">\(-.95\)</span>), meaning that the data set is “too flat.” In the middle we have a “mesokurtic” data set (kurtosis is almost exactly 0), which means that the pointiness of the data is just about right. Finally, on the right, we have a “leptokurtic” data set (kurtosis <span class="math inline">\(= 2.12\)</span>) indicating that the data set is “too pointy.” Note that kurtosis is measured with respect to a normal curve (black line)
 </p>
 </div>
-<pre><code>## [1] 1.957055</code></pre>
+<pre><code>## [1] 2.062557</code></pre>
 <p>By convention, we say that the “normal curve” (black lines) has zero kurtosis, so the pointiness of a data set is assessed relative to this curve. In this Figure, the data on the left are not pointy enough, so the kurtosis is negative and we call the data <em>platykurtic</em>. The data on the right are too pointy, so the kurtosis is positive and we say that the data is <em>leptokurtic</em>. But the data in the middle are just pointy enough, so we say that it is <em>mesokurtic</em> and has kurtosis zero. This is summarised in the table below:</p>
 <table>
 <thead>

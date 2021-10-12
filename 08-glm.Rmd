@@ -1125,17 +1125,17 @@ $$
 D_i = \frac{{\epsilon_i^*}^2 }{K+1} \times \frac{h_i}{1-h_i}
 $$ 
 Notice that this is a multiplication of something that measures the outlier-ness of the observation (the bit on the left), and something that measures the leverage of the observation (the bit on the right). In other words, in order to have a large Cook's distance, an observation must be a fairly substantial outlier *and* have high leverage. In a stunning turn of events, you can obtain these values using the following command:
-```{r}
+```{r,echo=TRUE}
 cooks.distance( model = regression.2 )
 ```
 As a rough guide, Cook's distance greater than 1 is often considered large (that's what I typically use as a quick and dirty rule), though a quick scan of the internet and a few papers suggests that $4/N$ has also been suggested as a possible rule of thumb. 
 
 As hinted above, you don't usually need to make use of these functions, since you can have R automatically draw the critical plots.^[Though special mention should be made of the `influenceIndexPlot()` and `influencePlot()` functions in the `car` package. These produce somewhat more detailed pictures than the default plots that I've shown here. There's also an `outlierTest()` function that tests to see if any of the Studentised residuals are significantly larger than would  be expected by chance.] For the `regression.2` model, these are the plots showing Cook's distance (Figure \@ref(fig:regressionplot4)) and the more detailed breakdown showing the scatter plot of the Studentised residual against leverage (Figure \@ref(fig:regressionplot5)). To draw these, we can use the `plot()` function. When the main argument `x` to this function is a linear model object, it will draw one of six different plots, each of which is quite useful for doing regression diagnostics. You specify which one you want using the `which` argument (a number between 1 and 6). If you don't do this then R will draw all six. The two plots of interest to us in this context are generated using the following commands:
-```{r regressionplot4, fig.cap="Cook's distance for every observation. This is one of the standard regression plots produced by the `plot()` function when the input is a linear regression object. It is obtained by setting `which=4`", echo=FALSE}
+```{r regressionplot4, fig.cap="Cook's distance for every observation. This is one of the standard regression plots produced by the `plot()` function when the input is a linear regression object. It is obtained by setting `which=4`", echo=TRUE}
 plot(x = regression.2, which = 4)
 ```
 
-```{r regressionplot5, fig.cap="Residuals versus leverage. This is one of the standard regression plots produced by the `plot()` function when the input is a linear regression object. It is obtained by setting `which=5`.", echo=FALSE}
+```{r regressionplot5, fig.cap="Residuals versus leverage. This is one of the standard regression plots produced by the `plot()` function when the input is a linear regression object. It is obtained by setting `which=5`.", echo=TRUE}
 plot(x = regression.2, which = 5)
 ```
 
@@ -1230,7 +1230,7 @@ The third line here is the **_Tukey test_**, which is basically the same test, e
 
 In a lot of cases, the solution to this problem (and many others) is to transform one or more of the variables. 
 
-**Dave note**: In my graduate training, I was taught to be conservative with variable transformations because they improve the statistical performance at the cost of interpretability. A significant relationship between a log-transformed Y and and X needs to be interpreted that way; you can no longer say you found a relationship between Y and X. For this reason, it may be preferable to suffer a decrease in statistical performance (possibly increasing the Type II error probability) rather than end up with a signifcant model that is challenging to interpret. In case you need it (and because @Navarro2018 said it was common), I will leave the following mention of the Box-Cox transform.
+**Dave note**: In my graduate training, I was taught to be conservative with variable transformations because they improve the statistical performance at the cost of interpretability. A significant relationship between a log-transformed Y and and X needs to be interpreted that way; you can no longer say you found a relationship between Y and X. For this reason, it may be preferable to suffer a decrease in statistical performance (possibly increasing the Type II error probability) rather than end up with a significant model that is challenging to interpret. In case you need it (and because @Navarro2018 said it was common), I will leave the following mention of the Box-Cox transform.
 
 We discussed the basics of variable transformation in Sections \@ref(transform) and \ref(mathfunc), but I do want to make special note of one additional possibility that I didn't mention earlier: the Box-Cox transform. The Box-Cox function is a fairly simple one, but it's very widely used 
 $$
@@ -1258,6 +1258,8 @@ A slightly more formal approach is to run hypothesis tests. The `car` package pr
 ncvTest( regression.2 )
 ```
 We see that our original impression was right: there's no violations of homogeneity of variance in this data.
+
+**Dave note:** According to @Cohen2013, ANOVA is robust to violations of homogeneity of variance so long as sample sizes are roughly equal. If your model is comparing groups, and those groups are unequal such that one group is 1.5x or more of another, then you may need to address your violation of homogeneity of variance. In a design with balanced groups, I would not go to the trouble of the correction described next. I leave it included here in case you ever need it.
 
 It's a bit beyond the scope of this chapter to talk too much about how to deal with violations of homogeneity of variance, but I'll give you a quick sense of what you need to consider. The *main* thing to worry about, if homogeneity of variance is violated, is that the standard error estimates associated with the regression coefficients are no longer entirely reliable, and so your $t$ tests for the coefficients aren't quite right either. A simple fix to the problem is to make use of a "heteroscedasticity corrected covariance matrix" when estimating the standard errors. These are often called **_sandwich estimators_**, for reasons that only make sense if you understand the maths at a low level^[Again, a footnote that should be read only by the two readers of this book that love linear algebra (mmmm... I love the smell of matrix computations in the morning; smells like... nerd). In these estimators, the covariance matrix for $b$ is given by $(X^T X)^{-1}\  X^T \Sigma X \ (X^T X)^{-1}$. See, it's a "sandwich"? Assuming you think that  $(X^T X)^{-1} = \mbox{"bread"}$ and  $X^T \Sigma X = \mbox{"filling"}$, that is. Which of course everyone does, right? In any case, the usual estimator is what you get when you set $\Sigma = \hat\sigma^2 I$. The corrected version that I learned originally uses $\Sigma = \mbox{diag}(\epsilon_i^2)$ [@White1980]. However, the version that  @Fox2011] have implemented as the default in the `hccm()` function is a tweak on this, proposed by @Long2000. This version uses $\Sigma = \mbox{diag}(\epsilon_i^2/(1-h_i^2))$, where $h_i$ is the $i$th hat value. Gosh, regression is *fun*, isn't it?] You don't need to understand what this means (not for an introductory class), but it might help to note that there's a `hccm()` function in the `car()` package that does it. Better yet, you don't even need to use it. You can use the `coeftest()` function in the `lmtest` package, but you need the `car` package loaded: 
 ```{r warning=FALSE, message=FALSE}
@@ -1311,7 +1313,7 @@ $$
 $$
 The smaller the AIC value, the better the model performance is. If we ignore the low level details, it's fairly obvious what the AIC does: on the left we have a term that increases as the model predictions get worse; on the right we have a term that increases as the model complexity increases. The best model is the one that fits the data well (low residuals; left hand side) using as few predictors as possible (low $K$; right hand side). In short, this is a simple implementation of Ockham's razor. 
 
-**Dave note:** Please consider the following sections to have a big "Caution!" sign next to them when used in confirmatory research. They are inherently exploratory techniques. One assumption common to all automated model selection strategies is that they assume that your sample data are perfect representations of their population distributions. The computer is effectively testing many possible models and picking the one that fits best. The resulting model is always exploratory and tentative. It would need to be tested in a confirmatory study. It would be highly inappropriate and misleading to present a computer-generated model as if it was developed *a priori* or without explaining the process used to create the model.
+**Dave note:** Please consider the following sections to have a big "Warning!" sign next to them when used in confirmatory research. They are inherently exploratory techniques. One assumption common to all automated model selection strategies is that they assume that your sample data are perfect representations of their population distributions. The computer is effectively testing many possible models and picking the one that fits best. The resulting model is always exploratory, tentative, and highly dependent on the sample. It would need to be tested in a confirmatory study. It would be highly inappropriate and misleading to present a computer-generated model as if it was developed *a priori* or without explaining the process used to create the model.
 
 ### Backward elimination
 
@@ -1453,11 +1455,11 @@ Note that, just like we saw with the output from the `step()` function, R has us
 ## Practical Issues in Correlation and Regression
 Text by David Schuster
 
-### Regdression Toward the Mean
+### Correlation is not causation
 
-### Correl
+Remember that causality can be inferred when the cause comes before the effect, a relationship is shown between cause and effect, and we can find no other plausible explanations for the effect other than the cause. Our statistical analysis (regardless of which GLM analysis is used) can help with the middle criterion; we can use statistics to provide evidence of a relationship between two variables. However, no statistical analysis can, by itself, allow us to make causal inferences. Our best tool for making causal inferences is an experimental design. Designs that are quasi-experimental or non-experimental will not let us make inferences about causality. 
 
-
+In this statement, correlation refers to the evidence of a relationship between two variables. Therefore, it would be a bit clearer if it was, "quasi- and non-experimental research designs are not causation." but I suppose the original version is catchier.
 
 ### Interpreting NHST in Big Data
 
@@ -1465,25 +1467,61 @@ Sample size must be sufficiently large to detect a linear relationship.  Larger 
 
 ### Outliers
 
-If either of your variables includes an outlier, it will reduce the strength of your correlation. Because of this, you want to consider whether the extreme score belongs as part of your data set. The most common cause of an outlier in real world data is a mistake during data entry.
+If either of your variables includes an outlier, it will reduce the strength of your correlation. Because of this, you want to consider whether the extreme score belongs as part of your data set. The most common cause of an outlier in real world data is a mistake during data entry. As previously stated, being an outlier is not generally, itself, enough criteria for a researcher to exclude a case from a sample without concern that the sample will be biased.
 
 ### Restriction of Range
 
-Range restriction. When scores that are very high or very low on the IV (e.g., floor effects and ceiling effects), range restriction occurs. Range restriction lowers the strength of the correlation. This can be illustrated by drawing a scatterplot and then excluding high or low values of the IV. The fit of a line to the scatterplot will be worse if high and/or low values are cut off.
+When scores that are very high or very low on the IV, range restriction can occur. Range restriction lowers the strength of the correlation. **Floor and ceiling effects** can cause range restriction. Imagine a very easy math test as a measure of math skill. Students at the highest levels of math ability will score 100% on the test. Because the test does not measure past 100%, some information is lost about individuals who could have scored higher than 100% if it were possible. This is an example of a ceiling effect. Similarly, a very challenging test can result in 0% scores with the test similarly lacking diagnosticity between low-scorers at the bottom of the distribution.
+
+This can be illustrated easily by drawing scatterplots. First, we start with two variables with a high correlation:
+```{r,echo=TRUE}
+# Two variables with a known correlation of r = .9.
+x <- c(-0.169062295,0.053822267,0.527217327,0.07727407,0.722027061,-0.28132826,-0.893490299,0.79516792,0.175189753,-0.733235739)
+y <- c(0.648162835, 0.964985264,1.160828115,1.403311403,1.692166183,0.26407813,-0.393116812,2.110632623,1.684217475,0.464734783)
+
+cor(x, y) # r =.9
+
+plot(x,y,xlab="x",ylab="y") # generate a scatterplot and label the axes
+abline(reg = lm(y ~ x)) # draw the line of best fit for the regression equation
+
+```
+We will create a floor effect by saying that 0 is now the lowest possible score on this measure. Any negative values become zero in our new variable, ```x_floor```. Notice the change in the line, fit, and $r$.
+
+```{r,echo=TRUE}
+# Two variables with a known correlation of r = .9, changing all scores where x < 0 to 0.
+
+x_floor <- c(0,0.053822267,0.527217327,0.07727407,0.722027061,0,0,0.79516792,0.175189753,0)
+y <- c(0.648162835, 0.964985264,1.160828115,1.403311403,1.692166183,0.26407813,-0.393116812,2.110632623,1.684217475,0.464734783)
+
+cor(x_floor, y) # Correlation r = .74
+
+plot(x_floor,y,xlab="x",ylab="y") # generate a scatterplot and label the axes
+abline(reg = lm(y ~ x)) # draw the line of best fit for the regression equation
+```
+A floor/ceiling effect can cause this problem but is not the only cause. Simply excluding low scores can have this effect. Next, we will eliminate any case with a negative value of x instead of removing it. Notice that although no scores are changed, the correlation is weaker. Whenever we start with a linear relationship and "zoom in" to a portion of it, the subset of the data will be a weaker correlation than the overall relationship. Therefore, restriction of range can result in a weaker correlation.
+
+```{r,echo=TRUE}
+# Two variables with a known correlation of r = .9, excluding all scores where x < 0.
+x <- c(0.053822267,0.527217327,0.07727407,0.722027061,0.79516792,0.175189753)
+y <- c(0.964985264,1.160828115,1.403311403,1.692166183,2.110632623,1.684217475)
+
+cor(x, y) # r =.9
+
+plot(x,y,xlab="x",ylab="y") # generate a scatterplot and label the axes
+abline(reg = lm(y ~ x)) # draw the line of best fit for the regression equation
+
+```
+
+
+### Regression Toward the Mean
+
+@Galton1886 came up with the concept of regression toward mediocrity which he applied to heredity. This phrase is designed to be pejorative (suggesting that inheritance is losing something of value) and Galton's explanation for why it mattered was eugenics (see also the [Video: Eugenics and Francis Galton - 13 min](https://www.youtube.com/watch?v=JeCKftkNKJ0) on this topic). We now understand that it has nothing to do with heredity and more to do with the properties of the mean. In present use, regression toward the mean refers to mistaking an extreme score as evidence of an effect. Imagine you are playing a challenging level of a video game. After a lot of practice, your score tends to hover around 10,000 points. Sometimes you score a bit more, sometimes a bit less, but if you were to have all the data available, you would find a mean of 10,000 points. Regression toward the mean would occur if you played this level one day and scored 20,000 points, then concluded that you were a video game superstar, left school, and went to be a pro gamer. Playing the level again, you are dismayed that your score has fallen back to around 10,000 points. What happened? How could you gain and lose such an ability? What is happening is that your performance has variability, and it is unlikely but possible to observe an extreme score. Researchers need to be mindful that extreme events will tend to be less extreme with repeated sampling.
 
 ### Report Effect Size
 
 Interpretation of the correlation coefficient $r$ (or $R^2$). The statistic $r$ measures both strength (i.e., it is the measure of effect size) and direction of a correlation. A strong correlation means that the data points of the scatterplot lie close to the line. When you report a correlation, give the proper interpretation of its effect size. Also note that, depending on the research question, small effect sizes can be important and meaningful.
 
-### What are Degrees of Freedom, again?
-
-This is more of a footnote. The calculation of variance is a fraction. The numerator of the fraction is a sum of squared deviations. The denominator of the fraction is degrees of freedom. I find it helpful to think about degrees of freedom in any of three ways (pick which makes the most sense to you):
-
-1. Degrees of freedom (df), are the number of values free to vary given some constraint. The calculation of a mean has $N - 1$ degrees of freedom because if the mean is known and $N - 1$ of the values are known, then the last value is defined. Thus, only $N - 1$ values are free to vary. This is my least favorite explanation.
-
-2. Degrees of freedom (df) are the number of values that provide information about variability. If you know only your score on the last exam, you could use that as an estimate of the class mean, but you would have no way of estimating variability of test scores in class (df = 0). If you know your score and another classmate’s, you can now estimate variability, albeit crudely (df = 1). With your score and seven others, you can make a better estimate of the variability in the class (df = 7). This is my favorite definition and it comes from @Cohen2013.
-
-3. Because degrees of freedom (df) are directly related to sample size, think of degrees of freedom as sample size. I think of the sum of squared deviations as adding up all of the variation that has been observed, and degrees of freedom as being the sample size. Therefore, I think of variance as being roughly the variation per unit, or the average variation. This is the least precise.
+How do you interpret the direction of an effect in multiple regression? $R^2$ will always be positive. The answer is to look at the direction of the coefficients. If they are positive, it suggests a positive relationship with the DV. If negative, it suggests a negative relationship with the DV.
 
 
 #### Interpretation of $\eta^2$  and $r^2$ (Cohen, 1988) {#rsquared}
@@ -1514,6 +1552,16 @@ $r\pm.30$	  Medium effect
 $r\pm.50$	Large effect
 --------------------------------------
 
+
+### What are Degrees of Freedom, again?
+
+This is more of a footnote. The calculation of variance is a fraction. The numerator of the fraction is a sum of squared deviations. The denominator of the fraction is degrees of freedom. I find it helpful to think about degrees of freedom in any of three ways (pick which makes the most sense to you):
+
+1. Degrees of freedom (df), are the number of values free to vary given some constraint. The calculation of a mean has $N - 1$ degrees of freedom because if the mean is known and $N - 1$ of the values are known, then the last value is defined. Thus, only $N - 1$ values are free to vary. This is my least favorite explanation.
+
+2. Degrees of freedom (df) are the number of values that provide information about variability. If you know only your score on the last exam, you could use that as an estimate of the class mean, but you would have no way of estimating variability of test scores in class (df = 0). If you know your score and another classmate’s, you can now estimate variability, albeit crudely (df = 1). With your score and seven others, you can make a better estimate of the variability in the class (df = 7). This is my favorite definition and it comes from @Cohen2013.
+
+3. Because degrees of freedom (df) are directly related to sample size, think of degrees of freedom as sample size. I think of the sum of squared deviations as adding up all of the variation that has been observed, and degrees of freedom as being the sample size. Therefore, I think of variance as being roughly the variation per unit, or the average variation. This is the least precise.
 
 
 ## Summary
