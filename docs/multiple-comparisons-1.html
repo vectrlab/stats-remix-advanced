@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 Multiple comparisons | Advanced Statistics Remix</title>
+  <meta name="description" content="A textbook for advanced statistics" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 Multiple comparisons | Advanced Statistics Remix" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A textbook for advanced statistics" />
+  <meta name="github-repo" content="vectrlab/stat-course-pack" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 Multiple comparisons | Advanced Statistics Remix" />
+  
+  <meta name="twitter:description" content="A textbook for advanced statistics" />
+  
+
+<meta name="author" content="David Schuster" />
+
+
+<meta name="date" content="2021-10-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="anova.html"/>
+<link rel="next" href="statistics-reference.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Course Pack for Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Book</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attribution"><i class="fa fa-check"></i>Attribution</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="statistics-for-research.html"><a href="statistics-for-research.html"><i class="fa fa-check"></i><b>1</b> Statistics for Research</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#measurement"><i class="fa fa-check"></i><b>1.2</b> Measurement</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#level-of-measurement"><i class="fa fa-check"></i><b>1.2.1</b> Level of Measurement</a></li>
+<li class="chapter" data-level="1.2.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#continuous-or-discrete"><i class="fa fa-check"></i><b>1.2.2</b> Continuous or Discrete</a></li>
+<li class="chapter" data-level="1.2.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#qualitative-or-quantitative"><i class="fa fa-check"></i><b>1.2.3</b> Qualitative or Quantitative</a></li>
+<li class="chapter" data-level="1.2.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#distribution-a-collection-of-our-observations"><i class="fa fa-check"></i><b>1.2.4</b> Distribution: A collection of our observations</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#descriptive-statistics-summarizing-our-observations"><i class="fa fa-check"></i><b>1.3</b> Descriptive Statistics: Summarizing our observations</a></li>
+<li class="chapter" data-level="1.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#inferential-statistics-generalizing-from-our-observations"><i class="fa fa-check"></i><b>1.4</b> Inferential Statistics: Generalizing from our observations</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#populations-and-samples-who-or-what-the-research-is-about"><i class="fa fa-check"></i><b>1.4.1</b> Populations and Samples: Who (or what) the research is about</a></li>
+<li class="chapter" data-level="1.4.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#constructs-provide-the-context"><i class="fa fa-check"></i><b>1.4.2</b> Constructs provide the context</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="statistics-for-research.html"><a href="statistics-for-research.html#the-cautionary-tale-of-simpsons-paradox"><i class="fa fa-check"></i><b>1.5</b> The cautionary tale of Simpson’s paradox</a></li>
+<li class="chapter" data-level="1.6" data-path="statistics-for-research.html"><a href="statistics-for-research.html#studydesign"><i class="fa fa-check"></i><b>1.6</b> A brief introduction to research design</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#some-thoughts-about-psychological-measurement"><i class="fa fa-check"></i><b>1.6.1</b> Some thoughts about psychological measurement</a></li>
+<li class="chapter" data-level="1.6.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#operationalisation-defining-your-measurement"><i class="fa fa-check"></i><b>1.6.2</b> Operationalisation: defining your measurement</a></li>
+<li class="chapter" data-level="1.6.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#ivdv"><i class="fa fa-check"></i><b>1.6.3</b> The “role” of variables: predictors and outcomes</a></li>
+<li class="chapter" data-level="1.6.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#researchdesigns"><i class="fa fa-check"></i><b>1.6.4</b> Experimental and non-experimental research</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="statistics-for-research.html"><a href="statistics-for-research.html#causality-research-and-statistics"><i class="fa fa-check"></i><b>1.7</b> Causality, Research, and Statistics</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="statistics-for-research.html"><a href="statistics-for-research.html#experimental-quasi-experimental-and-non-experimental-studies"><i class="fa fa-check"></i><b>1.7.1</b> Experimental, Quasi-Experimental, and Non-Experimental Studies</a></li>
+<li class="chapter" data-level="1.7.2" data-path="statistics-for-research.html"><a href="statistics-for-research.html#demonstrating-causality"><i class="fa fa-check"></i><b>1.7.2</b> Demonstrating Causality</a></li>
+<li class="chapter" data-level="1.7.3" data-path="statistics-for-research.html"><a href="statistics-for-research.html#statistics-and-causality"><i class="fa fa-check"></i><b>1.7.3</b> Statistics and Causality</a></li>
+<li class="chapter" data-level="1.7.4" data-path="statistics-for-research.html"><a href="statistics-for-research.html#validity-and-reliability"><i class="fa fa-check"></i><b>1.7.4</b> Validity and Reliability</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introR.html"><a href="introR.html"><i class="fa fa-check"></i><b>2</b> Getting started with R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introR.html"><a href="introR.html#videos"><i class="fa fa-check"></i><b>2.1</b> Videos</a></li>
+<li class="chapter" data-level="2.2" data-path="introR.html"><a href="introR.html#introduction-1"><i class="fa fa-check"></i><b>2.2</b> Introduction</a></li>
+<li class="chapter" data-level="2.3" data-path="introR.html"><a href="introR.html#gettingR"><i class="fa fa-check"></i><b>2.3</b> Installing R</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introR.html"><a href="introR.html#installing-r-on-a-windows-computer"><i class="fa fa-check"></i><b>2.3.1</b> Installing R on a Windows computer</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introR.html"><a href="introR.html#installing-r-on-a-mac"><i class="fa fa-check"></i><b>2.3.2</b> Installing R on a Mac</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introR.html"><a href="introR.html#installing-r-on-a-linux-computer"><i class="fa fa-check"></i><b>2.3.3</b> Installing R on a Linux computer</a></li>
+<li class="chapter" data-level="2.3.4" data-path="introR.html"><a href="introR.html#installingrstudio"><i class="fa fa-check"></i><b>2.3.4</b> Downloading and installing RStudio</a></li>
+<li class="chapter" data-level="2.3.5" data-path="introR.html"><a href="introR.html#startingR"><i class="fa fa-check"></i><b>2.3.5</b> Starting up R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introR.html"><a href="introR.html#firstcommand"><i class="fa fa-check"></i><b>2.4</b> Typing commands at the R console</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="introR.html"><a href="introR.html#an-important-digression-about-formatting"><i class="fa fa-check"></i><b>2.4.1</b> An important digression about formatting</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introR.html"><a href="introR.html#be-very-careful-to-avoid-typos"><i class="fa fa-check"></i><b>2.4.2</b> Be very careful to avoid typos</a></li>
+<li class="chapter" data-level="2.4.3" data-path="introR.html"><a href="introR.html#r-is-a-bit-flexible-with-spacing"><i class="fa fa-check"></i><b>2.4.3</b> R is (a bit) flexible with spacing</a></li>
+<li class="chapter" data-level="2.4.4" data-path="introR.html"><a href="introR.html#r-can-sometimes-tell-that-youre-not-finished-yet-but-not-often"><i class="fa fa-check"></i><b>2.4.4</b> R can sometimes tell that you’re not finished yet (but not often)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introR.html"><a href="introR.html#arithmetic"><i class="fa fa-check"></i><b>2.5</b> Doing simple calculations with R</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="introR.html"><a href="introR.html#adding-subtracting-multiplying-and-dividing"><i class="fa fa-check"></i><b>2.5.1</b> Adding, subtracting, multiplying and dividing</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introR.html"><a href="introR.html#taking-powers"><i class="fa fa-check"></i><b>2.5.2</b> Taking powers</a></li>
+<li class="chapter" data-level="2.5.3" data-path="introR.html"><a href="introR.html#bedmas"><i class="fa fa-check"></i><b>2.5.3</b> Doing calculations in the right order</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="introR.html"><a href="introR.html#assign"><i class="fa fa-check"></i><b>2.6</b> Storing a number as a variable</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="introR.html"><a href="introR.html#variable-assignment-using---and--"><i class="fa fa-check"></i><b>2.6.1</b> Variable assignment using <code>&lt;-</code> and <code>-&gt;</code></a></li>
+<li class="chapter" data-level="2.6.2" data-path="introR.html"><a href="introR.html#doing-calculations-using-variables"><i class="fa fa-check"></i><b>2.6.2</b> Doing calculations using variables</a></li>
+<li class="chapter" data-level="2.6.3" data-path="introR.html"><a href="introR.html#rules-and-conventions-for-naming-variables"><i class="fa fa-check"></i><b>2.6.3</b> Rules and conventions for naming variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="introR.html"><a href="introR.html#usingfunctions"><i class="fa fa-check"></i><b>2.7</b> Using functions to do calculations</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="introR.html"><a href="introR.html#functionarguments"><i class="fa fa-check"></i><b>2.7.1</b> Function arguments, their names and their defaults</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="introR.html"><a href="introR.html#RStudio1"><i class="fa fa-check"></i><b>2.8</b> Letting RStudio help you with your commands</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="introR.html"><a href="introR.html#autocomplete-using-tab"><i class="fa fa-check"></i><b>2.8.1</b> Autocomplete using “tab”</a></li>
+<li class="chapter" data-level="2.8.2" data-path="introR.html"><a href="introR.html#browsing-your-command-history"><i class="fa fa-check"></i><b>2.8.2</b> Browsing your command history</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="introR.html"><a href="introR.html#vectors"><i class="fa fa-check"></i><b>2.9</b> Storing many numbers as a vector</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="introR.html"><a href="introR.html#creating-a-vector"><i class="fa fa-check"></i><b>2.9.1</b> Creating a vector</a></li>
+<li class="chapter" data-level="2.9.2" data-path="introR.html"><a href="introR.html#a-handy-digression"><i class="fa fa-check"></i><b>2.9.2</b> A handy digression</a></li>
+<li class="chapter" data-level="2.9.3" data-path="introR.html"><a href="introR.html#vectorsubset"><i class="fa fa-check"></i><b>2.9.3</b> Getting information out of vectors</a></li>
+<li class="chapter" data-level="2.9.4" data-path="introR.html"><a href="introR.html#altering-the-elements-of-a-vector"><i class="fa fa-check"></i><b>2.9.4</b> Altering the elements of a vector</a></li>
+<li class="chapter" data-level="2.9.5" data-path="introR.html"><a href="introR.html#veclength"><i class="fa fa-check"></i><b>2.9.5</b> Useful things to know about vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="introR.html"><a href="introR.html#text"><i class="fa fa-check"></i><b>2.10</b> Storing text data</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="introR.html"><a href="introR.html#simpletext"><i class="fa fa-check"></i><b>2.10.1</b> Working with text</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="introR.html"><a href="introR.html#logicals"><i class="fa fa-check"></i><b>2.11</b> Storing “true or false” data</a>
+<ul>
+<li class="chapter" data-level="2.11.1" data-path="introR.html"><a href="introR.html#assessing-mathematical-truths"><i class="fa fa-check"></i><b>2.11.1</b> Assessing mathematical truths</a></li>
+<li class="chapter" data-level="2.11.2" data-path="introR.html"><a href="introR.html#logical-operations"><i class="fa fa-check"></i><b>2.11.2</b> Logical operations</a></li>
+<li class="chapter" data-level="2.11.3" data-path="introR.html"><a href="introR.html#storing-and-using-logical-data"><i class="fa fa-check"></i><b>2.11.3</b> Storing and using logical data</a></li>
+<li class="chapter" data-level="2.11.4" data-path="introR.html"><a href="introR.html#vectors-of-logicals"><i class="fa fa-check"></i><b>2.11.4</b> Vectors of logicals</a></li>
+<li class="chapter" data-level="2.11.5" data-path="introR.html"><a href="introR.html#logictext"><i class="fa fa-check"></i><b>2.11.5</b> Applying logical operation to text</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="introR.html"><a href="introR.html#indexing"><i class="fa fa-check"></i><b>2.12</b> Indexing vectors</a>
+<ul>
+<li class="chapter" data-level="2.12.1" data-path="introR.html"><a href="introR.html#extracting-multiple-elements"><i class="fa fa-check"></i><b>2.12.1</b> Extracting multiple elements</a></li>
+<li class="chapter" data-level="2.12.2" data-path="introR.html"><a href="introR.html#logical-indexing"><i class="fa fa-check"></i><b>2.12.2</b> Logical indexing</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="introR.html"><a href="introR.html#quitting-r"><i class="fa fa-check"></i><b>2.13</b> Quitting R</a></li>
+<li class="chapter" data-level="2.14" data-path="introR.html"><a href="introR.html#summary"><i class="fa fa-check"></i><b>2.14</b> Summary</a></li>
+<li class="chapter" data-level="2.15" data-path="introR.html"><a href="introR.html#mechanics"><i class="fa fa-check"></i><b>2.15</b> Additional R concepts</a></li>
+<li class="chapter" data-level="2.16" data-path="introR.html"><a href="introR.html#comments"><i class="fa fa-check"></i><b>2.16</b> Using comments</a></li>
+<li class="chapter" data-level="2.17" data-path="introR.html"><a href="introR.html#packageinstall"><i class="fa fa-check"></i><b>2.17</b> Installing and loading packages</a>
+<ul>
+<li class="chapter" data-level="2.17.1" data-path="introR.html"><a href="introR.html#the-package-panel-in-rstudio"><i class="fa fa-check"></i><b>2.17.1</b> The package panel in RStudio</a></li>
+<li class="chapter" data-level="2.17.2" data-path="introR.html"><a href="introR.html#packageload"><i class="fa fa-check"></i><b>2.17.2</b> Loading a package</a></li>
+<li class="chapter" data-level="2.17.3" data-path="introR.html"><a href="introR.html#packageunload"><i class="fa fa-check"></i><b>2.17.3</b> Unloading a package</a></li>
+<li class="chapter" data-level="2.17.4" data-path="introR.html"><a href="introR.html#a-few-extra-comments"><i class="fa fa-check"></i><b>2.17.4</b> A few extra comments</a></li>
+<li class="chapter" data-level="2.17.5" data-path="introR.html"><a href="introR.html#downloading-new-packages"><i class="fa fa-check"></i><b>2.17.5</b> Downloading new packages</a></li>
+<li class="chapter" data-level="2.17.6" data-path="introR.html"><a href="introR.html#updating-r-and-r-packages"><i class="fa fa-check"></i><b>2.17.6</b> Updating R and R packages</a></li>
+<li class="chapter" data-level="2.17.7" data-path="introR.html"><a href="introR.html#what-packages-does-this-book-use"><i class="fa fa-check"></i><b>2.17.7</b> What packages does this book use?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.18" data-path="introR.html"><a href="introR.html#workspace"><i class="fa fa-check"></i><b>2.18</b> Managing the workspace</a>
+<ul>
+<li class="chapter" data-level="2.18.1" data-path="introR.html"><a href="introR.html#listing-the-contents-of-the-workspace"><i class="fa fa-check"></i><b>2.18.1</b> Listing the contents of the workspace</a></li>
+<li class="chapter" data-level="2.18.2" data-path="introR.html"><a href="introR.html#removing-variables-from-the-workspace"><i class="fa fa-check"></i><b>2.18.2</b> Removing variables from the workspace</a></li>
+</ul></li>
+<li class="chapter" data-level="2.19" data-path="introR.html"><a href="introR.html#navigation"><i class="fa fa-check"></i><b>2.19</b> Navigating the file system</a>
+<ul>
+<li class="chapter" data-level="2.19.1" data-path="introR.html"><a href="introR.html#filesystem"><i class="fa fa-check"></i><b>2.19.1</b> The file system itself</a></li>
+<li class="chapter" data-level="2.19.2" data-path="introR.html"><a href="introR.html#navigationR"><i class="fa fa-check"></i><b>2.19.2</b> Navigating the file system using the R console</a></li>
+<li class="chapter" data-level="2.19.3" data-path="introR.html"><a href="introR.html#why-do-the-windows-paths-use-the-wrong-slash"><i class="fa fa-check"></i><b>2.19.3</b> Why do the Windows paths use the wrong slash?</a></li>
+<li class="chapter" data-level="2.19.4" data-path="introR.html"><a href="introR.html#nav3"><i class="fa fa-check"></i><b>2.19.4</b> Navigating the file system using the RStudio file panel</a></li>
+</ul></li>
+<li class="chapter" data-level="2.20" data-path="introR.html"><a href="introR.html#load"><i class="fa fa-check"></i><b>2.20</b> Loading and saving data</a>
+<ul>
+<li class="chapter" data-level="2.20.1" data-path="introR.html"><a href="introR.html#loading-workspace-files-using-r"><i class="fa fa-check"></i><b>2.20.1</b> Loading workspace files using R</a></li>
+<li class="chapter" data-level="2.20.2" data-path="introR.html"><a href="introR.html#loading-workspace-files-using-rstudio"><i class="fa fa-check"></i><b>2.20.2</b> Loading workspace files using RStudio</a></li>
+<li class="chapter" data-level="2.20.3" data-path="introR.html"><a href="introR.html#loadingcsv"><i class="fa fa-check"></i><b>2.20.3</b> Importing data from CSV files using loadingcsv</a></li>
+<li class="chapter" data-level="2.20.4" data-path="introR.html"><a href="introR.html#importing-data-from-csv-files-using-rstudio"><i class="fa fa-check"></i><b>2.20.4</b> Importing data from CSV files using RStudio</a></li>
+<li class="chapter" data-level="2.20.5" data-path="introR.html"><a href="introR.html#saving-a-workspace-file-using-save"><i class="fa fa-check"></i><b>2.20.5</b> Saving a workspace file using <code>save</code></a></li>
+<li class="chapter" data-level="2.20.6" data-path="introR.html"><a href="introR.html#save1"><i class="fa fa-check"></i><b>2.20.6</b> Saving a workspace file using RStudio</a></li>
+<li class="chapter" data-level="2.20.7" data-path="introR.html"><a href="introR.html#other-things-you-might-want-to-save"><i class="fa fa-check"></i><b>2.20.7</b> Other things you might want to save</a></li>
+</ul></li>
+<li class="chapter" data-level="2.21" data-path="introR.html"><a href="introR.html#useful"><i class="fa fa-check"></i><b>2.21</b> Useful things to know about variables</a>
+<ul>
+<li class="chapter" data-level="2.21.1" data-path="introR.html"><a href="introR.html#specials"><i class="fa fa-check"></i><b>2.21.1</b> Special values</a></li>
+<li class="chapter" data-level="2.21.2" data-path="introR.html"><a href="introR.html#names"><i class="fa fa-check"></i><b>2.21.2</b> Assigning names to vector elements</a></li>
+<li class="chapter" data-level="2.21.3" data-path="introR.html"><a href="introR.html#variable-classes"><i class="fa fa-check"></i><b>2.21.3</b> Variable classes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.22" data-path="introR.html"><a href="introR.html#factors"><i class="fa fa-check"></i><b>2.22</b> Factors</a>
+<ul>
+<li class="chapter" data-level="2.22.1" data-path="introR.html"><a href="introR.html#introducing-factors"><i class="fa fa-check"></i><b>2.22.1</b> Introducing factors</a></li>
+<li class="chapter" data-level="2.22.2" data-path="introR.html"><a href="introR.html#labelling-the-factor-levels"><i class="fa fa-check"></i><b>2.22.2</b> Labelling the factor levels</a></li>
+<li class="chapter" data-level="2.22.3" data-path="introR.html"><a href="introR.html#moving-on"><i class="fa fa-check"></i><b>2.22.3</b> Moving on…</a></li>
+</ul></li>
+<li class="chapter" data-level="2.23" data-path="introR.html"><a href="introR.html#dataframes"><i class="fa fa-check"></i><b>2.23</b> Data frames</a>
+<ul>
+<li class="chapter" data-level="2.23.1" data-path="introR.html"><a href="introR.html#introducing-data-frames"><i class="fa fa-check"></i><b>2.23.1</b> Introducing data frames</a></li>
+<li class="chapter" data-level="2.23.2" data-path="introR.html"><a href="introR.html#pulling-out-the-contents-of-the-data-frame-using"><i class="fa fa-check"></i><b>2.23.2</b> Pulling out the contents of the data frame using <code>$</code></a></li>
+<li class="chapter" data-level="2.23.3" data-path="introR.html"><a href="introR.html#getting-information-about-a-data-frame"><i class="fa fa-check"></i><b>2.23.3</b> Getting information about a data frame</a></li>
+<li class="chapter" data-level="2.23.4" data-path="introR.html"><a href="introR.html#looking-for-more-on-data-frames"><i class="fa fa-check"></i><b>2.23.4</b> Looking for more on data frames?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.24" data-path="introR.html"><a href="introR.html#lists"><i class="fa fa-check"></i><b>2.24</b> Lists</a></li>
+<li class="chapter" data-level="2.25" data-path="introR.html"><a href="introR.html#formulas"><i class="fa fa-check"></i><b>2.25</b> Formulas</a></li>
+<li class="chapter" data-level="2.26" data-path="introR.html"><a href="introR.html#generics"><i class="fa fa-check"></i><b>2.26</b> Generic functions</a></li>
+<li class="chapter" data-level="2.27" data-path="introR.html"><a href="introR.html#help"><i class="fa fa-check"></i><b>2.27</b> Getting help</a>
+<ul>
+<li class="chapter" data-level="2.27.1" data-path="introR.html"><a href="introR.html#how-to-read-the-help-documentation"><i class="fa fa-check"></i><b>2.27.1</b> How to read the help documentation</a></li>
+<li class="chapter" data-level="2.27.2" data-path="introR.html"><a href="introR.html#other-resources"><i class="fa fa-check"></i><b>2.27.2</b> Other resources</a></li>
+</ul></li>
+<li class="chapter" data-level="2.28" data-path="introR.html"><a href="introR.html#summary-1"><i class="fa fa-check"></i><b>2.28</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>3</b> Descriptive statistics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="descriptives.html"><a href="descriptives.html#videos-1"><i class="fa fa-check"></i><b>3.1</b> Videos</a></li>
+<li class="chapter" data-level="3.2" data-path="descriptives.html"><a href="descriptives.html#introduction-2"><i class="fa fa-check"></i><b>3.2</b> Introduction</a></li>
+<li class="chapter" data-level="3.3" data-path="descriptives.html"><a href="descriptives.html#centraltendency"><i class="fa fa-check"></i><b>3.3</b> Measures of central tendency</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="descriptives.html"><a href="descriptives.html#mean"><i class="fa fa-check"></i><b>3.3.1</b> The mean</a></li>
+<li class="chapter" data-level="3.3.2" data-path="descriptives.html"><a href="descriptives.html#calculating-the-mean-in-r"><i class="fa fa-check"></i><b>3.3.2</b> Calculating the mean in R</a></li>
+<li class="chapter" data-level="3.3.3" data-path="descriptives.html"><a href="descriptives.html#median"><i class="fa fa-check"></i><b>3.3.3</b> The median</a></li>
+<li class="chapter" data-level="3.3.4" data-path="descriptives.html"><a href="descriptives.html#mean-or-median-whats-the-difference"><i class="fa fa-check"></i><b>3.3.4</b> Mean or median? What’s the difference?</a></li>
+<li class="chapter" data-level="3.3.5" data-path="descriptives.html"><a href="descriptives.html#housingpriceexample"><i class="fa fa-check"></i><b>3.3.5</b> A real life example</a></li>
+<li class="chapter" data-level="3.3.6" data-path="descriptives.html"><a href="descriptives.html#trimmedmean"><i class="fa fa-check"></i><b>3.3.6</b> Trimmed mean</a></li>
+<li class="chapter" data-level="3.3.7" data-path="descriptives.html"><a href="descriptives.html#mode"><i class="fa fa-check"></i><b>3.3.7</b> Mode</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="descriptives.html"><a href="descriptives.html#var"><i class="fa fa-check"></i><b>3.4</b> Measures of variability</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="descriptives.html"><a href="descriptives.html#range"><i class="fa fa-check"></i><b>3.4.1</b> Range</a></li>
+<li class="chapter" data-level="3.4.2" data-path="descriptives.html"><a href="descriptives.html#interquartile-range"><i class="fa fa-check"></i><b>3.4.2</b> Interquartile range</a></li>
+<li class="chapter" data-level="3.4.3" data-path="descriptives.html"><a href="descriptives.html#aad"><i class="fa fa-check"></i><b>3.4.3</b> Mean absolute deviation</a></li>
+<li class="chapter" data-level="3.4.4" data-path="descriptives.html"><a href="descriptives.html#variance"><i class="fa fa-check"></i><b>3.4.4</b> Variance</a></li>
+<li class="chapter" data-level="3.4.5" data-path="descriptives.html"><a href="descriptives.html#sd"><i class="fa fa-check"></i><b>3.4.5</b> Standard deviation</a></li>
+<li class="chapter" data-level="3.4.6" data-path="descriptives.html"><a href="descriptives.html#mad"><i class="fa fa-check"></i><b>3.4.6</b> Median absolute deviation</a></li>
+<li class="chapter" data-level="3.4.7" data-path="descriptives.html"><a href="descriptives.html#which-measure-to-use"><i class="fa fa-check"></i><b>3.4.7</b> Which measure to use?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="descriptives.html"><a href="descriptives.html#skewandkurtosis"><i class="fa fa-check"></i><b>3.5</b> Skew and kurtosis</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="descriptives.html"><a href="descriptives.html#more-detail-on-skewness-measures"><i class="fa fa-check"></i><b>3.5.1</b> More detail on skewness measures</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="descriptives.html"><a href="descriptives.html#descriptive-summary"><i class="fa fa-check"></i><b>3.6</b> Getting an overall summary of a variable</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="descriptives.html"><a href="descriptives.html#summarising-a-variable"><i class="fa fa-check"></i><b>3.6.1</b> “Summarising” a variable</a></li>
+<li class="chapter" data-level="3.6.2" data-path="descriptives.html"><a href="descriptives.html#summarising-a-data-frame"><i class="fa fa-check"></i><b>3.6.2</b> “Summarising” a data frame</a></li>
+<li class="chapter" data-level="3.6.3" data-path="descriptives.html"><a href="descriptives.html#describing-a-data-frame"><i class="fa fa-check"></i><b>3.6.3</b> “Describing” a data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="descriptives.html"><a href="descriptives.html#groupdescriptives"><i class="fa fa-check"></i><b>3.7</b> Descriptive statistics separately for each group</a></li>
+<li class="chapter" data-level="3.8" data-path="descriptives.html"><a href="descriptives.html#good-descriptive-statistics-are-descriptive"><i class="fa fa-check"></i><b>3.8</b> Good descriptive statistics are descriptive!</a></li>
+<li class="chapter" data-level="3.9" data-path="descriptives.html"><a href="descriptives.html#graphics"><i class="fa fa-check"></i><b>3.9</b> Drawing graphs</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="descriptives.html"><a href="descriptives.html#introplotting"><i class="fa fa-check"></i><b>3.9.1</b> An introduction to plotting</a></li>
+<li class="chapter" data-level="3.9.2" data-path="descriptives.html"><a href="descriptives.html#hist"><i class="fa fa-check"></i><b>3.9.2</b> Histograms</a></li>
+<li class="chapter" data-level="3.9.3" data-path="descriptives.html"><a href="descriptives.html#boxplots"><i class="fa fa-check"></i><b>3.9.3</b> Boxplots</a></li>
+<li class="chapter" data-level="3.9.4" data-path="descriptives.html"><a href="descriptives.html#bargraph"><i class="fa fa-check"></i><b>3.9.4</b> Bar graphs</a></li>
+<li class="chapter" data-level="3.9.5" data-path="descriptives.html"><a href="descriptives.html#saveimage"><i class="fa fa-check"></i><b>3.9.5</b> Saving image files using R and Rstudio</a></li>
+<li class="chapter" data-level="3.9.6" data-path="descriptives.html"><a href="descriptives.html#summary-2"><i class="fa fa-check"></i><b>3.9.6</b> Summary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html"><i class="fa fa-check"></i><b>4</b> Inferential statistics: The Central Limit Theorem</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#videos-2"><i class="fa fa-check"></i><b>4.1</b> Videos</a></li>
+<li class="chapter" data-level="4.2" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#estimation"><i class="fa fa-check"></i><b>4.2</b> Introduction</a></li>
+<li class="chapter" data-level="4.3" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#probstats"><i class="fa fa-check"></i><b>4.3</b> How are probability and statistics different?</a></li>
+<li class="chapter" data-level="4.4" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#probmeaning"><i class="fa fa-check"></i><b>4.4</b> What does probability mean?</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#the-frequentist-view"><i class="fa fa-check"></i><b>4.4.1</b> The frequentist view</a></li>
+<li class="chapter" data-level="4.4.2" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#the-bayesian-view"><i class="fa fa-check"></i><b>4.4.2</b> The Bayesian view</a></li>
+<li class="chapter" data-level="4.4.3" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#whats-the-difference-and-who-is-right"><i class="fa fa-check"></i><b>4.4.3</b> What’s the difference? And who is right?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#srs"><i class="fa fa-check"></i><b>4.5</b> Samples, populations and sampling</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#pop"><i class="fa fa-check"></i><b>4.5.1</b> Defining a population</a></li>
+<li class="chapter" data-level="4.5.2" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#simple-random-samples"><i class="fa fa-check"></i><b>4.5.2</b> Simple random samples</a></li>
+<li class="chapter" data-level="4.5.3" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#most-samples-are-not-simple-random-samples"><i class="fa fa-check"></i><b>4.5.3</b> Most samples are not simple random samples</a></li>
+<li class="chapter" data-level="4.5.4" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#how-much-does-it-matter-if-you-dont-have-a-simple-random-sample"><i class="fa fa-check"></i><b>4.5.4</b> How much does it matter if you don’t have a simple random sample?</a></li>
+<li class="chapter" data-level="4.5.5" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#population-parameters-and-sample-statistics"><i class="fa fa-check"></i><b>4.5.5</b> Population parameters and sample statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#lawlargenumbers"><i class="fa fa-check"></i><b>4.6</b> The law of large numbers</a></li>
+<li class="chapter" data-level="4.7" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#samplesandclt"><i class="fa fa-check"></i><b>4.7</b> Sampling distributions and the central limit theorem</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#samplingdists"><i class="fa fa-check"></i><b>4.7.1</b> Sampling distribution of the mean</a></li>
+<li class="chapter" data-level="4.7.2" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#sample-size-and-population-size"><i class="fa fa-check"></i><b>4.7.2</b> Sample size and population size</a></li>
+<li class="chapter" data-level="4.7.3" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#sampling-error"><i class="fa fa-check"></i><b>4.7.3</b> Sampling error</a></li>
+<li class="chapter" data-level="4.7.4" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#another-sampling-distribution"><i class="fa fa-check"></i><b>4.7.4</b> Another sampling distribution</a></li>
+<li class="chapter" data-level="4.7.5" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#defining-the-central-limit-theorem"><i class="fa fa-check"></i><b>4.7.5</b> Defining the central limit theorem</a></li>
+<li class="chapter" data-level="4.7.6" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#more-on-standard-error"><i class="fa fa-check"></i><b>4.7.6</b> More on standard error</a></li>
+<li class="chapter" data-level="4.7.7" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#the-sampling-distribution-tells-us-about-the-probability-of-sample-means"><i class="fa fa-check"></i><b>4.7.7</b> The sampling distribution tells us about the probability of sample means</a></li>
+<li class="chapter" data-level="4.7.8" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#sampling-distributions-exist-for-any-sample-statistic"><i class="fa fa-check"></i><b>4.7.8</b> Sampling distributions exist for any sample statistic!</a></li>
+<li class="chapter" data-level="4.7.9" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#clt"><i class="fa fa-check"></i><b>4.7.9</b> The central limit theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#pointestimates"><i class="fa fa-check"></i><b>4.8</b> Estimating population parameters</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#estimating-the-population-mean"><i class="fa fa-check"></i><b>4.8.1</b> Estimating the population mean</a></li>
+<li class="chapter" data-level="4.8.2" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#estimating-the-population-standard-deviation"><i class="fa fa-check"></i><b>4.8.2</b> Estimating the population standard deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#ci"><i class="fa fa-check"></i><b>4.9</b> Estimating a confidence interval</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#a-slight-mistake-in-the-formula"><i class="fa fa-check"></i><b>4.9.1</b> A slight mistake in the formula</a></li>
+<li class="chapter" data-level="4.9.2" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#interpreting-a-confidence-interval"><i class="fa fa-check"></i><b>4.9.2</b> Interpreting a confidence interval</a></li>
+<li class="chapter" data-level="4.9.3" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#calculating-confidence-intervals-in-r"><i class="fa fa-check"></i><b>4.9.3</b> Calculating confidence intervals in R</a></li>
+<li class="chapter" data-level="4.9.4" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#ciplots"><i class="fa fa-check"></i><b>4.9.4</b> Plotting confidence intervals in R</a></li>
+</ul></li>
+<li class="chapter" data-level="4.10" data-path="inferential-statistics-the-central-limit-theorem.html"><a href="inferential-statistics-the-central-limit-theorem.html#summary-3"><i class="fa fa-check"></i><b>4.10</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="hypothesistesting.html"><a href="hypothesistesting.html"><i class="fa fa-check"></i><b>5</b> Hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#videos-3"><i class="fa fa-check"></i><b>5.1</b> Videos</a></li>
+<li class="chapter" data-level="5.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#introduction-3"><i class="fa fa-check"></i><b>5.2</b> Introduction</a></li>
+<li class="chapter" data-level="5.3" data-path="hypothesistesting.html"><a href="hypothesistesting.html#hypotheses"><i class="fa fa-check"></i><b>5.3</b> A menagerie of hypotheses</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#research-hypotheses-versus-statistical-hypotheses"><i class="fa fa-check"></i><b>5.3.1</b> Research hypotheses versus statistical hypotheses</a></li>
+<li class="chapter" data-level="5.3.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#null-hypotheses-and-alternative-hypotheses"><i class="fa fa-check"></i><b>5.3.2</b> Null hypotheses and alternative hypotheses</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="hypothesistesting.html"><a href="hypothesistesting.html#errortypes"><i class="fa fa-check"></i><b>5.4</b> Two types of errors</a></li>
+<li class="chapter" data-level="5.5" data-path="hypothesistesting.html"><a href="hypothesistesting.html#teststatistics"><i class="fa fa-check"></i><b>5.5</b> Test statistics and sampling distributions</a></li>
+<li class="chapter" data-level="5.6" data-path="hypothesistesting.html"><a href="hypothesistesting.html#decisionmaking"><i class="fa fa-check"></i><b>5.6</b> Making decisions</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#critical-regions-and-critical-values"><i class="fa fa-check"></i><b>5.6.1</b> Critical regions and critical values</a></li>
+<li class="chapter" data-level="5.6.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#a-note-on-statistical-significance"><i class="fa fa-check"></i><b>5.6.2</b> A note on statistical “significance”</a></li>
+<li class="chapter" data-level="5.6.3" data-path="hypothesistesting.html"><a href="hypothesistesting.html#onesidedtests"><i class="fa fa-check"></i><b>5.6.3</b> The difference between one sided and two sided tests</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="hypothesistesting.html"><a href="hypothesistesting.html#pvalue"><i class="fa fa-check"></i><b>5.7</b> The <span class="math inline">\(p\)</span> value of a test</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#a-softer-view-of-decision-making"><i class="fa fa-check"></i><b>5.7.1</b> A softer view of decision making</a></li>
+<li class="chapter" data-level="5.7.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#the-probability-of-extreme-data"><i class="fa fa-check"></i><b>5.7.2</b> The probability of extreme data</a></li>
+<li class="chapter" data-level="5.7.3" data-path="hypothesistesting.html"><a href="hypothesistesting.html#a-common-mistake"><i class="fa fa-check"></i><b>5.7.3</b> A common mistake</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="hypothesistesting.html"><a href="hypothesistesting.html#writeup"><i class="fa fa-check"></i><b>5.8</b> Reporting the results of a hypothesis test</a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#the-issue"><i class="fa fa-check"></i><b>5.8.1</b> The issue</a></li>
+<li class="chapter" data-level="5.8.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#two-proposed-solutions"><i class="fa fa-check"></i><b>5.8.2</b> Two proposed solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="hypothesistesting.html"><a href="hypothesistesting.html#running-the-hypothesis-test-in-practice"><i class="fa fa-check"></i><b>5.9</b> Running the hypothesis test in practice</a></li>
+<li class="chapter" data-level="5.10" data-path="hypothesistesting.html"><a href="hypothesistesting.html#effectsize"><i class="fa fa-check"></i><b>5.10</b> Effect size, sample size and power</a>
+<ul>
+<li class="chapter" data-level="5.10.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#the-power-function"><i class="fa fa-check"></i><b>5.10.1</b> The power function</a></li>
+<li class="chapter" data-level="5.10.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#effect-size"><i class="fa fa-check"></i><b>5.10.2</b> Effect size</a></li>
+<li class="chapter" data-level="5.10.3" data-path="hypothesistesting.html"><a href="hypothesistesting.html#increasing-the-power-of-your-study"><i class="fa fa-check"></i><b>5.10.3</b> Increasing the power of your study</a></li>
+</ul></li>
+<li class="chapter" data-level="5.11" data-path="hypothesistesting.html"><a href="hypothesistesting.html#nhstmess"><i class="fa fa-check"></i><b>5.11</b> Some issues to consider</a>
+<ul>
+<li class="chapter" data-level="5.11.1" data-path="hypothesistesting.html"><a href="hypothesistesting.html#neyman-versus-fisher"><i class="fa fa-check"></i><b>5.11.1</b> Neyman versus Fisher</a></li>
+<li class="chapter" data-level="5.11.2" data-path="hypothesistesting.html"><a href="hypothesistesting.html#bayesians-versus-frequentists"><i class="fa fa-check"></i><b>5.11.2</b> Bayesians versus frequentists</a></li>
+<li class="chapter" data-level="5.11.3" data-path="hypothesistesting.html"><a href="hypothesistesting.html#traps"><i class="fa fa-check"></i><b>5.11.3</b> Traps</a></li>
+</ul></li>
+<li class="chapter" data-level="5.12" data-path="hypothesistesting.html"><a href="hypothesistesting.html#summary-4"><i class="fa fa-check"></i><b>5.12</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html"><i class="fa fa-check"></i><b>6</b> Issues in Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#videos-4"><i class="fa fa-check"></i><b>6.1</b> Videos</a></li>
+<li class="chapter" data-level="6.2" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#introduction-4"><i class="fa fa-check"></i><b>6.2</b> Introduction</a></li>
+<li class="chapter" data-level="6.3" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#the-researcher-affects-nhst-outcomes"><i class="fa fa-check"></i><b>6.3</b> The researcher affects NHST outcomes</a></li>
+<li class="chapter" data-level="6.4" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#nhst-misunderstandings"><i class="fa fa-check"></i><b>6.4</b> NHST Misunderstandings</a></li>
+<li class="chapter" data-level="6.5" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#nhst-issues"><i class="fa fa-check"></i><b>6.5</b> NHST Issues</a></li>
+<li class="chapter" data-level="6.6" data-path="issues-in-hypothesis-testing.html"><a href="issues-in-hypothesis-testing.html#conclusions"><i class="fa fa-check"></i><b>6.6</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html"><i class="fa fa-check"></i><b>7</b> Data Cleaning and Missing Values Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#videos-5"><i class="fa fa-check"></i><b>7.1</b> Videos</a></li>
+<li class="chapter" data-level="7.2" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#introduction-dealing-with-the-unexpected"><i class="fa fa-check"></i><b>7.2</b> Introduction: Dealing with the Unexpected</a></li>
+<li class="chapter" data-level="7.3" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#data-cleaning"><i class="fa fa-check"></i><b>7.3</b> Data Cleaning</a></li>
+<li class="chapter" data-level="7.4" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#a-general-plan-for-data-cleaning"><i class="fa fa-check"></i><b>7.4</b> A General Plan for Data Cleaning</a></li>
+<li class="chapter" data-level="7.5" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#step-0.-design-your-research-to-mimimize-data-problems"><i class="fa fa-check"></i><b>7.5</b> Step 0. Design your Research to Mimimize Data Problems</a></li>
+<li class="chapter" data-level="7.6" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#step-1.-examine-your-data"><i class="fa fa-check"></i><b>7.6</b> Step 1. Examine Your Data</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#sort"><i class="fa fa-check"></i><b>7.6.1</b> Sorting, flipping and merging data</a></li>
+<li class="chapter" data-level="7.6.2" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#binding-vectors-together"><i class="fa fa-check"></i><b>7.6.2</b> Binding vectors together</a></li>
+<li class="chapter" data-level="7.6.3" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#reshape"><i class="fa fa-check"></i><b>7.6.3</b> Reshaping a data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#step-2.-outlier-analysis"><i class="fa fa-check"></i><b>7.7</b> Step 2. Outlier Analysis</a></li>
+<li class="chapter" data-level="7.8" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#step-3.-missing-values-analysis"><i class="fa fa-check"></i><b>7.8</b> Step 3. Missing values analysis</a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="introR.html"><a href="introR.html#specials"><i class="fa fa-check"></i><b>7.8.1</b> Special values in R</a></li>
+<li class="chapter" data-level="7.8.2" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#missing"><i class="fa fa-check"></i><b>7.8.2</b> Handling missing values in R</a></li>
+<li class="chapter" data-level="7.8.3" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#why-values-are-missing-mcar-mar-and-mnar"><i class="fa fa-check"></i><b>7.8.3</b> Why values are missing: MCAR, MAR, and MNAR</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#step-4.-test-specific-assumption-checking"><i class="fa fa-check"></i><b>7.9</b> Step 4. Test-specific assumption checking</a></li>
+<li class="chapter" data-level="7.10" data-path="data-cleaning-and-missing-values-analysis.html"><a href="data-cleaning-and-missing-values-analysis.html#communicate-results-of-data-cleaning-in-apa-style"><i class="fa fa-check"></i><b>7.10</b> Communicate results of data cleaning in APA style</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> Regression</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="regression.html"><a href="regression.html#videos-6"><i class="fa fa-check"></i><b>8.1</b> Videos</a></li>
+<li class="chapter" data-level="8.2" data-path="regression.html"><a href="regression.html#introduction-5"><i class="fa fa-check"></i><b>8.2</b> Introduction</a></li>
+<li class="chapter" data-level="8.3" data-path="regression.html"><a href="regression.html#the-general-linear-model-glm"><i class="fa fa-check"></i><b>8.3</b> The General Linear Model (GLM)</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="regression.html"><a href="regression.html#the-traditional-approach-two-kinds-of-parametric-statistical-tests"><i class="fa fa-check"></i><b>8.3.1</b> The Traditional approach: Two kinds of parametric statistical tests</a></li>
+<li class="chapter" data-level="8.3.2" data-path="regression.html"><a href="regression.html#the-glm-approach"><i class="fa fa-check"></i><b>8.3.2</b> The GLM approach</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="regression.html"><a href="regression.html#correl"><i class="fa fa-check"></i><b>8.4</b> Correlations</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="regression.html"><a href="regression.html#the-data"><i class="fa fa-check"></i><b>8.4.1</b> The data</a></li>
+<li class="chapter" data-level="8.4.2" data-path="regression.html"><a href="regression.html#the-strength-and-direction-of-a-relationship"><i class="fa fa-check"></i><b>8.4.2</b> The strength and direction of a relationship</a></li>
+<li class="chapter" data-level="8.4.3" data-path="regression.html"><a href="regression.html#the-correlation-coefficient"><i class="fa fa-check"></i><b>8.4.3</b> The correlation coefficient</a></li>
+<li class="chapter" data-level="8.4.4" data-path="regression.html"><a href="regression.html#calculating-correlations-in-r"><i class="fa fa-check"></i><b>8.4.4</b> Calculating correlations in R</a></li>
+<li class="chapter" data-level="8.4.5" data-path="regression.html"><a href="regression.html#interpretingcorrelations"><i class="fa fa-check"></i><b>8.4.5</b> Interpreting a correlation</a></li>
+<li class="chapter" data-level="8.4.6" data-path="regression.html"><a href="regression.html#spearmans-rank-correlations"><i class="fa fa-check"></i><b>8.4.6</b> Spearman’s rank correlations</a></li>
+<li class="chapter" data-level="8.4.7" data-path="regression.html"><a href="regression.html#the-correlate-function"><i class="fa fa-check"></i><b>8.4.7</b> The <code>correlate()</code> function</a></li>
+<li class="chapter" data-level="8.4.8" data-path="regression.html"><a href="regression.html#missing-values-in-pairwise-calculations-1"><i class="fa fa-check"></i><b>8.4.8</b> Missing values in pairwise calculations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="regression.html"><a href="regression.html#introregression"><i class="fa fa-check"></i><b>8.5</b> Linear regression</a></li>
+<li class="chapter" data-level="8.6" data-path="regression.html"><a href="regression.html#regressionestimation"><i class="fa fa-check"></i><b>8.6</b> Estimating a linear regression model</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="regression.html"><a href="regression.html#lm"><i class="fa fa-check"></i><b>8.6.1</b> Using the <code>lm()</code> function</a></li>
+<li class="chapter" data-level="8.6.2" data-path="regression.html"><a href="regression.html#interpreting-the-estimated-model"><i class="fa fa-check"></i><b>8.6.2</b> Interpreting the estimated model</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="regression.html"><a href="regression.html#multipleregression"><i class="fa fa-check"></i><b>8.7</b> Multiple linear regression</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="regression.html"><a href="regression.html#doing-it-in-r"><i class="fa fa-check"></i><b>8.7.1</b> Doing it in R</a></li>
+<li class="chapter" data-level="8.7.2" data-path="regression.html"><a href="regression.html#formula-for-the-general-case"><i class="fa fa-check"></i><b>8.7.2</b> Formula for the general case</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="regression.html"><a href="regression.html#r2"><i class="fa fa-check"></i><b>8.8</b> Quantifying the fit of the regression model</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="regression.html"><a href="regression.html#the-r2-value"><i class="fa fa-check"></i><b>8.8.1</b> The <span class="math inline">\(R^2\)</span> value</a></li>
+<li class="chapter" data-level="8.8.2" data-path="regression.html"><a href="regression.html#the-relationship-between-regression-and-correlation"><i class="fa fa-check"></i><b>8.8.2</b> The relationship between regression and correlation</a></li>
+<li class="chapter" data-level="8.8.3" data-path="regression.html"><a href="regression.html#the-adjusted-r2-value"><i class="fa fa-check"></i><b>8.8.3</b> The adjusted <span class="math inline">\(R^2\)</span> value</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="regression.html"><a href="regression.html#regressiontests"><i class="fa fa-check"></i><b>8.9</b> Hypothesis tests for regression models</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="regression.html"><a href="regression.html#testing-the-model-as-a-whole-the-omnibus-test"><i class="fa fa-check"></i><b>8.9.1</b> Testing the model as a whole: The omnibus test</a></li>
+<li class="chapter" data-level="8.9.2" data-path="regression.html"><a href="regression.html#tests-for-individual-coefficients"><i class="fa fa-check"></i><b>8.9.2</b> Tests for individual coefficients</a></li>
+<li class="chapter" data-level="8.9.3" data-path="regression.html"><a href="regression.html#regressionsummary"><i class="fa fa-check"></i><b>8.9.3</b> Running the hypothesis tests in R</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="regression.html"><a href="regression.html#corrhyp"><i class="fa fa-check"></i><b>8.10</b> Testing the significance of a correlation</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="regression.html"><a href="regression.html#hypothesis-tests-for-a-single-correlation"><i class="fa fa-check"></i><b>8.10.1</b> Hypothesis tests for a single correlation</a></li>
+<li class="chapter" data-level="8.10.2" data-path="regression.html"><a href="regression.html#corrhyp2"><i class="fa fa-check"></i><b>8.10.2</b> Hypothesis tests for all pairwise correlations</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="regression.html"><a href="regression.html#regressioncoefs"><i class="fa fa-check"></i><b>8.11</b> Regarding regression coefficients</a>
+<ul>
+<li class="chapter" data-level="8.11.1" data-path="regression.html"><a href="regression.html#confidence-intervals-for-the-coefficients"><i class="fa fa-check"></i><b>8.11.1</b> Confidence intervals for the coefficients</a></li>
+<li class="chapter" data-level="8.11.2" data-path="regression.html"><a href="regression.html#calculating-standardised-regression-coefficients"><i class="fa fa-check"></i><b>8.11.2</b> Calculating standardised regression coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="8.12" data-path="regression.html"><a href="regression.html#regressionassumptions"><i class="fa fa-check"></i><b>8.12</b> Assumptions of regression</a></li>
+<li class="chapter" data-level="8.13" data-path="regression.html"><a href="regression.html#regressiondiagnostics"><i class="fa fa-check"></i><b>8.13</b> Model checking</a>
+<ul>
+<li class="chapter" data-level="8.13.1" data-path="regression.html"><a href="regression.html#three-kinds-of-residuals"><i class="fa fa-check"></i><b>8.13.1</b> Three kinds of residuals</a></li>
+<li class="chapter" data-level="8.13.2" data-path="regression.html"><a href="regression.html#regressionoutliers"><i class="fa fa-check"></i><b>8.13.2</b> Three kinds of anomalous data</a></li>
+<li class="chapter" data-level="8.13.3" data-path="regression.html"><a href="regression.html#regressionnormality"><i class="fa fa-check"></i><b>8.13.3</b> Checking the normality of the residuals</a></li>
+<li class="chapter" data-level="8.13.4" data-path="regression.html"><a href="regression.html#regressionlinearity"><i class="fa fa-check"></i><b>8.13.4</b> Checking the linearity of the relationship</a></li>
+<li class="chapter" data-level="8.13.5" data-path="regression.html"><a href="regression.html#regressionhomogeneity"><i class="fa fa-check"></i><b>8.13.5</b> Checking the homogeneity of variance</a></li>
+<li class="chapter" data-level="8.13.6" data-path="regression.html"><a href="regression.html#regressioncollinearity"><i class="fa fa-check"></i><b>8.13.6</b> Checking for collinearity</a></li>
+</ul></li>
+<li class="chapter" data-level="8.14" data-path="regression.html"><a href="regression.html#modelselreg"><i class="fa fa-check"></i><b>8.14</b> Model selection</a>
+<ul>
+<li class="chapter" data-level="8.14.1" data-path="regression.html"><a href="regression.html#backward-elimination"><i class="fa fa-check"></i><b>8.14.1</b> Backward elimination</a></li>
+<li class="chapter" data-level="8.14.2" data-path="regression.html"><a href="regression.html#forward-selection"><i class="fa fa-check"></i><b>8.14.2</b> Forward selection</a></li>
+<li class="chapter" data-level="8.14.3" data-path="regression.html"><a href="regression.html#a-caveat"><i class="fa fa-check"></i><b>8.14.3</b> A caveat</a></li>
+<li class="chapter" data-level="8.14.4" data-path="regression.html"><a href="regression.html#comparing-two-regression-models"><i class="fa fa-check"></i><b>8.14.4</b> Comparing two regression models</a></li>
+</ul></li>
+<li class="chapter" data-level="8.15" data-path="regression.html"><a href="regression.html#practical-issues-in-correlation-and-regression"><i class="fa fa-check"></i><b>8.15</b> Practical Issues in Correlation and Regression</a>
+<ul>
+<li class="chapter" data-level="8.15.1" data-path="regression.html"><a href="regression.html#correlation-is-not-causation"><i class="fa fa-check"></i><b>8.15.1</b> Correlation is not causation</a></li>
+<li class="chapter" data-level="8.15.2" data-path="regression.html"><a href="regression.html#interpreting-nhst-in-big-data"><i class="fa fa-check"></i><b>8.15.2</b> Interpreting NHST in Big Data</a></li>
+<li class="chapter" data-level="8.15.3" data-path="regression.html"><a href="regression.html#outliers"><i class="fa fa-check"></i><b>8.15.3</b> Outliers</a></li>
+<li class="chapter" data-level="8.15.4" data-path="regression.html"><a href="regression.html#restriction-of-range"><i class="fa fa-check"></i><b>8.15.4</b> Restriction of Range</a></li>
+<li class="chapter" data-level="8.15.5" data-path="regression.html"><a href="regression.html#regression-toward-the-mean"><i class="fa fa-check"></i><b>8.15.5</b> Regression Toward the Mean</a></li>
+<li class="chapter" data-level="8.15.6" data-path="regression.html"><a href="regression.html#report-effect-size"><i class="fa fa-check"></i><b>8.15.6</b> Report Effect Size</a></li>
+<li class="chapter" data-level="8.15.7" data-path="regression.html"><a href="regression.html#what-are-degrees-of-freedom-again"><i class="fa fa-check"></i><b>8.15.7</b> What are Degrees of Freedom, again?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.16" data-path="regression.html"><a href="regression.html#summary-5"><i class="fa fa-check"></i><b>8.16</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="ttest.html"><a href="ttest.html"><i class="fa fa-check"></i><b>9</b> Comparing two means</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="ttest.html"><a href="ttest.html#videos-7"><i class="fa fa-check"></i><b>9.1</b> Videos</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="ttest.html"><a href="ttest.html#t-tests"><i class="fa fa-check"></i><b>9.1.1</b> T-Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="ttest.html"><a href="ttest.html#comparison-of-tests-that-compare-groupsgroupcomparisonscompared"><i class="fa fa-check"></i><b>9.2</b> Comparison of tests that compare groups(#groupcomparisonscompared)</a></li>
+<li class="chapter" data-level="9.3" data-path="ttest.html"><a href="ttest.html#introduction-6"><i class="fa fa-check"></i><b>9.3</b> Introduction</a></li>
+<li class="chapter" data-level="9.4" data-path="ttest.html"><a href="ttest.html#onesamplettest"><i class="fa fa-check"></i><b>9.4</b> The one-sample <span class="math inline">\(t\)</span>-test</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="ttest.html"><a href="ttest.html#introducing-the-t-test"><i class="fa fa-check"></i><b>9.4.1</b> Introducing the <span class="math inline">\(t\)</span>-test</a></li>
+<li class="chapter" data-level="9.4.2" data-path="ttest.html"><a href="ttest.html#doing-the-test-in-r"><i class="fa fa-check"></i><b>9.4.2</b> Doing the test in R</a></li>
+<li class="chapter" data-level="9.4.3" data-path="ttest.html"><a href="ttest.html#ttestoneassumptions"><i class="fa fa-check"></i><b>9.4.3</b> Assumptions of the one sample <span class="math inline">\(t\)</span>-test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="ttest.html"><a href="ttest.html#studentttest"><i class="fa fa-check"></i><b>9.5</b> The independent samples <span class="math inline">\(t\)</span>-test (Student test)</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="ttest.html"><a href="ttest.html#the-data-1"><i class="fa fa-check"></i><b>9.5.1</b> The data</a></li>
+<li class="chapter" data-level="9.5.2" data-path="ttest.html"><a href="ttest.html#introducing-the-test"><i class="fa fa-check"></i><b>9.5.2</b> Introducing the test</a></li>
+<li class="chapter" data-level="9.5.3" data-path="ttest.html"><a href="ttest.html#a-pooled-estimate-of-the-standard-deviation"><i class="fa fa-check"></i><b>9.5.3</b> A “pooled estimate” of the standard deviation</a></li>
+<li class="chapter" data-level="9.5.4" data-path="ttest.html"><a href="ttest.html#the-same-pooled-estimate-described-differently"><i class="fa fa-check"></i><b>9.5.4</b> The same pooled estimate, described differently</a></li>
+<li class="chapter" data-level="9.5.5" data-path="ttest.html"><a href="ttest.html#completing-the-test"><i class="fa fa-check"></i><b>9.5.5</b> Completing the test</a></li>
+<li class="chapter" data-level="9.5.6" data-path="ttest.html"><a href="ttest.html#doing-the-test-in-r-1"><i class="fa fa-check"></i><b>9.5.6</b> Doing the test in R</a></li>
+<li class="chapter" data-level="9.5.7" data-path="ttest.html"><a href="ttest.html#positive-and-negative-t-values"><i class="fa fa-check"></i><b>9.5.7</b> Positive and negative <span class="math inline">\(t\)</span> values</a></li>
+<li class="chapter" data-level="9.5.8" data-path="ttest.html"><a href="ttest.html#studentassumptions"><i class="fa fa-check"></i><b>9.5.8</b> Assumptions of the test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="ttest.html"><a href="ttest.html#welchttest"><i class="fa fa-check"></i><b>9.6</b> The independent samples <span class="math inline">\(t\)</span>-test (Welch test)</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="ttest.html"><a href="ttest.html#doing-the-test-in-r-2"><i class="fa fa-check"></i><b>9.6.1</b> Doing the test in R</a></li>
+<li class="chapter" data-level="9.6.2" data-path="ttest.html"><a href="ttest.html#assumptions-of-the-test"><i class="fa fa-check"></i><b>9.6.2</b> Assumptions of the test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="ttest.html"><a href="ttest.html#pairedsamplesttest"><i class="fa fa-check"></i><b>9.7</b> The paired-samples <span class="math inline">\(t\)</span>-test</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="ttest.html"><a href="ttest.html#the-data-2"><i class="fa fa-check"></i><b>9.7.1</b> The data</a></li>
+<li class="chapter" data-level="9.7.2" data-path="ttest.html"><a href="ttest.html#what-is-the-paired-samples-t-test"><i class="fa fa-check"></i><b>9.7.2</b> What is the paired samples <span class="math inline">\(t\)</span>-test?</a></li>
+<li class="chapter" data-level="9.7.3" data-path="ttest.html"><a href="ttest.html#doing-the-test-in-r-part-1"><i class="fa fa-check"></i><b>9.7.3</b> Doing the test in R, part 1</a></li>
+<li class="chapter" data-level="9.7.4" data-path="ttest.html"><a href="ttest.html#doing-the-test-in-r-part-2"><i class="fa fa-check"></i><b>9.7.4</b> Doing the test in R, part 2</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="ttest.html"><a href="ttest.html#one-sided-tests"><i class="fa fa-check"></i><b>9.8</b> One sided tests</a></li>
+<li class="chapter" data-level="9.9" data-path="ttest.html"><a href="ttest.html#ttestfunction"><i class="fa fa-check"></i><b>9.9</b> Using the t.test() function</a></li>
+<li class="chapter" data-level="9.10" data-path="ttest.html"><a href="ttest.html#cohensd"><i class="fa fa-check"></i><b>9.10</b> Effect size</a>
+<ul>
+<li class="chapter" data-level="9.10.1" data-path="ttest.html"><a href="ttest.html#cohens-d-from-one-sample"><i class="fa fa-check"></i><b>9.10.1</b> Cohen’s <span class="math inline">\(d\)</span> from one sample</a></li>
+<li class="chapter" data-level="9.10.2" data-path="ttest.html"><a href="ttest.html#cohens-d-from-a-student-t-test"><i class="fa fa-check"></i><b>9.10.2</b> Cohen’s <span class="math inline">\(d\)</span> from a Student <span class="math inline">\(t\)</span> test</a></li>
+<li class="chapter" data-level="9.10.3" data-path="ttest.html"><a href="ttest.html#cohens-d-from-a-welch-test"><i class="fa fa-check"></i><b>9.10.3</b> Cohen’s <span class="math inline">\(d\)</span> from a Welch test</a></li>
+<li class="chapter" data-level="9.10.4" data-path="ttest.html"><a href="ttest.html#cohens-d-from-a-paired-samples-test"><i class="fa fa-check"></i><b>9.10.4</b> Cohen’s <span class="math inline">\(d\)</span> from a paired-samples test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.11" data-path="ttest.html"><a href="ttest.html#shapiro"><i class="fa fa-check"></i><b>9.11</b> Checking the normality of a sample</a>
+<ul>
+<li class="chapter" data-level="9.11.1" data-path="ttest.html"><a href="ttest.html#qq-plots"><i class="fa fa-check"></i><b>9.11.1</b> QQ plots</a></li>
+<li class="chapter" data-level="9.11.2" data-path="ttest.html"><a href="ttest.html#shapiro-wilk-tests"><i class="fa fa-check"></i><b>9.11.2</b> Shapiro-Wilk tests</a></li>
+</ul></li>
+<li class="chapter" data-level="9.12" data-path="ttest.html"><a href="ttest.html#wilcox"><i class="fa fa-check"></i><b>9.12</b> Testing non-normal data with Wilcoxon tests</a>
+<ul>
+<li class="chapter" data-level="9.12.1" data-path="ttest.html"><a href="ttest.html#two-sample-wilcoxon-test"><i class="fa fa-check"></i><b>9.12.1</b> Two sample Wilcoxon test</a></li>
+<li class="chapter" data-level="9.12.2" data-path="ttest.html"><a href="ttest.html#one-sample-wilcoxon-test"><i class="fa fa-check"></i><b>9.12.2</b> One sample Wilcoxon test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.13" data-path="ttest.html"><a href="ttest.html#summary-6"><i class="fa fa-check"></i><b>9.13</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>10</b> Comparing several means (one-way ANOVA)</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="anova.html"><a href="anova.html#videos-8"><i class="fa fa-check"></i><b>10.1</b> Videos</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="anova.html"><a href="anova.html#one-way-between-subjects-anova"><i class="fa fa-check"></i><b>10.1.1</b> One-Way, Between-Subjects ANOVA</a></li>
+<li class="chapter" data-level="10.1.2" data-path="anova.html"><a href="anova.html#repeated-measures-anova"><i class="fa fa-check"></i><b>10.1.2</b> Repeated Measures ANOVA</a></li>
+<li class="chapter" data-level="10.1.3" data-path="anova.html"><a href="anova.html#multiple-comparisons"><i class="fa fa-check"></i><b>10.1.3</b> Multiple Comparisons</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="anova.html"><a href="anova.html#anxifree"><i class="fa fa-check"></i><b>10.2</b> An illustrative data set</a></li>
+<li class="chapter" data-level="10.3" data-path="anova.html"><a href="anova.html#anovaintro"><i class="fa fa-check"></i><b>10.3</b> How ANOVA works</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="anova.html"><a href="anova.html#two-formulas-for-the-variance-of-y"><i class="fa fa-check"></i><b>10.3.1</b> Two formulas for the variance of <span class="math inline">\(Y\)</span></a></li>
+<li class="chapter" data-level="10.3.2" data-path="anova.html"><a href="anova.html#from-variances-to-sums-of-squares"><i class="fa fa-check"></i><b>10.3.2</b> From variances to sums of squares</a></li>
+<li class="chapter" data-level="10.3.3" data-path="anova.html"><a href="anova.html#from-sums-of-squares-to-the-f-test"><i class="fa fa-check"></i><b>10.3.3</b> From sums of squares to the <span class="math inline">\(F\)</span>-test</a></li>
+<li class="chapter" data-level="10.3.4" data-path="anova.html"><a href="anova.html#anovamodel"><i class="fa fa-check"></i><b>10.3.4</b> The model for the data and the meaning of <span class="math inline">\(F\)</span> (advanced)</a></li>
+<li class="chapter" data-level="10.3.5" data-path="anova.html"><a href="anova.html#anovacalc"><i class="fa fa-check"></i><b>10.3.5</b> A worked example</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="anova.html"><a href="anova.html#introduceaov"><i class="fa fa-check"></i><b>10.4</b> Running an ANOVA in R</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="anova.html"><a href="anova.html#using-the-aov-function-to-specify-your-anova"><i class="fa fa-check"></i><b>10.4.1</b> Using the <code>aov()</code> function to specify your ANOVA</a></li>
+<li class="chapter" data-level="10.4.2" data-path="anova.html"><a href="anova.html#aovobjects"><i class="fa fa-check"></i><b>10.4.2</b> Understanding what the <code>aov()</code> function produces</a></li>
+<li class="chapter" data-level="10.4.3" data-path="anova.html"><a href="anova.html#running-the-hypothesis-tests-for-the-anova"><i class="fa fa-check"></i><b>10.4.3</b> Running the hypothesis tests for the ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="anova.html"><a href="anova.html#etasquared"><i class="fa fa-check"></i><b>10.5</b> Effect size</a></li>
+<li class="chapter" data-level="10.6" data-path="anova.html"><a href="anova.html#anovaandt"><i class="fa fa-check"></i><b>10.6</b> On the relationship between ANOVA and the Student <span class="math inline">\(t\)</span> test</a></li>
+<li class="chapter" data-level="10.7" data-path="anova.html"><a href="anova.html#summary-7"><i class="fa fa-check"></i><b>10.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html"><i class="fa fa-check"></i><b>11</b> Multiple comparisons</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#posthoc"><i class="fa fa-check"></i><b>11.1</b> Multiple comparisons and post hoc tests</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#running-pairwise-t-tests"><i class="fa fa-check"></i><b>11.1.1</b> Running “pairwise” <span class="math inline">\(t\)</span>-tests</a></li>
+<li class="chapter" data-level="11.1.2" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#corrections-for-multiple-testing"><i class="fa fa-check"></i><b>11.1.2</b> Corrections for multiple testing</a></li>
+<li class="chapter" data-level="11.1.3" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#bonferroni-corrections"><i class="fa fa-check"></i><b>11.1.3</b> Bonferroni corrections</a></li>
+<li class="chapter" data-level="11.1.4" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#holm-corrections"><i class="fa fa-check"></i><b>11.1.4</b> Holm corrections</a></li>
+<li class="chapter" data-level="11.1.5" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#writing-up-the-post-hoc-test"><i class="fa fa-check"></i><b>11.1.5</b> Writing up the post hoc test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#anovaassumptions"><i class="fa fa-check"></i><b>11.2</b> Assumptions of one-way ANOVA</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#how-robust-is-anova"><i class="fa fa-check"></i><b>11.2.1</b> How robust is ANOVA?</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#levene"><i class="fa fa-check"></i><b>11.3</b> Checking the homogeneity of variance assumption</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#running-the-levenes-test-in-r"><i class="fa fa-check"></i><b>11.3.1</b> Running the Levene’s test in R</a></li>
+<li class="chapter" data-level="11.3.2" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#additional-comments"><i class="fa fa-check"></i><b>11.3.2</b> Additional comments</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#welchoneway"><i class="fa fa-check"></i><b>11.4</b> Removing the homogeneity of variance assumption</a></li>
+<li class="chapter" data-level="11.5" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#anovanormality"><i class="fa fa-check"></i><b>11.5</b> Checking the normality assumption</a></li>
+<li class="chapter" data-level="11.6" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#kruskalwallis"><i class="fa fa-check"></i><b>11.6</b> Removing the normality assumption</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#the-logic-behind-the-kruskal-wallis-test"><i class="fa fa-check"></i><b>11.6.1</b> The logic behind the Kruskal-Wallis test</a></li>
+<li class="chapter" data-level="11.6.2" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#additional-details"><i class="fa fa-check"></i><b>11.6.2</b> Additional details</a></li>
+<li class="chapter" data-level="11.6.3" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#how-to-run-the-kruskal-wallis-test-in-r"><i class="fa fa-check"></i><b>11.6.3</b> How to run the Kruskal-Wallis test in R</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="multiple-comparisons-1.html"><a href="multiple-comparisons-1.html#summary-8"><i class="fa fa-check"></i><b>11.7</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="statistics-reference.html"><a href="statistics-reference.html"><i class="fa fa-check"></i><b>12</b> Statistics Reference</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="statistics-reference.html"><a href="statistics-reference.html#one-sample-z-test"><i class="fa fa-check"></i><b>12.1</b> One-Sample <em>z</em>-Test</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition"><i class="fa fa-check"></i><b>12.1.1</b> Definition</a></li>
+<li class="chapter" data-level="12.1.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic"><i class="fa fa-check"></i><b>12.1.2</b> Test Statistic</a></li>
+<li class="chapter" data-level="12.1.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data"><i class="fa fa-check"></i><b>12.1.3</b> Assumptions &amp; Required Data</a></li>
+<li class="chapter" data-level="12.1.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it"><i class="fa fa-check"></i><b>12.1.4</b> When to use it</a></li>
+<li class="chapter" data-level="12.1.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example"><i class="fa fa-check"></i><b>12.1.5</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="statistics-reference.html"><a href="statistics-reference.html#correlation"><i class="fa fa-check"></i><b>12.2</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition-1"><i class="fa fa-check"></i><b>12.2.1</b> Definition</a></li>
+<li class="chapter" data-level="12.2.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-1"><i class="fa fa-check"></i><b>12.2.2</b> Test Statistic</a></li>
+<li class="chapter" data-level="12.2.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-1"><i class="fa fa-check"></i><b>12.2.3</b> Assumptions &amp; Required Data</a></li>
+<li class="chapter" data-level="12.2.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-1"><i class="fa fa-check"></i><b>12.2.4</b> When to use it</a></li>
+<li class="chapter" data-level="12.2.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-1"><i class="fa fa-check"></i><b>12.2.5</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="statistics-reference.html"><a href="statistics-reference.html#linear-regression"><i class="fa fa-check"></i><b>12.3</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition-2"><i class="fa fa-check"></i><b>12.3.1</b> Definition</a></li>
+<li class="chapter" data-level="12.3.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-2"><i class="fa fa-check"></i><b>12.3.2</b> Test Statistic</a></li>
+<li class="chapter" data-level="12.3.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-2"><i class="fa fa-check"></i><b>12.3.3</b> Assumptions &amp; Required Data</a></li>
+<li class="chapter" data-level="12.3.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-2"><i class="fa fa-check"></i><b>12.3.4</b> When to use it</a></li>
+<li class="chapter" data-level="12.3.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-2"><i class="fa fa-check"></i><b>12.3.5</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="statistics-reference.html"><a href="statistics-reference.html#one-sample-t-test"><i class="fa fa-check"></i><b>12.4</b> One-Sample <em>t</em>-Test</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition-3"><i class="fa fa-check"></i><b>12.4.1</b> Definition</a></li>
+<li class="chapter" data-level="12.4.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-3"><i class="fa fa-check"></i><b>12.4.2</b> Test Statistic</a></li>
+<li class="chapter" data-level="12.4.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-3"><i class="fa fa-check"></i><b>12.4.3</b> Assumptions &amp; Required Data</a></li>
+<li class="chapter" data-level="12.4.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-3"><i class="fa fa-check"></i><b>12.4.4</b> When to use it</a></li>
+<li class="chapter" data-level="12.4.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-3"><i class="fa fa-check"></i><b>12.4.5</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="statistics-reference.html"><a href="statistics-reference.html#paired-samples-t-test"><i class="fa fa-check"></i><b>12.5</b> Paired Samples T-Test</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition-4"><i class="fa fa-check"></i><b>12.5.1</b> Definition</a></li>
+<li class="chapter" data-level="12.5.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-4"><i class="fa fa-check"></i><b>12.5.2</b> Test Statistic</a></li>
+<li class="chapter" data-level="12.5.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-4"><i class="fa fa-check"></i><b>12.5.3</b> Assumptions &amp; Required Data</a></li>
+<li class="chapter" data-level="12.5.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-4"><i class="fa fa-check"></i><b>12.5.4</b> When to use it</a></li>
+<li class="chapter" data-level="12.5.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-4"><i class="fa fa-check"></i><b>12.5.5</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="statistics-reference.html"><a href="statistics-reference.html#independent-samples-t-test"><i class="fa fa-check"></i><b>12.6</b> Independent Samples <span class="math inline">\(t\)</span>-Test</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition-5"><i class="fa fa-check"></i><b>12.6.1</b> Definition</a></li>
+<li class="chapter" data-level="12.6.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-5"><i class="fa fa-check"></i><b>12.6.2</b> Test Statistic</a></li>
+<li class="chapter" data-level="12.6.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-5"><i class="fa fa-check"></i><b>12.6.3</b> Assumptions &amp; Required Data</a></li>
+<li class="chapter" data-level="12.6.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-5"><i class="fa fa-check"></i><b>12.6.4</b> When to use it</a></li>
+<li class="chapter" data-level="12.6.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-5"><i class="fa fa-check"></i><b>12.6.5</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="12.7" data-path="statistics-reference.html"><a href="statistics-reference.html#one-way-analysis-of-variance-anova"><i class="fa fa-check"></i><b>12.7</b> One-Way Analysis of Variance (ANOVA)</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition-6"><i class="fa fa-check"></i><b>12.7.1</b> Definition</a></li>
+<li class="chapter" data-level="12.7.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-6"><i class="fa fa-check"></i><b>12.7.2</b> Test Statistic</a></li>
+<li class="chapter" data-level="12.7.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-6"><i class="fa fa-check"></i><b>12.7.3</b> Assumptions &amp; Required Data</a></li>
+<li class="chapter" data-level="12.7.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-6"><i class="fa fa-check"></i><b>12.7.4</b> When to use it</a></li>
+<li class="chapter" data-level="12.7.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-6"><i class="fa fa-check"></i><b>12.7.5</b> Example</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Advanced Statistics Remix</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="multiple-comparisons-1" class="section level1" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Multiple comparisons</h1>
+<p>Text by <span class="citation"><a href="#ref-Navarro2018" role="doc-biblioref">Navarro</a> (<a href="#ref-Navarro2018" role="doc-biblioref">2018</a>)</span></p>
+<div id="posthoc" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Multiple comparisons and post hoc tests</h2>
+<p>Any time you run an ANOVA with more than two groups, and you end up with a significant effect, the first thing you’ll probably want to ask is which groups are actually different from one another. In our drugs example, our null hypothesis was that all three drugs (placebo, Anxifree and Joyzepam) have the exact same effect on mood. But if you think about it, the null hypothesis is actually claiming <em>three</em> different things all at once here. Specifically, it claims that:</p>
+<ul>
+<li>Your competitor’s drug (Anxifree) is no better than a placebo (i.e., <span class="math inline">\(\mu_A = \mu_P\)</span>)</li>
+<li>Your drug (Joyzepam) is no better than a placebo (i.e., <span class="math inline">\(\mu_J = \mu_P\)</span>)</li>
+<li>Anxifree and Joyzepam are equally effective (i.e., <span class="math inline">\(\mu_J = \mu_A\)</span>)</li>
+</ul>
+<p>If any one of those three claims is false, then the null hypothesis is also false. So, now that we’ve rejected our null hypothesis, we’re thinking that <em>at least</em> one of those things isn’t true. But which ones? All three of these propositions are of interest: you certainly want to know if your new drug Joyzepam is better than a placebo, and it would be nice to know how well it stacks up against an existing commercial alternative (i.e., Anxifree). It would even be useful to check the performance of Anxifree against the placebo: even if Anxifree has already been extensively tested against placebos by other researchers, it can still be very useful to check that your study is producing similar results to earlier work.</p>
+<p>When we characterise the null hypothesis in terms of these three distinct propositions, it becomes clear that there are eight possible “states of the world” that we need to distinguish between:</p>
+<table style="width:100%;">
+<colgroup>
+<col width="14%" />
+<col width="21%" />
+<col width="21%" />
+<col width="21%" />
+<col width="19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">possibility:</th>
+<th align="left">is <span class="math inline">\(\mu_P = \mu_A\)</span>?</th>
+<th align="left">is <span class="math inline">\(\mu_P = \mu_J\)</span>?</th>
+<th align="left">is <span class="math inline">\(\mu_A = \mu_J\)</span>?</th>
+<th align="left">which hypothesis?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left">null</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left"></td>
+<td align="left">alternative</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left"></td>
+<td align="left"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left">alternative</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">alternative</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left"></td>
+<td align="left"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left">alternative</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="left"></td>
+<td align="left"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left"></td>
+<td align="left">alternative</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left">alternative</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">alternative</td>
+</tr>
+</tbody>
+</table>
+<p>By rejecting the null hypothesis, we’ve decided that we <em>don’t</em> believe that #1 is the true state of the world. The next question to ask is, which of the other seven possibilities <em>do</em> we think is right? When faced with this situation, its usually helps to look at the data. For instance, if we look at the plots in Figure <a href="anova.html#fig:moodgain">10.1</a>, it’s tempting to conclude that Joyzepam is better than the placebo and better than Anxifree, but there’s no real difference between Anxifree and the placebo. However, if we want to get a clearer answer about this, it might help to run some tests.</p>
+<div id="running-pairwise-t-tests" class="section level3" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> Running “pairwise” <span class="math inline">\(t\)</span>-tests</h3>
+<p>How might we go about solving our problem? Given that we’ve got three separate pairs of means (placebo versus Anxifree, placebo versus Joyzepam, and Anxifree versus Joyzepam) to compare, what we could do is run three separate <span class="math inline">\(t\)</span>-tests and see what happens. There’s a couple of ways that we could do this. One method would be to construct new variables corresponding the groups you want to compare (e.g., <code>anxifree</code>, <code>placebo</code> and <code>joyzepam</code>), and then run a <span class="math inline">\(t\)</span>-test on these new variables:</p>
+<div class="sourceCode" id="cb905"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb905-1"><a href="multiple-comparisons-1.html#cb905-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>( anxifree, placebo, <span class="at">var.equal =</span> <span class="cn">TRUE</span> )   <span class="co"># Student t-test</span></span>
+<span id="cb905-2"><a href="multiple-comparisons-1.html#cb905-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb905-3"><a href="multiple-comparisons-1.html#cb905-3" aria-hidden="true" tabindex="-1"></a>anxifree <span class="ot">&lt;-</span> <span class="fu">with</span>(clin.trial, mood.gain[drug <span class="sc">==</span> <span class="st">&quot;anxifree&quot;</span>])  <span class="co"># mood change due to anxifree</span></span>
+<span id="cb905-4"><a href="multiple-comparisons-1.html#cb905-4" aria-hidden="true" tabindex="-1"></a>placebo <span class="ot">&lt;-</span> <span class="fu">with</span>(clin.trial, mood.gain[drug <span class="sc">==</span> <span class="st">&quot;placebo&quot;</span>])    <span class="co"># mood change due to placebo </span></span></code></pre></div>
+<p>or, you could use the <code>subset</code> argument in the <code>t.test()</code> function to select only those observations corresponding to one of the two groups we’re interested in:</p>
+<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb906-1"><a href="multiple-comparisons-1.html#cb906-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>( <span class="at">formula =</span> mood.gain <span class="sc">~</span> drug, </span>
+<span id="cb906-2"><a href="multiple-comparisons-1.html#cb906-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> clin.trial, </span>
+<span id="cb906-3"><a href="multiple-comparisons-1.html#cb906-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">subset =</span> drug <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;placebo&quot;</span>,<span class="st">&quot;anxifree&quot;</span>), </span>
+<span id="cb906-4"><a href="multiple-comparisons-1.html#cb906-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span> </span>
+<span id="cb906-5"><a href="multiple-comparisons-1.html#cb906-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>See Chapter <a href="#datahandling"><strong>??</strong></a> if you’ve forgotten how the <code>%in%</code> operator works. Regardless of which version we do, R will print out the results of the <span class="math inline">\(t\)</span>-test, though I haven’t included that output here. If we go on to do this for all possible pairs of variables, we can look to see which (if any) pairs of groups are significantly different to each other. This “lots of <span class="math inline">\(t\)</span>-tests idea” isn’t a bad strategy, though as we’ll see later on there are some problems with it. However, for the moment our bigger problem is that it’s a <em>pain</em> to have to type in such a long command over and over again: for instance, if your experiment has 10 groups, then you have to run 45 <span class="math inline">\(t\)</span>-tests. That’s way too much typing.</p>
+<p>To help keep the typing to a minimum, R provides a function called <code>pairwise.t.test()</code> that automatically runs all of the <span class="math inline">\(t\)</span>-tests for you. There are three arguments that you need to specify, the outcome variable <code>x</code>, the group variable <code>g</code>, and the <code>p.adjust.method</code> argument, which “adjusts” the <span class="math inline">\(p\)</span>-value in one way or another. I’ll explain <span class="math inline">\(p\)</span>-value adjustment in a moment, but for now we can just set <code>p.adjust.method = "none"</code> since we’re not doing any adjustments. For our example, here’s what we do:</p>
+<div class="sourceCode" id="cb907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb907-1"><a href="multiple-comparisons-1.html#cb907-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">pairwise.t.test</span>( <span class="at">x =</span> clin.trial<span class="sc">$</span>mood.gain,   <span class="co"># outcome variable</span></span>
+<span id="cb907-2"><a href="multiple-comparisons-1.html#cb907-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">g =</span> clin.trial<span class="sc">$</span>drug,        <span class="co"># grouping variable</span></span>
+<span id="cb907-3"><a href="multiple-comparisons-1.html#cb907-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">p.adjust.method =</span> <span class="st">&quot;none&quot;</span>    <span class="co"># which correction to use?</span></span>
+<span id="cb907-4"><a href="multiple-comparisons-1.html#cb907-4" aria-hidden="true" tabindex="-1"></a> )</span></code></pre></div>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  clin.trial$mood.gain and clin.trial$drug 
+## 
+##          placebo anxifree
+## anxifree 0.15021 -       
+## joyzepam 3e-05   0.00056 
+## 
+## P value adjustment method: none</code></pre>
+<p>One thing that bugs me slightly about the <code>pairwise.t.test()</code> function is that you can’t just give it an <code>aov</code> object, and have it produce this output. After all, I went to all that trouble earlier of getting R to create the <code>my.anova</code> variable and – as we saw in Section <a href="anova.html#aovobjects">10.4.2</a> – R has actually stored enough information inside it that I should just be able to get it to run all the pairwise tests using <code>my.anova</code> as an input. To that end, I’ve included a <code>posthocPairwiseT()</code> function in the <code>lsr</code> package that lets you do this. The idea behind this function is that you can just input the <code>aov</code> object itself,<a href="#fn156" class="footnote-ref" id="fnref156"><sup>156</sup></a> and then get the pairwise tests as an output. As of the current writing, <code>posthocPairwiseT()</code> is actually just a simple way of calling <code>pairwise.t.test()</code> function, but you should be aware that I intend to make some changes to it later on. Here’s an example:</p>
+<div class="sourceCode" id="cb909"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb909-1"><a href="multiple-comparisons-1.html#cb909-1" aria-hidden="true" tabindex="-1"></a><span class="fu">posthocPairwiseT</span>( <span class="at">x =</span> my.anova, <span class="at">p.adjust.method =</span> <span class="st">&quot;none&quot;</span> )</span></code></pre></div>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  mood.gain and drug 
+## 
+##          placebo anxifree
+## anxifree 0.15021 -       
+## joyzepam 3e-05   0.00056 
+## 
+## P value adjustment method: none</code></pre>
+<p>In later versions, I plan to add more functionality (e.g., adjusted confidence intervals), but for now I think it’s at least kind of useful. To see why, let’s suppose you’ve run your ANOVA and stored the results in <code>my.anova</code>, and you’re happy using the Holm correction (the default method in <code>pairwise.t.test()</code>, which I’ll explain this in a moment). In that case, all you have to do is type this:</p>
+<div class="sourceCode" id="cb911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb911-1"><a href="multiple-comparisons-1.html#cb911-1" aria-hidden="true" tabindex="-1"></a><span class="fu">posthocPairwiseT</span>( my.anova )</span></code></pre></div>
+<p>and R will output the test results. Much more convenient, I think.</p>
+</div>
+<div id="corrections-for-multiple-testing" class="section level3" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> Corrections for multiple testing</h3>
+<p>In the previous section I hinted that there’s a problem with just running lots and lots of <span class="math inline">\(t\)</span>-tests. The concern is that when running these analyses, what we’re doing is going on a “fishing expedition”: we’re running lots and lots of tests without much theoretical guidance, in the hope that some of them come up significant. This kind of theory-free search for group differences is referred to as <strong><em>post hoc analysis</em></strong> (“post hoc” being Latin for “after this”).<a href="#fn157" class="footnote-ref" id="fnref157"><sup>157</sup></a></p>
+<p>It’s okay to run post hoc analyses, but a lot of care is required. For instance, the analysis that I ran in the previous section is actually pretty dangerous: each <em>individual</em> <span class="math inline">\(t\)</span>-test is designed to have a 5% Type I error rate (i.e., <span class="math inline">\(\alpha = .05\)</span>), and I ran three of these tests. Imagine what would have happened if my ANOVA involved 10 different groups, and I had decided to run 45 “post hoc” <span class="math inline">\(t\)</span>-tests to try to find out which ones were significantly different from each other, you’d expect 2 or 3 of them to come up significant <em>by chance alone</em>. As we saw in Chapter <a href="hypothesistesting.html#hypothesistesting">5</a>, the central organising principle behind null hypothesis testing is that we seek to control our Type I error rate, but now that I’m running lots of <span class="math inline">\(t\)</span>-tests at once, in order to determine the source of my ANOVA results, my actual Type I error rate across this whole <em>family</em> of tests has gotten completely out of control.</p>
+<p>The usual solution to this problem is to introduce an adjustment to the <span class="math inline">\(p\)</span>-value, which aims to control the total error rate across the family of tests <span class="citation">(see <a href="#ref-Shaffer1995" role="doc-biblioref">Shaffer 1995</a>)</span>. An adjustment of this form, which is usually (but not always) applied because one is doing post hoc analysis, is often referred to as a <strong><em>correction for multiple comparisons</em></strong>, though it is sometimes referred to as “simultaneous inference.” In any case, there are quite a few different ways of doing this adjustment. I’ll discuss a few of them in this section and in Section <a href="#posthoc2"><strong>??</strong></a>, but you should be aware that there are many other methods out there <span class="citation">(see, e.g., <a href="#ref-Hsu1996" role="doc-biblioref">Hsu 1996</a>)</span>.</p>
+</div>
+<div id="bonferroni-corrections" class="section level3" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> Bonferroni corrections</h3>
+<p>The simplest of these adjustments is called the <strong><em>Bonferroni correction</em></strong> <span class="citation">(<a href="#ref-Dunn1961" role="doc-biblioref">Dunn 1961</a>)</span>, and it’s very very simple indeed. Suppose that my post hoc analysis consists of <span class="math inline">\(m\)</span> separate tests, and I want to ensure that the total probability of making <em>any</em> Type I errors at all is at most <span class="math inline">\(\alpha\)</span>.<a href="#fn158" class="footnote-ref" id="fnref158"><sup>158</sup></a> If so, then the Bonferroni correction just says “multiply all your raw <span class="math inline">\(p\)</span>-values by <span class="math inline">\(m\)</span>.” If we let <span class="math inline">\(p\)</span> denote the original <span class="math inline">\(p\)</span>-value, and let <span class="math inline">\(p^\prime_j\)</span> be the corrected value, then the Bonferroni correction tells that:
+<span class="math display">\[
+p^\prime = m \times p
+\]</span>
+And therefore, if you’re using the Bonferroni correction, you would reject the null hypothesis if <span class="math inline">\(p^\prime &lt; \alpha\)</span>. The logic behind this correction is very straightforward. We’re doing <span class="math inline">\(m\)</span> different tests; so if we arrange it so that each test has a Type I error rate of at most <span class="math inline">\(\alpha / m\)</span>, then the <em>total</em> Type I error rate across these tests cannot be larger than <span class="math inline">\(\alpha\)</span>. That’s pretty simple, so much so that in the original paper, the author writes:</p>
+<blockquote>
+<p>The method given here is so simple and so general that I am sure it must have been used before this. I do not find it, however, so can only conclude that perhaps its very simplicity has kept statisticians from realizing that it is a very good method in some situations <span class="citation">(pp 52-53 <a href="#ref-Dunn1961" role="doc-biblioref">Dunn 1961</a>)</span></p>
+</blockquote>
+<p>To use the Bonferroni correction in R, you can use the <code>pairwise.t.test()</code> function,<a href="#fn159" class="footnote-ref" id="fnref159"><sup>159</sup></a> making sure that you set <code>p.adjust.method = "bonferroni"</code>. Alternatively, since the whole reason why we’re doing these pairwise tests in the first place is because we have an ANOVA that we’re trying to understand, it’s probably more convenient to use the <code>posthocPairwiseT()</code> function in the <code>lsr</code> package, since we can use <code>my.anova</code> as the input:</p>
+<div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb912-1"><a href="multiple-comparisons-1.html#cb912-1" aria-hidden="true" tabindex="-1"></a><span class="fu">posthocPairwiseT</span>( my.anova, <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  mood.gain and drug 
+## 
+##          placebo anxifree
+## anxifree 0.4506  -       
+## joyzepam 9.1e-05 0.0017  
+## 
+## P value adjustment method: bonferroni</code></pre>
+<p>If we compare these three <span class="math inline">\(p\)</span>-values to those that we saw in the previous section when we made no adjustment at all, it is clear that the only thing that R has done is multiply them by 3.</p>
+</div>
+<div id="holm-corrections" class="section level3" number="11.1.4">
+<h3><span class="header-section-number">11.1.4</span> Holm corrections</h3>
+<p>Although the Bonferroni correction is the simplest adjustment out there, it’s not usually the best one to use. One method that is often used instead is the <strong><em>Holm correction</em></strong> <span class="citation">(<a href="#ref-Holm1979" role="doc-biblioref">Holm 1979</a>)</span>. The idea behind the Holm correction is to pretend that you’re doing the tests sequentially; starting with the smallest (raw) <span class="math inline">\(p\)</span>-value and moving onto the largest one. For the <span class="math inline">\(j\)</span>-th largest of the <span class="math inline">\(p\)</span>-values, the adjustment is <em>either</em>
+<span class="math display">\[
+p^\prime_j = j \times p_j 
+\]</span>
+(i.e., the biggest <span class="math inline">\(p\)</span>-value remains unchanged, the second biggest <span class="math inline">\(p\)</span>-value is doubled, the third biggest <span class="math inline">\(p\)</span>-value is tripled, and so on), <em>or</em>
+<span class="math display">\[
+p^\prime_j = p^\prime_{j+1}
+\]</span>
+whichever one is <em>larger</em>. This might sound a little confusing, so let’s go through it a little more slowly. Here’s what the Holm correction does. First, you sort all of your <span class="math inline">\(p\)</span>-values in order, from smallest to largest. For the smallest <span class="math inline">\(p\)</span>-value all you do is multiply it by <span class="math inline">\(m\)</span>, and you’re done. However, for all the other ones it’s a two-stage process. For instance, when you move to the second smallest <span class="math inline">\(p\)</span> value, you first multiply it by <span class="math inline">\(m-1\)</span>. If this produces a number that is bigger than the adjusted <span class="math inline">\(p\)</span>-value that you got last time, then you keep it. But if it’s smaller than the last one, then you copy the last <span class="math inline">\(p\)</span>-value. To illustrate how this works, consider the table below, which shows the calculations of a Holm correction for a collection of five <span class="math inline">\(p\)</span>-values:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">raw <span class="math inline">\(p\)</span></th>
+<th align="left">rank <span class="math inline">\(j\)</span></th>
+<th align="left"><span class="math inline">\(p \times j\)</span></th>
+<th align="left">Holm <span class="math inline">\(p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">.001</td>
+<td align="left">5</td>
+<td align="left">.005</td>
+<td align="left">.005</td>
+</tr>
+<tr class="even">
+<td align="left">.005</td>
+<td align="left">4</td>
+<td align="left">.020</td>
+<td align="left">.020</td>
+</tr>
+<tr class="odd">
+<td align="left">.019</td>
+<td align="left">3</td>
+<td align="left">.057</td>
+<td align="left">.057</td>
+</tr>
+<tr class="even">
+<td align="left">.022</td>
+<td align="left">2</td>
+<td align="left">.044</td>
+<td align="left">.057</td>
+</tr>
+<tr class="odd">
+<td align="left">.103</td>
+<td align="left">1</td>
+<td align="left">.103</td>
+<td align="left">.103</td>
+</tr>
+</tbody>
+</table>
+<p>Hopefully that makes things clear.</p>
+<p>Although it’s a little harder to calculate, the Holm correction has some very nice properties: it’s more powerful than Bonferroni (i.e., it has a lower Type II error rate), but – counterintuitive as it might seem – it has the <em>same</em> Type I error rate. As a consequence, in practice there’s never any reason to use the simpler Bonferroni correction, since it is always outperformed by the slightly more elaborate Holm correction. Because of this, the Holm correction is the default one used by <code>pairwise.t.test()</code> and <code>posthocPairwiseT()</code>. To run the Holm correction in R, you could specify <code>p.adjust.method = "Holm"</code> if you wanted to, but since it’s the default you can just to do this:</p>
+<div class="sourceCode" id="cb914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb914-1"><a href="multiple-comparisons-1.html#cb914-1" aria-hidden="true" tabindex="-1"></a><span class="fu">posthocPairwiseT</span>( my.anova )</span></code></pre></div>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  mood.gain and drug 
+## 
+##          placebo anxifree
+## anxifree 0.1502  -       
+## joyzepam 9.1e-05 0.0011  
+## 
+## P value adjustment method: holm</code></pre>
+<p>As you can see, the biggest <span class="math inline">\(p\)</span>-value (corresponding to the comparison between Anxifree and the placebo) is unaltered: at a value of <span class="math inline">\(.15\)</span>, it is exactly the same as the value we got originally when we applied no correction at all. In contrast, the smallest <span class="math inline">\(p\)</span>-value (Joyzepam versus placebo) has been multiplied by three.</p>
+</div>
+<div id="writing-up-the-post-hoc-test" class="section level3" number="11.1.5">
+<h3><span class="header-section-number">11.1.5</span> Writing up the post hoc test</h3>
+<p>Finally, having run the post hoc analysis to determine which groups are significantly different to one another, you might write up the result like this:</p>
+<blockquote>
+<p>Post hoc tests (using the Holm correction to adjust <span class="math inline">\(p\)</span>) indicated that Joyzepam produced a significantly larger mood change than both Anxifree (<span class="math inline">\(p = .001\)</span>) and the placebo (<span class="math inline">\(p = 9.1 \times 10^{-5}\)</span>). We found no evidence that Anxifree performed better than the placebo (<span class="math inline">\(p = .15\)</span>).</p>
+</blockquote>
+<p>Or, if you don’t like the idea of reporting exact <span class="math inline">\(p\)</span>-values, then you’d change those numbers to <span class="math inline">\(p&lt;.01\)</span>, <span class="math inline">\(p&lt;.001\)</span> and <span class="math inline">\(p &gt; .05\)</span> respectively. Either way, the key thing is that you indicate that you used Holm’s correction to adjust the <span class="math inline">\(p\)</span>-values. And of course, I’m assuming that elsewhere in the write up you’ve included the relevant descriptive statistics (i.e., the group means and standard deviations), since these <span class="math inline">\(p\)</span>-values on their own aren’t terribly informative.</p>
+</div>
+</div>
+<div id="anovaassumptions" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Assumptions of one-way ANOVA</h2>
+<p>Like any statistical test, analysis of variance relies on some assumptions about the data. There are three key assumptions that you need to be aware of: <em>normality</em>, <em>homogeneity of variance</em> and <em>independence</em>. If you remember back to Section <a href="anova.html#anovamodel">10.3.4</a> – which I hope you at least skimmed even if you didn’t read the whole thing – I described the statistical models underpinning ANOVA, which I wrote down like this:
+<span class="math display">\[
+\begin{array}{lrcl}
+H_0: &amp; Y_{ik} &amp;=&amp; \mu + \epsilon_{ik} \\
+H_1: &amp; Y_{ik} &amp;=&amp; \mu_k + \epsilon_{ik} 
+\end{array}
+\]</span>
+In these equations <span class="math inline">\(\mu\)</span> refers to a single, grand population mean which is the same for all groups, and <span class="math inline">\(\mu_k\)</span> is the population mean for the <span class="math inline">\(k\)</span>-th group. Up to this point we’ve been mostly interested in whether our data are best described in terms of a single grand mean (the null hypothesis) or in terms of different group-specific means (the alternative hypothesis). This makes sense, of course: that’s actually the important research question! However, all of our testing procedures have – implicitly – relied on a specific assumption about the residuals, <span class="math inline">\(\epsilon_{ik}\)</span>, namely that
+<span class="math display">\[
+\epsilon_{ik} \sim \mbox{Normal}(0, \sigma^2)
+\]</span>
+None of the maths works properly without this bit. Or, to be precise, you can still do all the calculations, and you’ll end up with an <span class="math inline">\(F\)</span>-statistic, but you have no guarantee that this <span class="math inline">\(F\)</span>-statistic actually measures what you think it’s measuring, and so any conclusions that you might draw on the basis of the <span class="math inline">\(F\)</span> test might be wrong.</p>
+<p>So, how do we check whether this assumption about the residuals is accurate? Well, as I indicated above, there are three distinct claims buried in this one statement, and we’ll consider them separately.</p>
+<ul>
+<li><strong><em>Normality</em></strong>. The residuals are assumed to be normally distributed. As we saw in Section <a href="ttest.html#shapiro">9.11</a>, we can assess this by looking at QQ plots or running a Shapiro-Wilk test. I’ll talk about this in an ANOVA context in Section <a href="multiple-comparisons-1.html#anovanormality">11.5</a>.</li>
+<li><strong><em>Homogeneity of variance</em></strong>. Notice that we’ve only got the one value for the population standard deviation (i.e., <span class="math inline">\(\sigma\)</span>), rather than allowing each group to have it’s own value (i.e., <span class="math inline">\(\sigma_k\)</span>). This is referred to as the homogeneity of variance (sometimes called homoscedasticity) assumption. ANOVA assumes that the population standard deviation is the same for all groups. We’ll talk about this extensively in Section <a href="multiple-comparisons-1.html#levene">11.3</a>.</li>
+<li><strong><em>Independence</em></strong>. The independence assumption is a little trickier. What it basically means is that, knowing one residual tells you nothing about any other residual. All of the <span class="math inline">\(\epsilon_{ik}\)</span> values are assumed to have been generated without any “regard for” or “relationship to” any of the other ones. There’s not an obvious or simple way to test for this, but there are some situations that are clear violations of this: for instance, if you have a repeated-measures design, where each participant in your study appears in more than one condition, then independence doesn’t hold; there’s a special relationship between some observations… namely those that correspond to the same person! When that happens, you need to use something like repeated measures ANOVA. I don’t currently talk about repeated measures ANOVA in this book, but it will be included in later versions.</li>
+</ul>
+<div id="how-robust-is-anova" class="section level3" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> How robust is ANOVA?</h3>
+<p>One question that people often want to know the answer to is the extent to which you can trust the results of an ANOVA if the assumptions are violated. Or, to use the technical language, how <strong><em>robust</em></strong> is ANOVA to violations of the assumptions. Due to deadline constraints I don’t have the time to discuss this topic. This is a topic I’ll cover in some detail in a later version of the book.</p>
+</div>
+</div>
+<div id="levene" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Checking the homogeneity of variance assumption</h2>
+<p>There’s more than one way to skin a cat, as the saying goes, and more than one way to test the homogeneity of variance assumption, too (though for some reason no-one made a saying out of that). The most commonly used test for this that I’ve seen in the literature is the <strong><em>Levene test</em></strong> <span class="citation">(<a href="#ref-Levene1960" role="doc-biblioref">Levene 1960</a>)</span>, and the closely related <strong><em>Brown-Forsythe test</em></strong> <span class="citation">(<a href="#ref-BrownForsythe1974" role="doc-biblioref">Brown and Forsythe 1974</a>)</span>, both of which I’ll describe here. Alternatively, you could use the Bartlett test, which is implemented in R via the <code>bartlett.test()</code> function, but I’ll leave it as an exercise for the reader to go check that one out if you’re interested.</p>
+<p>Levene’s test is shockingly simple. Suppose we have our outcome variable <span class="math inline">\(Y_{ik}\)</span>. All we do is define a new variable, which I’ll call <span class="math inline">\(Z_{ik}\)</span>, corresponding to the absolute deviation from the group mean:
+<span class="math display">\[
+Z_{ik} = \left| Y_{ik} - \bar{Y}_k \right|
+\]</span>
+Okay, what good does this do us? Well, let’s take a moment to think about what <span class="math inline">\(Z_{ik}\)</span> actually is, and what we’re trying to test. The value of <span class="math inline">\(Z_{ik}\)</span> is a measure of how the <span class="math inline">\(i\)</span>-th observation in the <span class="math inline">\(k\)</span>-th group deviates from its group mean. And our null hypothesis is that all groups have the same variance; that is, the same overall deviations from the group means! So, the null hypothesis in a Levene’s test is that the population means of <span class="math inline">\(Z\)</span> are identical for all groups. Hm. So what we need now is a statistical test of the null hypothesis that all group means are identical. Where have we seen that before? Oh right, that’s what ANOVA is… and so all that the Levene’s test does is run an ANOVA on the new variable <span class="math inline">\(Z_{ik}\)</span>.</p>
+<p>What about the Brown-Forsythe test? Does that do anything particularly different? Nope. The only change from the Levene’s test is that it constructs the transformed variable <span class="math inline">\(Z\)</span> in a slightly different way, using deviations from the group <em>medians</em> rather than deviations from the group <em>means</em>. That is, for the Brown-Forsythe test,
+<span class="math display">\[
+Z_{ik} = \left| Y_{ik} - \mbox{median}_k(Y) \right|
+\]</span>
+where <span class="math inline">\(\mbox{median}_k(Y)\)</span> is the median for group <span class="math inline">\(k\)</span>. Regardless of whether you’re doing the standard Levene test or the Brown-Forsythe test, the test statistic – which is sometimes denoted <span class="math inline">\(F\)</span>, but sometimes written as <span class="math inline">\(W\)</span> – is calculated in exactly the same way that the <span class="math inline">\(F\)</span>-statistic for the regular ANOVA is calculated, just using a <span class="math inline">\(Z_{ik}\)</span> rather than <span class="math inline">\(Y_{ik}\)</span>. With that in mind, let’s just move on and look at how to run the test in R.</p>
+<div id="running-the-levenes-test-in-r" class="section level3" number="11.3.1">
+<h3><span class="header-section-number">11.3.1</span> Running the Levene’s test in R</h3>
+<p>Okay, so how do we run the Levene test? Obviously, since the Levene test is just an ANOVA, it would be easy enough to manually create the transformed variable <span class="math inline">\(Z_{ik}\)</span> and then use the <code>aov()</code> function to run an ANOVA on that. However, that’s the tedious way to do it. A better way to do run your Levene’s test is to use the <code>leveneTest()</code> function, which is in the <code>car</code> package. As usual, we first load the package</p>
+<div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb916-1"><a href="multiple-comparisons-1.html#cb916-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>( car )  </span></code></pre></div>
+<p>and now that we have, we can run our Levene test. The main argument that you need to specify is <code>y</code>, but you can do this in lots of different ways. Probably the simplest way to do it is actually input the original <code>aov</code> object. Since I’ve got the <code>my.anova</code> variable stored from my original ANOVA, I can just do this:</p>
+<div class="sourceCode" id="cb917"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb917-1"><a href="multiple-comparisons-1.html#cb917-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>( my.anova )</span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(&gt;F)
+## group  2  1.4672 0.2618
+##       15</code></pre>
+<p>If we look at the output, we see that the test is non-significant <span class="math inline">\((F_{2,15} = 1.47, p = .26)\)</span>, so it looks like the homogeneity of variance assumption is fine. Remember, although R reports the test statistic as an <span class="math inline">\(F\)</span>-value, it could equally be called <span class="math inline">\(W\)</span>, in which case you’d just write <span class="math inline">\(W_{2,15} = 1.47\)</span>. Also, note the part of the output that says <code>center = median</code>. That’s telling you that, by default, the <code>leveneTest()</code> function actually does the Brown-Forsythe test. If you want to use the mean instead, then you need to explicitly set the <code>center</code> argument, like this:</p>
+<div class="sourceCode" id="cb919"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb919-1"><a href="multiple-comparisons-1.html#cb919-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>( <span class="at">y =</span> my.anova, <span class="at">center =</span> mean )</span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = mean)
+##       Df F value Pr(&gt;F)
+## group  2  1.4497 0.2657
+##       15</code></pre>
+<p>That being said, in most cases it’s probably best to stick to the default value, since the Brown-Forsythe test is a bit more robust than the original Levene test.</p>
+</div>
+<div id="additional-comments" class="section level3" number="11.3.2">
+<h3><span class="header-section-number">11.3.2</span> Additional comments</h3>
+<p>Two more quick comments before I move onto a different topic. Firstly, as mentioned above, there are other ways of calling the <code>leveneTest()</code> function. Although the vast majority of situations that call for a Levene test involve checking the assumptions of an ANOVA (in which case you probably have a variable like <code>my.anova</code> lying around), sometimes you might find yourself wanting to specify the variables directly. Two different ways that you can do this are shown below:</p>
+<div class="sourceCode" id="cb921"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb921-1"><a href="multiple-comparisons-1.html#cb921-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(<span class="at">y =</span> mood.gain <span class="sc">~</span> drug, <span class="at">data =</span> clin.trial)   <span class="co"># y is a formula in this case</span></span>
+<span id="cb921-2"><a href="multiple-comparisons-1.html#cb921-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(<span class="at">y =</span> clin.trial<span class="sc">$</span>mood.gain, <span class="at">group =</span> clin.trial<span class="sc">$</span>drug)   <span class="co"># y is the outcome  </span></span></code></pre></div>
+<p>Secondly, I did mention that it’s possible to run a Levene test just using the <code>aov()</code> function. I don’t want to waste a lot of space on this, but just in case some readers are interested in seeing how this is done, here’s the code that creates the new variables and runs an ANOVA. If you are interested, feel free to run this to verify that it produces the same answers as the Levene test (i.e., with <code>center = mean</code>):</p>
+<div class="sourceCode" id="cb922"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb922-1"><a href="multiple-comparisons-1.html#cb922-1" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> clin.trial <span class="sc">$</span> mood.gain    <span class="co"># the original outcome variable, Y</span></span>
+<span id="cb922-2"><a href="multiple-comparisons-1.html#cb922-2" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> clin.trial <span class="sc">$</span> drug         <span class="co"># the grouping variable, G</span></span>
+<span id="cb922-3"><a href="multiple-comparisons-1.html#cb922-3" aria-hidden="true" tabindex="-1"></a>gp.mean <span class="ot">&lt;-</span> <span class="fu">tapply</span>(Y, G, mean)  <span class="co"># calculate group means</span></span>
+<span id="cb922-4"><a href="multiple-comparisons-1.html#cb922-4" aria-hidden="true" tabindex="-1"></a>Ybar <span class="ot">&lt;-</span> gp.mean[G]             <span class="co"># group mean associated with each obs</span></span>
+<span id="cb922-5"><a href="multiple-comparisons-1.html#cb922-5" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">abs</span>(Y <span class="sc">-</span> Ybar)             <span class="co"># the transformed variable, Z</span></span>
+<span id="cb922-6"><a href="multiple-comparisons-1.html#cb922-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>( <span class="fu">aov</span>(Z <span class="sc">~</span> G) )          <span class="co"># run the ANOVA </span></span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
+## G            2 0.0616 0.03080    1.45  0.266
+## Residuals   15 0.3187 0.02125</code></pre>
+<p>That said, I don’t imagine that many people will care about this. Nevertheless, it’s nice to know that you could do it this way if you wanted to. And for those of you who do try it, I think it helps to demystify the test a little bit when you can see – with your own eyes – the way in which Levene’s test relates to ANOVA.</p>
+</div>
+</div>
+<div id="welchoneway" class="section level2" number="11.4">
+<h2><span class="header-section-number">11.4</span> Removing the homogeneity of variance assumption</h2>
+<p>In our example, the homogeneity of variance assumption turned out to be a pretty safe one: the Levene test came back non-significant, so we probably don’t need to worry. However, in real life we aren’t always that lucky. How do we save our ANOVA when the homogeneity of variance assumption is violated? If you recall from our discussion of <span class="math inline">\(t\)</span>-tests, we’ve seen this problem before. The Student <span class="math inline">\(t\)</span>-test assumes equal variances, so the solution was to use the Welch <span class="math inline">\(t\)</span>-test, which does not. In fact, <span class="citation"><a href="#ref-Welch1951" role="doc-biblioref">Welch</a> (<a href="#ref-Welch1951" role="doc-biblioref">1951</a>)</span> also showed how we can solve this problem for ANOVA too (the <strong><em>Welch one-way test</em></strong>). It’s implemented in R using the <code>oneway.test()</code> function. The arguments that we’ll need for our example are:</p>
+<ul>
+<li><code>formula</code>. This is the model formula, which (as usual) needs to specify the outcome variable on the left hand side and the grouping variable on the right hand side: i.e., something like <code>outcome ~ group</code>.</li>
+<li><code>data</code>. Specifies the data frame containing the variables.</li>
+<li><code>var.equal</code>. If this is <code>FALSE</code> (the default) a Welch one-way test is run. If it is <code>TRUE</code> then it just runs a regular ANOVA.</li>
+</ul>
+<p>The function also has a <code>subset</code> argument that lets you analyse only some of the observations and a <code>na.action</code> argument that tells it how to handle missing data, but these aren’t necessary for our purposes. So, to run the Welch one-way ANOVA for our example, we would do this:</p>
+<div class="sourceCode" id="cb924"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb924-1"><a href="multiple-comparisons-1.html#cb924-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(mood.gain <span class="sc">~</span> drug, <span class="at">data =</span> clin.trial)</span></code></pre></div>
+<pre><code>## 
+##  One-way analysis of means (not assuming equal variances)
+## 
+## data:  mood.gain and drug
+## F = 26.322, num df = 2.0000, denom df = 9.4932, p-value = 0.000134</code></pre>
+<p>To understand what’s happening here, let’s compare these numbers to what we got earlier in Section <a href="anova.html#introduceaov">10.4</a> when we ran our original ANOVA. To save you the trouble of flicking back, here are those numbers again, this time calculated by setting <code>var.equal = TRUE</code> for the <code>oneway.test()</code> function:</p>
+<div class="sourceCode" id="cb926"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb926-1"><a href="multiple-comparisons-1.html#cb926-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(mood.gain <span class="sc">~</span> drug, <span class="at">data =</span> clin.trial, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  One-way analysis of means
+## 
+## data:  mood.gain and drug
+## F = 18.611, num df = 2, denom df = 15, p-value = 8.646e-05</code></pre>
+<p>Okay, so originally our ANOVA gave us the result <span class="math inline">\(F(2,15) = 18.6\)</span>, whereas the Welch one-way test gave us <span class="math inline">\(F(2,9.49) = 26.32\)</span>. In other words, the Welch test has reduced the within-groups degrees of freedom from 15 to 9.49, and the <span class="math inline">\(F\)</span>-value has increased from 18.6 to 26.32.</p>
+</div>
+<div id="anovanormality" class="section level2" number="11.5">
+<h2><span class="header-section-number">11.5</span> Checking the normality assumption</h2>
+<p>Testing the normality assumption is relatively straightforward. We covered most of what you need to know in Section <a href="ttest.html#shapiro">9.11</a>. The only thing we really need to know how to do is pull out the residuals (i.e., the <span class="math inline">\(\epsilon_{ik}\)</span> values) so that we can draw our QQ plot and run our Shapiro-Wilk test. First, let’s extract the residuals. R provides a function called <code>residuals()</code> that will do this for us. If we pass our <code>my.anova</code> to this function, it will return the residuals. So let’s do that:</p>
+<div class="sourceCode" id="cb928"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb928-1"><a href="multiple-comparisons-1.html#cb928-1" aria-hidden="true" tabindex="-1"></a>my.anova.residuals <span class="ot">&lt;-</span> <span class="fu">residuals</span>( <span class="at">object =</span> my.anova )   <span class="co"># extract the residuals</span></span></code></pre></div>
+<p>We can print them out too, though it’s not exactly an edifying experience. In fact, given that I’m on the verge of putting <em>myself</em> to sleep just typing this, it might be a good idea to skip that step. Instead, let’s draw some pictures and run ourselves a hypothesis test:</p>
+<div class="sourceCode" id="cb929"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb929-1"><a href="multiple-comparisons-1.html#cb929-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>( <span class="at">x =</span> my.anova.residuals )           <span class="co"># plot a histogram (similar to Figure @ref{fig:normalityanova}a)</span></span></code></pre></div>
+<p><img src="schuster-statistics-remix_files/figure-html/unnamed-chunk-451-1.png" width="672" /></p>
+<div class="sourceCode" id="cb930"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb930-1"><a href="multiple-comparisons-1.html#cb930-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>( <span class="at">y =</span> my.anova.residuals )         <span class="co"># draw a QQ plot (similar to Figure @ref{fig:normalityanova}b)</span></span></code></pre></div>
+<p><img src="schuster-statistics-remix_files/figure-html/unnamed-chunk-451-2.png" width="672" /></p>
+<div class="sourceCode" id="cb931"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb931-1"><a href="multiple-comparisons-1.html#cb931-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>( <span class="at">x =</span> my.anova.residuals )   <span class="co"># run Shapiro-Wilk test</span></span></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  my.anova.residuals
+## W = 0.96019, p-value = 0.6053</code></pre>
+<p>The histogram and QQ plot are both look pretty normal to me.<a href="#fn160" class="footnote-ref" id="fnref160"><sup>160</sup></a> This is supported by the results of our Shapiro-Wilk test (<span class="math inline">\(W = .96\)</span>, <span class="math inline">\(p = .61\)</span>) which finds no indication that normality is violated.</p>
+</div>
+<div id="kruskalwallis" class="section level2" number="11.6">
+<h2><span class="header-section-number">11.6</span> Removing the normality assumption</h2>
+<p>Now that we’ve seen how to check for normality, we are led naturally to ask what we can do to address violations of normality. In the context of a one-way ANOVA, the easiest solution is probably to switch to a non-parametric test (i.e., one that doesn’t rely on any particular assumption about the kind of distribution involved). We’ve seen non-parametric tests before, in Chapter <a href="ttest.html#ttest">9</a>: when you only have two groups, the Wilcoxon test provides the non-parametric alternative that you need. When you’ve got three or more groups, you can use the <strong><em>Kruskal-Wallis rank sum test</em></strong> <span class="citation">(<a href="#ref-KruskalWallis1952" role="doc-biblioref">Kruskal and Wallis 1952</a>)</span>. So that’s the test we’ll talk about next.</p>
+<div id="the-logic-behind-the-kruskal-wallis-test" class="section level3" number="11.6.1">
+<h3><span class="header-section-number">11.6.1</span> The logic behind the Kruskal-Wallis test</h3>
+<p>The Kruskal-Wallis test is surprisingly similar to ANOVA, in some ways. In ANOVA, we started with <span class="math inline">\(Y_{ik}\)</span>, the value of the outcome variable for the <span class="math inline">\(i\)</span>th person in the <span class="math inline">\(k\)</span>th group. For the Kruskal-Wallis test, what we’ll do is rank order all of these <span class="math inline">\(Y_{ik}\)</span> values, and conduct our analysis on the ranked data. So let’s let <span class="math inline">\(R_{ik}\)</span> refer to the ranking given to the <span class="math inline">\(i\)</span>th member of the <span class="math inline">\(k\)</span>th group. Now, let’s calculate <span class="math inline">\(\bar{R}_k\)</span>, the average rank given to observations in the <span class="math inline">\(k\)</span>th group:
+<span class="math display">\[
+\bar{R}_k = \frac{1}{N_K} \sum_{i} R_{ik}
+\]</span>
+and let’s also calculate <span class="math inline">\(\bar{R}\)</span>, the grand mean rank:
+<span class="math display">\[
+\bar{R} = \frac{1}{N} \sum_{i} \sum_{k} R_{ik}
+\]</span>
+Now that we’ve done this, we can calculate the squared deviations from the grand mean rank <span class="math inline">\(\bar{R}\)</span>. When we do this for the individual scores – i.e., if we calculate <span class="math inline">\((R_{ik} - \bar{R})^2\)</span> – what we have is a “nonparametric” measure of how far the <span class="math inline">\(ik\)</span>-th observation deviates from the grand mean rank. When we calculate the squared deviation of the group means from the grand means – i.e., if we calculate <span class="math inline">\((\bar{R}_k - \bar{R} )^2\)</span> – then what we have is a nonparametric measure of how much the <em>group</em> deviates from the grand mean rank. With this in mind, let’s follow the same logic that we did with ANOVA, and define our <em>ranked</em> sums of squares measures in much the same way that we did earlier. First, we have our “total ranked sums of squares”:
+<span class="math display">\[
+\mbox{RSS}_{tot} = \sum_k \sum_i ( R_{ik} - \bar{R} )^2
+\]</span>
+and we can define the “between groups ranked sums of squares” like this:
+<span class="math display">\[
+\begin{array}{rcl}
+\mbox{RSS}_{b} &amp;=&amp; \sum_k \sum_i ( \bar{R}_k  - \bar{R} )^2 \\
+&amp;=&amp; \sum_k N_k ( \bar{R}_k  - \bar{R} )^2 
+\end{array}
+\]</span>
+So, if the null hypothesis is true and there are no true group differences at all, you’d expect the between group rank sums <span class="math inline">\(\mbox{RSS}_{b}\)</span> to be very small, much smaller than the total rank sums <span class="math inline">\(\mbox{RSS}_{tot}\)</span>. Qualitatively this is very much the same as what we found when we went about constructing the ANOVA <span class="math inline">\(F\)</span>-statistic; but for technical reasons the Kruskal-Wallis test statistic, usually denoted <span class="math inline">\(K\)</span>, is constructed in a slightly different way:
+<span class="math display">\[
+K = (N - 1) \times \frac{\mbox{RSS}_b}{\mbox{RSS}_{tot}}
+\]</span>
+and, if the null hypothesis is true, then the sampling distribution of <span class="math inline">\(K\)</span> is <em>approximately</em> chi-square with <span class="math inline">\(G-1\)</span> degrees of freedom (where <span class="math inline">\(G\)</span> is the number of groups). The larger the value of <span class="math inline">\(K\)</span>, the less consistent the data are with null hypothesis, so this is a one-sided test: we reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(K\)</span> is sufficiently large.</p>
+</div>
+<div id="additional-details" class="section level3" number="11.6.2">
+<h3><span class="header-section-number">11.6.2</span> Additional details</h3>
+<p>The description in the previous section illustrates the logic behind the Kruskal-Wallis test. At a conceptual level, this is the right way to think about how the test works. However, from a purely mathematical perspective it’s needlessly complicated. I won’t show you the derivation, but you can use a bit of algebraic jiggery-pokery<a href="#fn161" class="footnote-ref" id="fnref161"><sup>161</sup></a> to show that the equation for <span class="math inline">\(K\)</span> can be rewritten as
+<span class="math display">\[
+K = \frac{12}{N(N-1)} \sum_k N_k {\bar{R}_k}^2    -  3(N+1)
+\]</span>
+It’s this last equation that you sometimes see given for <span class="math inline">\(K\)</span>. This is way easier to calculate than the version I described in the previous section, it’s just that it’s totally meaningless to actual humans. It’s probably best to think of <span class="math inline">\(K\)</span> the way I described it earlier… as an analogue of ANOVA based on ranks. But keep in mind that the test statistic that gets calculated ends up with a rather different look to it than the one we used for our original ANOVA.</p>
+<p>But wait, there’s more! Dear lord, why is there always <em>more</em>? The story I’ve told so far is only actually true when there are no ties in the raw data. That is, if there are no two observations that have exactly the same value. If there <em>are</em> ties, then we have to introduce a correction factor to these calculations. At this point I’m assuming that even the most diligent reader has stopped caring (or at least formed the opinion that the tie-correction factor is something that doesn’t require their immediate attention). So I’ll very quickly tell you how it’s calculated, and omit the tedious details about <em>why</em> it’s done this way. Suppose we construct a frequency table for the raw data, and let <span class="math inline">\(f_j\)</span> be the number of observations that have the <span class="math inline">\(j\)</span>-th unique value. This might sound a bit abstract, so here’s the R code showing a concrete example:</p>
+<div class="sourceCode" id="cb933"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb933-1"><a href="multiple-comparisons-1.html#cb933-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">table</span>( clin.trial<span class="sc">$</span>mood.gain )   <span class="co"># frequency table for mood gain</span></span>
+<span id="cb933-2"><a href="multiple-comparisons-1.html#cb933-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(f)   <span class="co"># we have some ties</span></span></code></pre></div>
+<pre><code>## 
+## 0.1 0.2 0.3 0.4 0.5 0.6 0.8 0.9 1.1 1.2 1.3 1.4 1.7 1.8 
+##   1   1   2   1   1   2   1   1   1   1   2   2   1   1</code></pre>
+<p>Looking at this table, notice that the third entry in the frequency table has a value of <span class="math inline">\(2\)</span>. Since this corresponds to a <code>mood.gain</code> of 0.3, this table is telling us that two people’s mood increased by 0.3. More to the point, note that we can say that <code>f[3]</code> has a value of <code>2</code>. Or, in the mathematical notation I introduced above, this is telling us that <span class="math inline">\(f_3 = 2\)</span>. Yay. So, now that we know this, the tie correction factor (TCF) is:
+<span class="math display">\[
+\mbox{TCF} = 1 - \frac{\sum_j {f_j}^3 - f_j}{N^3 - N} 
+\]</span>
+The tie-corrected value of the Kruskal-Wallis statistic obtained by dividing the value of <span class="math inline">\(K\)</span> by this quantity: it is this tie-corrected version that R calculates. And at long last, we’re actually finished with the theory of the Kruskal-Wallis test. I’m sure you’re all terribly relieved that I’ve cured you of the existential anxiety that naturally arises when you realise that you <em>don’t</em> know how to calculate the tie-correction factor for the Kruskal-Wallis test. Right?</p>
+</div>
+<div id="how-to-run-the-kruskal-wallis-test-in-r" class="section level3" number="11.6.3">
+<h3><span class="header-section-number">11.6.3</span> How to run the Kruskal-Wallis test in R</h3>
+<p>Despite the horror that we’ve gone through in trying to understand what the Kruskal-Wallis test actually does, it turns out that running the test is pretty painless, since R has a function called <code>kruskal.test()</code>. The function is pretty flexible, and allows you to input your data in a few different ways. Most of the time you’ll have data like the <code>clin.trial</code> data set, in which you have your outcome variable <code>mood.gain</code>, and a grouping variable <code>drug</code>. If so, you can call the <code>kruskal.test()</code> function by specifying a formula, and a data frame:</p>
+<div class="sourceCode" id="cb935"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb935-1"><a href="multiple-comparisons-1.html#cb935-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(mood.gain <span class="sc">~</span> drug, <span class="at">data =</span> clin.trial)</span></code></pre></div>
+<pre><code>## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  mood.gain by drug
+## Kruskal-Wallis chi-squared = 12.076, df = 2, p-value = 0.002386</code></pre>
+<p>A second way of using the <code>kruskal.test()</code> function, which you probably won’t have much reason to use, is to directly specify the outcome variable and the grouping variable as separate input arguments, <code>x</code> and <code>g</code>:</p>
+<div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb937-1"><a href="multiple-comparisons-1.html#cb937-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(<span class="at">x =</span> clin.trial<span class="sc">$</span>mood.gain, <span class="at">g =</span> clin.trial<span class="sc">$</span>drug)</span></code></pre></div>
+<pre><code>## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  clin.trial$mood.gain and clin.trial$drug
+## Kruskal-Wallis chi-squared = 12.076, df = 2, p-value = 0.002386</code></pre>
+<p>This isn’t very interesting, since it’s just plain easier to specify a formula. However, sometimes it can be useful to specify <code>x</code> as a list. What I mean is this. Suppose you actually had data as three separate variables, <code>placebo</code>, <code>anxifree</code> and <code>joyzepam</code>. If that’s the format that your data are in, then it’s convenient to know that you can bundle all three together as a list:</p>
+<div class="sourceCode" id="cb939"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb939-1"><a href="multiple-comparisons-1.html#cb939-1" aria-hidden="true" tabindex="-1"></a>mood.gain <span class="ot">&lt;-</span> <span class="fu">list</span>( placebo, joyzepam, anxifree )</span>
+<span id="cb939-2"><a href="multiple-comparisons-1.html#cb939-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>( <span class="at">x =</span> mood.gain )</span></code></pre></div>
+<p>And again, this would give you exactly the same results as the command we tried originally.</p>
+</div>
+</div>
+<div id="summary-8" class="section level2" number="11.7">
+<h2><span class="header-section-number">11.7</span> Summary</h2>
+<p>In terms of what we have discussed, the key topics were:</p>
+<ul>
+<li>Post hoc analysis and corrections for multiple testing (Section <a href="multiple-comparisons-1.html#posthoc">11.1</a>).</li>
+<li>The assumptions made by ANOVA (Section <a href="multiple-comparisons-1.html#anovaassumptions">11.2</a>).</li>
+<li>How to check the homogeneity of variance assumption (Section <a href="multiple-comparisons-1.html#levene">11.3</a>) and what to do if it is violated (Section <a href="multiple-comparisons-1.html#welchoneway">11.4</a>).</li>
+<li>How to check the normality assumption (Section <a href="multiple-comparisons-1.html#anovanormality">11.5</a> and what to do if it is violated (Section <a href="multiple-comparisons-1.html#kruskalwallis">11.6</a>).</li>
+</ul>
+<p>As with all of the chapters in this book, there are quite a few different sources that I’ve relied upon, but the one stand-out text that I’ve been most heavily influenced by is <span class="citation"><a href="#ref-Sahai2000" role="doc-biblioref">Sahai and Ageel</a> (<a href="#ref-Sahai2000" role="doc-biblioref">2000</a>)</span>. It’s not a good book for beginners, but it’s an excellent book for more advanced readers who are interested in understanding the mathematics behind ANOVA.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-BrownForsythe1974" class="csl-entry">
+Brown, M. B., and A. B. Forsythe. 1974. <span>“Robust Tests for Equality of Variances.”</span> <em>Journal of the American Statistical Association</em> 69: 364–67.
+</div>
+<div id="ref-Dunn1961" class="csl-entry">
+Dunn, O. J. 1961. <span>“Multiple Comparisons Among Means.”</span> <em>Journal of the American Statistical Association</em> 56: 52–64.
+</div>
+<div id="ref-Holm1979" class="csl-entry">
+Holm, S. 1979. <span>“A Simple Sequentially Rejective Multiple Test Procedure.”</span> <em>Scandinavian Journal of Statistics</em> 6: 65–70.
+</div>
+<div id="ref-Hsu1996" class="csl-entry">
+Hsu, J. C. 1996. <em>Multiple Comparisons: Theory and Methods</em>. London, UK: Chapman; Hall.
+</div>
+<div id="ref-KruskalWallis1952" class="csl-entry">
+Kruskal, W. H., and W. A. Wallis. 1952. <span>“Use of Ranks in One-Criterion Variance Analysis.”</span> <em>Journal of the American Statistical Association</em> 47: 583–621.
+</div>
+<div id="ref-Levene1960" class="csl-entry">
+Levene, H. 1960. <span>“Robust Tests for Equality of Variances.”</span> In <em>Contributions to Probability and Statistics: Essays in Honor of Harold Hotelling</em>, edited by I. Olkin et al, 278–92. Palo Alto, CA: Stanford University Press.
+</div>
+<div id="ref-Navarro2018" class="csl-entry">
+Navarro, D. 2018. <em>Learning Statistics with r: A Tutorial for Psychology Students and Other Beginners (Version 0.6)</em>. <a href="https://learningstatisticswithr.com">https://learningstatisticswithr.com</a>.
+</div>
+<div id="ref-Sahai2000" class="csl-entry">
+Sahai, H., and M. I. Ageel. 2000. <em>The Analysis of Variance: Fixed, Random and Mixed Models</em>. Boston: Birkhauser.
+</div>
+<div id="ref-Shaffer1995" class="csl-entry">
+Shaffer, J. P. 1995. <span>“Multiple Hypothesis Testing.”</span> <em>Annual Review of Psychology</em> 46: 561–84.
+</div>
+<div id="ref-Welch1951" class="csl-entry">
+———. 1951. <span>“On the Comparison of Several Mean Values: An Alternative Approach.”</span> <em>Biometrika</em> 38: 330–36.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="156">
+<li id="fn156"><p>I should point out that there are other functions in R for running multiple comparisons, and at least one of them works this way: the <code>TukeyHSD()</code> function takes an <code>aov</code> object as its input, and outputs Tukey’s “honestly significant difference” tests. I talk about Tukey’s HSD in Chapter <a href="#anova2"><strong>??</strong></a>.<a href="multiple-comparisons-1.html#fnref156" class="footnote-back">↩︎</a></p></li>
+<li id="fn157"><p>If you <em>do</em> have some theoretical basis for wanting to investigate some comparisons but not others, it’s a different story. In those circumstances you’re not really running “post hoc” analyses at all: you’re making “planned comparisons.” I do talk about this situation later in the book (Section <a href="#plannedcomparisons"><strong>??</strong></a>), but for now I want to keep things simple.<a href="multiple-comparisons-1.html#fnref157" class="footnote-back">↩︎</a></p></li>
+<li id="fn158"><p>It’s worth noting in passing that not all adjustment methods try to do this. What I’ve described here is an approach for controlling “family wise Type I error rate.” However, there are other post hoc tests seek to control the “false discovery rate,” which is a somewhat different thing.<a href="multiple-comparisons-1.html#fnref158" class="footnote-back">↩︎</a></p></li>
+<li id="fn159"><p>There’s also a function called <code>p.adjust()</code> in which you can input a vector of raw <span class="math inline">\(p\)</span>-values, and it will output a vector of adjusted <span class="math inline">\(p\)</span>-values. This can be handy sometimes. I should also note that more advanced users may wish to consider using some of the tools provided by the <code>multcomp</code> package.<a href="multiple-comparisons-1.html#fnref159" class="footnote-back">↩︎</a></p></li>
+<li id="fn160"><p>Note that neither of these figures has been tidied up at all: if you want to create nicer looking graphs it’s always a good idea to use the tools from Chapter <a href="descriptives.html#graphics">3.9</a> to help you draw cleaner looking images.<a href="multiple-comparisons-1.html#fnref160" class="footnote-back">↩︎</a></p></li>
+<li id="fn161"><p>A technical term.<a href="multiple-comparisons-1.html#fnref161" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="anova.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistics-reference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-anova.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["schuster-statistics-remix.pdf", "schuster-statistics-remix.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

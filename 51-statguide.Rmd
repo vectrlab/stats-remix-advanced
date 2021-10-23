@@ -1,0 +1,316 @@
+## One-Sample _t_-Test
+
+### Definition
+
+The one-sample t-test tests the null hypothesis that a mean is equivalent to the mean of a known population. Unlike the $z$-test, the $t$-test uses the sample deviation as an estimator for the population standard deviation.
+
+### Test Statistic
+
+The test statistic is $t$, which measures the distance between two means. In this case, one mean is from our sample and the other mean is a known constant. 
+
+${t}=\frac{\bar{X}-\mu_0}{\frac{s}{\sqrt{n}}}$
+
+$\sigma_{\bar{X}}=\frac{\sigma}{\sqrt{n}}$ (standard error of the mean)
+
+Confidence interval (results in a lower and upper bound): ${CI}=\bar{X}\pm t_{critical} * \sigma_{\bar{X}}$
+
+Note that the confidence interval is given as a minimum and maximum value.
+
+$df=n-1$
+
+```{r onetnull, fig.cap="The null hypothesis distribution of $t$ with values of df between 2 and 10. Notice how the curve is starting to converge at the higher values of df.", echo=FALSE}
+curve(dt(x, df=10), from=-4, to=4)
+curve(dt(x, df=2), from=-4, to=4, add=TRUE)
+curve(dt(x, df=4), from=-4, to=4, add=TRUE)
+curve(dt(x, df=6), from=-4, to=4, add=TRUE)
+curve(dt(x, df=8), from=-4, to=4, add=TRUE)
+
+```
+
+The $t$ distribution is actually a family of distributions defined by degrees of freedom. **Degrees of freedom** is a concept that can be interpreted multiple ways. For now, it is sufficient to say that it is based on sample size. The value of degrees of freedom grows by 1 with each additional unit increased in the sample. In other words, the specific sampling distribution used in the hypothesis test depends on the sample size (and degrees of freedom).
+
+
+
+### Assumptions & Required Data
+
+- 1 variable measured using a quantitative, continuous scale
+- The variable was measured for a sample that was taken randomly, with replacement, from a population
+- The normality assumption, meaning at least one of these:
+  - $N \ge 30$
+  - The variable is normally distributed in the population
+- The population mean, $\mu$, is known.
+- The population standard deviation, $\sigma$, is estimated from the sample standard deviation, $s$.
+
+### When to use it
+
+Use a $t$-test when you are comparing a single sample mean to a known population parameter and can meet the assumptions. This is nearly every situation in which you would use a $z$-test. In fact, as sample size surpasses 30, the $t$ and $z$ distributions converge.
+
+### Example
+
+Imagine a high school has a graduation test with $M = .80$ with a standard deviation ($\sigma$) of $\sigma = .10$. A random sample of $N = 35$ students at the high school participate in an after-school program aimed at increasing performance on the graduation test. 
+
+#### Data
+
+The data are test scores from 35 students.
+
+````{r onetdata, echo=FALSE}
+sample <-  round(rnorm(35, 0.89, 0.10), 2) # Generate a random, sample for this exercise
+# cat(paste(sample), sep="\n")
+sample
+mean(sample)
+````
+
+The students in the program took the test and performed higher than the population average ($M=$```` mean(sample) ````). Is there evidence that the after school program is effective?
+
+#### Hypotheses
+
+Because researchers are interested in detecting higher performance on the test, a one-tailed test is used to increase statistical power. If, instead, researchers wanted to see if the sample had higher or lower performance, a two-tailed test should be used.
+
+
+
+$$
+\begin{array}{ll}
+H_0 = \mu \le .80  \\
+H_a = \mu > .80
+\end{array}
+$$
+
+
+#### Analysis
+
+Set the alpha level. By convention, an alpha level of $\alpha = .05$ will be used. 
+
+Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining a sample mean this distance from the population mean. We will determine this using the sampling distribution of the null hypothesis for $t$.
+
+
+````{r tanalysis, echo=TRUE}
+
+t.test(sample, mu = .8, alternative = "greater") # two-sided, greater, or less
+
+````
+
+Note that in the syntax for the t-test, you can specify an alternative hypothesis of "two-sided" (two-tailed), "greater," or "less."
+
+#### Effect Size
+Cohen’s d is a measure of effect size for a t-test. 
+
+$d=(\mu- \mu_0)/s$
+
+#### Decision
+
+Because $p < \alpha$, you reject the null hypothesis and concluded that there was a difference between your sample mean and the population.
+
+#### Variations
+
+- This was a one-tailed test on the right side of the distribution. The use of ````alternative = "greater"```` would need to be adapted if the one-tailed test was on the left side of the distribution (to detect if scores were lower than the population). Simply change ````alternative = "greater"```` to have ````"less"```` calculate from the left side (lower tail). 
+
+- In a two-tailed test, the shading would need to be repeated on the left side, and the shaded area on both sides would need to be added together. Simply change ````alternative = "greater"```` to have ````"two-sided"````. If you omit the ````alternative```` argument completely, the default is a two-tailed test. 
+
+- If $p>{\alpha}$, the null hypothesis would have been retained and the results inconclusive.
+
+## Paired Samples T-Test
+
+### Definition
+
+A paired samples t-test measures the difference between two means collected from a within-subjects (also called repeated measures) design. In a within-subjects design, each unit is measured exactly twice. A longitudinal study that measured participants at two points in time could be analyzed with a paired-samples t-test. The hypothesis test for this t-test tests the null hypothesis that there is no difference between the two measurements. 
+
+### Test Statistic
+
+The test statistic is $t$, which measures the difference between the two measurements. 
+
+$$
+t = \frac{\bar{D}}{\hat\sigma_D / \sqrt{N}}
+$$
+```{r pairedtnull, fig.cap="The null hypothesis distribution of $t$ with values of df between 2 and 10. Notice how the curve is starting to converge at the higher values of df.", echo=FALSE}
+curve(dt(x, df=10), from=-4, to=4)
+curve(dt(x, df=2), from=-4, to=4, add=TRUE)
+curve(dt(x, df=4), from=-4, to=4, add=TRUE)
+curve(dt(x, df=6), from=-4, to=4, add=TRUE)
+curve(dt(x, df=8), from=-4, to=4, add=TRUE)
+
+```
+
+The $t$ distribution is actually a family of distributions defined by degrees of freedom. **Degrees of freedom** is a concept that can be interpreted multiple ways. For now, it is sufficient to say that it is based on sample size. The value of degrees of freedom grows by 1 with each additional unit increased in the sample. In other words, the specific sampling distribution used in the hypothesis test depends on the sample size (and degrees of freedom).
+
+### Assumptions & Required Data
+
+- One variable measured twice, stored in a dataframe as two quantitative variables, each one reflecting one measurement (e.g., time1 and time2).
+- The normality assumption, meaning at least one of these:
+  - $N \ge 30$
+  - The variable is normally distributed in the population
+- Independence of observations. Participants do not affect each others' scores.
+- Homogeneity of variance (aka "homoscedasticity"). Population standard deviation is equivalent across the conditions.
+
+### When to use it
+
+Use a paired-samples $t$-test when you are comparing exactly two related observations or have a within-subjects design with exactly two levels of the independent variable.
+
+### Example
+
+
+#### Data
+
+Did students' test scores significantly differ between exam 1 and exam 2?
+
+````{r pairedtdata, echo=FALSE}
+exam1 <-  round(rnorm(35, 0.89, 0.10), 2) # Generate a random, sample for this exercise
+exam2 <-  round(rnorm(35, 0.93, 0.10), 2) # Generate a random, sample for this exercise
+exams <- data.frame(exam1, exam2)
+# cat(paste(sample), sep="\n")
+exams
+````
+
+#### Hypotheses
+
+$t$-tests can be one-tailed or two-tailed. A one-tailed $t$-test could be conducted if researchers predict a direction for the effect.
+
+$$
+\begin{array}{ll}
+H_0: & \mu_D = 0  \\
+H_1: & \mu_D \neq 0
+\end{array}
+$$
+
+#### Analysis
+
+
+Set the alpha level. By convention, an alpha level of $\alpha = .05$ will be used. 
+
+Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining a sample mean this distance from the population mean. We will determine this using the sampling distribution of the null hypothesis for $t$.
+
+We need to take our wide format data and make it long format data.
+
+````{r pairedtanalysis, echo=TRUE}
+# exams <- wideToLong(exams, within="time")
+# exams <- sortFrame(exams, id)
+head(exams)
+````
+
+Then, we can run the $t$-test:
+
+````{r pairedtanalysis2, echo=TRUE}
+t.test(x = exams$exam1, y = exams$exam2, paired = TRUE)
+
+````
+
+#### Decision
+
+
+
+
+
+
+## Independent Samples $t$-Test
+
+### Definition
+
+An independent samples $t$-test measures the difference between two means collected from a **between-subjects design**. In a between-subjects design, the two samples are compared, often from two levels of a manipulation. The key difference from the within-subjects design is that the units (usually, that means participants) in a between-subjects design are independent (different people) and only measured once. When different groups in a study contain different units, a between-subjects design is being used.
+
+
+### Test Statistic
+
+
+```{r indtnull, fig.cap="The null hypothesis distribution of $t$ with values of df between 2 and 10. Notice how the curve is starting to converge at the higher values of df.", echo=FALSE}
+curve(dt(x, df=10), from=-4, to=4)
+curve(dt(x, df=2), from=-4, to=4, add=TRUE)
+curve(dt(x, df=4), from=-4, to=4, add=TRUE)
+curve(dt(x, df=6), from=-4, to=4, add=TRUE)
+curve(dt(x, df=8), from=-4, to=4, add=TRUE)
+
+```
+
+The $t$ distribution is actually a family of distributions defined by degrees of freedom. **Degrees of freedom** is a concept that can be interpreted multiple ways. For now, it is sufficient to say that it is based on sample size. The value of degrees of freedom grows by 1 with each additional unit increased in the sample. In other words, the specific sampling distribution used in the hypothesis test depends on the sample size (and degrees of freedom).
+
+
+### Assumptions & Required Data
+
+
+### When to use it
+
+
+### Example
+
+
+#### Data
+
+
+````{r indtdata, echo=FALSE}
+
+````
+
+#### Hypotheses
+
+
+#### Analysis
+
+Set the alpha level. By convention, an alpha level of $\alpha = .05$ will be used. 
+
+Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining an effect size (in this case, the predictive power of our model over the null model with only the mean, measured using $R^2$) this strong at our sample size through random sampling from a population with no effect (a null model). We will determine this using an analysis of variance using the sampling distribution of the null hypothesis for $F$.
+
+````{r indtanalysis, echo=TRUE}
+
+````
+
+
+#### Decision
+
+
+#### Variations
+
+
+## One-Way Analysis of Variance (ANOVA)
+
+### Definition
+
+An independent samples $t$-test measures the difference between two means collected from a **between-subjects design**. In a between-subjects design, the two samples are compared, often from two levels of a manipulation. The key difference from the within-subjects design is that the units (usually, that means participants) in a between-subjects design are independent (different people) and only measured once. When different groups in a study contain different units, a between-subjects design is being used.
+
+
+### Test Statistic
+
+
+```{r anovanull, fig.cap="The null hypothesis distribution of $t$ with values of df between 2 and 10. Notice how the curve is starting to converge at the higher values of df.", echo=FALSE}
+curve(dt(x, df=10), from=-4, to=4)
+curve(dt(x, df=2), from=-4, to=4, add=TRUE)
+curve(dt(x, df=4), from=-4, to=4, add=TRUE)
+curve(dt(x, df=6), from=-4, to=4, add=TRUE)
+curve(dt(x, df=8), from=-4, to=4, add=TRUE)
+
+```
+
+The $t$ distribution is actually a family of distributions defined by degrees of freedom. **Degrees of freedom** is a concept that can be interpreted multiple ways. For now, it is sufficient to say that it is based on sample size. The value of degrees of freedom grows by 1 with each additional unit increased in the sample. In other words, the specific sampling distribution used in the hypothesis test depends on the sample size (and degrees of freedom).
+
+
+### Assumptions & Required Data
+
+
+### When to use it
+
+
+### Example
+
+
+#### Data
+
+
+````{r anovadata, echo=FALSE}
+
+````
+
+#### Hypotheses
+
+
+#### Analysis
+
+Set the alpha level. By convention, an alpha level of $\alpha = .05$ will be used. 
+
+Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining an effect size (in this case, the predictive power of our model over the null model with only the mean, measured using $R^2$) this strong at our sample size through random sampling from a population with no effect (a null model). We will determine this using an analysis of variance using the sampling distribution of the null hypothesis for $F$.
+
+````{r anovaanalysis, echo=TRUE}
+
+````
+
+
+#### Decision
+
+
+#### Variations

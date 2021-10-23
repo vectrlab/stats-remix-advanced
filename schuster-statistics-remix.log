@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.11)  11 OCT 2021 18:59
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.22)  22 OCT 2021 18:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **schuster-statistics-remix.tex
 (./schuster-statistics-remix.tex
 LaTeX2e <2021-06-01> patch level 1
-L3 programming layer <2021-08-27> (/Users/dave/Library/TinyTeX/texmf-dist/tex/l
+L3 programming layer <2021-10-18> (/Users/dave/Library/TinyTeX/texmf-dist/tex/l
 atex/base/book.cls
 Document Class: book 2021/02/12 v1.4n Standard LaTeX document class
 (/Users/dave/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
@@ -128,10 +128,10 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
 (/Users/dave/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty
 (/Users/dave/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2021-08-27 L3 programming layer (loader) 
+Package: expl3 2021-10-18 L3 programming layer (loader) 
 
 (/Users/dave/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
-File: l3backend-xetex.def 2021-08-04 L3 backend support: XeTeX
+File: l3backend-xetex.def 2021-10-18 L3 backend support: XeTeX
 (|extractbb --version)
 \c__kernel_sys_dvipdfmx_version_int=\count199
 \l__color_backend_stack_int=\count266
@@ -328,7 +328,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip52
 ) (/Users/dave/Library/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-Package: fancyvrb 2021/08/12 v3.8 verbatim text (tvz,hv)
+Package: fancyvrb 2021/10/15 v3.9 verbatim text (tvz,hv)
 \FV@CodeLineNo=\count298
 \FV@InFile=\read2
 \FV@TabBox=\box54
@@ -793,13 +793,11 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 6.99925pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 2.
-[3] [4] [5])
+[3] [4] [5] [6] [7])
 \tf@toc=\write5
 \openout5 = `schuster-statistics-remix.toc'.
 
-[6] [7] [8
-
-]
+[8]
 Underfull \hbox (badness 1960) in paragraph at lines 180--181
 []\TU/lmr/m/n/10 Navarro, D. (2018). Learning statistics with R: A tutorial for
  psy-
@@ -811,7 +809,9 @@ Underfull \hbox (badness 2941) in paragraph at lines 180--181
 om
  []
 
-[9] [10
+[9
+
+] [10
 
 ]
 Chapter 1.
@@ -1734,9 +1734,6 @@ Overfull \hbox (22.5pt too wide) in paragraph at lines 5306--5306
 
 
 LaTeX Warning: Reference `coercion' on page 175 undefined on input line 5308.
-
-
-LaTeX Warning: Reference `anova' on page 175 undefined on input line 5327.
 
 [175] [176]
 Overfull \hbox (17.25pt too wide) in paragraph at lines 5418--5418
@@ -3184,11 +3181,7 @@ Overfull \hbox (22.5pt too wide) in paragraph at lines 10369--10369
 renthood)[] 
  []
 
-[389]
-
-LaTeX Warning: Reference `ttest' on page 390 undefined on input line 10380.
-
-[390]
+[389] [390]
 Overfull \hbox (22.5pt too wide) in paragraph at lines 10420--10420
 []\TU/lmtt/m/n/10 ## lm(formula = dan.grump ~ dan.sleep + baby.sleep, data = pa
 renthood)[] 
@@ -4338,52 +4331,533 @@ hic file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/unnamed-chunk-356-1.pdf>
 [436] [437] [438]
 Chapter 9.
-File: schuster-statistics-remix_files/figure-latex/znull-1.pdf Graphic file (ty
-pe pdf)
-<use schuster-statistics-remix_files/figure-latex/znull-1.pdf>
-[439
 
-]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 11788--11788
-[]\TU/lmtt/m/n/10 ##  [1] 1.00 0.77 0.66 0.65 1.05 0.97 0.90 0.71 0.88 1.00 0.7
-5 0.67 0.68 0.88[] 
+Overfull \hbox (0.96945pt too wide) in paragraph at lines 11747--11747
+\TU/lmr/m/n/10 Many 
  []
 
-[440]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 11788--11788
-[]\TU/lmtt/m/n/10 ## [15] 0.92 0.87 0.94 0.78 0.98 0.93 0.93 1.00 0.97 0.95 0.8
-5 1.07 0.87 0.89[] 
+
+Overfull \hbox (3.93782pt too wide) in paragraph at lines 11747--11747
+\TU/lmr/m/n/10 Many 
+ []
+
+
+Overfull \hbox (1.89783pt too wide) in paragraph at lines 11747--11747
+\TU/lmr/m/n/10 DVs?|  
+ []
+
+[439
+
+] [440]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 11785--11785
+[]\TU/lmtt/m/n/10 ##  [1] 50 60 60 64 66 66 67 69 70 74 76 76 77 79 79 79 81 82
+ 82 89[] 
  []
 
 [441]
+File: schuster-statistics-remix_files/figure-latex/ttesthyp_onesample-1.pdf Gra
+phic file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/ttesthyp_onesample-1.pdf>
+[442] [443]
+
+LaTeX Warning: Reference `otherdists' on page 444 undefined on input line 11832
+.
+
+File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/ttest2/tdist_3.png 
+Graphic file (type bmp)
+</Users/dave/Documents/GitHub/stats-remix-advanced/img/ttest2/tdist_3.png>
+
+LaTeX Warning: Reference `chisquare' on page 444 undefined on input line 11845.
+
+
+[444] [445] [446] [447]
+
+LaTeX Warning: Reference `zassumptions' on page 448 undefined on input line 119
+32.
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11958--11958
+[]\TU/lmtt/m/n/10 ##  $ tutor: Factor w/ 2 levels "Anastasia","Bernadette": 1 2
+ 2 1 1 2 2 2 2 2 ...[] 
+ []
+
+[448]
+File: schuster-statistics-remix_files/figure-latex/harpohistanastasia-1.pdf Gra
+phic file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/harpohistanastasia-1.pdf>
+File: schuster-statistics-remix_files/figure-latex/harpohistbernadette-1.pdf Gr
+aphic file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/harpohistbernadette-1.pdf>
+File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/ttest2/ttestci.png 
+Graphic file (type bmp)
+</Users/dave/Documents/GitHub/stats-remix-advanced/img/ttest2/ttestci.png>
+[449]
+Underfull \vbox (badness 2119) has occurred while \output is active []
+
+[450]
+File: schuster-statistics-remix_files/figure-latex/ttesthyp-1.pdf Graphic file 
+(type pdf)
+<use schuster-statistics-remix_files/figure-latex/ttesthyp-1.pdf>
+[451] [452] [453] [454] [455] [456] [457] [458] [459] [460]
+File: schuster-statistics-remix_files/figure-latex/ttesthyp2-1.pdf Graphic file
+ (type pdf)
+<use schuster-statistics-remix_files/figure-latex/ttesthyp2-1.pdf>
+[461] [462] [463]
+
+LaTeX Warning: Reference `mcnemar' on page 464 undefined on input line 12289.
+
+[464]
+Overfull \hbox (164.25pt too wide) in paragraph at lines 12308--12308
+[]\TU/lmtt/m/n/10 ##  $ id         : Factor w/ 20 levels "student1","student10"
+,..: 1 12 14 15 16 17 18 19 20 2 ...[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 12308--12308
+[]\TU/lmtt/m/n/10 ##  $ grade_test1: num  42.9 51.8 71.7 51.6 63.5 58 59.8 50.8
+ 62.5 61.9 ...[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 12308--12308
+[]\TU/lmtt/m/n/10 ##  $ grade_test2: num  44.6 54 72.3 53.4 63.8 59.3 60.8 51.6
+ 64.3 63.2 ...[] 
+ []
+
+[465]
+Overfull \hbox (48.75pt too wide) in paragraph at lines 12346--12346
+[]\TU/lmtt/m/n/10 ##             vars  n  mean   sd median trimmed  mad  min  m
+ax range  skew[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 12346--12346
+[]\TU/lmtt/m/n/10 ## id*            1 20 10.50 5.92   10.5   10.50 7.41  1.0 20
+.0  19.0  0.00[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 12346--12346
+[]\TU/lmtt/m/n/10 ## grade_test1    2 20 56.98 6.62   57.7   56.92 7.71 42.9 71
+.7  28.8  0.05[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 12346--12346
+[]\TU/lmtt/m/n/10 ## grade_test2    3 20 58.38 6.41   59.7   58.35 6.45 44.6 72
+.3  27.7 -0.05[] 
+ []
+
+File: schuster-statistics-remix_files/figure-latex/pairedta-1.pdf Graphic file 
+(type pdf)
+<use schuster-statistics-remix_files/figure-latex/pairedta-1.pdf>
+File: schuster-statistics-remix_files/figure-latex/pairedtb-1.pdf Graphic file 
+(type pdf)
+<use schuster-statistics-remix_files/figure-latex/pairedtb-1.pdf>
+[466] [467]
+File: schuster-statistics-remix_files/figure-latex/pairedtc-1.pdf Graphic file 
+(type pdf)
+<use schuster-statistics-remix_files/figure-latex/pairedtc-1.pdf>
+[468] [469] [470]
+
+LaTeX Warning: Reference `chisquare' on page 471 undefined on input line 12477.
+
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12511--12511
+[]\TU/lmtt/m/n/10 ##    alternative: different population means for each measur
+ement[] 
+ []
+
+[471] [472] [473]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12599--12599
+[]\TU/lmtt/m/n/10 ##    alternative: different population means for each measur
+ement[] 
+ []
+
+[474] [475] [476]
+Overfull \hbox (69.75pt too wide) in paragraph at lines 12702--12702
+[]\TU/lmtt/m/n/10 ##    null:        population means are equal, or smaller for
+ group 'Anastasia'[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12702--12702
+[]\TU/lmtt/m/n/10 ##    alternative: population mean is larger for group 'Anast
+asia'[] 
+ []
+
+[477]
+Overfull \hbox (111.75pt too wide) in paragraph at lines 12741--12741
+[]\TU/lmtt/m/n/10 ##    null:        population means are equal, or smaller for
+ measurement 'grade_test2'[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 12741--12741
+[]\TU/lmtt/m/n/10 ##    alternative: population mean is larger for measurement 
+'grade_test2'[] 
+ []
+
+[478] [479]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12815--12815
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true difference in means is not eq
+ual to 0[] 
+ []
+
+[480]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12842--12842
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true difference in means is not eq
+ual to 0[] 
+ []
+
+
+LaTeX Warning: Reference `tab:cohensdinterpretation' on page 481 undefined on i
+nput line 12853.
+
+[481]
+Underfull \hbox (badness 2035) in paragraph at lines 12855--12856
+\TU/lmtt/m/n/10 independentSamplesTTest \TU/lmr/m/n/10 and \TU/lmtt/m/n/10 pair
+edSamplesTTest() \TU/lmr/m/n/10 functions to run
+ []
+
+[482] [483]
+Overfull \hbox (28.71pt too wide) in paragraph at lines 12944--12945
+[]\TU/lmr/m/n/10 This is the version of Cohen’s $[]$ that gets reported by the 
+\TU/lmtt/m/n/10 independentSamplesTTest()
+ []
+
+[484]
+Overfull \hbox (28.71pt too wide) in paragraph at lines 12977--12978
+[]\TU/lmr/m/n/10 This is the version of Cohen’s $[]$ that gets reported by the 
+\TU/lmtt/m/n/10 independentSamplesTTest()
+ []
+
+[485]
+Overfull \hbox (2.46pt too wide) in paragraph at lines 13001--13002
+[]\TU/lmr/m/n/10 This is the version of Cohen’s $[]$ that gets reported by the 
+\TU/lmtt/m/n/10 pairedSamplesTTest()
+ []
+
+[486]
+File: schuster-statistics-remix_files/figure-latex/qq1a-1.pdf Graphic file (typ
+e pdf)
+<use schuster-statistics-remix_files/figure-latex/qq1a-1.pdf>
+File: schuster-statistics-remix_files/figure-latex/qq1b-1.pdf Graphic file (typ
+e pdf)
+<use schuster-statistics-remix_files/figure-latex/qq1b-1.pdf>
+[487]
+File: schuster-statistics-remix_files/figure-latex/qq2a-1.pdf Graphic file (typ
+e pdf)
+<use schuster-statistics-remix_files/figure-latex/qq2a-1.pdf>
+File: schuster-statistics-remix_files/figure-latex/qq2b-1.pdf Graphic file (typ
+e pdf)
+<use schuster-statistics-remix_files/figure-latex/qq2b-1.pdf>
+File: schuster-statistics-remix_files/figure-latex/qq2c-1.pdf Graphic file (typ
+e pdf)
+<use schuster-statistics-remix_files/figure-latex/qq2c-1.pdf>
+[488] [489]
+File: schuster-statistics-remix_files/figure-latex/qq2d-1.pdf Graphic file (typ
+e pdf)
+<use schuster-statistics-remix_files/figure-latex/qq2d-1.pdf>
+[490]
+File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-392-1.pdf Grap
+hic file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-392-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[491]
+File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-392-2.pdf Grap
+hic file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-392-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[492]
+
+LaTeX Warning: Reference `probability' on page 493 undefined on input line 1312
+9.
+
+File: /Users/dave/Documents/GitHub/stats-remix-advanced/img/ttest2/shapirowilkd
+ist.png Graphic file (type bmp)
+</Users/dave/Documents/GitHub/stats-remix-advanced/img/ttest2/shapirowilkdist.p
+ng>
+[493] [494] [495] [496] [497] [498] [499] [500
+
+]
+Chapter 10.
+[501]
+Overfull \hbox (96.0pt too wide) in paragraph at lines 13383--13383
+[]\TU/lmtt/m/n/10 ##  $ drug     : Factor w/ 3 levels "placebo","anxifree",..: 
+1 1 1 2 2 2 3 3 3 1 ...[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 13383--13383
+[]\TU/lmtt/m/n/10 ##  $ therapy  : Factor w/ 2 levels "no.therapy","CBT": 1 1 1
+ 1 1 1 1 1 1 2 ...[] 
+ []
+
+[502] [503]
+File: schuster-statistics-remix_files/figure-latex/moodgain-1.pdf Graphic file 
+(type pdf)
+<use schuster-statistics-remix_files/figure-latex/moodgain-1.pdf>
+[504] [505] [506]
+Overfull \hbox (147.14006pt too wide) in paragraph at lines 13524--13539
+[][] 
+ []
+
+[507]
+File: schuster-statistics-remix_files/figure-latex/anovavara-1.pdf Graphic file
+ (type pdf)
+<use schuster-statistics-remix_files/figure-latex/anovavara-1.pdf>
+File: schuster-statistics-remix_files/figure-latex/anovavarb-1.pdf Graphic file
+ (type pdf)
+<use schuster-statistics-remix_files/figure-latex/anovavarb-1.pdf>
+[508] [509] [510]
+Overfull \hbox (789.88011pt too wide) in paragraph at lines 13620--13629
+ [][] 
+ []
+
+
+LaTeX Warning: Reference `probability' on page 511 undefined on input line 1363
+8.
+
+[511]
+
+LaTeX Warning: Reference `anova2' on page 512 undefined on input line 13652.
+
+
+LaTeX Warning: Reference `interactions' on page 512 undefined on input line 136
+52.
+
+
+LaTeX Warning: Reference `otherdists' on page 512 undefined on input line 13659
+.
+
+[512] [513]
+Overfull \hbox (466.66013pt too wide) in paragraph at lines 13702--13717
+[][] 
+ []
+
+[514]
+Overfull \hbox (395.96013pt too wide) in paragraph at lines 13788--13799
+[][] 
+ []
+
+[515]
+Overfull \hbox (337.2001pt too wide) in paragraph at lines 13802--13813
+[][] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 13853--13853
+[]\TU/lmtt/m/n/10 ##          gp.means grand.mean dev.from.grand.mean squared.d
+evs gp.sizes[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 13853--13853
+[]\TU/lmtt/m/n/10 ## placebo      0.45       0.88               -0.43        0.
+188        6[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 13853--13853
+[]\TU/lmtt/m/n/10 ## anxifree     0.72       0.88               -0.17        0.
+028        6[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 13853--13853
+[]\TU/lmtt/m/n/10 ## joyzepam     1.48       0.88                0.60        0.
+360        6[] 
+ []
+
+[516] [517]
+Overfull \hbox (81.07008pt too wide) in paragraph at lines 13908--13917
+[][] 
+ []
+
+[518] [519]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 13989--13989
+[]\TU/lmtt/m/n/10 ##  [5] "fitted.values" "assign"        "qr"            "df.r
+esidual"[] 
+ []
+
+[520] [521] [522]
+
+LaTeX Warning: Reference `anova2' on page 523 undefined on input line 14068.
+
+
+Overfull \hbox (46.96121pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 10.6.  ON THE RELATIONSHIP BETWEEN ANOVA AND THE STUDENT $[]$ T
+EST \TU/lmr/m/n/10 523
+ []
+
+[523]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 14120--14120
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true difference in means is not eq
+ual to 0[] 
+ []
+
+[524] [525] [526
+
+]
+Chapter 11.
+[527]
+Overfull \hbox (156.14008pt too wide) in paragraph at lines 14175--14196
+[][] 
+ []
+
+
+LaTeX Warning: Reference `datahandling' on page 528 undefined on input line 142
+25.
+
+[528]
+Underfull \hbox (badness 1199) in paragraph at lines 14227--14228
+[]\TU/lmr/m/n/10 To help keep the typing to a minimum, R provides a function ca
+lled
+ []
+
+
+LaTeX Warning: Reference `anova2' on page 529 undefined on input line 14251.
+
+[529]
+
+LaTeX Warning: Reference `plannedcomparisons' on page 530 undefined on input li
+ne 14285.
+
+[530]
+
+LaTeX Warning: Reference `posthoc2' on page 531 undefined on input line 14289.
+
+[531] [532] [533] [534]
+Overfull \hbox (0.90453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 11.3.  CHECKING THE HOMOGENEITY OF VARIANCE ASSUMPTION \TU/lmr/
+m/n/10 535
+ []
+
+[535] [536]
+Overfull \hbox (0.90453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 11.3.  CHECKING THE HOMOGENEITY OF VARIANCE ASSUMPTION \TU/lmr/
+m/n/10 537
+ []
+
+[537] [538]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 14547--14547
+[]\TU/lmtt/m/n/10 ## F = 26.322, num df = 2.0000, denom df = 9.4932, p-value = 
+0.000134[] 
+ []
+
+[539]
+File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-451-1.pdf Grap
+hic file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-451-1.pdf>
+File: schuster-statistics-remix_files/figure-latex/unnamed-chunk-451-2.pdf Grap
+hic file (type pdf)
+<use schuster-statistics-remix_files/figure-latex/unnamed-chunk-451-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[540] [541] [542] [543]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 14692--14692
+[]\TU/lmtt/m/n/10 ## Kruskal-Wallis chi-squared = 12.076, df = 2, p-value = 0.0
+02386[] 
+ []
+
+[544]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 14708--14708
+[]\TU/lmtt/m/n/10 ## Kruskal-Wallis chi-squared = 12.076, df = 2, p-value = 0.0
+02386[] 
+ []
+
+[545] [546
+
+]
+Chapter 12.
+File: schuster-statistics-remix_files/figure-latex/znull-1.pdf Graphic file (ty
+pe pdf)
+<use schuster-statistics-remix_files/figure-latex/znull-1.pdf>
+[547]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 14812--14812
+[]\TU/lmtt/m/n/10 ##  [1] 1.06 0.85 0.89 0.80 0.80 0.90 0.93 0.80 0.92 1.10 0.9
+9 0.86 0.93 0.95[] 
+ []
+
+[548]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 14812--14812
+[]\TU/lmtt/m/n/10 ## [15] 1.03 0.94 1.11 0.84 0.95 0.99 0.85 0.72 0.92 0.88 0.8
+1 0.91 0.90 0.72[] 
+ []
+
+[549]
 File: schuster-statistics-remix_files/figure-latex/zvisualization-1.pdf Graphic
  file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/zvisualization-1.pdf>
-[442]
+[550]
 File: schuster-statistics-remix_files/figure-latex/corrnull-1.pdf Graphic file 
 (type pdf)
 <use schuster-statistics-remix_files/figure-latex/corrnull-1.pdf>
-[443] [444] [445] [446] [447]
+[551] [552] [553] [554] [555]
 File: schuster-statistics-remix_files/figure-latex/corrvisualization-1.pdf Grap
 hic file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/corrvisualization-1.pdf>
-[448] [449] [450]
+[556] [557] [558]
 File: schuster-statistics-remix_files/figure-latex/regressionnull-1.pdf Graphic
  file (type pdf)
 <use schuster-statistics-remix_files/figure-latex/regressionnull-1.pdf>
-[451] [452] [453] [454]
-Overfull \hbox (22.5pt too wide) in paragraph at lines 12376--12376
+[559] [560] [561] [562]
+Overfull \hbox (22.5pt too wide) in paragraph at lines 15400--15400
 []\TU/lmtt/m/n/10 ## lm(formula = dan.grump ~ dan.sleep + baby.sleep, data = pa
 renthood)[] 
  []
 
-[455] (./schuster-statistics-remix.bbl [456] [457
+[563] [564]
+File: schuster-statistics-remix_files/figure-latex/onetnull-1.pdf Graphic file 
+(type pdf)
+<use schuster-statistics-remix_files/figure-latex/onetnull-1.pdf>
+[565]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 15514--15514
+[]\TU/lmtt/m/n/10 ##  [1] 0.94 0.94 0.93 0.87 0.83 1.01 1.11 0.85 0.95 1.03 0.6
+4 0.91 0.97 0.98[] 
+ []
 
-])
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 15514--15514
+[]\TU/lmtt/m/n/10 ## [15] 0.89 0.77 0.93 0.81 1.01 0.83 0.86 0.85 0.98 0.88 0.7
+8 0.79 0.88 0.86[] 
+ []
+
+[566] [567]
+File: schuster-statistics-remix_files/figure-latex/pairedtnull-1.pdf Graphic fi
+le (type pdf)
+<use schuster-statistics-remix_files/figure-latex/pairedtnull-1.pdf>
+[568] [569] [570]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 15741--15741
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true difference in means is not eq
+ual to 0[] 
+ []
+
+[571]
+File: schuster-statistics-remix_files/figure-latex/indtnull-1.pdf Graphic file 
+(type pdf)
+<use schuster-statistics-remix_files/figure-latex/indtnull-1.pdf>
+[572]
+File: schuster-statistics-remix_files/figure-latex/anovanull-1.pdf Graphic file
+ (type pdf)
+<use schuster-statistics-remix_files/figure-latex/anovanull-1.pdf>
+[573]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[574] (./schuster-statistics-remix.bbl [575] [576
+
+] [577] [578])
 
 Package natbib Warning: There were undefined citations.
 
-[458] (./schuster-statistics-remix.aux)
+[579] (./schuster-statistics-remix.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -4392,15 +4866,15 @@ LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `schuster-statistics-remix.out' has not chang
 ed.
-(rerunfilecheck)             Checksum: 8F00F054570896674E406A29AF5DB118;20545.
+(rerunfilecheck)             Checksum: F19883DBED1CDC2C83A63971BC201C69;26966.
  ) 
 Here is how much of TeX's memory you used:
- 18348 strings out of 478492
- 369611 string characters out of 5861347
- 839685 words of memory out of 5000000
- 38257 multiletter control sequences out of 15000+600000
+ 18780 strings out of 478472
+ 387572 string characters out of 5860704
+ 863052 words of memory out of 5000000
+ 38680 multiletter control sequences out of 15000+600000
  410978 words of font info for 103 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  87i,8n,120p,2956b,543s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on schuster-statistics-remix.pdf (458 pages).
+Output written on schuster-statistics-remix.pdf (579 pages).
