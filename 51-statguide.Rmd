@@ -196,7 +196,14 @@ t.test(x = exams$exam1, y = exams$exam2, paired = TRUE)
 #### Decision
 
 
+#### Effect Size
 
+
+4.2.2.1.	d = mean difference / standard deviation
+4.2.2.2.	   (Rosenthal, 1991)  d = dz * root(2)
+ dz will be higher than regular d
+
+#### Power Analysis
 
 
 
@@ -224,6 +231,22 @@ The $t$ distribution is actually a family of distributions defined by degrees of
 
 ### Assumptions & Required Data
 
+2.2.	Independent samples t-test
+2.2.1.	Independence of observations – participants do not affect each other (e.g., some participants from the same office, study is on workplace satisfaction) across groups (solution: hierarchical linear modeling)
+2.2.2.	Normally distributed population or large sample size; bigger problem if violate homogeneity of variance or unequal sample sizes; lower power
+2.2.3.	Homogeneity of variance aka equality of variances aka homoscedasticity: Each group has same variance: Check in SPSS; bigger problem when sample sizes unequal
+2.3.	Paired/dependent/matched samples t-test 
+2.3.1.	Independence of observations (pairs are not independent) 
+2.3.2.	Normally distributed population or large sample size
+2.4.	Don’t meet assumptions? Nonparametric alternatives
+2.4.1.	Mann-Whitney U Test alt. for independent samples
+2.4.1.1.	Use when sample size is too low AND population is not normal (or ordinal)
+2.4.1.2.	Treats data as ordinal 
+2.4.1.3.	Loss of power
+2.4.2.	Wilcoxon Signed Rank Test/Wilcoxon T alt. for paired samples
+2.4.2.1.	Use when sample size is too low AND population is not normal (or ordinal)
+2.4.2.2.	Treats data as ordinal 
+2.4.2.3.	Loss of power
 
 ### When to use it
 
@@ -254,63 +277,313 @@ Assume the null hypothesis is true. Assuming the null hypothesis is true means t
 
 #### Decision
 
+#### Effect Size
 
-#### Variations
+d using weighted (allows unequal sample size) and pooled (requires equal variance) standard deviation: different group sizes but same SDs - weighted average of sample variances. Same two variances but different means
 
 
-## One-Way Analysis of Variance (ANOVA)
+#### Power Analysis
+
+
+
+
+## One-Way ANOVA
 
 ### Definition
 
-An independent samples $t$-test measures the difference between two means collected from a **between-subjects design**. In a between-subjects design, the two samples are compared, often from two levels of a manipulation. The key difference from the within-subjects design is that the units (usually, that means participants) in a between-subjects design are independent (different people) and only measured once. When different groups in a study contain different units, a between-subjects design is being used.
+The analysis of variance (ANOVA) is an expansion of t-test to allow comparison of a categorical IV with more than two levels.
+
+As with the other tests of group comparisons, ANOVA requires a continuous, quantitative DV variable.
+
+ANOVA has two stages. The **omnibus test** tests the null that two or more groups have the same mean. If the omnibus test is significant, **pairwise comparisons** are the second step. There are two strategies for pairwise comparisons. **Planned comparisons** maximizes statistical power by only testing hypothesized pairwise comparisons. **Post-hoc tests** run statistical tests for every possible pairwise comparison and then makes some (or no) adjustment for the number of tests that have been run.
+
+ANOVA solves the problem of inflated type I error that arises when running multiple t-tests. Every t-test has a **testwise error rate** equal to alpha. In other words, if we assume the null is true, what is the probability of rejecting the null on one t-test? It is alpha. If we assume the null is true, what is the probability of rejecting the null on *at least one of a series* of t-tests? It is higher than alpha. ANOVA solves the problem of a **family** or **experimentwise error rate** (the overall alpha level for a series of tests) by keeping the experimentwise error rate equal to .05. If you are curious, the experimentwise error rate is equal to:
+
+$EER = 1-(1-\alpha)^m$ where m is the number of tests.
+
+$m = \frac{k(k-1)}{2}$ where k is the number of levels of the IV.
 
 
 ### Test Statistic
 
+The test statistic for ANOVA is $F$, which is equivalent to $t^2$. Where $t$-tests measure variability using standard deviation/standard error, $F$-tests measure variability using variance.
 
-```{r anovanull, fig.cap="The null hypothesis distribution of $t$ with values of df between 2 and 10. Notice how the curve is starting to converge at the higher values of df.", echo=FALSE}
-curve(dt(x, df=10), from=-4, to=4)
-curve(dt(x, df=2), from=-4, to=4, add=TRUE)
-curve(dt(x, df=4), from=-4, to=4, add=TRUE)
-curve(dt(x, df=6), from=-4, to=4, add=TRUE)
-curve(dt(x, df=8), from=-4, to=4, add=TRUE)
+F is a ratio of two kinds of variance, explained and unexplained. The variance formula could be described as the sum of squared mean differences (sum of squares) over degrees of freedom (df). Another name for a variance calculation is mean square. The explained variance is called **mean square between-groups**, and the unexplained variance is **mean square within-groups**. Because between and within are used to describe variance in ANOVA, it is helpful to memorize that between-groups variance is good/explained and within-groups variance is bad/unexplained. The denominator/within-groups variance is pooled variance; it is just the average variance of the groups. The variance of the group means is the numerator/between-groups variance. Think of the F ratio as a competition between these two kinds of variance.
+
+$F_{observed} = \frac{MS_{between}}{MS_{within}}$
+
+If the null is true, and all group means are the same, then the value of the F ratio will be near 1. As group differences increase, the value of F will increase.
+
+$F$ is a one-tailed distribution, meaning that the omnibus F test does not include direction (i.e., all ANOVA tests are two-tailed). Notice how the ratio of two kinds of variance can never be negative.
+
+```{r anovanull, fig.cap="The null hypothesis distribution of $F$ with values of df between F(4, 2) and F(10, 2).", echo=FALSE}
+curve(df(x, df1 =10, df2=4), from=-0.5, to=4)
+curve(df(x, df1=2, df2=4), from=-0.5, to=4, add=TRUE)
+curve(df(x, df1 =4, df2=4), from=-0.5, to=4, add=TRUE)
+curve(df(x, df1=6, df2=4), from=-0.5, to=4, add=TRUE)
+curve(df(x, df1=8, df2=4), from=-0.5, to=4, add=TRUE)
 
 ```
 
-The $t$ distribution is actually a family of distributions defined by degrees of freedom. **Degrees of freedom** is a concept that can be interpreted multiple ways. For now, it is sufficient to say that it is based on sample size. The value of degrees of freedom grows by 1 with each additional unit increased in the sample. In other words, the specific sampling distribution used in the hypothesis test depends on the sample size (and degrees of freedom).
+Pairwise comparisons, whether planned or as post-hoc tests, are essentially just $t$-tests.
+
+#### Repeated Measures ANOVA
+
+Repeated measures ANOVA is an extension of the paired samples $t$-test to allow for within-subjects designs. 
+
+In a repeated measures ANOVA, variance due to individual differences is computed separately (i.e., how different were participants scores from each other?). The individual differences variance is subtracted from the error term. In other words, variability across different participants is removed from the denominator, thus raising the F value Therefore, when you observe large differences across participants, power is increased relative to the between-subjects version. 
+
+Practically, repeated measures ANOVA (and within-subjects design) requires fewer cases, but more time per case. You need fewer people, but more observations of them. Within subjects designs also are subject to:
+
+- Simple order effects. Which condition is first affects participants scores; practice effects are an example. The solution is counterbalancing.
+
+- Differential carryover effects are when the effect of one condition bleeds into the second, and the effect is asymmetrical because it happens more in one order of conditions than the other. Imagine a study of shocking images versus neutral images. Participants may be more affected by the shocking images and that could alter their scores in the neutral image trial. In this situation, counterbalancing will not help.
 
 
 ### Assumptions & Required Data
 
+#### Between-Subjects ANOVA
+
+-	Independence of observations. Participants do not affect the measurement of each other. For example, if you conduct a study on workplace satisfaction with some participants from the same office, independence of observations is a vioalted assumption. Other techniques, such as hierarchical linear modeling (a series of regression equations) would be more appropriate. Aside from these types of situations, it is relatively easy to meet this assumption through careful research design.
+- The normality assumption, meaning at least one of these:
+  - $N \ge 30$
+  - The variable is normally distributed in the population
+- Independence of observations. Participants do not affect each others' scores.
+- Homogeneity of variance (aka "homoscedasticity"). Population standard deviation is equivalent across the conditions. This can be tested using Levene's test. If this assumption is violated *and* group sizes are unequal, then a parametric ANOVA may not be appropriate. Alternatives for this case are Welch or Brown-Forsythe ANOVA. The syntax for Welch is ````oneway.test(dataframe$dv ~ dataframe$iv, data = ex, na.action = na.exclude)````.
+- No outliers. Note our earlier guidance on balancing the impact of outliers with the need to maintain the sampling method.
+
+#### Repeated Measures ANOVA
+
+- Random sampling. Although this is always a concern for external validity, it is more important for a repated measures ANOVA because each unit is in both conditions. Thus, units act as their own control group. 
+- The normality assumption, meaning at least one of these:
+  - $N \ge 30$
+  - The variable is normally distributed in the population
+- No outliers. Note our earlier guidance on balancing the impact of outliers with the need to maintain the sampling method.
+- No subject x treatment interaction. This occurs when some participants respond differently to a treatment. Imagine a drug trial for people at various stages of an illness. If the pill is more effective at earlier stages and not at later stages, there will be an inflated Type II error rate. Repeated measures ANOVA assumes this is does not happen.
+- Sphericity. 
+  - It only applies when 3+ levels ($k>2$). 
+  - Imagine you found the difference between a pair of levels (e.g., time1 - time 2) and then found the variance of those difference scores. If you did that for every pair of two levels, you would want each variance calculation to be equal.
+  - In case you are ever asked, sphericity guarantees no compound symmetry (homogeneity of variance and of covariance) and no additivity (a treatment x subject interaction).
+  - **Sphericity is an assumption you need to care about, because violating it can inflate the F-ratio and Type I error rate**.
+  - Use Wauchly's $W$ to test for sphericity. It gives a value of epsilon. 1.0 is perfect sphericity. If the significance test for $W$ is not significant, you conclude you have met the assumption. However, this test is not powerful when sample size is small, so it can be helpful to also look at the value of epsilon.
+  - If sphericity is violated, you need to use an alternative statistic. Greenhouse Geisser is more common but conservative; Huynh and Feldt is more powerful when you are close to sphericity.
+  - Do not try different statistics and only test for sphericity after you have failed to reject the null. That is p-hacking.
+
 
 ### When to use it
 
+If you have a quantitative DV and a single, discrete IV with two or more levels, you can run an ANOVA.
 
-### Example
+### Example: Between-Subjects
 
+Researchers are interested in participants' reaction times to three types of alert displays: a visual alert, an auditory alert, and a speech alert. They randomly assign participants to one of these three conditions. Therefore, this is a between-subjects experimental design.
 
 #### Data
 
+Complicating matters, our data in this example are starting off in the wrong format. This format is called wide. We have one column per condition. This means that each row contains the data for three participants. We need this reshaped into one row per participant, called long.
 
-````{r anovadata, echo=FALSE}
-
+````{r anovadata1, echo=TRUE}
+RT_visual <- c(218.24, 218.34, 229.05, 219.12, 218.42)
+RT_auditory <- c(238.37, 249.06, 238.86, 248.76, 239.34)
+RT_speech <- c(258.34, 228.62, 239.31, 259.14, 258.13)
+id <- c(1:5)
+dataframe <- data.frame(RT_visual, RT_auditory, RT_speech, id)
+dataframe
 ````
+
+These data are in wide format (one column per condition). To use these data in a between-subjects ANOVA, we need them in long format (one row per participant). 
+
+The secret to this is naming the variables correctly. First, you need an id variable. Second, you should name all of your condition variables in this format: DV_level. In this example, our DV is reaction time (RT) and the levels are visual, auditory, and speech. ````wideToLong()```` is looking for this format or it won't work. 
+
+````{r anovavis1, echo=TRUE}
+library(lsr)
+longdata <- wideToLong(dataframe, "condition")
+longdata
+````
+All of this was to illustrate that for a between-subjects ANOVA, we need long format data. To avoid having to reshape your data, it is helpful to collect between-subjects data already in long format. The condition variable is a hint that the data are in long format.
+
+With that out of the way, we can now use our dataframe, ````longdata````. First, we will descriptively look at the group means:
+
+````{r anovavis2, echo=TRUE}
+library(pastecs)
+by(longdata$RT, longdata$condition, stat.desc) # show descriptive stats on our RT DV grouped by condition
+````
+
+````{r anovavis3, echo=TRUE}
+library(ggplot2)
+ggplot(longdata, aes(condition, RT)) + stat_summary(fun.y = mean, geom = "point") + labs(x ="Condition", y="Outcome") + stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width= 0.2) + labs(x ="Condition", y="Outcome")
+````
+
+And, we can create an interactive graph of the means using a package called Plotly. The error bars are 95% confidence intervals. I cannot embed Plotly in this book, but I can show you the syntax:
+
+````{r anovavis5, echo=TRUE}
+# install.packages("plotly")
+# library(plotly)
+# ggplotly(ggplot(longdata, aes(condition, RT)) + stat_summary(fun.y = mean, geom = "point") + labs(x ="Condition", y="Outcome") + stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width= 0.2) + labs(x ="Condition", y="Outcome")) # Plotly shows hoverable data points on mouseover
+````
+
+A visual interpretation of this graph suggests that visual had the fastest reaction time, followed by auditory, and then speech. But are these significantly different from each other? We need to run the ANOVA to find out.
 
 #### Hypotheses
 
+$$
+\begin{array}{ll}
+H_0: & \mu_{auditory} = \mu_{speech} = \mu_{visual}  \\
+H_1: & \mbox{the null is false}
+\end{array}
+$$
+#### Assumption Checking
+
+````{r anovaassumption, echo=TRUE}
+library(car)
+leveneTest(longdata$RT, longdata$condition, center = median)
+````
+
+Levene's test is not significant, so we assume homogeneity of variance. However, I would be cautious about this interpretation because our sample size is small ($N = 15$). Further, the error bars in the graph looked different to me (and the confidence intervals were numerically different in the table). But because our sample sizes are equal, we will continue with this example.
 
 #### Analysis
 
 Set the alpha level. By convention, an alpha level of $\alpha = .05$ will be used. 
 
-Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining an effect size (in this case, the predictive power of our model over the null model with only the mean, measured using $R^2$) this strong at our sample size through random sampling from a population with no effect (a null model). We will determine this using an analysis of variance using the sampling distribution of the null hypothesis for $F$.
+Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining an effect size (in this case, the ratio of explained to unexplained variance) this strong at our sample size through random sampling from a population with no effect (a null model). We will determine this using an analysis of variance using the sampling distribution of the null hypothesis for $F$.
 
 ````{r anovaanalysis, echo=TRUE}
+
+anovaModel <- lm(RT ~ condition, data = longdata) # note there is an na.action argument if you need to exclude missing data
+summary(anovaModel)
+
+anovaModel <- aov(RT ~ condition, data = longdata)
+summary(anovaModel)
 
 ````
 
 
-#### Decision
+#### Omnibus Decision
+
+The omnibus ANOVA was significant, $F$(2, 12) = 13.26, $p$ < .001, $\eta^2$ = .689. We can conclude there is some difference among these conditions. To determine which conditions are significantly different from the others, we need to perform post-hoc tests.
+
+#### Post-hoc Tests
+
+This section will be further developed.
+
+##### Bonferroni method
+
+This is the most conservative method of post-hoc tests.
+
+````{r anovabonferroni, echo=TRUE}
+pairwise.t.test(longdata$RT, longdata$condition, paired = FALSE, p.adjust.method = "bonferroni")
+````
+The bonferroni post-hoc tests show that there was a significant difference between visual ($M$ = 220.63, $SD$ = 4.72) and auditory ($M$ = 242.87, $SD$ = 5.52) alerts, and between speech ($M$ = 248.71, $SD$ = 13.98) and visual alerts, but not between auditory and speech alerts.
+
+#### Alternatives to Bonferroni method
+
+Instead of "bonferroni", you can choose another p.adjust.method argument of "holm”, “hochberg”, “hommel”, “BH”, “BY”, “fdr”, or “none”.
 
 
-#### Variations
+##### Tukey method
+
+````{r anovatukey, echo=TRUE}
+library(multcomp)
+# install.packages("multcomp")
+
+hsdModel <- glht(anovaModel, linfct = mcp(condition = "Tukey"))
+summary(hsdModel)
+````
+The Tukey post-hoc tests show that there was a significant difference between visual ($M$ = 220.63, $SD$ = 4.72) and auditory ($M$ = 242.87, $SD$ = 5.52) alerts, and between speech ($M$ = 248.71, $SD$ = 13.98) and visual alerts, but not between auditory and speech alerts.
+
+
+
+
+#### Effect Size
+
+Because $\eta^2 = R^2$, you can find and report $\eta^2$ from the ````lm()```` function.
+
+
+#### Power Analysis
+
+In G*Power, select the F tests family, and then choose "ANOVA: Fixed effects, omnibus, one-way."
+
+The best way to estimate effect size is to rely on effect sizes in similar past research. You will commonly find eta squared ($\eta^2$) in published work, not effect size $f$. However, you can convert eta squared to $f$ to use in G*Power:
+
+1. Click "Determine."
+2. Select the procedure of "Effect size from variance."
+3. Select "Direct."
+4. Enter a value for partial eta squared.
+5. Click "Calculate and transfer to main window." **Don't miss this step**. It is easy to forget to update the value of f in the input parameters. If you do not update that value, your power analysis will not use this new effect size.
+
+One more (less common) option is to select "Effect size from means" in the "Determine" drawer to fill in the anticipated means to estimate effect size.
+
+
+
+
+
+### Example: Within-Subjects
+
+This example is the same, but in this study, the researchers randomly assigned participants to one of these three condition orders. Participants completed a visual, auditory, and speech trial. Therefore, this is a within-subjects experimental design.
+
+#### Data
+
+If you run this analysis in SPSS or another package, it is more common to see it in wide format, with one row per participant, and each measurement represented by a separate column. That is how our data in this example started out:
+
+````{r anovadata2, echo=TRUE}
+RT_visual <- c(218.24, 218.34, 229.05, 219.12, 218.42)
+RT_auditory <- c(238.37, 249.06, 238.86, 248.76, 239.34)
+RT_speech <- c(258.34, 228.62, 239.31, 259.14, 258.13)
+id <- c(1:5)
+dataframe <- data.frame(RT_visual, RT_auditory, RT_speech, id)
+dataframe
+````
+
+These data are in wide format (one column per condition) in R, however, we still have to use the long format (one row per participant). 
+
+````{r anovavis4, echo=TRUE}
+library(lsr)
+longdata <- wideToLong(dataframe, "condition")
+longdata
+````
+
+I will omit the parts of the analysis that are the same in the within-subjects design. All the descriptive analysis is the same.
+
+#### Hypotheses
+
+Same as between-subjects.
+
+
+
+#### Analysis
+
+We are using ezANOVA() in the ez package.
+
+````{r anovaanalysis2, echo=TRUE}
+
+# install.packages("ez")
+library(ez)
+withinAnovaModel <- ezANOVA(data = longdata, dv = .(RT), wid = .(id), within = .(condition), type = 3)
+withinAnovaModel
+?ezANOVA
+````
+
+
+#### Sphericity Checking
+
+We will need to diagnose sphericity. Fortunately, this is provided in the default output. The value of Mauchly's $W$ is 0.59, which is not significant and I am going to report the statistics in the first table. Had this been significant, I could have reported Greenhouse and Geisser (GG; 1959) or Huynh and Feldt (HF; 1976) versions of the statistics. Remember, it is important to decide which approach you will take before examining the p-values. 
+
+#### Omnibus Decision
+
+The omnibus ANOVA was significant, $F$(2, 8) = 10.74, $p$ = .005, $\eta^2_G$ = .689. We can conclude there is some difference among these conditions. To determine which conditions are significantly different from the others, we need to perform post-hoc tests.
+
+
+#### Post-hoc Tests
+
+The post-hoc test methods are the same, except set paired = TRUE, so that paired samples t-tests are used.
+
+
+#### Effect Size
+
+The effect size statistic is called generalized eta squared (see also [Bakeman, 2005](https://link.springer.com/content/pdf/10.3758%2FBF03192707.pdf)). Note that this differs in its calculation from eta squared, so you should take care to label it with the $_G$.
+
+#### Power Analysis
+
+In G*Power, select the F tests family, and then choose "ANOVA: Repeated measures, within factors."
+
+As this is a one-way, repeated measures ANOVA, you can enter effect size, alpha, and power. Then, set number of groups to 1 (as there is no between-subjects factor) and the number of measurements to the number of levels of the IV. The corr among rep measures is the estimated correlation between your measures (e.g., how well can you predict a participant's time 2 score if you know their time 1 score). This can be hard to estimate, but it's a good exercise to think about how large you expect these individual differences to be. The larger the correlation among measures, the more you gain by using a within-subjects design.

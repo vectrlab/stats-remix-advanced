@@ -24,7 +24,7 @@
 <meta name="author" content="David Schuster" />
 
 
-<meta name="date" content="2021-10-22" />
+<meta name="date" content="2021-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -738,13 +738,14 @@ div.csl-indent {
 <li class="chapter" data-level="12.6.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-5"><i class="fa fa-check"></i><b>12.6.4</b> When to use it</a></li>
 <li class="chapter" data-level="12.6.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-5"><i class="fa fa-check"></i><b>12.6.5</b> Example</a></li>
 </ul></li>
-<li class="chapter" data-level="12.7" data-path="statistics-reference.html"><a href="statistics-reference.html#one-way-analysis-of-variance-anova"><i class="fa fa-check"></i><b>12.7</b> One-Way Analysis of Variance (ANOVA)</a>
+<li class="chapter" data-level="12.7" data-path="statistics-reference.html"><a href="statistics-reference.html#one-way-anova"><i class="fa fa-check"></i><b>12.7</b> One-Way ANOVA</a>
 <ul>
 <li class="chapter" data-level="12.7.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition-6"><i class="fa fa-check"></i><b>12.7.1</b> Definition</a></li>
 <li class="chapter" data-level="12.7.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-6"><i class="fa fa-check"></i><b>12.7.2</b> Test Statistic</a></li>
 <li class="chapter" data-level="12.7.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-6"><i class="fa fa-check"></i><b>12.7.3</b> Assumptions &amp; Required Data</a></li>
 <li class="chapter" data-level="12.7.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-6"><i class="fa fa-check"></i><b>12.7.4</b> When to use it</a></li>
-<li class="chapter" data-level="12.7.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-6"><i class="fa fa-check"></i><b>12.7.5</b> Example</a></li>
+<li class="chapter" data-level="12.7.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-between-subjects"><i class="fa fa-check"></i><b>12.7.5</b> Example: Between-Subjects</a></li>
+<li class="chapter" data-level="12.7.6" data-path="statistics-reference.html"><a href="statistics-reference.html#example-within-subjects"><i class="fa fa-check"></i><b>12.7.6</b> Example: Within-Subjects</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -890,7 +891,7 @@ t = \frac{\bar{X} - \mu}{\hat{\sigma}/\sqrt{N} }
 \]</span>
 The only thing that has changed in the equation is that instead of using the known true value <span class="math inline">\(\sigma\)</span>, we use the estimate <span class="math inline">\(\hat{\sigma}\)</span>. And if this estimate has been constructed from <span class="math inline">\(N\)</span> observations, then the sampling distribution turns into a <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\(N-1\)</span> <strong><em>degrees of freedom</em></strong> (df). The <span class="math inline">\(t\)</span> distribution is very similar to the normal distribution, but has “heavier” tails, as discussed earlier in Section <a href="#otherdists"><strong>??</strong></a> and illustrated in Figure <a href="ttest.html#fig:ttestdist">9.1</a>. Notice, though, that as df gets larger, the <span class="math inline">\(t\)</span>-distribution starts to look identical to the standard normal distribution. This is as it should be: if you have a sample size of <span class="math inline">\(N = 70,000,000\)</span> then your “estimate” of the standard deviation would be pretty much perfect, right? So, you should expect that for large <span class="math inline">\(N\)</span>, the <span class="math inline">\(t\)</span>-test would behave exactly the same way as a <span class="math inline">\(z\)</span>-test. And that’s exactly what happens!</p>
 <div class="figure"><span style="display:block;" id="fig:ttestdist"></span>
-<img src="img/ttest2/tdist_3.png" alt="The $t$ distribution with 2 degrees of freedom (left) and 10 degrees of freedom (right), with a standard normal distribution (i.e., mean 0 and std dev 1) plotted as dotted lines for comparison purposes. Notice that the $t$ distribution has heavier tails (higher kurtosis) than the normal distribution; this effect is quite exaggerated when the degrees of freedom are very small, but negligible for larger values. In other words, for large $df$ the $t$ distribution is essentially identical to a normal distribution."  />
+<img src="img/ttest2/tdist_3.png" alt="The $t$ distribution with 2 degrees of freedom (left) and 10 degrees of freedom (right), with a standard normal distribution (i.e., mean 0 and std dev 1) plotted as dotted lines for comparison purposes. Notice that the $t$ distribution has heavier tails (higher kurtosis) than the normal distribution; this effect is quite exaggerated when the degrees of freedom are very small, but negligible for larger values. In other words, for large $df$ the $t$ distribution is essentially identical to a normal distribution." width="537" />
 <p class="caption">
 Figure 9.1: The <span class="math inline">\(t\)</span> distribution with 2 degrees of freedom (left) and 10 degrees of freedom (right), with a standard normal distribution (i.e., mean 0 and std dev 1) plotted as dotted lines for comparison purposes. Notice that the <span class="math inline">\(t\)</span> distribution has heavier tails (higher kurtosis) than the normal distribution; this effect is quite exaggerated when the degrees of freedom are very small, but negligible for larger values. In other words, for large <span class="math inline">\(df\)</span> the <span class="math inline">\(t\)</span> distribution is essentially identical to a normal distribution.
 </p>
@@ -1028,7 +1029,7 @@ Figure 9.3: Histogram showing the overall distribution of grades for students in
 </div>
 <p>Here is a simpler plot showing the means and corresponding confidence intervals for both groups of students (Figure <a href="ttest.html#fig:ttestci">9.4</a>).</p>
 <div class="figure"><span style="display:block;" id="fig:ttestci"></span>
-<img src="img/ttest2/ttestci.png" alt="Plots showing the mean grade for the students in Anastasia's and Bernadette's tutorials. Error bars depict 95% confidence intervals around the mean. On the basis of visual inspection, it does look like there's a real difference between the groups, though it's hard to say for sure."  />
+<img src="img/ttest2/ttestci.png" alt="Plots showing the mean grade for the students in Anastasia's and Bernadette's tutorials. Error bars depict 95% confidence intervals around the mean. On the basis of visual inspection, it does look like there's a real difference between the groups, though it's hard to say for sure." width="250" />
 <p class="caption">
 Figure 9.4: Plots showing the mean grade for the students in Anastasia’s and Bernadette’s tutorials. Error bars depict 95% confidence intervals around the mean. On the basis of visual inspection, it does look like there’s a real difference between the groups, though it’s hard to say for sure.
 </p>
@@ -1817,7 +1818,7 @@ W = \frac{ \left( \sum_{i = 1}^N a_i X_i \right)^2 }{ \sum_{i = 1}^N (X_i - \bar
 where <span class="math inline">\(\bar{X}\)</span> is the mean of the observations, and the <span class="math inline">\(a_i\)</span> values are … mumble, mumble … something complicated that is a bit beyond the scope of an introductory text.</p>
 <p>Because it’s a little hard to explain the maths behind the <span class="math inline">\(W\)</span> statistic, a better idea is to give a broad brush description of how it behaves. Unlike most of the test statistics that we’ll encounter in this book, it’s actually <em>small</em> values of <span class="math inline">\(W\)</span> that indicated departure from normality. The <span class="math inline">\(W\)</span> statistic has a maximum value of 1, which arises when the data look “perfectly normal.” The smaller the value of <span class="math inline">\(W\)</span>, the less normal the data are. However, the sampling distribution for <span class="math inline">\(W\)</span> – which is not one of the standard ones that I discussed in Chapter <a href="#probability"><strong>??</strong></a> and is in fact a complete pain in the arse to work with – does depend on the sample size <span class="math inline">\(N\)</span>. To give you a feel for what these sampling distributions look like, I’ve plotted three of them in Figure <a href="ttest.html#fig:swdist">9.16</a>. Notice that, as the sample size starts to get large, the sampling distribution becomes very tightly clumped up near <span class="math inline">\(W=1\)</span>, and as a consequence, for larger samples <span class="math inline">\(W\)</span> doesn’t have to be very much smaller than 1 in order for the test to be significant.</p>
 <div class="figure"><span style="display:block;" id="fig:swdist"></span>
-<img src="img/ttest2/shapirowilkdist.png" alt="Sampling distribution of the Shapiro-Wilk $W$ statistic, under the null hypothesis that the data are normally distributed, for samples of size 10, 20 and 50. Note that *small* values of $W$ indicate departure from normality."  />
+<img src="img/ttest2/shapirowilkdist.png" alt="Sampling distribution of the Shapiro-Wilk $W$ statistic, under the null hypothesis that the data are normally distributed, for samples of size 10, 20 and 50. Note that *small* values of $W$ indicate departure from normality." width="364" />
 <p class="caption">
 Figure 9.16: Sampling distribution of the Shapiro-Wilk <span class="math inline">\(W\)</span> statistic, under the null hypothesis that the data are normally distributed, for samples of size 10, 20 and 50. Note that <em>small</em> values of <span class="math inline">\(W\)</span> indicate departure from normality.
 </p>

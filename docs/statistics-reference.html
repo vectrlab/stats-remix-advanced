@@ -24,7 +24,7 @@
 <meta name="author" content="David Schuster" />
 
 
-<meta name="date" content="2021-10-22" />
+<meta name="date" content="2021-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -738,13 +738,14 @@ div.csl-indent {
 <li class="chapter" data-level="12.6.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-5"><i class="fa fa-check"></i><b>12.6.4</b> When to use it</a></li>
 <li class="chapter" data-level="12.6.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-5"><i class="fa fa-check"></i><b>12.6.5</b> Example</a></li>
 </ul></li>
-<li class="chapter" data-level="12.7" data-path="statistics-reference.html"><a href="statistics-reference.html#one-way-analysis-of-variance-anova"><i class="fa fa-check"></i><b>12.7</b> One-Way Analysis of Variance (ANOVA)</a>
+<li class="chapter" data-level="12.7" data-path="statistics-reference.html"><a href="statistics-reference.html#one-way-anova"><i class="fa fa-check"></i><b>12.7</b> One-Way ANOVA</a>
 <ul>
 <li class="chapter" data-level="12.7.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition-6"><i class="fa fa-check"></i><b>12.7.1</b> Definition</a></li>
 <li class="chapter" data-level="12.7.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-6"><i class="fa fa-check"></i><b>12.7.2</b> Test Statistic</a></li>
 <li class="chapter" data-level="12.7.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-6"><i class="fa fa-check"></i><b>12.7.3</b> Assumptions &amp; Required Data</a></li>
 <li class="chapter" data-level="12.7.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-6"><i class="fa fa-check"></i><b>12.7.4</b> When to use it</a></li>
-<li class="chapter" data-level="12.7.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-6"><i class="fa fa-check"></i><b>12.7.5</b> Example</a></li>
+<li class="chapter" data-level="12.7.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-between-subjects"><i class="fa fa-check"></i><b>12.7.5</b> Example: Between-Subjects</a></li>
+<li class="chapter" data-level="12.7.6" data-path="statistics-reference.html"><a href="statistics-reference.html#example-within-subjects"><i class="fa fa-check"></i><b>12.7.6</b> Example: Within-Subjects</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -1330,10 +1331,10 @@ Figure 12.4: The null hypothesis distribution of <span class="math inline">\(t\)
 <div id="data-3" class="section level4" number="12.4.5.1">
 <h4><span class="header-section-number">12.4.5.1</span> Data</h4>
 <p>The data are test scores from 35 students.</p>
-<pre><code>##  [1] 0.96 0.87 0.99 0.88 0.87 0.95 0.80 0.87 1.05 0.81 0.81 1.05 1.02 0.85
-## [15] 0.95 1.09 0.99 0.71 0.79 0.77 0.80 0.82 1.01 0.88 1.00 0.72 1.05 0.86
-## [29] 0.78 0.73 0.83 0.98 0.81 0.81 0.73</code></pre>
-<pre><code>## [1] 0.8825714</code></pre>
+<pre><code>##  [1] 0.87 0.88 0.99 0.88 0.79 0.94 0.99 0.86 0.85 0.81 0.85 0.93 0.89 0.72
+## [15] 1.08 0.92 0.77 0.87 0.97 0.96 0.77 0.86 0.93 0.79 1.05 0.79 0.80 0.96
+## [29] 1.03 1.10 0.89 1.02 0.94 1.01 0.96</code></pre>
+<pre><code>## [1] 0.9062857</code></pre>
 <p>The students in the program took the test and performed higher than the population average (<span class="math inline">\(M=\)</span><code>mean(sample)</code>). Is there evidence that the after school program is effective?</p>
 </div>
 <div id="hypotheses-4" class="section level4" number="12.4.5.2">
@@ -1355,13 +1356,13 @@ H_a = \mu &gt; .80
 ##  One Sample t-test
 ## 
 ## data:  sample
-## t = 4.4944, df = 34, p-value = 3.847e-05
+## t = 6.6301, df = 34, p-value = 6.623e-08
 ## alternative hypothesis: true mean is greater than 0.8
 ## 95 percent confidence interval:
-##  0.8515055       Inf
+##  0.8791787       Inf
 ## sample estimates:
 ## mean of x 
-## 0.8825714</code></pre>
+## 0.9062857</code></pre>
 <p>Note that in the syntax for the t-test, you can specify an alternative hypothesis of “two-sided” (two-tailed), “greater,” or “less.”</p>
 </div>
 <div id="effect-size-1" class="section level4" number="12.4.5.4">
@@ -1426,41 +1427,41 @@ Figure 12.5: The null hypothesis distribution of <span class="math inline">\(t\)
 <h4><span class="header-section-number">12.5.5.1</span> Data</h4>
 <p>Did students’ test scores significantly differ between exam 1 and exam 2?</p>
 <pre><code>##    exam1 exam2
-## 1   0.93  0.74
-## 2   0.86  0.81
-## 3   0.83  0.91
-## 4   0.79  0.90
-## 5   0.70  0.96
-## 6   0.90  1.08
-## 7   0.89  0.82
-## 8   0.94  0.80
-## 9   0.78  1.00
-## 10  0.76  0.87
-## 11  0.90  0.95
-## 12  0.94  0.93
-## 13  0.69  1.14
-## 14  1.09  0.85
-## 15  0.93  0.87
-## 16  0.81  1.01
-## 17  0.67  0.98
-## 18  0.75  1.05
-## 19  0.84  0.97
-## 20  0.70  0.76
-## 21  1.04  1.07
-## 22  0.81  1.02
-## 23  1.10  1.13
-## 24  0.92  0.88
-## 25  0.79  0.86
-## 26  0.74  0.90
-## 27  0.88  0.98
-## 28  0.83  0.80
-## 29  0.85  0.79
-## 30  1.00  0.83
-## 31  0.91  0.98
-## 32  0.79  1.11
-## 33  0.71  0.83
-## 34  0.89  0.99
-## 35  0.81  0.88</code></pre>
+## 1   0.97  0.95
+## 2   0.84  0.94
+## 3   0.98  1.09
+## 4   0.94  0.88
+## 5   1.08  0.80
+## 6   0.77  0.77
+## 7   0.77  0.62
+## 8   1.01  0.93
+## 9   0.76  1.05
+## 10  0.96  0.92
+## 11  0.66  0.82
+## 12  0.97  0.72
+## 13  0.73  1.06
+## 14  1.12  0.97
+## 15  0.98  1.07
+## 16  0.70  0.90
+## 17  0.91  0.88
+## 18  0.85  1.08
+## 19  1.10  0.83
+## 20  0.78  1.02
+## 21  0.99  0.89
+## 22  0.97  0.74
+## 23  0.90  0.93
+## 24  0.95  0.96
+## 25  0.85  0.84
+## 26  0.85  0.96
+## 27  0.93  1.06
+## 28  0.78  1.11
+## 29  0.91  0.86
+## 30  0.99  0.95
+## 31  0.89  0.98
+## 32  0.91  0.93
+## 33  1.07  1.01
+## 34  0.95  0.90
+## 35  0.93  0.82</code></pre>
 </div>
 <div id="hypotheses-5" class="section level4" number="12.5.5.2">
 <h4><span class="header-section-number">12.5.5.2</span> Hypotheses</h4>
@@ -1481,28 +1482,37 @@ H_1: &amp; \mu_D \neq 0
 <span id="cb966-2"><a href="statistics-reference.html#cb966-2" aria-hidden="true" tabindex="-1"></a><span class="co"># exams &lt;- sortFrame(exams, id)</span></span>
 <span id="cb966-3"><a href="statistics-reference.html#cb966-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(exams)</span></code></pre></div>
 <pre><code>##   exam1 exam2
-## 1  0.93  0.74
-## 2  0.86  0.81
-## 3  0.83  0.91
-## 4  0.79  0.90
-## 5  0.70  0.96
-## 6  0.90  1.08</code></pre>
+## 1  0.97  0.95
+## 2  0.84  0.94
+## 3  0.98  1.09
+## 4  0.94  0.88
+## 5  1.08  0.80
+## 6  0.77  0.77</code></pre>
 <p>Then, we can run the <span class="math inline">\(t\)</span>-test:</p>
 <div class="sourceCode" id="cb968"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb968-1"><a href="statistics-reference.html#cb968-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> exams<span class="sc">$</span>exam1, <span class="at">y =</span> exams<span class="sc">$</span>exam2, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
 ## data:  exams$exam1 and exams$exam2
-## t = -2.9389, df = 34, p-value = 0.005881
+## t = -0.50997, df = 34, p-value = 0.6134
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -0.12951964 -0.02362321
+##  -0.06979046  0.04179046
 ## sample estimates:
 ## mean of the differences 
-##             -0.07657143</code></pre>
+##                  -0.014</code></pre>
 </div>
 <div id="decision-4" class="section level4" number="12.5.5.4">
 <h4><span class="header-section-number">12.5.5.4</span> Decision</h4>
+</div>
+<div id="effect-size-2" class="section level4" number="12.5.5.5">
+<h4><span class="header-section-number">12.5.5.5</span> Effect Size</h4>
+<p>4.2.2.1. d = mean difference / standard deviation
+4.2.2.2. (Rosenthal, 1991) d = dz * root(2)
+dz will be higher than regular d</p>
+</div>
+<div id="power-analysis" class="section level4" number="12.5.5.6">
+<h4><span class="header-section-number">12.5.5.6</span> Power Analysis</h4>
 </div>
 </div>
 </div>
@@ -1524,6 +1534,22 @@ Figure 12.6: The null hypothesis distribution of <span class="math inline">\(t\)
 </div>
 <div id="assumptions-required-data-5" class="section level3" number="12.6.3">
 <h3><span class="header-section-number">12.6.3</span> Assumptions &amp; Required Data</h3>
+<p>2.2. Independent samples t-test
+2.2.1. Independence of observations – participants do not affect each other (e.g., some participants from the same office, study is on workplace satisfaction) across groups (solution: hierarchical linear modeling)
+2.2.2. Normally distributed population or large sample size; bigger problem if violate homogeneity of variance or unequal sample sizes; lower power
+2.2.3. Homogeneity of variance aka equality of variances aka homoscedasticity: Each group has same variance: Check in SPSS; bigger problem when sample sizes unequal
+2.3. Paired/dependent/matched samples t-test
+2.3.1. Independence of observations (pairs are not independent)
+2.3.2. Normally distributed population or large sample size
+2.4. Don’t meet assumptions? Nonparametric alternatives
+2.4.1. Mann-Whitney U Test alt. for independent samples
+2.4.1.1. Use when sample size is too low AND population is not normal (or ordinal)
+2.4.1.2. Treats data as ordinal
+2.4.1.3. Loss of power
+2.4.2. Wilcoxon Signed Rank Test/Wilcoxon T alt. for paired samples
+2.4.2.1. Use when sample size is too low AND population is not normal (or ordinal)
+2.4.2.2. Treats data as ordinal
+2.4.2.3. Loss of power</p>
 </div>
 <div id="when-to-use-it-5" class="section level3" number="12.6.4">
 <h3><span class="header-section-number">12.6.4</span> When to use it</h3>
@@ -1544,51 +1570,385 @@ Figure 12.6: The null hypothesis distribution of <span class="math inline">\(t\)
 <div id="decision-5" class="section level4" number="12.6.5.4">
 <h4><span class="header-section-number">12.6.5.4</span> Decision</h4>
 </div>
-<div id="variations-4" class="section level4" number="12.6.5.5">
-<h4><span class="header-section-number">12.6.5.5</span> Variations</h4>
+<div id="effect-size-3" class="section level4" number="12.6.5.5">
+<h4><span class="header-section-number">12.6.5.5</span> Effect Size</h4>
+<p>d using weighted (allows unequal sample size) and pooled (requires equal variance) standard deviation: different group sizes but same SDs - weighted average of sample variances. Same two variances but different means</p>
+</div>
+<div id="power-analysis-1" class="section level4" number="12.6.5.6">
+<h4><span class="header-section-number">12.6.5.6</span> Power Analysis</h4>
 </div>
 </div>
 </div>
-<div id="one-way-analysis-of-variance-anova" class="section level2" number="12.7">
-<h2><span class="header-section-number">12.7</span> One-Way Analysis of Variance (ANOVA)</h2>
+<div id="one-way-anova" class="section level2" number="12.7">
+<h2><span class="header-section-number">12.7</span> One-Way ANOVA</h2>
 <div id="definition-6" class="section level3" number="12.7.1">
 <h3><span class="header-section-number">12.7.1</span> Definition</h3>
-<p>An independent samples <span class="math inline">\(t\)</span>-test measures the difference between two means collected from a <strong>between-subjects design</strong>. In a between-subjects design, the two samples are compared, often from two levels of a manipulation. The key difference from the within-subjects design is that the units (usually, that means participants) in a between-subjects design are independent (different people) and only measured once. When different groups in a study contain different units, a between-subjects design is being used.</p>
+<p>The analysis of variance (ANOVA) is an expansion of t-test to allow comparison of a categorical IV with more than two levels.</p>
+<p>As with the other tests of group comparisons, ANOVA requires a continuous, quantitative DV variable.</p>
+<p>ANOVA has two stages. The <strong>omnibus test</strong> tests the null that two or more groups have the same mean. If the omnibus test is significant, <strong>pairwise comparisons</strong> are the second step. There are two strategies for pairwise comparisons. <strong>Planned comparisons</strong> maximizes statistical power by only testing hypothesized pairwise comparisons. <strong>Post-hoc tests</strong> run statistical tests for every possible pairwise comparison and then makes some (or no) adjustment for the number of tests that have been run.</p>
+<p>ANOVA solves the problem of inflated type I error that arises when running multiple t-tests. Every t-test has a <strong>testwise error rate</strong> equal to alpha. In other words, if we assume the null is true, what is the probability of rejecting the null on one t-test? It is alpha. If we assume the null is true, what is the probability of rejecting the null on <em>at least one of a series</em> of t-tests? It is higher than alpha. ANOVA solves the problem of a <strong>family</strong> or <strong>experimentwise error rate</strong> (the overall alpha level for a series of tests) by keeping the experimentwise error rate equal to .05. If you are curious, the experimentwise error rate is equal to:</p>
+<p><span class="math inline">\(EER = 1-(1-\alpha)^m\)</span> where m is the number of tests.</p>
+<p><span class="math inline">\(m = \frac{k(k-1)}{2}\)</span> where k is the number of levels of the IV.</p>
 </div>
 <div id="test-statistic-6" class="section level3" number="12.7.2">
 <h3><span class="header-section-number">12.7.2</span> Test Statistic</h3>
+<p>The test statistic for ANOVA is <span class="math inline">\(F\)</span>, which is equivalent to <span class="math inline">\(t^2\)</span>. Where <span class="math inline">\(t\)</span>-tests measure variability using standard deviation/standard error, <span class="math inline">\(F\)</span>-tests measure variability using variance.</p>
+<p>F is a ratio of two kinds of variance, explained and unexplained. The variance formula could be described as the sum of squared mean differences (sum of squares) over degrees of freedom (df). Another name for a variance calculation is mean square. The explained variance is called <strong>mean square between-groups</strong>, and the unexplained variance is <strong>mean square within-groups</strong>. Because between and within are used to describe variance in ANOVA, it is helpful to memorize that between-groups variance is good/explained and within-groups variance is bad/unexplained. The denominator/within-groups variance is pooled variance; it is just the average variance of the groups. The variance of the group means is the numerator/between-groups variance. Think of the F ratio as a competition between these two kinds of variance.</p>
+<p><span class="math inline">\(F_{observed} = \frac{MS_{between}}{MS_{within}}\)</span></p>
+<p>If the null is true, and all group means are the same, then the value of the F ratio will be near 1. As group differences increase, the value of F will increase.</p>
+<p><span class="math inline">\(F\)</span> is a one-tailed distribution, meaning that the omnibus F test does not include direction (i.e., all ANOVA tests are two-tailed). Notice how the ratio of two kinds of variance can never be negative.</p>
 <div class="figure"><span style="display:block;" id="fig:anovanull"></span>
-<img src="schuster-statistics-remix_files/figure-html/anovanull-1.png" alt="The null hypothesis distribution of $t$ with values of df between 2 and 10. Notice how the curve is starting to converge at the higher values of df." width="672" />
+<img src="schuster-statistics-remix_files/figure-html/anovanull-1.png" alt="The null hypothesis distribution of $F$ with values of df between F(4, 2) and F(10, 2)." width="672" />
 <p class="caption">
-Figure 12.7: The null hypothesis distribution of <span class="math inline">\(t\)</span> with values of df between 2 and 10. Notice how the curve is starting to converge at the higher values of df.
+Figure 12.7: The null hypothesis distribution of <span class="math inline">\(F\)</span> with values of df between F(4, 2) and F(10, 2).
 </p>
 </div>
-<p>The <span class="math inline">\(t\)</span> distribution is actually a family of distributions defined by degrees of freedom. <strong>Degrees of freedom</strong> is a concept that can be interpreted multiple ways. For now, it is sufficient to say that it is based on sample size. The value of degrees of freedom grows by 1 with each additional unit increased in the sample. In other words, the specific sampling distribution used in the hypothesis test depends on the sample size (and degrees of freedom).</p>
+<p>Pairwise comparisons, whether planned or as post-hoc tests, are essentially just <span class="math inline">\(t\)</span>-tests.</p>
+<div id="repeated-measures-anova-1" class="section level4" number="12.7.2.1">
+<h4><span class="header-section-number">12.7.2.1</span> Repeated Measures ANOVA</h4>
+<p>Repeated measures ANOVA is an extension of the paired samples <span class="math inline">\(t\)</span>-test to allow for within-subjects designs.</p>
+<p>In a repeated measures ANOVA, variance due to individual differences is computed separately (i.e., how different were participants scores from each other?). The individual differences variance is subtracted from the error term. In other words, variability across different participants is removed from the denominator, thus raising the F value Therefore, when you observe large differences across participants, power is increased relative to the between-subjects version.</p>
+<p>Practically, repeated measures ANOVA (and within-subjects design) requires fewer cases, but more time per case. You need fewer people, but more observations of them. Within subjects designs also are subject to:</p>
+<ul>
+<li><p>Simple order effects. Which condition is first affects participants scores; practice effects are an example. The solution is counterbalancing.</p></li>
+<li><p>Differential carryover effects are when the effect of one condition bleeds into the second, and the effect is asymmetrical because it happens more in one order of conditions than the other. Imagine a study of shocking images versus neutral images. Participants may be more affected by the shocking images and that could alter their scores in the neutral image trial. In this situation, counterbalancing will not help.</p></li>
+</ul>
+</div>
 </div>
 <div id="assumptions-required-data-6" class="section level3" number="12.7.3">
 <h3><span class="header-section-number">12.7.3</span> Assumptions &amp; Required Data</h3>
+<div id="between-subjects-anova" class="section level4" number="12.7.3.1">
+<h4><span class="header-section-number">12.7.3.1</span> Between-Subjects ANOVA</h4>
+<ul>
+<li>Independence of observations. Participants do not affect the measurement of each other. For example, if you conduct a study on workplace satisfaction with some participants from the same office, independence of observations is a vioalted assumption. Other techniques, such as hierarchical linear modeling (a series of regression equations) would be more appropriate. Aside from these types of situations, it is relatively easy to meet this assumption through careful research design.</li>
+<li>The normality assumption, meaning at least one of these:
+<ul>
+<li><span class="math inline">\(N \ge 30\)</span></li>
+<li>The variable is normally distributed in the population</li>
+</ul></li>
+<li>Independence of observations. Participants do not affect each others’ scores.</li>
+<li>Homogeneity of variance (aka “homoscedasticity”). Population standard deviation is equivalent across the conditions. This can be tested using Levene’s test. If this assumption is violated <em>and</em> group sizes are unequal, then a parametric ANOVA may not be appropriate. Alternatives for this case are Welch or Brown-Forsythe ANOVA. The syntax for Welch is <code>oneway.test(dataframe$dv ~ dataframe$iv, data = ex, na.action = na.exclude)</code>.</li>
+<li>No outliers. Note our earlier guidance on balancing the impact of outliers with the need to maintain the sampling method.</li>
+</ul>
+</div>
+<div id="repeated-measures-anova-2" class="section level4" number="12.7.3.2">
+<h4><span class="header-section-number">12.7.3.2</span> Repeated Measures ANOVA</h4>
+<ul>
+<li>Random sampling. Although this is always a concern for external validity, it is more important for a repated measures ANOVA because each unit is in both conditions. Thus, units act as their own control group.</li>
+<li>The normality assumption, meaning at least one of these:
+<ul>
+<li><span class="math inline">\(N \ge 30\)</span></li>
+<li>The variable is normally distributed in the population</li>
+</ul></li>
+<li>No outliers. Note our earlier guidance on balancing the impact of outliers with the need to maintain the sampling method.</li>
+<li>No subject x treatment interaction. This occurs when some participants respond differently to a treatment. Imagine a drug trial for people at various stages of an illness. If the pill is more effective at earlier stages and not at later stages, there will be an inflated Type II error rate. Repeated measures ANOVA assumes this is does not happen.</li>
+<li>Sphericity.
+<ul>
+<li>It only applies when 3+ levels (<span class="math inline">\(k&gt;2\)</span>).</li>
+<li>Imagine you found the difference between a pair of levels (e.g., time1 - time 2) and then found the variance of those difference scores. If you did that for every pair of two levels, you would want each variance calculation to be equal.</li>
+<li>In case you are ever asked, sphericity guarantees no compound symmetry (homogeneity of variance and of covariance) and no additivity (a treatment x subject interaction).</li>
+<li><strong>Sphericity is an assumption you need to care about, because violating it can inflate the F-ratio and Type I error rate</strong>.</li>
+<li>Use Wauchly’s <span class="math inline">\(W\)</span> to test for sphericity. It gives a value of epsilon. 1.0 is perfect sphericity. If the significance test for <span class="math inline">\(W\)</span> is not significant, you conclude you have met the assumption. However, this test is not powerful when sample size is small, so it can be helpful to also look at the value of epsilon.</li>
+<li>If sphericity is violated, you need to use an alternative statistic. Greenhouse Geisser is more common but conservative; Huynh and Feldt is more powerful when you are close to sphericity.</li>
+<li>Do not try different statistics and only test for sphericity after you have failed to reject the null. That is p-hacking.</li>
+</ul></li>
+</ul>
+</div>
 </div>
 <div id="when-to-use-it-6" class="section level3" number="12.7.4">
 <h3><span class="header-section-number">12.7.4</span> When to use it</h3>
+<p>If you have a quantitative DV and a single, discrete IV with two or more levels, you can run an ANOVA.</p>
 </div>
-<div id="example-6" class="section level3" number="12.7.5">
-<h3><span class="header-section-number">12.7.5</span> Example</h3>
+<div id="example-between-subjects" class="section level3" number="12.7.5">
+<h3><span class="header-section-number">12.7.5</span> Example: Between-Subjects</h3>
+<p>Researchers are interested in participants’ reaction times to three types of alert displays: a visual alert, an auditory alert, and a speech alert. They randomly assign participants to one of these three conditions. Therefore, this is a between-subjects experimental design.</p>
 <div id="data-6" class="section level4" number="12.7.5.1">
 <h4><span class="header-section-number">12.7.5.1</span> Data</h4>
+<p>Complicating matters, our data in this example are starting off in the wrong format. This format is called wide. We have one column per condition. This means that each row contains the data for three participants. We need this reshaped into one row per participant, called long.</p>
+<div class="sourceCode" id="cb970"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb970-1"><a href="statistics-reference.html#cb970-1" aria-hidden="true" tabindex="-1"></a>RT_visual <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">218.24</span>, <span class="fl">218.34</span>, <span class="fl">229.05</span>, <span class="fl">219.12</span>, <span class="fl">218.42</span>)</span>
+<span id="cb970-2"><a href="statistics-reference.html#cb970-2" aria-hidden="true" tabindex="-1"></a>RT_auditory <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">238.37</span>, <span class="fl">249.06</span>, <span class="fl">238.86</span>, <span class="fl">248.76</span>, <span class="fl">239.34</span>)</span>
+<span id="cb970-3"><a href="statistics-reference.html#cb970-3" aria-hidden="true" tabindex="-1"></a>RT_speech <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">258.34</span>, <span class="fl">228.62</span>, <span class="fl">239.31</span>, <span class="fl">259.14</span>, <span class="fl">258.13</span>)</span>
+<span id="cb970-4"><a href="statistics-reference.html#cb970-4" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb970-5"><a href="statistics-reference.html#cb970-5" aria-hidden="true" tabindex="-1"></a>dataframe <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(RT_visual, RT_auditory, RT_speech, id)</span>
+<span id="cb970-6"><a href="statistics-reference.html#cb970-6" aria-hidden="true" tabindex="-1"></a>dataframe</span></code></pre></div>
+<pre><code>##   RT_visual RT_auditory RT_speech id
+## 1    218.24      238.37    258.34  1
+## 2    218.34      249.06    228.62  2
+## 3    229.05      238.86    239.31  3
+## 4    219.12      248.76    259.14  4
+## 5    218.42      239.34    258.13  5</code></pre>
+<p>These data are in wide format (one column per condition). To use these data in a between-subjects ANOVA, we need them in long format (one row per participant).</p>
+<p>The secret to this is naming the variables correctly. First, you need an id variable. Second, you should name all of your condition variables in this format: DV_level. In this example, our DV is reaction time (RT) and the levels are visual, auditory, and speech. <code>wideToLong()</code> is looking for this format or it won’t work.</p>
+<div class="sourceCode" id="cb972"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb972-1"><a href="statistics-reference.html#cb972-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lsr)</span>
+<span id="cb972-2"><a href="statistics-reference.html#cb972-2" aria-hidden="true" tabindex="-1"></a>longdata <span class="ot">&lt;-</span> <span class="fu">wideToLong</span>(dataframe, <span class="st">&quot;condition&quot;</span>)</span>
+<span id="cb972-3"><a href="statistics-reference.html#cb972-3" aria-hidden="true" tabindex="-1"></a>longdata</span></code></pre></div>
+<pre><code>##    id condition     RT
+## 1   1    visual 218.24
+## 2   2    visual 218.34
+## 3   3    visual 229.05
+## 4   4    visual 219.12
+## 5   5    visual 218.42
+## 6   1  auditory 238.37
+## 7   2  auditory 249.06
+## 8   3  auditory 238.86
+## 9   4  auditory 248.76
+## 10  5  auditory 239.34
+## 11  1    speech 258.34
+## 12  2    speech 228.62
+## 13  3    speech 239.31
+## 14  4    speech 259.14
+## 15  5    speech 258.13</code></pre>
+<p>All of this was to illustrate that for a between-subjects ANOVA, we need long format data. To avoid having to reshape your data, it is helpful to collect between-subjects data already in long format. The condition variable is a hint that the data are in long format.</p>
+<p>With that out of the way, we can now use our dataframe, <code>longdata</code>. First, we will descriptively look at the group means:</p>
+<div class="sourceCode" id="cb974"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb974-1"><a href="statistics-reference.html#cb974-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pastecs)</span>
+<span id="cb974-2"><a href="statistics-reference.html#cb974-2" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(longdata<span class="sc">$</span>RT, longdata<span class="sc">$</span>condition, stat.desc) <span class="co"># show descriptive stats on our RT DV grouped by condition</span></span></code></pre></div>
+<pre><code>## longdata$condition: auditory
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 5.000000e+00 0.000000e+00 0.000000e+00 2.383700e+02 2.490600e+02 
+##        range          sum       median         mean      SE.mean 
+## 1.069000e+01 1.214390e+03 2.393400e+02 2.428780e+02 2.467781e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 6.851659e+00 3.044972e+01 5.518126e+00 2.271975e-02 
+## -------------------------------------------------------- 
+## longdata$condition: speech
+##      nbr.val     nbr.null       nbr.na          min          max 
+##    5.0000000    0.0000000    0.0000000  228.6200000  259.1400000 
+##        range          sum       median         mean      SE.mean 
+##   30.5200000 1243.5400000  258.1300000  248.7080000    6.2539039 
+## CI.mean.0.95          var      std.dev     coef.var 
+##   17.3636209  195.5565700   13.9841542    0.0562272 
+## -------------------------------------------------------- 
+## longdata$condition: visual
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 5.000000e+00 0.000000e+00 0.000000e+00 2.182400e+02 2.290500e+02 
+##        range          sum       median         mean      SE.mean 
+## 1.081000e+01 1.103170e+03 2.184200e+02 2.206340e+02 2.109700e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 5.857467e+00 2.225418e+01 4.717434e+00 2.138126e-02</code></pre>
+<div class="sourceCode" id="cb976"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb976-1"><a href="statistics-reference.html#cb976-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb976-2"><a href="statistics-reference.html#cb976-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(longdata, <span class="fu">aes</span>(condition, RT)) <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun.y =</span> mean, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span><span class="st">&quot;Condition&quot;</span>, <span class="at">y=</span><span class="st">&quot;Outcome&quot;</span>) <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_normal, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="at">width=</span> <span class="fl">0.2</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span><span class="st">&quot;Condition&quot;</span>, <span class="at">y=</span><span class="st">&quot;Outcome&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: `fun.y` is deprecated. Use `fun` instead.</code></pre>
+<p><img src="schuster-statistics-remix_files/figure-html/anovavis3-1.png" width="672" /></p>
+<p>And, we can create an interactive graph of the means using a package called Plotly. The error bars are 95% confidence intervals. I cannot embed Plotly in this book, but I can show you the syntax:</p>
+<div class="sourceCode" id="cb978"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb978-1"><a href="statistics-reference.html#cb978-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;plotly&quot;)</span></span>
+<span id="cb978-2"><a href="statistics-reference.html#cb978-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(plotly)</span></span>
+<span id="cb978-3"><a href="statistics-reference.html#cb978-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplotly(ggplot(longdata, aes(condition, RT)) + stat_summary(fun.y = mean, geom = &quot;point&quot;) + labs(x =&quot;Condition&quot;, y=&quot;Outcome&quot;) + stat_summary(fun.data = mean_cl_normal, geom = &quot;errorbar&quot;, width= 0.2) + labs(x =&quot;Condition&quot;, y=&quot;Outcome&quot;)) # Plotly shows hoverable data points on mouseover</span></span></code></pre></div>
+<p>A visual interpretation of this graph suggests that visual had the fastest reaction time, followed by auditory, and then speech. But are these significantly different from each other? We need to run the ANOVA to find out.</p>
 </div>
 <div id="hypotheses-7" class="section level4" number="12.7.5.2">
 <h4><span class="header-section-number">12.7.5.2</span> Hypotheses</h4>
+<p><span class="math display">\[
+\begin{array}{ll}
+H_0: &amp; \mu_{auditory} = \mu_{speech} = \mu_{visual}  \\
+H_1: &amp; \mbox{the null is false}
+\end{array}
+\]</span>
+#### Assumption Checking</p>
+<div class="sourceCode" id="cb979"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb979-1"><a href="statistics-reference.html#cb979-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb979-2"><a href="statistics-reference.html#cb979-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(longdata<span class="sc">$</span>RT, longdata<span class="sc">$</span>condition, <span class="at">center =</span> median)</span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(&gt;F)
+## group  2  1.0249 0.3882
+##       12</code></pre>
+<p>Levene’s test is not significant, so we assume homogeneity of variance. However, I would be cautious about this interpretation because our sample size is small (<span class="math inline">\(N = 15\)</span>). Further, the error bars in the graph looked different to me (and the confidence intervals were numerically different in the table). But because our sample sizes are equal, we will continue with this example.</p>
 </div>
 <div id="analysis-6" class="section level4" number="12.7.5.3">
 <h4><span class="header-section-number">12.7.5.3</span> Analysis</h4>
 <p>Set the alpha level. By convention, an alpha level of <span class="math inline">\(\alpha = .05\)</span> will be used.</p>
-<p>Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining an effect size (in this case, the predictive power of our model over the null model with only the mean, measured using <span class="math inline">\(R^2\)</span>) this strong at our sample size through random sampling from a population with no effect (a null model). We will determine this using an analysis of variance using the sampling distribution of the null hypothesis for <span class="math inline">\(F\)</span>.</p>
+<p>Assume the null hypothesis is true. Assuming the null hypothesis is true means that we need to determine the probability of obtaining an effect size (in this case, the ratio of explained to unexplained variance) this strong at our sample size through random sampling from a population with no effect (a null model). We will determine this using an analysis of variance using the sampling distribution of the null hypothesis for <span class="math inline">\(F\)</span>.</p>
+<div class="sourceCode" id="cb981"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb981-1"><a href="statistics-reference.html#cb981-1" aria-hidden="true" tabindex="-1"></a>anovaModel <span class="ot">&lt;-</span> <span class="fu">lm</span>(RT <span class="sc">~</span> condition, <span class="at">data =</span> longdata) <span class="co"># note there is an na.action argument if you need to exclude missing data</span></span>
+<span id="cb981-2"><a href="statistics-reference.html#cb981-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anovaModel)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = RT ~ condition, data = longdata)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -20.088  -3.778  -2.214   7.299  10.432 
+## 
+## Coefficients:
+##                 Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      242.878      4.068  59.701 3.22e-16 ***
+## conditionspeech    5.830      5.753   1.013  0.33090    
+## conditionvisual  -22.244      5.753  -3.866  0.00224 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 9.097 on 12 degrees of freedom
+## Multiple R-squared:  0.6885, Adjusted R-squared:  0.6366 
+## F-statistic: 13.26 on 2 and 12 DF,  p-value: 0.0009136</code></pre>
+<div class="sourceCode" id="cb983"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb983-1"><a href="statistics-reference.html#cb983-1" aria-hidden="true" tabindex="-1"></a>anovaModel <span class="ot">&lt;-</span> <span class="fu">aov</span>(RT <span class="sc">~</span> condition, <span class="at">data =</span> longdata)</span>
+<span id="cb983-2"><a href="statistics-reference.html#cb983-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anovaModel)</span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## condition    2   2195  1097.4   13.26 0.000914 ***
+## Residuals   12    993    82.8                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
-<div id="decision-6" class="section level4" number="12.7.5.4">
-<h4><span class="header-section-number">12.7.5.4</span> Decision</h4>
+<div id="omnibus-decision" class="section level4" number="12.7.5.4">
+<h4><span class="header-section-number">12.7.5.4</span> Omnibus Decision</h4>
+<p>The omnibus ANOVA was significant, <span class="math inline">\(F\)</span>(2, 12) = 13.26, <span class="math inline">\(p\)</span> &lt; .001, <span class="math inline">\(\eta^2\)</span> = .689. We can conclude there is some difference among these conditions. To determine which conditions are significantly different from the others, we need to perform post-hoc tests.</p>
 </div>
-<div id="variations-5" class="section level4" number="12.7.5.5">
-<h4><span class="header-section-number">12.7.5.5</span> Variations</h4>
+<div id="post-hoc-tests" class="section level4" number="12.7.5.5">
+<h4><span class="header-section-number">12.7.5.5</span> Post-hoc Tests</h4>
+<p>This section will be further developed.</p>
+<div id="bonferroni-method" class="section level5" number="12.7.5.5.1">
+<h5><span class="header-section-number">12.7.5.5.1</span> Bonferroni method</h5>
+<p>This is the most conservative method of post-hoc tests.</p>
+<div class="sourceCode" id="cb985"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb985-1"><a href="statistics-reference.html#cb985-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(longdata<span class="sc">$</span>RT, longdata<span class="sc">$</span>condition, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  longdata$RT and longdata$condition 
+## 
+##        auditory speech
+## speech 0.9927   -     
+## visual 0.0067   0.0011
+## 
+## P value adjustment method: bonferroni</code></pre>
+<p>The bonferroni post-hoc tests show that there was a significant difference between visual (<span class="math inline">\(M\)</span> = 220.63, <span class="math inline">\(SD\)</span> = 4.72) and auditory (<span class="math inline">\(M\)</span> = 242.87, <span class="math inline">\(SD\)</span> = 5.52) alerts, and between speech (<span class="math inline">\(M\)</span> = 248.71, <span class="math inline">\(SD\)</span> = 13.98) and visual alerts, but not between auditory and speech alerts.</p>
+</div>
+</div>
+<div id="alternatives-to-bonferroni-method" class="section level4" number="12.7.5.6">
+<h4><span class="header-section-number">12.7.5.6</span> Alternatives to Bonferroni method</h4>
+<p>Instead of “bonferroni,” you can choose another p.adjust.method argument of “holm,” “hochberg,” “hommel,” “BH,” “BY,” “fdr,” or “none.”</p>
+<div id="tukey-method" class="section level5" number="12.7.5.6.1">
+<h5><span class="header-section-number">12.7.5.6.1</span> Tukey method</h5>
+<div class="sourceCode" id="cb987"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb987-1"><a href="statistics-reference.html#cb987-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span></code></pre></div>
+<pre><code>## Loading required package: mvtnorm</code></pre>
+<pre><code>## Loading required package: survival</code></pre>
+<pre><code>## Loading required package: TH.data</code></pre>
+<pre><code>## 
+## Attaching package: &#39;TH.data&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:MASS&#39;:
+## 
+##     geyser</code></pre>
+<div class="sourceCode" id="cb993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb993-1"><a href="statistics-reference.html#cb993-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;multcomp&quot;)</span></span>
+<span id="cb993-2"><a href="statistics-reference.html#cb993-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb993-3"><a href="statistics-reference.html#cb993-3" aria-hidden="true" tabindex="-1"></a>hsdModel <span class="ot">&lt;-</span> <span class="fu">glht</span>(anovaModel, <span class="at">linfct =</span> <span class="fu">mcp</span>(<span class="at">condition =</span> <span class="st">&quot;Tukey&quot;</span>))</span>
+<span id="cb993-4"><a href="statistics-reference.html#cb993-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hsdModel)</span></code></pre></div>
+<pre><code>## 
+##   Simultaneous Tests for General Linear Hypotheses
+## 
+## Multiple Comparisons of Means: Tukey Contrasts
+## 
+## 
+## Fit: aov(formula = RT ~ condition, data = longdata)
+## 
+## Linear Hypotheses:
+##                        Estimate Std. Error t value Pr(&gt;|t|)   
+## speech - auditory == 0    5.830      5.753   1.013  0.58287   
+## visual - auditory == 0  -22.244      5.753  -3.866  0.00572 **
+## visual - speech == 0    -28.074      5.753  -4.880  0.00101 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## (Adjusted p values reported -- single-step method)</code></pre>
+<p>The Tukey post-hoc tests show that there was a significant difference between visual (<span class="math inline">\(M\)</span> = 220.63, <span class="math inline">\(SD\)</span> = 4.72) and auditory (<span class="math inline">\(M\)</span> = 242.87, <span class="math inline">\(SD\)</span> = 5.52) alerts, and between speech (<span class="math inline">\(M\)</span> = 248.71, <span class="math inline">\(SD\)</span> = 13.98) and visual alerts, but not between auditory and speech alerts.</p>
+</div>
+</div>
+<div id="effect-size-4" class="section level4" number="12.7.5.7">
+<h4><span class="header-section-number">12.7.5.7</span> Effect Size</h4>
+<p>Because <span class="math inline">\(\eta^2 = R^2\)</span>, you can find and report <span class="math inline">\(\eta^2\)</span> from the <code>lm()</code> function.</p>
+</div>
+<div id="power-analysis-2" class="section level4" number="12.7.5.8">
+<h4><span class="header-section-number">12.7.5.8</span> Power Analysis</h4>
+<p>In G*Power, select the F tests family, and then choose “ANOVA: Fixed effects, omnibus, one-way.”</p>
+<p>The best way to estimate effect size is to rely on effect sizes in similar past research. You will commonly find eta squared (<span class="math inline">\(\eta^2\)</span>) in published work, not effect size <span class="math inline">\(f\)</span>. However, you can convert eta squared to <span class="math inline">\(f\)</span> to use in G*Power:</p>
+<ol style="list-style-type: decimal">
+<li>Click “Determine.”</li>
+<li>Select the procedure of “Effect size from variance.”</li>
+<li>Select “Direct.”</li>
+<li>Enter a value for partial eta squared.</li>
+<li>Click “Calculate and transfer to main window.” <strong>Don’t miss this step</strong>. It is easy to forget to update the value of f in the input parameters. If you do not update that value, your power analysis will not use this new effect size.</li>
+</ol>
+<p>One more (less common) option is to select “Effect size from means” in the “Determine” drawer to fill in the anticipated means to estimate effect size.</p>
+</div>
+</div>
+<div id="example-within-subjects" class="section level3" number="12.7.6">
+<h3><span class="header-section-number">12.7.6</span> Example: Within-Subjects</h3>
+<p>This example is the same, but in this study, the researchers randomly assigned participants to one of these three condition orders. Participants completed a visual, auditory, and speech trial. Therefore, this is a within-subjects experimental design.</p>
+<div id="data-7" class="section level4" number="12.7.6.1">
+<h4><span class="header-section-number">12.7.6.1</span> Data</h4>
+<p>If you run this analysis in SPSS or another package, it is more common to see it in wide format, with one row per participant, and each measurement represented by a separate column. That is how our data in this example started out:</p>
+<div class="sourceCode" id="cb995"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb995-1"><a href="statistics-reference.html#cb995-1" aria-hidden="true" tabindex="-1"></a>RT_visual <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">218.24</span>, <span class="fl">218.34</span>, <span class="fl">229.05</span>, <span class="fl">219.12</span>, <span class="fl">218.42</span>)</span>
+<span id="cb995-2"><a href="statistics-reference.html#cb995-2" aria-hidden="true" tabindex="-1"></a>RT_auditory <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">238.37</span>, <span class="fl">249.06</span>, <span class="fl">238.86</span>, <span class="fl">248.76</span>, <span class="fl">239.34</span>)</span>
+<span id="cb995-3"><a href="statistics-reference.html#cb995-3" aria-hidden="true" tabindex="-1"></a>RT_speech <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">258.34</span>, <span class="fl">228.62</span>, <span class="fl">239.31</span>, <span class="fl">259.14</span>, <span class="fl">258.13</span>)</span>
+<span id="cb995-4"><a href="statistics-reference.html#cb995-4" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb995-5"><a href="statistics-reference.html#cb995-5" aria-hidden="true" tabindex="-1"></a>dataframe <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(RT_visual, RT_auditory, RT_speech, id)</span>
+<span id="cb995-6"><a href="statistics-reference.html#cb995-6" aria-hidden="true" tabindex="-1"></a>dataframe</span></code></pre></div>
+<pre><code>##   RT_visual RT_auditory RT_speech id
+## 1    218.24      238.37    258.34  1
+## 2    218.34      249.06    228.62  2
+## 3    229.05      238.86    239.31  3
+## 4    219.12      248.76    259.14  4
+## 5    218.42      239.34    258.13  5</code></pre>
+<p>These data are in wide format (one column per condition) in R, however, we still have to use the long format (one row per participant).</p>
+<div class="sourceCode" id="cb997"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb997-1"><a href="statistics-reference.html#cb997-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lsr)</span>
+<span id="cb997-2"><a href="statistics-reference.html#cb997-2" aria-hidden="true" tabindex="-1"></a>longdata <span class="ot">&lt;-</span> <span class="fu">wideToLong</span>(dataframe, <span class="st">&quot;condition&quot;</span>)</span>
+<span id="cb997-3"><a href="statistics-reference.html#cb997-3" aria-hidden="true" tabindex="-1"></a>longdata</span></code></pre></div>
+<pre><code>##    id condition     RT
+## 1   1    visual 218.24
+## 2   2    visual 218.34
+## 3   3    visual 229.05
+## 4   4    visual 219.12
+## 5   5    visual 218.42
+## 6   1  auditory 238.37
+## 7   2  auditory 249.06
+## 8   3  auditory 238.86
+## 9   4  auditory 248.76
+## 10  5  auditory 239.34
+## 11  1    speech 258.34
+## 12  2    speech 228.62
+## 13  3    speech 239.31
+## 14  4    speech 259.14
+## 15  5    speech 258.13</code></pre>
+<p>I will omit the parts of the analysis that are the same in the within-subjects design. All the descriptive analysis is the same.</p>
+</div>
+<div id="hypotheses-8" class="section level4" number="12.7.6.2">
+<h4><span class="header-section-number">12.7.6.2</span> Hypotheses</h4>
+<p>Same as between-subjects.</p>
+</div>
+<div id="analysis-7" class="section level4" number="12.7.6.3">
+<h4><span class="header-section-number">12.7.6.3</span> Analysis</h4>
+<p>We are using ezANOVA() in the ez package.</p>
+<div class="sourceCode" id="cb999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb999-1"><a href="statistics-reference.html#cb999-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;ez&quot;)</span></span>
+<span id="cb999-2"><a href="statistics-reference.html#cb999-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ez)</span>
+<span id="cb999-3"><a href="statistics-reference.html#cb999-3" aria-hidden="true" tabindex="-1"></a>withinAnovaModel <span class="ot">&lt;-</span> <span class="fu">ezANOVA</span>(<span class="at">data =</span> longdata, <span class="at">dv =</span> .(RT), <span class="at">wid =</span> .(id), <span class="at">within =</span> .(condition), <span class="at">type =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## Warning: Converting &quot;id&quot; to factor for ANOVA.</code></pre>
+<div class="sourceCode" id="cb1001"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1001-1"><a href="statistics-reference.html#cb1001-1" aria-hidden="true" tabindex="-1"></a>withinAnovaModel</span></code></pre></div>
+<pre><code>## $ANOVA
+##      Effect DFn DFd        F           p p&lt;.05       ges
+## 2 condition   2   8 10.74292 0.005418832     * 0.6884996
+## 
+## $`Mauchly&#39;s Test for Sphericity`
+##      Effect         W         p p&lt;.05
+## 2 condition 0.5783249 0.4398026      
+## 
+## $`Sphericity Corrections`
+##      Effect       GGe      p[GG] p[GG]&lt;.05       HFe       p[HF] p[HF]&lt;.05
+## 2 condition 0.7033956 0.01495468         * 0.9706036 0.005985676         *</code></pre>
+<div class="sourceCode" id="cb1003"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1003-1"><a href="statistics-reference.html#cb1003-1" aria-hidden="true" tabindex="-1"></a>?ezANOVA</span></code></pre></div>
+</div>
+<div id="sphericity-checking" class="section level4" number="12.7.6.4">
+<h4><span class="header-section-number">12.7.6.4</span> Sphericity Checking</h4>
+<p>We will need to diagnose sphericity. Fortunately, this is provided in the default output. The value of Mauchly’s <span class="math inline">\(W\)</span> is 0.59, which is not significant and I am going to report the statistics in the first table. Had this been significant, I could have reported Greenhouse and Geisser (GG; 1959) or Huynh and Feldt (HF; 1976) versions of the statistics. Remember, it is important to decide which approach you will take before examining the p-values.</p>
+</div>
+<div id="omnibus-decision-1" class="section level4" number="12.7.6.5">
+<h4><span class="header-section-number">12.7.6.5</span> Omnibus Decision</h4>
+<p>The omnibus ANOVA was significant, <span class="math inline">\(F\)</span>(2, 8) = 10.74, <span class="math inline">\(p\)</span> = .005, <span class="math inline">\(\eta^2_G\)</span> = .689. We can conclude there is some difference among these conditions. To determine which conditions are significantly different from the others, we need to perform post-hoc tests.</p>
+</div>
+<div id="post-hoc-tests-1" class="section level4" number="12.7.6.6">
+<h4><span class="header-section-number">12.7.6.6</span> Post-hoc Tests</h4>
+<p>The post-hoc test methods are the same, except set paired = TRUE, so that paired samples t-tests are used.</p>
+</div>
+<div id="effect-size-5" class="section level4" number="12.7.6.7">
+<h4><span class="header-section-number">12.7.6.7</span> Effect Size</h4>
+<p>The effect size statistic is called generalized eta squared (see also <a href="https://link.springer.com/content/pdf/10.3758%2FBF03192707.pdf">Bakeman, 2005</a>). Note that this differs in its calculation from eta squared, so you should take care to label it with the <span class="math inline">\(_G\)</span>.</p>
+</div>
+<div id="power-analysis-3" class="section level4" number="12.7.6.8">
+<h4><span class="header-section-number">12.7.6.8</span> Power Analysis</h4>
+<p>In G*Power, select the F tests family, and then choose “ANOVA: Repeated measures, within factors.”</p>
+<p>As this is a one-way, repeated measures ANOVA, you can enter effect size, alpha, and power. Then, set number of groups to 1 (as there is no between-subjects factor) and the number of measurements to the number of levels of the IV. The corr among rep measures is the estimated correlation between your measures (e.g., how well can you predict a participant’s time 2 score if you know their time 1 score). This can be hard to estimate, but it’s a good exercise to think about how large you expect these individual differences to be. The larger the correlation among measures, the more you gain by using a within-subjects design.</p>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div class="csl-entry">

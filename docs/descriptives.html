@@ -24,7 +24,7 @@
 <meta name="author" content="David Schuster" />
 
 
-<meta name="date" content="2021-10-22" />
+<meta name="date" content="2021-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -738,13 +738,14 @@ div.csl-indent {
 <li class="chapter" data-level="12.6.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-5"><i class="fa fa-check"></i><b>12.6.4</b> When to use it</a></li>
 <li class="chapter" data-level="12.6.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-5"><i class="fa fa-check"></i><b>12.6.5</b> Example</a></li>
 </ul></li>
-<li class="chapter" data-level="12.7" data-path="statistics-reference.html"><a href="statistics-reference.html#one-way-analysis-of-variance-anova"><i class="fa fa-check"></i><b>12.7</b> One-Way Analysis of Variance (ANOVA)</a>
+<li class="chapter" data-level="12.7" data-path="statistics-reference.html"><a href="statistics-reference.html#one-way-anova"><i class="fa fa-check"></i><b>12.7</b> One-Way ANOVA</a>
 <ul>
 <li class="chapter" data-level="12.7.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition-6"><i class="fa fa-check"></i><b>12.7.1</b> Definition</a></li>
 <li class="chapter" data-level="12.7.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-6"><i class="fa fa-check"></i><b>12.7.2</b> Test Statistic</a></li>
 <li class="chapter" data-level="12.7.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-6"><i class="fa fa-check"></i><b>12.7.3</b> Assumptions &amp; Required Data</a></li>
 <li class="chapter" data-level="12.7.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-6"><i class="fa fa-check"></i><b>12.7.4</b> When to use it</a></li>
-<li class="chapter" data-level="12.7.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-6"><i class="fa fa-check"></i><b>12.7.5</b> Example</a></li>
+<li class="chapter" data-level="12.7.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-between-subjects"><i class="fa fa-check"></i><b>12.7.5</b> Example: Between-Subjects</a></li>
+<li class="chapter" data-level="12.7.6" data-path="statistics-reference.html"><a href="statistics-reference.html#example-within-subjects"><i class="fa fa-check"></i><b>12.7.6</b> Example: Within-Subjects</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -944,7 +945,7 @@ and there are <em>two</em> middle numbers, 31 and 32. The median is defined as t
 <div id="mean-or-median-whats-the-difference" class="section level3" number="3.3.4">
 <h3><span class="header-section-number">3.3.4</span> Mean or median? What’s the difference?</h3>
 <div class="figure"><span style="display:block;" id="fig:meanmedian"></span>
-<img src="img/descriptives2/meanmedian.png" alt="An illustration of the difference between how the mean and the median should be interpreted. The mean is basically the &quot;centre of gravity&quot; of the data set: if you imagine that the histogram of the data is a solid object, then the point on which you could balance it (as if on a see-saw) is the mean. In contrast, the median is the middle observation. Half of the observations are smaller, and half of the observations are larger."  />
+<img src="img/descriptives2/meanmedian.png" alt="An illustration of the difference between how the mean and the median should be interpreted. The mean is basically the &quot;centre of gravity&quot; of the data set: if you imagine that the histogram of the data is a solid object, then the point on which you could balance it (as if on a see-saw) is the mean. In contrast, the median is the middle observation. Half of the observations are smaller, and half of the observations are larger." width="463" />
 <p class="caption">
 Figure 3.2: An illustration of the difference between how the mean and the median should be interpreted. The mean is basically the “centre of gravity” of the data set: if you imagine that the histogram of the data is a solid object, then the point on which you could balance it (as if on a see-saw) is the mean. In contrast, the median is the middle observation. Half of the observations are smaller, and half of the observations are larger.
 </p>
@@ -1295,15 +1296,15 @@ Figure 3.3: An illustration of the standard deviation, applied to the AFL winnin
 <p>Text by David Schuster</p>
 <p>There are two more descriptive statistics that you will sometimes see reported in the psychological literature, known as skew and kurtosis. These two measures are useful to diagnose normality (although kurtosis is less useful, in practice). If we find evidence of skewness or kurtosis, we may suspect that our distribution is not normal. Later in this course, we will see that it is generally not a problem for us if one of our sample distributions are non-normal. Regardless, skewness and kurtosis can tell us about the shape of our data.</p>
 <p>Example by <span class="citation"><a href="#ref-Navarro2018" role="doc-biblioref">Navarro</a> (<a href="#ref-Navarro2018" role="doc-biblioref">2018</a>)</span></p>
-<pre><code>## [1] -0.90928</code></pre>
-<pre><code>## [1] 0.003336087</code></pre>
+<pre><code>## [1] -0.9072377</code></pre>
+<pre><code>## [1] 0.0007771074</code></pre>
 <div class="figure"><span style="display:block;" id="fig:skewness"></span>
 <img src="schuster-statistics-remix_files/figure-html/skewness-1.png" alt="An illustration of skewness. On the left we have a negatively skewed data set (skewness $= -.93$), in the middle we have a data set with no skew (technically, skewness $= -.006$), and on the right we have a positively skewed data set (skewness $= .93$)." width="672" />
 <p class="caption">
 Figure 3.4: An illustration of skewness. On the left we have a negatively skewed data set (skewness <span class="math inline">\(= -.93\)</span>), in the middle we have a data set with no skew (technically, skewness <span class="math inline">\(= -.006\)</span>), and on the right we have a positively skewed data set (skewness <span class="math inline">\(= .93\)</span>).
 </p>
 </div>
-<pre><code>## [1] 0.922996</code></pre>
+<pre><code>## [1] 0.9261603</code></pre>
 <p>Since it’s the more interesting of the two, let’s start by talking about the <strong><em>skewness</em></strong>. Skewness is basically a measure of asymmetry, and the easiest way to explain it is by drawing some pictures. As Figure <a href="descriptives.html#fig:skewness">3.4</a> illustrates, if the data tend to have a lot of extreme small values (i.e., the lower tail is “longer” than the upper tail) and not so many extremely large values (left panel), then we say that the data are <em>negatively skewed</em>. On the other hand, if there are more extremely large values than extremely small ones (right panel) we say that the data are <em>positively skewed</em>. That’s the qualitative idea behind skewness. The actual formula for the skewness of a data set is as follows
 <span class="math display">\[
 \mbox{skewness}(X) = \frac{1}{N \hat{\sigma}^3} \sum_{i=1}^N (X_i - \bar{X})^3
@@ -1390,15 +1391,15 @@ where <span class="math inline">\(N\)</span> is the number of observations, <spa
 ## data:  x
 ## W = 0.9398, p-value = 9.481e-07</code></pre>
 <p>The final measure that is sometimes referred to, though very rarely in practice, is the <strong><em>kurtosis</em></strong> of a data set. Put simply, kurtosis is a measure of the “pointiness” of a data set, as illustrated in Figure <a href="descriptives.html#fig:kurtosis">3.5</a>.</p>
-<pre><code>## [1] -0.9481222</code></pre>
-<pre><code>## [1] -0.03348982</code></pre>
+<pre><code>## [1] -0.9518167</code></pre>
+<pre><code>## [1] 0.0071089</code></pre>
 <div class="figure"><span style="display:block;" id="fig:kurtosis"></span>
 <img src="schuster-statistics-remix_files/figure-html/kurtosis-1.png" alt="An illustration of kurtosis. On the left, we have a &quot;platykurtic&quot; data set (kurtosis = $-.95$), meaning that the data set is &quot;too flat&quot;. In the middle we have a &quot;mesokurtic&quot; data set (kurtosis is almost exactly 0), which means that the pointiness of the data is just about right. Finally, on the right, we have a &quot;leptokurtic&quot; data set (kurtosis $= 2.12$) indicating that the data set is &quot;too pointy&quot;. Note that kurtosis is measured with respect to a normal curve (black line)" width="672" />
 <p class="caption">
 Figure 3.5: An illustration of kurtosis. On the left, we have a “platykurtic” data set (kurtosis = <span class="math inline">\(-.95\)</span>), meaning that the data set is “too flat.” In the middle we have a “mesokurtic” data set (kurtosis is almost exactly 0), which means that the pointiness of the data is just about right. Finally, on the right, we have a “leptokurtic” data set (kurtosis <span class="math inline">\(= 2.12\)</span>) indicating that the data set is “too pointy.” Note that kurtosis is measured with respect to a normal curve (black line)
 </p>
 </div>
-<pre><code>## [1] 2.022789</code></pre>
+<pre><code>## [1] 2.028045</code></pre>
 <p>By convention, we say that the “normal curve” (black lines) has zero kurtosis, so the pointiness of a data set is assessed relative to this curve. In this Figure, the data on the left are not pointy enough, so the kurtosis is negative and we call the data <em>platykurtic</em>. The data on the right are too pointy, so the kurtosis is positive and we say that the data is <em>leptokurtic</em>. But the data in the middle are just pointy enough, so we say that it is <em>mesokurtic</em> and has kurtosis zero. This is summarised in the table below:</p>
 <table>
 <thead>
@@ -1795,7 +1796,7 @@ Figure 3.14: A basic boxplot
 </div>
 <p>What R draws is shown in Figure <a href="descriptives.html#fig:boxplot1a">3.14</a>, the most basic boxplot possible. When you look at this plot, this is how you should interpret it: the thick line in the middle of the box is the median; the box itself spans the range from the 25th percentile to the 75th percentile; and the “whiskers” cover the full range from the minimum value to the maximum value. This is summarised in the annotated plot in Figure <a href="descriptives.html#fig:boxplot1b">3.15</a>.</p>
 <div class="figure"><span style="display:block;" id="fig:boxplot1b"></span>
-<img src="bookdown/img/graphics2/boxplot1_annotated.png" alt="An annotated boxplot"  />
+<img src="bookdown/img/graphics2/boxplot1_annotated.png" alt="An annotated boxplot" width="300" />
 <p class="caption">
 Figure 3.15: An annotated boxplot
 </p>

@@ -24,7 +24,7 @@
 <meta name="author" content="David Schuster" />
 
 
-<meta name="date" content="2021-10-22" />
+<meta name="date" content="2021-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -738,13 +738,14 @@ div.csl-indent {
 <li class="chapter" data-level="12.6.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-5"><i class="fa fa-check"></i><b>12.6.4</b> When to use it</a></li>
 <li class="chapter" data-level="12.6.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-5"><i class="fa fa-check"></i><b>12.6.5</b> Example</a></li>
 </ul></li>
-<li class="chapter" data-level="12.7" data-path="statistics-reference.html"><a href="statistics-reference.html#one-way-analysis-of-variance-anova"><i class="fa fa-check"></i><b>12.7</b> One-Way Analysis of Variance (ANOVA)</a>
+<li class="chapter" data-level="12.7" data-path="statistics-reference.html"><a href="statistics-reference.html#one-way-anova"><i class="fa fa-check"></i><b>12.7</b> One-Way ANOVA</a>
 <ul>
 <li class="chapter" data-level="12.7.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition-6"><i class="fa fa-check"></i><b>12.7.1</b> Definition</a></li>
 <li class="chapter" data-level="12.7.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-6"><i class="fa fa-check"></i><b>12.7.2</b> Test Statistic</a></li>
 <li class="chapter" data-level="12.7.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-6"><i class="fa fa-check"></i><b>12.7.3</b> Assumptions &amp; Required Data</a></li>
 <li class="chapter" data-level="12.7.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-6"><i class="fa fa-check"></i><b>12.7.4</b> When to use it</a></li>
-<li class="chapter" data-level="12.7.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-6"><i class="fa fa-check"></i><b>12.7.5</b> Example</a></li>
+<li class="chapter" data-level="12.7.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-between-subjects"><i class="fa fa-check"></i><b>12.7.5</b> Example: Between-Subjects</a></li>
+<li class="chapter" data-level="12.7.6" data-path="statistics-reference.html"><a href="statistics-reference.html#example-within-subjects"><i class="fa fa-check"></i><b>12.7.6</b> Example: Within-Subjects</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -1387,7 +1388,7 @@ Y_i = b_2 X_{i2} + b_1 X_{i1} + b_0 + \epsilon_i
 \]</span>
 As before, <span class="math inline">\(\epsilon_i\)</span> is the residual associated with the <span class="math inline">\(i\)</span>-th observation, <span class="math inline">\(\epsilon_i = {Y}_i - \hat{Y}_i\)</span>. In this model, we now have three coefficients that need to be estimated: <span class="math inline">\(b_0\)</span> is the intercept, <span class="math inline">\(b_1\)</span> is the coefficient associated with my sleep, and <span class="math inline">\(b_2\)</span> is the coefficient associated with my son’s sleep. However, although the number of coefficients that need to be estimated has changed, the basic idea of how the estimation works is unchanged: our estimated coefficients <span class="math inline">\(\hat{b}_0\)</span>, <span class="math inline">\(\hat{b}_1\)</span> and <span class="math inline">\(\hat{b}_2\)</span> are those that minimise the sum squared residuals.</p>
 <div class="figure"><span style="display:block;" id="fig:multipleregression"></span>
-<img src="img/regression2/scatter3d_full1.png" alt="A 3D visualisation of a multiple regression model. There are two predictors in the model, `dan.sleep` and `baby.sleep`; the outcome variable is `dan.grump`. Together, these three variables form a 3D space: each observation (blue dots) is a point in this space. In much the same way that a simple linear regression model forms a line in 2D space, this multiple regression model forms a plane in 3D space. When we estimate the regression coefficients, what we're trying to do is find a plane that is as close to all the blue dots as possible."  />
+<img src="img/regression2/scatter3d_full1.png" alt="A 3D visualisation of a multiple regression model. There are two predictors in the model, `dan.sleep` and `baby.sleep`; the outcome variable is `dan.grump`. Together, these three variables form a 3D space: each observation (blue dots) is a point in this space. In much the same way that a simple linear regression model forms a line in 2D space, this multiple regression model forms a plane in 3D space. When we estimate the regression coefficients, what we're trying to do is find a plane that is as close to all the blue dots as possible." width="760" />
 <p class="caption">
 Figure 8.13: A 3D visualisation of a multiple regression model. There are two predictors in the model, <code>dan.sleep</code> and <code>baby.sleep</code>; the outcome variable is <code>dan.grump</code>. Together, these three variables form a 3D space: each observation (blue dots) is a point in this space. In much the same way that a simple linear regression model forms a line in 2D space, this multiple regression model forms a plane in 3D space. When we estimate the regression coefficients, what we’re trying to do is find a plane that is as close to all the blue dots as possible.
 </p>
