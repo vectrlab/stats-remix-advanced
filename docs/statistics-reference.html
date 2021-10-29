@@ -24,7 +24,7 @@
 <meta name="author" content="David Schuster" />
 
 
-<meta name="date" content="2021-10-25" />
+<meta name="date" content="2021-10-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -744,8 +744,8 @@ div.csl-indent {
 <li class="chapter" data-level="12.7.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-6"><i class="fa fa-check"></i><b>12.7.2</b> Test Statistic</a></li>
 <li class="chapter" data-level="12.7.3" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-6"><i class="fa fa-check"></i><b>12.7.3</b> Assumptions &amp; Required Data</a></li>
 <li class="chapter" data-level="12.7.4" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-6"><i class="fa fa-check"></i><b>12.7.4</b> When to use it</a></li>
-<li class="chapter" data-level="12.7.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-between-subjects"><i class="fa fa-check"></i><b>12.7.5</b> Example: Between-Subjects</a></li>
-<li class="chapter" data-level="12.7.6" data-path="statistics-reference.html"><a href="statistics-reference.html#example-within-subjects"><i class="fa fa-check"></i><b>12.7.6</b> Example: Within-Subjects</a></li>
+<li class="chapter" data-level="12.7.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-1-between-subjects"><i class="fa fa-check"></i><b>12.7.5</b> Example 1: Between-Subjects</a></li>
+<li class="chapter" data-level="12.7.6" data-path="statistics-reference.html"><a href="statistics-reference.html#example-2-within-subjects"><i class="fa fa-check"></i><b>12.7.6</b> Example 2: Within-Subjects</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -1331,10 +1331,10 @@ Figure 12.4: The null hypothesis distribution of <span class="math inline">\(t\)
 <div id="data-3" class="section level4" number="12.4.5.1">
 <h4><span class="header-section-number">12.4.5.1</span> Data</h4>
 <p>The data are test scores from 35 students.</p>
-<pre><code>##  [1] 0.87 0.88 0.99 0.88 0.79 0.94 0.99 0.86 0.85 0.81 0.85 0.93 0.89 0.72
-## [15] 1.08 0.92 0.77 0.87 0.97 0.96 0.77 0.86 0.93 0.79 1.05 0.79 0.80 0.96
-## [29] 1.03 1.10 0.89 1.02 0.94 1.01 0.96</code></pre>
-<pre><code>## [1] 0.9062857</code></pre>
+<pre><code>##  [1] 0.80 0.79 0.85 1.14 0.77 0.95 0.77 0.84 0.90 0.94 0.76 0.93 0.94 1.01
+## [15] 1.08 0.91 0.92 0.72 0.86 0.96 0.87 1.06 0.94 0.91 0.92 0.96 0.84 0.89
+## [29] 0.90 0.82 0.89 0.74 0.82 0.70 0.91</code></pre>
+<pre><code>## [1] 0.886</code></pre>
 <p>The students in the program took the test and performed higher than the population average (<span class="math inline">\(M=\)</span><code>mean(sample)</code>). Is there evidence that the after school program is effective?</p>
 </div>
 <div id="hypotheses-4" class="section level4" number="12.4.5.2">
@@ -1356,13 +1356,13 @@ H_a = \mu &gt; .80
 ##  One Sample t-test
 ## 
 ## data:  sample
-## t = 6.6301, df = 34, p-value = 6.623e-08
+## t = 5.1177, df = 34, p-value = 6.043e-06
 ## alternative hypothesis: true mean is greater than 0.8
 ## 95 percent confidence interval:
-##  0.8791787       Inf
+##  0.8575851       Inf
 ## sample estimates:
 ## mean of x 
-## 0.9062857</code></pre>
+##     0.886</code></pre>
 <p>Note that in the syntax for the t-test, you can specify an alternative hypothesis of “two-sided” (two-tailed), “greater,” or “less.”</p>
 </div>
 <div id="effect-size-1" class="section level4" number="12.4.5.4">
@@ -1427,41 +1427,41 @@ Figure 12.5: The null hypothesis distribution of <span class="math inline">\(t\)
 <h4><span class="header-section-number">12.5.5.1</span> Data</h4>
 <p>Did students’ test scores significantly differ between exam 1 and exam 2?</p>
 <pre><code>##    exam1 exam2
-## 1   0.97  0.95
-## 2   0.84  0.94
-## 3   0.98  1.09
-## 4   0.94  0.88
-## 5   1.08  0.80
-## 6   0.77  0.77
-## 7   0.77  0.62
-## 8   1.01  0.93
-## 9   0.76  1.05
-## 10  0.96  0.92
-## 11  0.66  0.82
-## 12  0.97  0.72
-## 13  0.73  1.06
-## 14  1.12  0.97
-## 15  0.98  1.07
-## 16  0.70  0.90
-## 17  0.91  0.88
-## 18  0.85  1.08
-## 19  1.10  0.83
-## 20  0.78  1.02
-## 21  0.99  0.89
-## 22  0.97  0.74
-## 23  0.90  0.93
-## 24  0.95  0.96
-## 25  0.85  0.84
-## 26  0.85  0.96
-## 27  0.93  1.06
-## 28  0.78  1.11
-## 29  0.91  0.86
-## 30  0.99  0.95
-## 31  0.89  0.98
-## 32  0.91  0.93
-## 33  1.07  1.01
-## 34  0.95  0.90
-## 35  0.93  0.82</code></pre>
+## 1   1.01  1.16
+## 2   0.90  1.02
+## 3   0.97  0.83
+## 4   0.91  0.99
+## 5   0.95  0.98
+## 6   0.82  0.96
+## 7   0.78  0.93
+## 8   0.80  0.92
+## 9   0.96  0.89
+## 10  0.81  0.99
+## 11  0.94  0.93
+## 12  0.73  0.95
+## 13  0.89  0.95
+## 14  0.87  1.03
+## 15  0.92  1.05
+## 16  0.91  0.82
+## 17  0.92  0.94
+## 18  0.85  0.83
+## 19  0.85  0.84
+## 20  0.90  0.87
+## 21  1.02  0.99
+## 22  1.01  0.90
+## 23  0.96  0.91
+## 24  0.99  0.93
+## 25  0.91  0.90
+## 26  0.81  0.82
+## 27  0.90  0.85
+## 28  0.80  0.89
+## 29  0.91  0.96
+## 30  0.96  0.82
+## 31  0.75  0.88
+## 32  1.06  0.87
+## 33  0.92  0.97
+## 34  0.92  0.97
+## 35  0.95  0.76</code></pre>
 </div>
 <div id="hypotheses-5" class="section level4" number="12.5.5.2">
 <h4><span class="header-section-number">12.5.5.2</span> Hypotheses</h4>
@@ -1482,42 +1482,45 @@ H_1: &amp; \mu_D \neq 0
 <span id="cb966-2"><a href="statistics-reference.html#cb966-2" aria-hidden="true" tabindex="-1"></a><span class="co"># exams &lt;- sortFrame(exams, id)</span></span>
 <span id="cb966-3"><a href="statistics-reference.html#cb966-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(exams)</span></code></pre></div>
 <pre><code>##   exam1 exam2
-## 1  0.97  0.95
-## 2  0.84  0.94
-## 3  0.98  1.09
-## 4  0.94  0.88
-## 5  1.08  0.80
-## 6  0.77  0.77</code></pre>
+## 1  1.01  1.16
+## 2  0.90  1.02
+## 3  0.97  0.83
+## 4  0.91  0.99
+## 5  0.95  0.98
+## 6  0.82  0.96</code></pre>
 <p>Then, we can run the <span class="math inline">\(t\)</span>-test:</p>
 <div class="sourceCode" id="cb968"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb968-1"><a href="statistics-reference.html#cb968-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> exams<span class="sc">$</span>exam1, <span class="at">y =</span> exams<span class="sc">$</span>exam2, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
 ## data:  exams$exam1 and exams$exam2
-## t = -0.50997, df = 34, p-value = 0.6134
+## t = -1.1641, df = 34, p-value = 0.2525
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -0.06979046  0.04179046
+##  -0.05805356  0.01576785
 ## sample estimates:
 ## mean of the differences 
-##                  -0.014</code></pre>
+##             -0.02114286</code></pre>
 </div>
 <div id="decision-4" class="section level4" number="12.5.5.4">
 <h4><span class="header-section-number">12.5.5.4</span> Decision</h4>
+<p>The <span class="math inline">\(t\)</span>-test was not significant, <span class="math inline">\(p\)</span> = 0.6589, t(34) = 0.44. The results are inconclusive.</p>
 </div>
 <div id="effect-size-2" class="section level4" number="12.5.5.5">
 <h4><span class="header-section-number">12.5.5.5</span> Effect Size</h4>
-<p>4.2.2.1. d = mean difference / standard deviation
-4.2.2.2. (Rosenthal, 1991) d = dz * root(2)
-dz will be higher than regular d</p>
+<p>Paired samples <span class="math inline">\(t\)</span>-tests have their own version of Cohen’s <span class="math inline">\(d\)</span> that is called <span class="math inline">\(d_z\)</span>. The calculation is different, so it is important to label it as <span class="math inline">\(d_z\)</span>.</p>
+<p><span class="math inline">\(d_z = \frac{\mbox{mean difference}}{\mbox{standard deviation}}\)</span></p>
+<p><span class="math inline">\(d = d_z * \sqrt{2}\)</span></p>
 </div>
 <div id="power-analysis" class="section level4" number="12.5.5.6">
 <h4><span class="header-section-number">12.5.5.6</span> Power Analysis</h4>
+<p>In G*Power, select “t-tests” and then “Means: Difference between two dependent means (matched pairs).” Compute the required sample size by entering the effect size (<span class="math inline">\(d_z\)</span>), tail(s), alpha, and desired power. Clicking “Determine” will give you a variety of ways to estimate <span class="math inline">\(d_z\)</span>.</p>
 </div>
 </div>
 </div>
 <div id="independent-samples-t-test" class="section level2" number="12.6">
 <h2><span class="header-section-number">12.6</span> Independent Samples <span class="math inline">\(t\)</span>-Test</h2>
+<p>This section is still under construction. For now, please refer to the regular chapter on <span class="math inline">\(t\)</span>-tests.</p>
 <div id="definition-5" class="section level3" number="12.6.1">
 <h3><span class="header-section-number">12.6.1</span> Definition</h3>
 <p>An independent samples <span class="math inline">\(t\)</span>-test measures the difference between two means collected from a <strong>between-subjects design</strong>. In a between-subjects design, the two samples are compared, often from two levels of a manipulation. The key difference from the within-subjects design is that the units (usually, that means participants) in a between-subjects design are independent (different people) and only measured once. When different groups in a study contain different units, a between-subjects design is being used.</p>
@@ -1534,22 +1537,11 @@ Figure 12.6: The null hypothesis distribution of <span class="math inline">\(t\)
 </div>
 <div id="assumptions-required-data-5" class="section level3" number="12.6.3">
 <h3><span class="header-section-number">12.6.3</span> Assumptions &amp; Required Data</h3>
-<p>2.2. Independent samples t-test
-2.2.1. Independence of observations – participants do not affect each other (e.g., some participants from the same office, study is on workplace satisfaction) across groups (solution: hierarchical linear modeling)
-2.2.2. Normally distributed population or large sample size; bigger problem if violate homogeneity of variance or unequal sample sizes; lower power
-2.2.3. Homogeneity of variance aka equality of variances aka homoscedasticity: Each group has same variance: Check in SPSS; bigger problem when sample sizes unequal
-2.3. Paired/dependent/matched samples t-test
-2.3.1. Independence of observations (pairs are not independent)
-2.3.2. Normally distributed population or large sample size
-2.4. Don’t meet assumptions? Nonparametric alternatives
-2.4.1. Mann-Whitney U Test alt. for independent samples
-2.4.1.1. Use when sample size is too low AND population is not normal (or ordinal)
-2.4.1.2. Treats data as ordinal
-2.4.1.3. Loss of power
-2.4.2. Wilcoxon Signed Rank Test/Wilcoxon T alt. for paired samples
-2.4.2.1. Use when sample size is too low AND population is not normal (or ordinal)
-2.4.2.2. Treats data as ordinal
-2.4.2.3. Loss of power</p>
+<ul>
+<li>Independence of observations
+– Normality as previously discussed; violations are a bigger problem if you also violate homogeneity of variance or have unequal sample sizes; the result is lower power</li>
+<li>Homogeneity of variance aka equality of variances aka homoscedasticity: Each group has same variance. This can be tested with Levene’s test.</li>
+</ul>
 </div>
 <div id="when-to-use-it-5" class="section level3" number="12.6.4">
 <h3><span class="header-section-number">12.6.4</span> When to use it</h3>
@@ -1611,7 +1603,7 @@ Figure 12.7: The null hypothesis distribution of <span class="math inline">\(F\)
 <p>Practically, repeated measures ANOVA (and within-subjects design) requires fewer cases, but more time per case. You need fewer people, but more observations of them. Within subjects designs also are subject to:</p>
 <ul>
 <li><p>Simple order effects. Which condition is first affects participants scores; practice effects are an example. The solution is counterbalancing.</p></li>
-<li><p>Differential carryover effects are when the effect of one condition bleeds into the second, and the effect is asymmetrical because it happens more in one order of conditions than the other. Imagine a study of shocking images versus neutral images. Participants may be more affected by the shocking images and that could alter their scores in the neutral image trial. In this situation, counterbalancing will not help.</p></li>
+<li><p>Differential carryover effects are when the effect of one condition bleeds into the second, and the effect is asymmetrical because it happens more in one order of conditions than the other. Imagine a study of shocking images versus neutral images (<span class="citation"><a href="#ref-Cohen2013" role="doc-biblioref">B. H. Cohen</a> (<a href="#ref-Cohen2013" role="doc-biblioref">2013</a>)</span>). Participants may be more affected by the shocking images and that could alter their scores in the neutral image trial. In this situation, counterbalancing will not help.</p></li>
 </ul>
 </div>
 </div>
@@ -1659,8 +1651,8 @@ Figure 12.7: The null hypothesis distribution of <span class="math inline">\(F\)
 <h3><span class="header-section-number">12.7.4</span> When to use it</h3>
 <p>If you have a quantitative DV and a single, discrete IV with two or more levels, you can run an ANOVA.</p>
 </div>
-<div id="example-between-subjects" class="section level3" number="12.7.5">
-<h3><span class="header-section-number">12.7.5</span> Example: Between-Subjects</h3>
+<div id="example-1-between-subjects" class="section level3" number="12.7.5">
+<h3><span class="header-section-number">12.7.5</span> Example 1: Between-Subjects</h3>
 <p>Researchers are interested in participants’ reaction times to three types of alert displays: a visual alert, an auditory alert, and a speech alert. They randomly assign participants to one of these three conditions. Therefore, this is a between-subjects experimental design.</p>
 <div id="data-6" class="section level4" number="12.7.5.1">
 <h4><span class="header-section-number">12.7.5.1</span> Data</h4>
@@ -1789,13 +1781,65 @@ H_1: &amp; \mbox{the null is false}
 <h4><span class="header-section-number">12.7.5.4</span> Omnibus Decision</h4>
 <p>The omnibus ANOVA was significant, <span class="math inline">\(F\)</span>(2, 12) = 13.26, <span class="math inline">\(p\)</span> &lt; .001, <span class="math inline">\(\eta^2\)</span> = .689. We can conclude there is some difference among these conditions. To determine which conditions are significantly different from the others, we need to perform post-hoc tests.</p>
 </div>
-<div id="post-hoc-tests" class="section level4" number="12.7.5.5">
-<h4><span class="header-section-number">12.7.5.5</span> Post-hoc Tests</h4>
-<p>This section will be further developed.</p>
-<div id="bonferroni-method" class="section level5" number="12.7.5.5.1">
-<h5><span class="header-section-number">12.7.5.5.1</span> Bonferroni method</h5>
-<p>This is the most conservative method of post-hoc tests.</p>
-<div class="sourceCode" id="cb985"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb985-1"><a href="statistics-reference.html#cb985-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(longdata<span class="sc">$</span>RT, longdata<span class="sc">$</span>condition, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<div id="multiple-comparisons-1" class="section level4" number="12.7.5.5">
+<h4><span class="header-section-number">12.7.5.5</span> Multiple Comparisons</h4>
+<p>A significant <span class="math inline">\(F\)</span>-test only tells us that at least one group is significantly different. Which groups are different from which groups? What are the directions of the effects (i.e., which mean is larger, and which is smaller)? This is purpose of multiple comparisons; we try to identify which mean differences reflect true effects.</p>
+<p>There are multiple ways to do this; they differ in balance of Type I error control and power, but fundamentally are <span class="math inline">\(t\)</span>-tests (as they always compare two means). You’ll need to consider multiple comparisons whenever you have more than one comparison of means. You do not need multiple comparisons with only two levels of the IV, as there is only a single comparison to make, and that one comparison is accomplished with the onmibus test.</p>
+<p>There are two approaches to multiple comparisons:</p>
+<ol style="list-style-type: decimal">
+<li><p>Post-hoc tests (a posteriori): Post-hoc tests are <strong>protected</strong> in that they are only run after a significant <span class="math inline">\(F\)</span> test. All are variations on a t-test with different adjustments to protect against the multiple t-test problem. Post-hoc tests are used whenever researchers want to examine all possible mean comparisons.</p></li>
+<li><p>Planned comparisons (a priori): In a planned comparisons approach, the omnibus ANOVA can be skipped (although it usually is run anyway), and only test a subset of all possible comparisons are tested. Because you examine fewer comparisons, and your comparisons are not at all influenced by the data, you will examine fewer means and have the most power. For this to be meaningful, the researchers must declare their tested comparisons ahead of time and not alter the approach if undeclared comparisons turn out to be significant. Readers must either trust that researchers have done this faithfully, or preregistration would need to be used.</p></li>
+</ol>
+</div>
+<div id="post-hoc-tests" class="section level4" number="12.7.5.6">
+<h4><span class="header-section-number">12.7.5.6</span> Post-Hoc Tests</h4>
+<p>Let’s explore the post-hoc test options, starting with the most <strong>liberal</strong> (least control of Type I error to maximize power) and ending with the most <strong>conservative</strong> (most control of Type I error at the cost of power).</p>
+<div id="fishers-least-significant-difference-lsd" class="section level5" number="12.7.5.6.1">
+<h5><span class="header-section-number">12.7.5.6.1</span> Fisher’s Least Significant Difference (LSD)</h5>
+<p>Fisher’s protected <span class="math inline">\(t\)</span> Tests is also known as Fisher’s Least Significant Difference (LSD). This involves running follow up t-tests using the <span class="math inline">\(MS_wn\)</span> as a variance estimate. Essentially, you are running protected <span class="math inline">\(t\)</span>-tests. The problem of inflated Type I error exists when your omnibus <span class="math inline">\(F\)</span> is significant and there are many groups to compare (i.e., more than 3). It is the most liberal approach but maintains the most statistical power with 3 or fewer groups.</p>
+<p>My recommendation is to use this approach if you have three or fewer groups.</p>
+</div>
+<div id="tukey-method" class="section level5" number="12.7.5.6.2">
+<h5><span class="header-section-number">12.7.5.6.2</span> Tukey method</h5>
+<p><strong>Tukey’s Honestly Significant Difference (HSD) test</strong> or Tukey’s range test is a method that compares the size of mean differences on the logic that the largest mean differences are real effects. Tukey’s HSD is still just a t-test, but it has a correction for familywise error rate. Instead of <span class="math inline">\(t\)</span>, a similar statistic <span class="math inline">\(q_k\)</span> (called the studentized range statistic) is computed, and a significance test is done using the <span class="math inline">\(q_k\)</span> distribution. The <span class="math inline">\(q_k\)</span> distribution depends on degrees of freedom (just like the t-test) but also incorporates <span class="math inline">\(k\)</span>, the number of groups that are being compared.</p>
+<p>In all, Tukey gives you comparisons at a familywise error rate of .05. However, because you are peanlized for the number of comparisons you make, it can end up being too conservative, especially with many groups.</p>
+<p>My recommendation is to use this approach for post-hoc testsing in between-subjects designs with more than 3 groups.</p>
+<p>Tukey also has the homogeneity of variance assumption, so if that is violated and you have unequal group sizes, you may need to use an alternative statistic, such as Games-Howell or Fisher-Hayter. The larger point is that this list is not every possible approach to post-hoc testing. You can employ any post-hoc testing method you wish so long as you decide on your approach before starting your analysis and can make an argument for why you chose that particular method.</p>
+<div class="sourceCode" id="cb985"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb985-1"><a href="statistics-reference.html#cb985-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span></code></pre></div>
+<pre><code>## Loading required package: mvtnorm</code></pre>
+<pre><code>## Loading required package: survival</code></pre>
+<pre><code>## Loading required package: TH.data</code></pre>
+<pre><code>## 
+## Attaching package: &#39;TH.data&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:MASS&#39;:
+## 
+##     geyser</code></pre>
+<div class="sourceCode" id="cb991"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb991-1"><a href="statistics-reference.html#cb991-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;multcomp&quot;)</span></span>
+<span id="cb991-2"><a href="statistics-reference.html#cb991-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb991-3"><a href="statistics-reference.html#cb991-3" aria-hidden="true" tabindex="-1"></a>hsdModel <span class="ot">&lt;-</span> <span class="fu">glht</span>(anovaModel, <span class="at">linfct =</span> <span class="fu">mcp</span>(<span class="at">condition =</span> <span class="st">&quot;Tukey&quot;</span>))</span>
+<span id="cb991-4"><a href="statistics-reference.html#cb991-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hsdModel)</span></code></pre></div>
+<pre><code>## 
+##   Simultaneous Tests for General Linear Hypotheses
+## 
+## Multiple Comparisons of Means: Tukey Contrasts
+## 
+## 
+## Fit: aov(formula = RT ~ condition, data = longdata)
+## 
+## Linear Hypotheses:
+##                        Estimate Std. Error t value Pr(&gt;|t|)    
+## speech - auditory == 0    5.830      5.753   1.013  0.58282    
+## visual - auditory == 0  -22.244      5.753  -3.866  0.00591 ** 
+## visual - speech == 0    -28.074      5.753  -4.880  &lt; 0.001 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## (Adjusted p values reported -- single-step method)</code></pre>
+<p>The Tukey post-hoc tests show that there was a significant difference between visual (<span class="math inline">\(M\)</span> = 220.63, <span class="math inline">\(SD\)</span> = 4.72) and auditory (<span class="math inline">\(M\)</span> = 242.87, <span class="math inline">\(SD\)</span> = 5.52) alerts, and between speech (<span class="math inline">\(M\)</span> = 248.71, <span class="math inline">\(SD\)</span> = 13.98) and visual alerts, but not between auditory and speech alerts.</p>
+</div>
+<div id="bonferroni-method" class="section level5" number="12.7.5.6.3">
+<h5><span class="header-section-number">12.7.5.6.3</span> Bonferroni method</h5>
+<p>This is the most conservative method of post-hoc tests. To keep the familywise error rate equal to alpha, we just divide alpha by the number of comparisons. If you make two comparisons, your new alpha level is <span class="math inline">\(\alpha = .025\)</span>. As you may imagine, this becomes <em>very</em> conservative as you increase the number of comparisons you need to make. But, in cases where you want the best control of Type I error, are not concerned about the loss of power, and/or are making this adjustment on a small number of tests, it can be simple to implement and useful. In statistical software, Bonferroni corrections are usually implemented by altering the <span class="math inline">\(p\)</span>-value, not alpha, so you can still interpret the output with an alpha level of <span class="math inline">\(\alpha = .05\)</span>.</p>
+<div class="sourceCode" id="cb993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb993-1"><a href="statistics-reference.html#cb993-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(longdata<span class="sc">$</span>RT, longdata<span class="sc">$</span>condition, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Pairwise comparisons using t tests with pooled SD 
 ## 
@@ -1808,50 +1852,66 @@ H_1: &amp; \mbox{the null is false}
 ## P value adjustment method: bonferroni</code></pre>
 <p>The bonferroni post-hoc tests show that there was a significant difference between visual (<span class="math inline">\(M\)</span> = 220.63, <span class="math inline">\(SD\)</span> = 4.72) and auditory (<span class="math inline">\(M\)</span> = 242.87, <span class="math inline">\(SD\)</span> = 5.52) alerts, and between speech (<span class="math inline">\(M\)</span> = 248.71, <span class="math inline">\(SD\)</span> = 13.98) and visual alerts, but not between auditory and speech alerts.</p>
 </div>
-</div>
-<div id="alternatives-to-bonferroni-method" class="section level4" number="12.7.5.6">
-<h4><span class="header-section-number">12.7.5.6</span> Alternatives to Bonferroni method</h4>
-<p>Instead of “bonferroni,” you can choose another p.adjust.method argument of “holm,” “hochberg,” “hommel,” “BH,” “BY,” “fdr,” or “none.”</p>
-<div id="tukey-method" class="section level5" number="12.7.5.6.1">
-<h5><span class="header-section-number">12.7.5.6.1</span> Tukey method</h5>
-<div class="sourceCode" id="cb987"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb987-1"><a href="statistics-reference.html#cb987-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span></code></pre></div>
-<pre><code>## Loading required package: mvtnorm</code></pre>
-<pre><code>## Loading required package: survival</code></pre>
-<pre><code>## Loading required package: TH.data</code></pre>
-<pre><code>## 
-## Attaching package: &#39;TH.data&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:MASS&#39;:
-## 
-##     geyser</code></pre>
-<div class="sourceCode" id="cb993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb993-1"><a href="statistics-reference.html#cb993-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;multcomp&quot;)</span></span>
-<span id="cb993-2"><a href="statistics-reference.html#cb993-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb993-3"><a href="statistics-reference.html#cb993-3" aria-hidden="true" tabindex="-1"></a>hsdModel <span class="ot">&lt;-</span> <span class="fu">glht</span>(anovaModel, <span class="at">linfct =</span> <span class="fu">mcp</span>(<span class="at">condition =</span> <span class="st">&quot;Tukey&quot;</span>))</span>
-<span id="cb993-4"><a href="statistics-reference.html#cb993-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(hsdModel)</span></code></pre></div>
-<pre><code>## 
-##   Simultaneous Tests for General Linear Hypotheses
-## 
-## Multiple Comparisons of Means: Tukey Contrasts
-## 
-## 
-## Fit: aov(formula = RT ~ condition, data = longdata)
-## 
-## Linear Hypotheses:
-##                        Estimate Std. Error t value Pr(&gt;|t|)   
-## speech - auditory == 0    5.830      5.753   1.013  0.58287   
-## visual - auditory == 0  -22.244      5.753  -3.866  0.00572 **
-## visual - speech == 0    -28.074      5.753  -4.880  0.00101 **
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## (Adjusted p values reported -- single-step method)</code></pre>
-<p>The Tukey post-hoc tests show that there was a significant difference between visual (<span class="math inline">\(M\)</span> = 220.63, <span class="math inline">\(SD\)</span> = 4.72) and auditory (<span class="math inline">\(M\)</span> = 242.87, <span class="math inline">\(SD\)</span> = 5.52) alerts, and between speech (<span class="math inline">\(M\)</span> = 248.71, <span class="math inline">\(SD\)</span> = 13.98) and visual alerts, but not between auditory and speech alerts.</p>
+<div id="alternatives-to-bonferroni-method" class="section level5" number="12.7.5.6.4">
+<h5><span class="header-section-number">12.7.5.6.4</span> Alternatives to Bonferroni method</h5>
+<p>Instead of “bonferroni,” you can choose another p.adjust.method argument of “holm,” “hochberg,” “hommel,” “BH,” “BY,” “fdr,” or “none.” The <a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/p.adjust">R documentation</a> gives a nice summary of the choices and provides citations for further reading.</p>
 </div>
 </div>
-<div id="effect-size-4" class="section level4" number="12.7.5.7">
-<h4><span class="header-section-number">12.7.5.7</span> Effect Size</h4>
+<div id="planned-comparisons" class="section level4" number="12.7.5.7">
+<h4><span class="header-section-number">12.7.5.7</span> Planned Comparisons</h4>
+<p>As you have more groups in your study, you start to lose power by testing every possible combination. Sometimes, you are only interested in one or a few of the contrasts, or you might want to compare groups of means. For example, if you measure people’s mood in each month of the year (with 12 levels), you might want to compare spring measurements to fall measurements. Planned comparisons gives you more flexibility in the means you can test without a loss of statistical power for making all of the comparisons. There are caveats, though:</p>
+<ol style="list-style-type: decimal">
+<li><p>You need to specify the comparisons ahead of time. Your readers and reviewers need to be satisfied that you did specify the comparisons ahead of time.</p></li>
+<li><p>You need to be interested in a subset of all possible comparisons. There is little point in a planned comparisons approach that tests every possible comparison.</p></li>
+<li><p>You have to program the comparisons in R using <strong>user-defined contrast coding</strong>. Dummy coding is an example of contrast coding. User-defined contrast coding means you define each comparison using numerical codes. I will try to explain this briefly here, but we will give this topic more attention when we do factorial ANOVA. For now, just be aware that planned comparisons require contrast coding.</p>
+<p>Imagine we have four levels of our IV: A, B, C, and D. We are interested a planned comparison of A vs B and C vs D. We give each group a coefficient (a weight) that defines if it is used in the comparison. We use a 0 to exclude the level from the comparison. We use a positive number to put it on one side of the comparison and a negative number to put it on the other side. An example may help:</p></li>
+</ol>
+<table style="width:40%;">
+<colgroup>
+<col width="18%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Comparison</th>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">C</th>
+<th align="center">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A vs B</td>
+<td align="center">1</td>
+<td align="center">-1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="left">C vs D</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">-1</td>
+</tr>
+</tbody>
+</table>
+<p>The table above defines two comparisons, one between A and B and a seond one between C and D.</p>
+<p>There is one rule about writing these comparisons; they must be <strong>orthogonal</strong> (independent). You can verify that your comparisons are orthogonal by multiplying the coefficients <em>down</em>. That is, muliply the first A coefficient (1) by the second A coefficient (0). Then, add the products. Based on the table, that is <span class="math inline">\(1 * 0 + -1 * 0 + 0 * 1 + 0 * -1\)</span>, which gives a total of 0. The total should be zero for the comparisons to be orthogonal. If you have three coomparisons, you have to do this multiplication for every pair. Yes, it’s a bit of work, but this is the planning we sign up for when we do planned comparisons.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>The convention seems to be to ignore familywise error rate, which is only appropriate if you have a small number of planned comparisons. You may consider one of the adjustment methods, like Bonferroni, if you have many planned comparisons to test.</li>
+</ol>
+</div>
+<div id="effect-size-4" class="section level4" number="12.7.5.8">
+<h4><span class="header-section-number">12.7.5.8</span> Effect Size</h4>
 <p>Because <span class="math inline">\(\eta^2 = R^2\)</span>, you can find and report <span class="math inline">\(\eta^2\)</span> from the <code>lm()</code> function.</p>
 </div>
-<div id="power-analysis-2" class="section level4" number="12.7.5.8">
-<h4><span class="header-section-number">12.7.5.8</span> Power Analysis</h4>
+<div id="power-analysis-2" class="section level4" number="12.7.5.9">
+<h4><span class="header-section-number">12.7.5.9</span> Power Analysis</h4>
 <p>In G*Power, select the F tests family, and then choose “ANOVA: Fixed effects, omnibus, one-way.”</p>
 <p>The best way to estimate effect size is to rely on effect sizes in similar past research. You will commonly find eta squared (<span class="math inline">\(\eta^2\)</span>) in published work, not effect size <span class="math inline">\(f\)</span>. However, you can convert eta squared to <span class="math inline">\(f\)</span> to use in G*Power:</p>
 <ol style="list-style-type: decimal">
@@ -1864,8 +1924,8 @@ H_1: &amp; \mbox{the null is false}
 <p>One more (less common) option is to select “Effect size from means” in the “Determine” drawer to fill in the anticipated means to estimate effect size.</p>
 </div>
 </div>
-<div id="example-within-subjects" class="section level3" number="12.7.6">
-<h3><span class="header-section-number">12.7.6</span> Example: Within-Subjects</h3>
+<div id="example-2-within-subjects" class="section level3" number="12.7.6">
+<h3><span class="header-section-number">12.7.6</span> Example 2: Within-Subjects</h3>
 <p>This example is the same, but in this study, the researchers randomly assigned participants to one of these three condition orders. Participants completed a visual, auditory, and speech trial. Therefore, this is a within-subjects experimental design.</p>
 <div id="data-7" class="section level4" number="12.7.6.1">
 <h4><span class="header-section-number">12.7.6.1</span> Data</h4>
@@ -1906,12 +1966,12 @@ H_1: &amp; \mbox{the null is false}
 </div>
 <div id="hypotheses-8" class="section level4" number="12.7.6.2">
 <h4><span class="header-section-number">12.7.6.2</span> Hypotheses</h4>
-<p>Same as between-subjects.</p>
+<p>Hypotheses are written the same as for a between-subjects design.</p>
 </div>
 <div id="analysis-7" class="section level4" number="12.7.6.3">
 <h4><span class="header-section-number">12.7.6.3</span> Analysis</h4>
 <p>We are using ezANOVA() in the ez package.</p>
-<div class="sourceCode" id="cb999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb999-1"><a href="statistics-reference.html#cb999-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;ez&quot;)</span></span>
+<div class="sourceCode" id="cb999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb999-1"><a href="statistics-reference.html#cb999-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;ez&quot;) # you may need to install the ez package</span></span>
 <span id="cb999-2"><a href="statistics-reference.html#cb999-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ez)</span>
 <span id="cb999-3"><a href="statistics-reference.html#cb999-3" aria-hidden="true" tabindex="-1"></a>withinAnovaModel <span class="ot">&lt;-</span> <span class="fu">ezANOVA</span>(<span class="at">data =</span> longdata, <span class="at">dv =</span> .(RT), <span class="at">wid =</span> .(id), <span class="at">within =</span> .(condition), <span class="at">type =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## Warning: Converting &quot;id&quot; to factor for ANOVA.</code></pre>
@@ -1927,11 +1987,10 @@ H_1: &amp; \mbox{the null is false}
 ## $`Sphericity Corrections`
 ##      Effect       GGe      p[GG] p[GG]&lt;.05       HFe       p[HF] p[HF]&lt;.05
 ## 2 condition 0.7033956 0.01495468         * 0.9706036 0.005985676         *</code></pre>
-<div class="sourceCode" id="cb1003"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1003-1"><a href="statistics-reference.html#cb1003-1" aria-hidden="true" tabindex="-1"></a>?ezANOVA</span></code></pre></div>
 </div>
 <div id="sphericity-checking" class="section level4" number="12.7.6.4">
 <h4><span class="header-section-number">12.7.6.4</span> Sphericity Checking</h4>
-<p>We will need to diagnose sphericity. Fortunately, this is provided in the default output. The value of Mauchly’s <span class="math inline">\(W\)</span> is 0.59, which is not significant and I am going to report the statistics in the first table. Had this been significant, I could have reported Greenhouse and Geisser (GG; 1959) or Huynh and Feldt (HF; 1976) versions of the statistics. Remember, it is important to decide which approach you will take before examining the p-values.</p>
+<p>We will need to diagnose sphericity. Fortunately, this is provided in the default output. The value of Mauchly’s <span class="math inline">\(W\)</span> in this example is 0.59, which is not significant (<span class="math inline">\(p\)</span> &gt; .05), and I WILL report the statistics in the first table. Had this been significant, I could have reported Greenhouse and Geisser (GG; 1959) or Huynh and Feldt (HF; 1976) versions of the statistics. Remember, it is important to decide which approach you will take before examining the p-values.</p>
 </div>
 <div id="omnibus-decision-1" class="section level4" number="12.7.6.5">
 <h4><span class="header-section-number">12.7.6.5</span> Omnibus Decision</h4>
@@ -1940,6 +1999,7 @@ H_1: &amp; \mbox{the null is false}
 <div id="post-hoc-tests-1" class="section level4" number="12.7.6.6">
 <h4><span class="header-section-number">12.7.6.6</span> Post-hoc Tests</h4>
 <p>The post-hoc test methods are the same, except set paired = TRUE, so that paired samples t-tests are used.</p>
+<p>Tukey’s HSD assumes independence of observations and is not available for within-subjects designs.</p>
 </div>
 <div id="effect-size-5" class="section level4" number="12.7.6.7">
 <h4><span class="header-section-number">12.7.6.7</span> Effect Size</h4>
@@ -2250,6 +2310,9 @@ White, H. 1980. <span>“A Heteroskedasticity-Consistent Covariance Matrix Estim
 
 <h3>References</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Cohen2013" class="csl-entry">
+Cohen, Barry H. 2013. <em>Explaining Psychological Statistics</em>. John Wiley; Sons.
+</div>
 <div id="ref-Navarro2018" class="csl-entry">
 Navarro, D. 2018. <em>Learning Statistics with r: A Tutorial for Psychology Students and Other Beginners (Version 0.6)</em>. <a href="https://learningstatisticswithr.com">https://learningstatisticswithr.com</a>.
 </div>

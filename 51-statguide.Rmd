@@ -195,19 +195,23 @@ t.test(x = exams$exam1, y = exams$exam2, paired = TRUE)
 
 #### Decision
 
+The $t$-test was not significant, $p$ = 0.6589, t(34) = 0.44. The results are inconclusive.
 
 #### Effect Size
 
+Paired samples $t$-tests have their own version of Cohen's $d$ that is called $d_z$. The calculation is different, so it is important to label it as $d_z$.
 
-4.2.2.1.	d = mean difference / standard deviation
-4.2.2.2.	   (Rosenthal, 1991)  d = dz * root(2)
- dz will be higher than regular d
+$d_z = \frac{\mbox{mean difference}}{\mbox{standard deviation}}$
+
+$d = d_z * \sqrt{2}$
 
 #### Power Analysis
 
-
+In G*Power, select "t-tests" and then "Means: Difference between two dependent means (matched pairs)." Compute the required sample size by entering the effect size ($d_z$), tail(s), alpha, and desired power. Clicking "Determine" will give you a variety of ways to estimate $d_z$.
 
 ## Independent Samples $t$-Test
+
+This section is still under construction. For now, please refer to the regular chapter on $t$-tests.
 
 ### Definition
 
@@ -231,22 +235,9 @@ The $t$ distribution is actually a family of distributions defined by degrees of
 
 ### Assumptions & Required Data
 
-2.2.	Independent samples t-test
-2.2.1.	Independence of observations – participants do not affect each other (e.g., some participants from the same office, study is on workplace satisfaction) across groups (solution: hierarchical linear modeling)
-2.2.2.	Normally distributed population or large sample size; bigger problem if violate homogeneity of variance or unequal sample sizes; lower power
-2.2.3.	Homogeneity of variance aka equality of variances aka homoscedasticity: Each group has same variance: Check in SPSS; bigger problem when sample sizes unequal
-2.3.	Paired/dependent/matched samples t-test 
-2.3.1.	Independence of observations (pairs are not independent) 
-2.3.2.	Normally distributed population or large sample size
-2.4.	Don’t meet assumptions? Nonparametric alternatives
-2.4.1.	Mann-Whitney U Test alt. for independent samples
-2.4.1.1.	Use when sample size is too low AND population is not normal (or ordinal)
-2.4.1.2.	Treats data as ordinal 
-2.4.1.3.	Loss of power
-2.4.2.	Wilcoxon Signed Rank Test/Wilcoxon T alt. for paired samples
-2.4.2.1.	Use when sample size is too low AND population is not normal (or ordinal)
-2.4.2.2.	Treats data as ordinal 
-2.4.2.3.	Loss of power
+- Independence of observations 
+– Normality as previously discussed; violations are a bigger problem if you also violate homogeneity of variance or have unequal sample sizes; the result is lower power
+- Homogeneity of variance aka equality of variances aka homoscedasticity: Each group has same variance. This can be tested with Levene's test.
 
 ### When to use it
 
@@ -281,9 +272,7 @@ Assume the null hypothesis is true. Assuming the null hypothesis is true means t
 
 d using weighted (allows unequal sample size) and pooled (requires equal variance) standard deviation: different group sizes but same SDs - weighted average of sample variances. Same two variances but different means
 
-
 #### Power Analysis
-
 
 
 
@@ -337,7 +326,7 @@ Practically, repeated measures ANOVA (and within-subjects design) requires fewer
 
 - Simple order effects. Which condition is first affects participants scores; practice effects are an example. The solution is counterbalancing.
 
-- Differential carryover effects are when the effect of one condition bleeds into the second, and the effect is asymmetrical because it happens more in one order of conditions than the other. Imagine a study of shocking images versus neutral images. Participants may be more affected by the shocking images and that could alter their scores in the neutral image trial. In this situation, counterbalancing will not help.
+- Differential carryover effects are when the effect of one condition bleeds into the second, and the effect is asymmetrical because it happens more in one order of conditions than the other. Imagine a study of shocking images versus neutral images (@Cohen2013). Participants may be more affected by the shocking images and that could alter their scores in the neutral image trial. In this situation, counterbalancing will not help.
 
 
 ### Assumptions & Required Data
@@ -374,7 +363,7 @@ Practically, repeated measures ANOVA (and within-subjects design) requires fewer
 
 If you have a quantitative DV and a single, discrete IV with two or more levels, you can run an ANOVA.
 
-### Example: Between-Subjects
+### Example 1: Between-Subjects
 
 Researchers are interested in participants' reaction times to three types of alert displays: a visual alert, an auditory alert, and a speech alert. They randomly assign participants to one of these three conditions. Therefore, this is a between-subjects experimental design.
 
@@ -462,25 +451,38 @@ summary(anovaModel)
 
 The omnibus ANOVA was significant, $F$(2, 12) = 13.26, $p$ < .001, $\eta^2$ = .689. We can conclude there is some difference among these conditions. To determine which conditions are significantly different from the others, we need to perform post-hoc tests.
 
-#### Post-hoc Tests
+#### Multiple Comparisons
 
-This section will be further developed.
+A significant $F$-test only tells us that at least one group is significantly different. Which groups are different from which groups? What are the directions of the effects (i.e., which mean is larger, and which is smaller)? This is purpose of multiple comparisons; we try to identify which mean differences reflect true effects.
 
-##### Bonferroni method
+There are multiple ways to do this; they differ in balance of Type I error control and power, but fundamentally are $t$-tests (as they always compare two means). You’ll need to consider multiple comparisons whenever you have more than one comparison of means. You do not need multiple comparisons with only two levels of the IV, as there is only a single comparison to make, and that one comparison is accomplished with the onmibus test.
 
-This is the most conservative method of post-hoc tests.
+There are two approaches to multiple comparisons:
 
-````{r anovabonferroni, echo=TRUE}
-pairwise.t.test(longdata$RT, longdata$condition, paired = FALSE, p.adjust.method = "bonferroni")
-````
-The bonferroni post-hoc tests show that there was a significant difference between visual ($M$ = 220.63, $SD$ = 4.72) and auditory ($M$ = 242.87, $SD$ = 5.52) alerts, and between speech ($M$ = 248.71, $SD$ = 13.98) and visual alerts, but not between auditory and speech alerts.
+1. Post-hoc tests (a posteriori): Post-hoc tests are **protected** in that they are only run after a significant $F$ test. All are variations on a t-test with different adjustments to protect against the multiple t-test problem. Post-hoc tests are used whenever researchers want to examine all possible mean comparisons.
 
-#### Alternatives to Bonferroni method
+2. Planned comparisons (a priori): In a planned comparisons approach, the omnibus ANOVA can be skipped (although it usually is run anyway), and only test a subset of all possible comparisons are tested. Because you examine fewer comparisons, and your comparisons are not at all influenced by the data, you will examine fewer means and have the most power. For this to be meaningful, the researchers must declare their tested comparisons ahead of time and not alter the approach if undeclared comparisons turn out to be significant. Readers must either trust that researchers have done this faithfully, or preregistration would need to be used.
 
-Instead of "bonferroni", you can choose another p.adjust.method argument of "holm”, “hochberg”, “hommel”, “BH”, “BY”, “fdr”, or “none”.
+#### Post-Hoc Tests 
+
+Let's explore the post-hoc test options, starting with the most **liberal** (least control of Type I error to maximize power) and ending with the most **conservative** (most control of Type I error at the cost of power).
+
+##### Fisher's Least Significant Difference (LSD)
+
+Fisher’s protected $t$ Tests is also known as Fisher’s Least Significant Difference (LSD). This involves running follow up t-tests using the $MS_wn$ as a variance estimate. Essentially, you are running protected $t$-tests. The problem of inflated Type I error exists when your omnibus $F$ is significant and there are many groups to compare (i.e., more than 3). It is the most liberal approach but maintains the most statistical power with 3 or fewer groups.
+
+My recommendation is to use this approach if you have three or fewer groups.
 
 
 ##### Tukey method
+
+**Tukey's Honestly Significant Difference (HSD) test** or Tukey's range test is a method that compares the size of mean differences on the logic that the largest mean differences are real effects. Tukey's HSD is still just a t-test, but it has a correction for familywise error rate. Instead of $t$, a similar statistic $q_k$ (called the studentized range statistic) is computed, and a significance test is done using the $q_k$ distribution. The $q_k$ distribution depends on degrees of freedom (just like the t-test) but also incorporates $k$, the number of groups that are being compared.
+
+In all, Tukey gives you comparisons at a familywise error rate of .05. However, because you are peanlized for the number of comparisons you make, it can end up being too conservative, especially with many groups.
+
+My recommendation is to use this approach for post-hoc testsing in between-subjects designs with more than 3 groups.
+
+Tukey also has the homogeneity of variance assumption, so if that is violated and you have unequal group sizes, you may need to use an alternative statistic, such as Games-Howell or Fisher-Hayter. The larger point is that this list is not every possible approach to post-hoc testing. You can employ any post-hoc testing method you wish so long as you decide on your approach before starting your analysis and can make an argument for why you chose that particular method.
 
 ````{r anovatukey, echo=TRUE}
 library(multcomp)
@@ -489,10 +491,48 @@ library(multcomp)
 hsdModel <- glht(anovaModel, linfct = mcp(condition = "Tukey"))
 summary(hsdModel)
 ````
+
 The Tukey post-hoc tests show that there was a significant difference between visual ($M$ = 220.63, $SD$ = 4.72) and auditory ($M$ = 242.87, $SD$ = 5.52) alerts, and between speech ($M$ = 248.71, $SD$ = 13.98) and visual alerts, but not between auditory and speech alerts.
 
+##### Bonferroni method
 
+This is the most conservative method of post-hoc tests. To keep the familywise error rate equal to alpha, we just divide alpha by the number of comparisons. If you make two comparisons, your new alpha level is $\alpha = .025$. As you may imagine, this becomes *very* conservative as you increase the number of comparisons you need to make. But, in cases where you want the best control of Type I error, are not concerned about the loss of power, and/or are making this adjustment on a small number of tests, it can be simple to implement and useful. In statistical software, Bonferroni corrections are usually implemented by altering the $p$-value, not alpha, so you can still interpret the output with an alpha level of $\alpha = .05$.
 
+````{r anovabonferroni, echo=TRUE}
+pairwise.t.test(longdata$RT, longdata$condition, paired = FALSE, p.adjust.method = "bonferroni")
+````
+
+The bonferroni post-hoc tests show that there was a significant difference between visual ($M$ = 220.63, $SD$ = 4.72) and auditory ($M$ = 242.87, $SD$ = 5.52) alerts, and between speech ($M$ = 248.71, $SD$ = 13.98) and visual alerts, but not between auditory and speech alerts.
+
+##### Alternatives to Bonferroni method
+
+Instead of "bonferroni", you can choose another p.adjust.method argument of "holm”, “hochberg”, “hommel”, “BH”, “BY”, “fdr”, or “none”. The [R documentation](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/p.adjust) gives a nice summary of the choices and provides citations for further reading.
+
+#### Planned Comparisons
+
+As you have more groups in your study, you start to lose power by testing every possible combination. Sometimes, you are only interested in one or a few of the contrasts, or you might want to compare groups of means. For example, if you measure people's mood in each month of the year (with 12 levels), you might want to compare spring measurements to fall measurements. Planned comparisons gives you more flexibility in the means you can test without a loss of statistical power for making all of the comparisons. There are caveats, though:
+
+1. You need to specify the comparisons ahead of time. Your readers and reviewers need to be satisfied that you did specify the comparisons ahead of time.
+
+2. You need to be interested in a subset of all possible comparisons. There is little point in a planned comparisons approach that tests every possible comparison.
+
+3. You have to program the comparisons in R using **user-defined contrast coding**. Dummy coding is an example of contrast coding. User-defined contrast coding means you define each comparison using numerical codes. I will try to explain this briefly here, but we will give this topic more attention when we do factorial ANOVA. For now, just be aware that planned comparisons require contrast coding.
+
+   Imagine we have four levels of our IV: A, B, C, and D. We are interested a planned comparison of A vs B and C vs D. We give each group a coefficient (a weight) that defines if it is used in the comparison. We use a 0 to exclude the level from the comparison. We use a positive number to put it on one side of the comparison and a negative number to put it on the other side. An example may help:
+
+----------------------------
+Comparison    A   B   C   D
+------------ --- --- --- ---
+A vs B       1   -1  0   0
+
+C vs D       0   0   1   -1
+----------------------------
+
+   The table above defines two comparisons, one between A and B and a seond one between C and D.
+
+   There is one rule about writing these comparisons; they must be **orthogonal** (independent). You can verify that your comparisons are orthogonal by multiplying the coefficients *down*. That is, muliply the first A coefficient (1) by the second A coefficient (0). Then, add the products. Based on the table, that is $1 * 0 + -1 * 0 + 0 * 1 + 0 * -1$, which gives a total of 0. The total should be zero for the comparisons to be orthogonal. If you have three coomparisons, you have to do this multiplication for every pair. Yes, it's a bit of work, but this is the planning we sign up for when we do planned comparisons.
+
+4. The convention seems to be to ignore familywise error rate, which is only appropriate if you have a small number of planned comparisons. You may consider one of the adjustment methods, like Bonferroni, if you have many planned comparisons to test.
 
 #### Effect Size
 
@@ -517,7 +557,7 @@ One more (less common) option is to select "Effect size from means" in the "Dete
 
 
 
-### Example: Within-Subjects
+### Example 2: Within-Subjects
 
 This example is the same, but in this study, the researchers randomly assigned participants to one of these three condition orders. Participants completed a visual, auditory, and speech trial. Therefore, this is a within-subjects experimental design.
 
@@ -546,8 +586,7 @@ I will omit the parts of the analysis that are the same in the within-subjects d
 
 #### Hypotheses
 
-Same as between-subjects.
-
+Hypotheses are written the same as for a between-subjects design.
 
 
 #### Analysis
@@ -556,17 +595,16 @@ We are using ezANOVA() in the ez package.
 
 ````{r anovaanalysis2, echo=TRUE}
 
-# install.packages("ez")
+# install.packages("ez") # you may need to install the ez package
 library(ez)
 withinAnovaModel <- ezANOVA(data = longdata, dv = .(RT), wid = .(id), within = .(condition), type = 3)
 withinAnovaModel
-?ezANOVA
 ````
 
 
 #### Sphericity Checking
 
-We will need to diagnose sphericity. Fortunately, this is provided in the default output. The value of Mauchly's $W$ is 0.59, which is not significant and I am going to report the statistics in the first table. Had this been significant, I could have reported Greenhouse and Geisser (GG; 1959) or Huynh and Feldt (HF; 1976) versions of the statistics. Remember, it is important to decide which approach you will take before examining the p-values. 
+We will need to diagnose sphericity. Fortunately, this is provided in the default output. The value of Mauchly's $W$ in this example is 0.59, which is not significant ($p$ > .05), and I WILL report the statistics in the first table. Had this been significant, I could have reported Greenhouse and Geisser (GG; 1959) or Huynh and Feldt (HF; 1976) versions of the statistics. Remember, it is important to decide which approach you will take before examining the p-values. 
 
 #### Omnibus Decision
 
@@ -577,6 +615,7 @@ The omnibus ANOVA was significant, $F$(2, 8) = 10.74, $p$ = .005, $\eta^2_G$ = .
 
 The post-hoc test methods are the same, except set paired = TRUE, so that paired samples t-tests are used.
 
+Tukey's HSD assumes independence of observations and is not available for within-subjects designs.
 
 #### Effect Size
 

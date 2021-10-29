@@ -154,7 +154,7 @@
 
 \title{Advanced Statistics Remix}
 \author{David Schuster}
-\date{2021-10-25}
+\date{2021-10-28}
 
 \begin{document}
 \maketitle
@@ -4928,11 +4928,11 @@ There are two more descriptive statistics that you will sometimes see reported i
 Example by \citet{Navarro2018}
 
 \begin{verbatim}
-## [1] -0.920154
+## [1] -0.929139
 \end{verbatim}
 
 \begin{verbatim}
-## [1] -0.002933252
+## [1] -0.005994045
 \end{verbatim}
 
 \begin{figure}
@@ -4942,7 +4942,7 @@ Example by \citet{Navarro2018}
 \end{figure}
 
 \begin{verbatim}
-## [1] 0.9219731
+## [1] 0.9143808
 \end{verbatim}
 
 Since it's the more interesting of the two, let's start by talking about the \textbf{\emph{skewness}}. Skewness is basically a measure of asymmetry, and the easiest way to explain it is by drawing some pictures. As Figure \ref{fig:skewness} illustrates, if the data tend to have a lot of extreme small values (i.e., the lower tail is ``longer'' than the upper tail) and not so many extremely large values (left panel), then we say that the data are \emph{negatively skewed}. On the other hand, if there are more extremely large values than extremely small ones (right panel) we say that the data are \emph{positively skewed}. That's the qualitative idea behind skewness. The actual formula for the skewness of a data set is as follows
@@ -5137,11 +5137,11 @@ If p \textless{} .05, reject the null and conclude the data are not normal. If p
 The final measure that is sometimes referred to, though very rarely in practice, is the \textbf{\emph{kurtosis}} of a data set. Put simply, kurtosis is a measure of the ``pointiness'' of a data set, as illustrated in Figure \ref{fig:kurtosis}.
 
 \begin{verbatim}
-## [1] -0.9585528
+## [1] -0.9606229
 \end{verbatim}
 
 \begin{verbatim}
-## [1] -0.005951452
+## [1] -0.01824506
 \end{verbatim}
 
 \begin{figure}
@@ -5151,7 +5151,7 @@ The final measure that is sometimes referred to, though very rarely in practice,
 \end{figure}
 
 \begin{verbatim}
-## [1] 2.03987
+## [1] 2.031265
 \end{verbatim}
 
 By convention, we say that the ``normal curve'' (black lines) has zero kurtosis, so the pointiness of a data set is assessed relative to this curve. In this Figure, the data on the left are not pointy enough, so the kurtosis is negative and we call the data \emph{platykurtic}. The data on the right are too pointy, so the kurtosis is positive and we say that the data is \emph{leptokurtic}. But the data in the middle are just pointy enough, so we say that it is \emph{mesokurtic} and has kurtosis zero. This is summarised in the table below:
@@ -6368,7 +6368,7 @@ The idea is quite simple. Let's say we're talking about IQ scores. To a psycholo
 \includegraphics{schuster-statistics-remix_files/figure-latex/IQdist-1.pdf} \includegraphics{schuster-statistics-remix_files/figure-latex/IQdist-2.pdf}
 
 \begin{verbatim}
-## [1] "n= 100 mean= 98.8900599251897 sd= 14.2343064657467"
+## [1] "n= 100 mean= 99.9897508762155 sd= 14.6832695825575"
 \end{verbatim}
 
 \begin{figure}
@@ -6378,7 +6378,7 @@ The idea is quite simple. Let's say we're talking about IQ scores. To a psycholo
 \end{figure}
 
 \begin{verbatim}
-## [1] "n= 10000 mean= 100.079307694267 sd= 14.7856678399593"
+## [1] "n= 10000 mean= 99.9435461532497 sd= 14.8100767225318"
 \end{verbatim}
 
 Now suppose I run an experiment. I select 100 people at random and administer an IQ test, giving me a simple random sample from the population. My sample would consist of a collection of numbers like this:
@@ -6407,7 +6407,7 @@ The obvious answer is to collect more data. Suppose that we ran a much larger ex
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 115  96  94 102  99  88
+## [1] 113 135  99  80 104  74
 \end{verbatim}
 
 I can compute the mean IQ using the command \texttt{mean(IQ)} and the standard deviation using the command \texttt{sd(IQ)}, and I can draw a histgram using \texttt{hist()}. The histogram of this much larger sample is shown in Figure \ref{fig:IQdist} c.~Even a moment's inspections makes clear that the larger sample is a much better approximation to the true population distribution than the smaller one. This is reflected in the sample statistics: the mean IQ for the larger sample turns out to be 99.9, and the standard deviation is 15.1. These values are now very close to the true population.
@@ -6520,7 +6520,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 50.75203}
+\DocumentationTok{\#\# [1] 50.35098}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6531,7 +6531,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Highlighting}[]
 \NormalTok{onesample }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(population, }\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# Take a random sample of size 3 from the population distribution with replacement}
 \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# Display the mean of the sample distribution}
-\DocumentationTok{\#\# [1] 38.17675}
+\DocumentationTok{\#\# [1] 75.66009}
 \FunctionTok{hist}\NormalTok{(onesample) }\CommentTok{\# Display a histogram of the sample distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6541,7 +6541,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(onesample) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the sample mean and the population mean}
-\DocumentationTok{\#\# [1] {-}12.57528}
+\DocumentationTok{\#\# [1] 25.30911}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6555,7 +6555,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 51.41442}
+\DocumentationTok{\#\# [1] 50.38083}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6566,7 +6566,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Highlighting}[]
 \NormalTok{onesample }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(population, }\AttributeTok{size =} \DecValTok{900}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# Take a random sample of size 900 from the population distribution with replacement}
 \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# Display the mean of the sample distribution}
-\DocumentationTok{\#\# [1] 51.98037}
+\DocumentationTok{\#\# [1] 50.77693}
 \FunctionTok{hist}\NormalTok{(onesample) }\CommentTok{\# Display a histogram of the sample distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6576,7 +6576,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(onesample) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the sample mean and the population mean}
-\DocumentationTok{\#\# [1] 0.5659422}
+\DocumentationTok{\#\# [1] 0.396107}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6601,7 +6601,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 51.16866}
+\DocumentationTok{\#\# [1] 51.38661}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6616,7 +6616,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \NormalTok{  sampling[i] }\OtherTok{=} \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# add the sample\textquotesingle{}s mean to the sampling distribution}
 \NormalTok{\}}
 \FunctionTok{mean}\NormalTok{(sampling) }\CommentTok{\# Display the mean of the SAMPLING distribution}
-\DocumentationTok{\#\# [1] 50.93482}
+\DocumentationTok{\#\# [1] 51.05101}
 \FunctionTok{hist}\NormalTok{(sampling) }\CommentTok{\# Display a histogram of the SAMPLING distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6626,7 +6626,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(sampling) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the SAMPLING distribution mean and the population mean}
-\DocumentationTok{\#\# [1] {-}0.2338447}
+\DocumentationTok{\#\# [1] {-}0.3356061}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6696,7 +6696,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 12.38171
+## [1] 13.01621
 \end{verbatim}
 
 \begin{Shaded}
@@ -6708,7 +6708,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 12.56444
+## [1] 13.02957
 \end{verbatim}
 
 \begin{Shaded}
@@ -6718,7 +6718,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.182728
+## [1] 0.0133607
 \end{verbatim}
 
 They are pretty close. Why do we need the standard error formula if we could just find the standard deviation of the sampling distribution? Well, we typically do not work with the sampling distribution directly. We simply understand that it exists. Creating a sampling distribution requires the population distribution to be available to us, and this isn't usually the case when we are doing research. Further, the central limit theorem specifies taking an \emph{unlimited} number of samples in order for the sampling distribution mean to equal the population mean. It also requires a sample size of \(N\ge30\) when the population is not normally distributed. We have violated that rule (we used a uniform population distribution and we set our sample size as low as 5), but the numbers still came out pretty close.
@@ -15448,13 +15448,13 @@ Imagine a high school has a graduation test with \(M = .80\) with a standard dev
 The data are test scores from 35 students.
 
 \begin{verbatim}
-##  [1] 0.72 1.08 0.86 0.74 0.76 0.88 0.78 0.67 0.84 0.86 0.96 0.91 0.72 0.88
-## [15] 0.92 0.86 0.95 0.81 0.98 0.94 1.05 0.89 1.02 1.06 0.76 1.02 0.88 0.86
-## [29] 1.03 0.67 0.85 0.80 0.99 0.80 0.96
+##  [1] 0.99 0.77 0.86 0.77 0.83 0.81 0.94 0.74 0.89 0.92 1.01 0.81 0.89 0.82
+## [15] 0.91 0.97 1.04 0.79 0.81 0.96 0.99 0.85 0.96 0.96 1.02 0.96 0.81 0.92
+## [29] 0.85 0.76 0.87 1.10 1.01 0.83 0.91
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 0.8788571
+## [1] 0.8951429
 \end{verbatim}
 
 The students in the program took the test and performed higher than the population average (\(M=\)\texttt{mean(sample)}). Is there evidence that the after school program is effective?
@@ -15489,13 +15489,13 @@ Assume the null hypothesis is true. Assuming the null hypothesis is true means t
 ##  One Sample t-test
 ## 
 ## data:  sample
-## t = 4.1554, df = 34, p-value = 0.0001035
+## t = 6.171, df = 34, p-value = 2.585e-07
 ## alternative hypothesis: true mean is greater than 0.8
 ## 95 percent confidence interval:
-##  0.8467683       Inf
+##  0.8690725       Inf
 ## sample estimates:
 ## mean of x 
-## 0.8788571
+## 0.8951429
 \end{verbatim}
 
 Note that in the syntax for the t-test, you can specify an alternative hypothesis of ``two-sided'' (two-tailed), ``greater,'' or ``less.''
@@ -15582,41 +15582,41 @@ Did students' test scores significantly differ between exam 1 and exam 2?
 
 \begin{verbatim}
 ##    exam1 exam2
-## 1   0.96  0.85
-## 2   0.95  0.86
-## 3   1.03  0.94
-## 4   1.03  0.92
-## 5   0.91  0.94
-## 6   0.84  1.12
-## 7   0.96  0.86
-## 8   0.81  0.95
-## 9   0.84  1.01
-## 10  0.89  0.99
-## 11  0.80  1.00
-## 12  1.05  0.82
-## 13  0.92  1.07
-## 14  0.95  0.89
-## 15  0.92  0.86
-## 16  0.75  0.91
-## 17  0.94  0.98
-## 18  0.88  0.90
-## 19  1.00  0.98
-## 20  1.01  0.79
-## 21  0.83  0.85
-## 22  0.80  0.94
-## 23  0.81  1.10
-## 24  0.88  0.83
-## 25  0.99  0.94
-## 26  0.94  0.81
-## 27  0.97  1.03
-## 28  0.87  0.77
-## 29  0.78  0.88
-## 30  0.89  0.92
-## 31  0.72  0.95
-## 32  0.85  1.02
-## 33  0.94  0.80
-## 34  0.88  0.89
-## 35  1.09  1.13
+## 1   0.97  0.92
+## 2   0.77  1.02
+## 3   0.89  0.94
+## 4   0.83  1.03
+## 5   1.04  0.93
+## 6   0.91  0.80
+## 7   0.85  1.06
+## 8   1.03  0.95
+## 9   0.96  0.78
+## 10  0.87  0.96
+## 11  1.01  0.93
+## 12  1.00  1.05
+## 13  0.85  1.03
+## 14  0.85  1.16
+## 15  0.91  1.08
+## 16  0.91  0.86
+## 17  0.96  0.84
+## 18  0.84  1.07
+## 19  0.88  0.85
+## 20  1.09  0.95
+## 21  0.92  1.04
+## 22  1.06  0.88
+## 23  0.78  0.92
+## 24  0.98  0.98
+## 25  0.86  1.05
+## 26  0.75  1.07
+## 27  0.93  0.90
+## 28  0.85  0.94
+## 29  0.65  0.78
+## 30  1.01  0.95
+## 31  0.82  1.01
+## 32  0.69  0.98
+## 33  0.90  0.96
+## 34  0.80  0.90
+## 35  0.82  1.04
 \end{verbatim}
 
 \hypertarget{hypotheses-5}{%
@@ -15650,12 +15650,12 @@ We need to take our wide format data and make it long format data.
 
 \begin{verbatim}
 ##   exam1 exam2
-## 1  0.96  0.85
-## 2  0.95  0.86
-## 3  1.03  0.94
-## 4  1.03  0.92
-## 5  0.91  0.94
-## 6  0.84  1.12
+## 1  0.97  0.92
+## 2  0.77  1.02
+## 3  0.89  0.94
+## 4  0.83  1.03
+## 5  1.04  0.93
+## 6  0.91  0.80
 \end{verbatim}
 
 Then, we can run the \(t\)-test:
@@ -15671,30 +15671,38 @@ Then, we can run the \(t\)-test:
 ##  Paired t-test
 ## 
 ## data:  exams$exam1 and exams$exam2
-## t = -1.0251, df = 34, p-value = 0.3126
+## t = -2.7239, df = 34, p-value = 0.01011
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -0.06987518  0.02301804
+##  -0.11823498 -0.01719359
 ## sample estimates:
 ## mean of the differences 
-##             -0.02342857
+##             -0.06771429
 \end{verbatim}
 
 \hypertarget{decision-4}{%
 \subsubsection{Decision}\label{decision-4}}
 
+The \(t\)-test was not significant, \(p\) = 0.6589, t(34) = 0.44. The results are inconclusive.
+
 \hypertarget{effect-size-2}{%
 \subsubsection{Effect Size}\label{effect-size-2}}
 
-4.2.2.1. d = mean difference / standard deviation
-4.2.2.2. (Rosenthal, 1991) d = dz * root(2)
-dz will be higher than regular d
+Paired samples \(t\)-tests have their own version of Cohen's \(d\) that is called \(d_z\). The calculation is different, so it is important to label it as \(d_z\).
+
+\(d_z = \frac{\mbox{mean difference}}{\mbox{standard deviation}}\)
+
+\(d = d_z * \sqrt{2}\)
 
 \hypertarget{power-analysis}{%
 \subsubsection{Power Analysis}\label{power-analysis}}
 
+In G*Power, select ``t-tests'' and then ``Means: Difference between two dependent means (matched pairs).'' Compute the required sample size by entering the effect size (\(d_z\)), tail(s), alpha, and desired power. Clicking ``Determine'' will give you a variety of ways to estimate \(d_z\).
+
 \hypertarget{independent-samples-t-test}{%
 \section{\texorpdfstring{Independent Samples \(t\)-Test}{Independent Samples t-Test}}\label{independent-samples-t-test}}
+
+This section is still under construction. For now, please refer to the regular chapter on \(t\)-tests.
 
 \hypertarget{definition-5}{%
 \subsection{Definition}\label{definition-5}}
@@ -15715,22 +15723,14 @@ The \(t\) distribution is actually a family of distributions defined by degrees 
 \hypertarget{assumptions-required-data-5}{%
 \subsection{Assumptions \& Required Data}\label{assumptions-required-data-5}}
 
-2.2. Independent samples t-test
-2.2.1. Independence of observations -- participants do not affect each other (e.g., some participants from the same office, study is on workplace satisfaction) across groups (solution: hierarchical linear modeling)
-2.2.2. Normally distributed population or large sample size; bigger problem if violate homogeneity of variance or unequal sample sizes; lower power
-2.2.3. Homogeneity of variance aka equality of variances aka homoscedasticity: Each group has same variance: Check in SPSS; bigger problem when sample sizes unequal
-2.3. Paired/dependent/matched samples t-test
-2.3.1. Independence of observations (pairs are not independent)
-2.3.2. Normally distributed population or large sample size
-2.4. Don't meet assumptions? Nonparametric alternatives
-2.4.1. Mann-Whitney U Test alt. for independent samples
-2.4.1.1. Use when sample size is too low AND population is not normal (or ordinal)
-2.4.1.2. Treats data as ordinal
-2.4.1.3. Loss of power
-2.4.2. Wilcoxon Signed Rank Test/Wilcoxon T alt. for paired samples
-2.4.2.1. Use when sample size is too low AND population is not normal (or ordinal)
-2.4.2.2. Treats data as ordinal
-2.4.2.3. Loss of power
+\begin{itemize}
+\tightlist
+\item
+  Independence of observations
+  -- Normality as previously discussed; violations are a bigger problem if you also violate homogeneity of variance or have unequal sample sizes; the result is lower power
+\item
+  Homogeneity of variance aka equality of variances aka homoscedasticity: Each group has same variance. This can be tested with Levene's test.
+\end{itemize}
 
 \hypertarget{when-to-use-it-5}{%
 \subsection{When to use it}\label{when-to-use-it-5}}
@@ -15814,7 +15814,7 @@ Practically, repeated measures ANOVA (and within-subjects design) requires fewer
 \item
   Simple order effects. Which condition is first affects participants scores; practice effects are an example. The solution is counterbalancing.
 \item
-  Differential carryover effects are when the effect of one condition bleeds into the second, and the effect is asymmetrical because it happens more in one order of conditions than the other. Imagine a study of shocking images versus neutral images. Participants may be more affected by the shocking images and that could alter their scores in the neutral image trial. In this situation, counterbalancing will not help.
+  Differential carryover effects are when the effect of one condition bleeds into the second, and the effect is asymmetrical because it happens more in one order of conditions than the other. Imagine a study of shocking images versus neutral images (\citet{Cohen2013}). Participants may be more affected by the shocking images and that could alter their scores in the neutral image trial. In this situation, counterbalancing will not help.
 \end{itemize}
 
 \hypertarget{assumptions-required-data-6}{%
@@ -15893,8 +15893,8 @@ Practically, repeated measures ANOVA (and within-subjects design) requires fewer
 
 If you have a quantitative DV and a single, discrete IV with two or more levels, you can run an ANOVA.
 
-\hypertarget{example-between-subjects}{%
-\subsection{Example: Between-Subjects}\label{example-between-subjects}}
+\hypertarget{example-1-between-subjects}{%
+\subsection{Example 1: Between-Subjects}\label{example-1-between-subjects}}
 
 Researchers are interested in participants' reaction times to three types of alert displays: a visual alert, an auditory alert, and a speech alert. They randomly assign participants to one of these three conditions. Therefore, this is a between-subjects experimental design.
 
@@ -16099,44 +16099,45 @@ Assume the null hypothesis is true. Assuming the null hypothesis is true means t
 
 The omnibus ANOVA was significant, \(F\)(2, 12) = 13.26, \(p\) \textless{} .001, \(\eta^2\) = .689. We can conclude there is some difference among these conditions. To determine which conditions are significantly different from the others, we need to perform post-hoc tests.
 
+\hypertarget{multiple-comparisons-1}{%
+\subsubsection{Multiple Comparisons}\label{multiple-comparisons-1}}
+
+A significant \(F\)-test only tells us that at least one group is significantly different. Which groups are different from which groups? What are the directions of the effects (i.e., which mean is larger, and which is smaller)? This is purpose of multiple comparisons; we try to identify which mean differences reflect true effects.
+
+There are multiple ways to do this; they differ in balance of Type I error control and power, but fundamentally are \(t\)-tests (as they always compare two means). You'll need to consider multiple comparisons whenever you have more than one comparison of means. You do not need multiple comparisons with only two levels of the IV, as there is only a single comparison to make, and that one comparison is accomplished with the onmibus test.
+
+There are two approaches to multiple comparisons:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Post-hoc tests (a posteriori): Post-hoc tests are \textbf{protected} in that they are only run after a significant \(F\) test. All are variations on a t-test with different adjustments to protect against the multiple t-test problem. Post-hoc tests are used whenever researchers want to examine all possible mean comparisons.
+\item
+  Planned comparisons (a priori): In a planned comparisons approach, the omnibus ANOVA can be skipped (although it usually is run anyway), and only test a subset of all possible comparisons are tested. Because you examine fewer comparisons, and your comparisons are not at all influenced by the data, you will examine fewer means and have the most power. For this to be meaningful, the researchers must declare their tested comparisons ahead of time and not alter the approach if undeclared comparisons turn out to be significant. Readers must either trust that researchers have done this faithfully, or preregistration would need to be used.
+\end{enumerate}
+
 \hypertarget{post-hoc-tests}{%
-\subsubsection{Post-hoc Tests}\label{post-hoc-tests}}
+\subsubsection{Post-Hoc Tests}\label{post-hoc-tests}}
 
-This section will be further developed.
+Let's explore the post-hoc test options, starting with the most \textbf{liberal} (least control of Type I error to maximize power) and ending with the most \textbf{conservative} (most control of Type I error at the cost of power).
 
-\hypertarget{bonferroni-method}{%
-\paragraph{Bonferroni method}\label{bonferroni-method}}
+\hypertarget{fishers-least-significant-difference-lsd}{%
+\paragraph{Fisher's Least Significant Difference (LSD)}\label{fishers-least-significant-difference-lsd}}
 
-This is the most conservative method of post-hoc tests.
+Fisher's protected \(t\) Tests is also known as Fisher's Least Significant Difference (LSD). This involves running follow up t-tests using the \(MS_wn\) as a variance estimate. Essentially, you are running protected \(t\)-tests. The problem of inflated Type I error exists when your omnibus \(F\) is significant and there are many groups to compare (i.e., more than 3). It is the most liberal approach but maintains the most statistical power with 3 or fewer groups.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{pairwise.t.test}\NormalTok{(longdata}\SpecialCharTok{$}\NormalTok{RT, longdata}\SpecialCharTok{$}\NormalTok{condition, }\AttributeTok{paired =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{p.adjust.method =} \StringTok{"bonferroni"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-##  Pairwise comparisons using t tests with pooled SD 
-## 
-## data:  longdata$RT and longdata$condition 
-## 
-##        auditory speech
-## speech 0.9927   -     
-## visual 0.0067   0.0011
-## 
-## P value adjustment method: bonferroni
-\end{verbatim}
-
-The bonferroni post-hoc tests show that there was a significant difference between visual (\(M\) = 220.63, \(SD\) = 4.72) and auditory (\(M\) = 242.87, \(SD\) = 5.52) alerts, and between speech (\(M\) = 248.71, \(SD\) = 13.98) and visual alerts, but not between auditory and speech alerts.
-
-\hypertarget{alternatives-to-bonferroni-method}{%
-\subsubsection{Alternatives to Bonferroni method}\label{alternatives-to-bonferroni-method}}
-
-Instead of ``bonferroni'', you can choose another p.adjust.method argument of ``holm'', ``hochberg'', ``hommel'', ``BH'', ``BY'', ``fdr'', or ``none''.
+My recommendation is to use this approach if you have three or fewer groups.
 
 \hypertarget{tukey-method}{%
 \paragraph{Tukey method}\label{tukey-method}}
+
+\textbf{Tukey's Honestly Significant Difference (HSD) test} or Tukey's range test is a method that compares the size of mean differences on the logic that the largest mean differences are real effects. Tukey's HSD is still just a t-test, but it has a correction for familywise error rate. Instead of \(t\), a similar statistic \(q_k\) (called the studentized range statistic) is computed, and a significance test is done using the \(q_k\) distribution. The \(q_k\) distribution depends on degrees of freedom (just like the t-test) but also incorporates \(k\), the number of groups that are being compared.
+
+In all, Tukey gives you comparisons at a familywise error rate of .05. However, because you are peanlized for the number of comparisons you make, it can end up being too conservative, especially with many groups.
+
+My recommendation is to use this approach for post-hoc testsing in between-subjects designs with more than 3 groups.
+
+Tukey also has the homogeneity of variance assumption, so if that is violated and you have unequal group sizes, you may need to use an alternative statistic, such as Games-Howell or Fisher-Hayter. The larger point is that this list is not every possible approach to post-hoc testing. You can employ any post-hoc testing method you wish so long as you decide on your approach before starting your analysis and can make an argument for why you chose that particular method.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -16186,16 +16187,91 @@ Instead of ``bonferroni'', you can choose another p.adjust.method argument of ``
 ## Fit: aov(formula = RT ~ condition, data = longdata)
 ## 
 ## Linear Hypotheses:
-##                        Estimate Std. Error t value Pr(>|t|)    
-## speech - auditory == 0    5.830      5.753   1.013  0.58287    
-## visual - auditory == 0  -22.244      5.753  -3.866  0.00592 ** 
-## visual - speech == 0    -28.074      5.753  -4.880  < 0.001 ***
+##                        Estimate Std. Error t value Pr(>|t|)   
+## speech - auditory == 0    5.830      5.753   1.013  0.58282   
+## visual - auditory == 0  -22.244      5.753  -3.866  0.00581 **
+## visual - speech == 0    -28.074      5.753  -4.880  0.00121 **
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## (Adjusted p values reported -- single-step method)
 \end{verbatim}
 
 The Tukey post-hoc tests show that there was a significant difference between visual (\(M\) = 220.63, \(SD\) = 4.72) and auditory (\(M\) = 242.87, \(SD\) = 5.52) alerts, and between speech (\(M\) = 248.71, \(SD\) = 13.98) and visual alerts, but not between auditory and speech alerts.
+
+\hypertarget{bonferroni-method}{%
+\paragraph{Bonferroni method}\label{bonferroni-method}}
+
+This is the most conservative method of post-hoc tests. To keep the familywise error rate equal to alpha, we just divide alpha by the number of comparisons. If you make two comparisons, your new alpha level is \(\alpha = .025\). As you may imagine, this becomes \emph{very} conservative as you increase the number of comparisons you need to make. But, in cases where you want the best control of Type I error, are not concerned about the loss of power, and/or are making this adjustment on a small number of tests, it can be simple to implement and useful. In statistical software, Bonferroni corrections are usually implemented by altering the \(p\)-value, not alpha, so you can still interpret the output with an alpha level of \(\alpha = .05\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pairwise.t.test}\NormalTok{(longdata}\SpecialCharTok{$}\NormalTok{RT, longdata}\SpecialCharTok{$}\NormalTok{condition, }\AttributeTok{paired =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{p.adjust.method =} \StringTok{"bonferroni"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  longdata$RT and longdata$condition 
+## 
+##        auditory speech
+## speech 0.9927   -     
+## visual 0.0067   0.0011
+## 
+## P value adjustment method: bonferroni
+\end{verbatim}
+
+The bonferroni post-hoc tests show that there was a significant difference between visual (\(M\) = 220.63, \(SD\) = 4.72) and auditory (\(M\) = 242.87, \(SD\) = 5.52) alerts, and between speech (\(M\) = 248.71, \(SD\) = 13.98) and visual alerts, but not between auditory and speech alerts.
+
+\hypertarget{alternatives-to-bonferroni-method}{%
+\paragraph{Alternatives to Bonferroni method}\label{alternatives-to-bonferroni-method}}
+
+Instead of ``bonferroni'', you can choose another p.adjust.method argument of ``holm'', ``hochberg'', ``hommel'', ``BH'', ``BY'', ``fdr'', or ``none''. The \href{https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/p.adjust}{R documentation} gives a nice summary of the choices and provides citations for further reading.
+
+\hypertarget{planned-comparisons}{%
+\subsubsection{Planned Comparisons}\label{planned-comparisons}}
+
+As you have more groups in your study, you start to lose power by testing every possible combination. Sometimes, you are only interested in one or a few of the contrasts, or you might want to compare groups of means. For example, if you measure people's mood in each month of the year (with 12 levels), you might want to compare spring measurements to fall measurements. Planned comparisons gives you more flexibility in the means you can test without a loss of statistical power for making all of the comparisons. There are caveats, though:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  You need to specify the comparisons ahead of time. Your readers and reviewers need to be satisfied that you did specify the comparisons ahead of time.
+\item
+  You need to be interested in a subset of all possible comparisons. There is little point in a planned comparisons approach that tests every possible comparison.
+\item
+  You have to program the comparisons in R using \textbf{user-defined contrast coding}. Dummy coding is an example of contrast coding. User-defined contrast coding means you define each comparison using numerical codes. I will try to explain this briefly here, but we will give this topic more attention when we do factorial ANOVA. For now, just be aware that planned comparisons require contrast coding.
+
+  Imagine we have four levels of our IV: A, B, C, and D. We are interested a planned comparison of A vs B and C vs D. We give each group a coefficient (a weight) that defines if it is used in the comparison. We use a 0 to exclude the level from the comparison. We use a positive number to put it on one side of the comparison and a negative number to put it on the other side. An example may help:
+\end{enumerate}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.18}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.06}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.06}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.06}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.06}}@{}}
+\toprule
+Comparison & A & B & C & D \\
+\midrule
+\endhead
+A vs B & 1 & -1 & 0 & 0 \\
+C vs D & 0 & 0 & 1 & -1 \\
+\bottomrule
+\end{longtable}
+
+The table above defines two comparisons, one between A and B and a seond one between C and D.
+
+There is one rule about writing these comparisons; they must be \textbf{orthogonal} (independent). You can verify that your comparisons are orthogonal by multiplying the coefficients \emph{down}. That is, muliply the first A coefficient (1) by the second A coefficient (0). Then, add the products. Based on the table, that is \(1 * 0 + -1 * 0 + 0 * 1 + 0 * -1\), which gives a total of 0. The total should be zero for the comparisons to be orthogonal. If you have three coomparisons, you have to do this multiplication for every pair. Yes, it's a bit of work, but this is the planning we sign up for when we do planned comparisons.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  The convention seems to be to ignore familywise error rate, which is only appropriate if you have a small number of planned comparisons. You may consider one of the adjustment methods, like Bonferroni, if you have many planned comparisons to test.
+\end{enumerate}
 
 \hypertarget{effect-size-4}{%
 \subsubsection{Effect Size}\label{effect-size-4}}
@@ -16226,8 +16302,8 @@ The best way to estimate effect size is to rely on effect sizes in similar past 
 
 One more (less common) option is to select ``Effect size from means'' in the ``Determine'' drawer to fill in the anticipated means to estimate effect size.
 
-\hypertarget{example-within-subjects}{%
-\subsection{Example: Within-Subjects}\label{example-within-subjects}}
+\hypertarget{example-2-within-subjects}{%
+\subsection{Example 2: Within-Subjects}\label{example-2-within-subjects}}
 
 This example is the same, but in this study, the researchers randomly assigned participants to one of these three condition orders. Participants completed a visual, auditory, and speech trial. Therefore, this is a within-subjects experimental design.
 
@@ -16290,7 +16366,7 @@ I will omit the parts of the analysis that are the same in the within-subjects d
 \hypertarget{hypotheses-8}{%
 \subsubsection{Hypotheses}\label{hypotheses-8}}
 
-Same as between-subjects.
+Hypotheses are written the same as for a between-subjects design.
 
 \hypertarget{analysis-7}{%
 \subsubsection{Analysis}\label{analysis-7}}
@@ -16299,7 +16375,7 @@ We are using ezANOVA() in the ez package.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# install.packages("ez")}
+\CommentTok{\# install.packages("ez") \# you may need to install the ez package}
 \FunctionTok{library}\NormalTok{(ez)}
 \NormalTok{withinAnovaModel }\OtherTok{\textless{}{-}} \FunctionTok{ezANOVA}\NormalTok{(}\AttributeTok{data =}\NormalTok{ longdata, }\AttributeTok{dv =}\NormalTok{ .(RT), }\AttributeTok{wid =}\NormalTok{ .(id), }\AttributeTok{within =}\NormalTok{ .(condition), }\AttributeTok{type =} \DecValTok{3}\NormalTok{)}
 \end{Highlighting}
@@ -16329,16 +16405,10 @@ We are using ezANOVA() in the ez package.
 ## 2 condition 0.7033956 0.01495468         * 0.9706036 0.005985676         *
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{?ezANOVA}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{sphericity-checking}{%
 \subsubsection{Sphericity Checking}\label{sphericity-checking}}
 
-We will need to diagnose sphericity. Fortunately, this is provided in the default output. The value of Mauchly's \(W\) is 0.59, which is not significant and I am going to report the statistics in the first table. Had this been significant, I could have reported Greenhouse and Geisser (GG; 1959) or Huynh and Feldt (HF; 1976) versions of the statistics. Remember, it is important to decide which approach you will take before examining the p-values.
+We will need to diagnose sphericity. Fortunately, this is provided in the default output. The value of Mauchly's \(W\) in this example is 0.59, which is not significant (\(p\) \textgreater{} .05), and I WILL report the statistics in the first table. Had this been significant, I could have reported Greenhouse and Geisser (GG; 1959) or Huynh and Feldt (HF; 1976) versions of the statistics. Remember, it is important to decide which approach you will take before examining the p-values.
 
 \hypertarget{omnibus-decision-1}{%
 \subsubsection{Omnibus Decision}\label{omnibus-decision-1}}
@@ -16349,6 +16419,8 @@ The omnibus ANOVA was significant, \(F\)(2, 8) = 10.74, \(p\) = .005, \(\eta^2_G
 \subsubsection{Post-hoc Tests}\label{post-hoc-tests-1}}
 
 The post-hoc test methods are the same, except set paired = TRUE, so that paired samples t-tests are used.
+
+Tukey's HSD assumes independence of observations and is not available for within-subjects designs.
 
 \hypertarget{effect-size-5}{%
 \subsubsection{Effect Size}\label{effect-size-5}}
