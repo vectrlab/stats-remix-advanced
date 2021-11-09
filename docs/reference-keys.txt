@@ -533,6 +533,17 @@ the-logic-behind-the-kruskal-wallis-test
 additional-details
 how-to-run-the-kruskal-wallis-test-in-r
 summary-8
+factorial-analysis-of-variance-anova
+video
+introduction-7
+why-do-a-factorial-anova
+interactions
+main-effects
+simple-effects
+interaction-effect
+factorial-anova-is-really-3-anovas
+interpret-interaction-effects-first
+graphing-factorial-anova-means
 statistics-reference
 one-sample-z-test
 definition

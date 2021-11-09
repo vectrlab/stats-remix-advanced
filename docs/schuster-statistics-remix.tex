@@ -154,7 +154,7 @@
 
 \title{Advanced Statistics Remix}
 \author{David Schuster}
-\date{2021-10-28}
+\date{2021-11-09}
 
 \begin{document}
 \maketitle
@@ -4928,11 +4928,11 @@ There are two more descriptive statistics that you will sometimes see reported i
 Example by \citet{Navarro2018}
 
 \begin{verbatim}
-## [1] -0.929139
+## [1] -0.9085402
 \end{verbatim}
 
 \begin{verbatim}
-## [1] -0.005994045
+## [1] -0.005220798
 \end{verbatim}
 
 \begin{figure}
@@ -4942,7 +4942,7 @@ Example by \citet{Navarro2018}
 \end{figure}
 
 \begin{verbatim}
-## [1] 0.9143808
+## [1] 0.9265568
 \end{verbatim}
 
 Since it's the more interesting of the two, let's start by talking about the \textbf{\emph{skewness}}. Skewness is basically a measure of asymmetry, and the easiest way to explain it is by drawing some pictures. As Figure \ref{fig:skewness} illustrates, if the data tend to have a lot of extreme small values (i.e., the lower tail is ``longer'' than the upper tail) and not so many extremely large values (left panel), then we say that the data are \emph{negatively skewed}. On the other hand, if there are more extremely large values than extremely small ones (right panel) we say that the data are \emph{positively skewed}. That's the qualitative idea behind skewness. The actual formula for the skewness of a data set is as follows
@@ -5137,11 +5137,11 @@ If p \textless{} .05, reject the null and conclude the data are not normal. If p
 The final measure that is sometimes referred to, though very rarely in practice, is the \textbf{\emph{kurtosis}} of a data set. Put simply, kurtosis is a measure of the ``pointiness'' of a data set, as illustrated in Figure \ref{fig:kurtosis}.
 
 \begin{verbatim}
-## [1] -0.9606229
+## [1] -0.9475097
 \end{verbatim}
 
 \begin{verbatim}
-## [1] -0.01824506
+## [1] 0.0009677388
 \end{verbatim}
 
 \begin{figure}
@@ -5151,7 +5151,7 @@ The final measure that is sometimes referred to, though very rarely in practice,
 \end{figure}
 
 \begin{verbatim}
-## [1] 2.031265
+## [1] 2.087526
 \end{verbatim}
 
 By convention, we say that the ``normal curve'' (black lines) has zero kurtosis, so the pointiness of a data set is assessed relative to this curve. In this Figure, the data on the left are not pointy enough, so the kurtosis is negative and we call the data \emph{platykurtic}. The data on the right are too pointy, so the kurtosis is positive and we say that the data is \emph{leptokurtic}. But the data in the middle are just pointy enough, so we say that it is \emph{mesokurtic} and has kurtosis zero. This is summarised in the table below:
@@ -6368,7 +6368,7 @@ The idea is quite simple. Let's say we're talking about IQ scores. To a psycholo
 \includegraphics{schuster-statistics-remix_files/figure-latex/IQdist-1.pdf} \includegraphics{schuster-statistics-remix_files/figure-latex/IQdist-2.pdf}
 
 \begin{verbatim}
-## [1] "n= 100 mean= 99.9897508762155 sd= 14.6832695825575"
+## [1] "n= 100 mean= 97.2641575406391 sd= 15.2927509682102"
 \end{verbatim}
 
 \begin{figure}
@@ -6378,7 +6378,7 @@ The idea is quite simple. Let's say we're talking about IQ scores. To a psycholo
 \end{figure}
 
 \begin{verbatim}
-## [1] "n= 10000 mean= 99.9435461532497 sd= 14.8100767225318"
+## [1] "n= 10000 mean= 99.899743320362 sd= 14.7971104245785"
 \end{verbatim}
 
 Now suppose I run an experiment. I select 100 people at random and administer an IQ test, giving me a simple random sample from the population. My sample would consist of a collection of numbers like this:
@@ -6407,7 +6407,7 @@ The obvious answer is to collect more data. Suppose that we ran a much larger ex
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 113 135  99  80 104  74
+## [1]  81 109  62  82 102  98
 \end{verbatim}
 
 I can compute the mean IQ using the command \texttt{mean(IQ)} and the standard deviation using the command \texttt{sd(IQ)}, and I can draw a histgram using \texttt{hist()}. The histogram of this much larger sample is shown in Figure \ref{fig:IQdist} c.~Even a moment's inspections makes clear that the larger sample is a much better approximation to the true population distribution than the smaller one. This is reflected in the sample statistics: the mean IQ for the larger sample turns out to be 99.9, and the standard deviation is 15.1. These values are now very close to the true population.
@@ -6520,7 +6520,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 50.35098}
+\DocumentationTok{\#\# [1] 50.61098}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6531,7 +6531,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Highlighting}[]
 \NormalTok{onesample }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(population, }\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# Take a random sample of size 3 from the population distribution with replacement}
 \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# Display the mean of the sample distribution}
-\DocumentationTok{\#\# [1] 75.66009}
+\DocumentationTok{\#\# [1] 34.15746}
 \FunctionTok{hist}\NormalTok{(onesample) }\CommentTok{\# Display a histogram of the sample distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6541,7 +6541,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(onesample) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the sample mean and the population mean}
-\DocumentationTok{\#\# [1] 25.30911}
+\DocumentationTok{\#\# [1] {-}16.45353}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6555,7 +6555,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 50.38083}
+\DocumentationTok{\#\# [1] 51.1853}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6566,7 +6566,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Highlighting}[]
 \NormalTok{onesample }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(population, }\AttributeTok{size =} \DecValTok{900}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# Take a random sample of size 900 from the population distribution with replacement}
 \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# Display the mean of the sample distribution}
-\DocumentationTok{\#\# [1] 50.77693}
+\DocumentationTok{\#\# [1] 50.93187}
 \FunctionTok{hist}\NormalTok{(onesample) }\CommentTok{\# Display a histogram of the sample distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6576,7 +6576,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(onesample) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the sample mean and the population mean}
-\DocumentationTok{\#\# [1] 0.396107}
+\DocumentationTok{\#\# [1] {-}0.2534337}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6601,7 +6601,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 51.38661}
+\DocumentationTok{\#\# [1] 50.39852}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6616,7 +6616,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \NormalTok{  sampling[i] }\OtherTok{=} \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# add the sample\textquotesingle{}s mean to the sampling distribution}
 \NormalTok{\}}
 \FunctionTok{mean}\NormalTok{(sampling) }\CommentTok{\# Display the mean of the SAMPLING distribution}
-\DocumentationTok{\#\# [1] 51.05101}
+\DocumentationTok{\#\# [1] 50.17464}
 \FunctionTok{hist}\NormalTok{(sampling) }\CommentTok{\# Display a histogram of the SAMPLING distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6626,7 +6626,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(sampling) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the SAMPLING distribution mean and the population mean}
-\DocumentationTok{\#\# [1] {-}0.3356061}
+\DocumentationTok{\#\# [1] {-}0.2238783}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6696,7 +6696,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 13.01621
+## [1] 12.82239
 \end{verbatim}
 
 \begin{Shaded}
@@ -6708,7 +6708,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 13.02957
+## [1] 12.80374
 \end{verbatim}
 
 \begin{Shaded}
@@ -6718,7 +6718,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.0133607
+## [1] -0.01865479
 \end{verbatim}
 
 They are pretty close. Why do we need the standard error formula if we could just find the standard deviation of the sampling distribution? Well, we typically do not work with the sampling distribution directly. We simply understand that it exists. Creating a sampling distribution requires the population distribution to be available to us, and this isn't usually the case when we are doing research. Further, the central limit theorem specifies taking an \emph{unlimited} number of samples in order for the sampling distribution mean to equal the population mean. It also requires a sample size of \(N\ge30\) when the population is not normally distributed. We have violated that rule (we used a uniform population distribution and we set our sample size as low as 5), but the numbers still came out pretty close.
@@ -14677,6 +14677,155 @@ In terms of what we have discussed, the key topics were:
 
 As with all of the chapters in this book, there are quite a few different sources that I've relied upon, but the one stand-out text that I've been most heavily influenced by is \citet{Sahai2000}. It's not a good book for beginners, but it's an excellent book for more advanced readers who are interested in understanding the mathematics behind ANOVA.
 
+\hypertarget{factorial-analysis-of-variance-anova}{%
+\chapter{Factorial Analysis of Variance (ANOVA)}\label{factorial-analysis-of-variance-anova}}
+
+\hypertarget{video}{%
+\section{Video}\label{video}}
+
+\href{https://www.youtube.com/watch?v=qbRXu2E780M}{Video - Interaction Effects - 10 min}
+
+\href{https://www.youtube.com/watch?v=JpohyJFDsX4}{Video - Interaction Effects explained a different way and graphed - 12 min}
+
+\hypertarget{introduction-7}{%
+\section{Introduction}\label{introduction-7}}
+
+When more than one IV is included in a model, we are using a \textbf{factorial design}. Factorial designs include 2 or more factors (IVs) with 2 or more levels in each factor. In the following example, our design has two factors (stirring and adding sugar), each with two levels. An ANOVA with two-factors is called a \textbf{two-way ANOVA}. An ANOVA with three factors is called a \textbf{three-way ANOVA}, and so on. Previously, we looked at one-way ANOVAs, those with only one factor.
+
+While we won't cover ANOVA models with more than one DV, it is possible to have more than one DV. Such a model is called \emph{multivariate analysis of variance} (MANOVA). The main effects and interactions on a linear combination of the DVs (similar to how several IVs are linearly combined in multiple regression) are examined.
+
+Another extension of the ANOVA is ANOVA with a covariate. In the \emph{analysis of covariance} (ANCOVA), the variability due to a covariate is removed from the DV before the ANOVA is run. ANCOVA is useful in both experiments and quasi-/non-experiments to statistically remove unexplained error variance and the effects of confounding variables. For more discussion of ANCOVA, see Porter and Raudenbush (1987).
+
+In factorial designs (i.e., studies that include two or more factors), participants are observed at each level of each factor (either between-subjects or within-subjects). Because every possible combination of each IV is included, the effects of each factor alone can be observed. We also get to see how these factors impact each other. We say this design is fully crossed.
+
+\hypertarget{why-do-a-factorial-anova}{%
+\section{Why do a factorial ANOVA?}\label{why-do-a-factorial-anova}}
+
+There are two main benefits to a factorial design, at the cost of a more complex analysis. First, a factorial ANOVA is more efficient in that it uses the same participants to test the effects of two or more factors at one time. This can be less resource-intensive than taking multiple samples to perform a series of one-way ANOVAs. Second, a factorial ANOVA allows for testing of higher-order effects, also called interaction effects.
+
+\hypertarget{interactions}{%
+\section{Interactions}\label{interactions}}
+
+\textbf{Interaction effects} are also called \textbf{moderated relationships} or \textbf{moderation}. An interaction occurs when the effect of one variable depends on the value of another variable.
+
+For example, how do you increase the sweetness of coffee? Imagine that sweetness is the DV, and the two variables are stirring (yes vs no) and adding a sugar cube (yes vs no). We can draw the impact of these two factors in a table:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.25}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.32}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.36}}@{}}
+\toprule
+. & Stirring: Yes & Stirring: No \\
+\midrule
+\endhead
+Sugar: Yes & \(\bar{X}_{sweet}=100\) & \(\bar{X}_{sweet} = 0\) \\
+Sugar: No & \(\bar{X}_{sweet}=0\) & \(\bar{X}_{sweet} = 0\) \\
+\bottomrule
+\end{longtable}
+
+When is the coffee sweet? Stirring alone does not change the taste of the coffee. Adding a sugar cube alone also doesn't change the taste of the coffee since the sugar will just sink to the bottom. It's only when sugar is added and the coffee is stirred that it tastes sweet.
+
+We can say there is a two-way interaction between adding sugar and stirring coffee. The effect of the stirring depends on the value of another variable (whether or not sugar is added).
+
+Drawing an ANOVA means table is a good way to understand interaction effects. To draw this table, place one factor on each axis, as shown above. Then, include every possible mean in the boxes.
+
+\hypertarget{main-effects}{%
+\section{Main Effects}\label{main-effects}}
+
+A main effect is the effect of one factor. There is one potential main effect for each factor.
+
+In this example, the potential main effects are stirring and adding sugar. To find the main effects, find the mean of each column. If there are differences in these means, there is a significant main effect for one of the factors. Next, find the mean of each row. If there are differences in these row means, then there is a main effect for the other factor.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.18}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.23}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.29}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.30}}@{}}
+\toprule
+. & Stirring: Yes & Stirring: No & Row mean \\
+\midrule
+\endhead
+Sugar: Yes & \(\bar{X}_{sweet}=100\) & \(\bar{X}_{sweet} = 0\) & \(\bar{X}_{sugar}= 50\) \\
+Sugar: No & \(\bar{X}_{sweet}=0\) & \(\bar{X}_{sweet} = 0\) & \(\bar{X}_{\text{no sugar}}=0\) \\
+Column mean & \(\bar{X}_{stir}=50\) & \(\bar{X}_{nostir}=0\) . & \\
+\bottomrule
+\end{longtable}
+
+In our example, we see two main effects. Adding a sugar cube (mean of 50) differs from not adding sugar (mean of 0). That's the first main effect. The second is stirring; stirring (mean of 50) differs from not stirring (mean of 0).
+
+\hypertarget{simple-effects}{%
+\section{Simple Effects}\label{simple-effects}}
+
+When an interaction effect is present, each part of an interaction is called a simple effect. To examine the simple effects, compare each cell to every other cell in the same row. Next, compare each cell to ever other cell in the same column. Simple effects are never diagonal from each other.
+
+In our example, we see a simple effect as we go from Stir+Sugar to NoStir+Sugar. There is no simple effect between Stir+NoSugar and NoStir+NoSugar (both are 0). What makes this an interaction effect is that these two simple effects are different from one another.
+
+On the vertical, there is a simple effect from Stir+Sugar to Stir+NoSugar. There is no simple effect from NoStir+Sugar to NoStir+NoSugar (both are 0). Again, this is an interaction effect because these two simple effects are different.
+
+\hypertarget{interaction-effect}{%
+\section{Interaction Effect}\label{interaction-effect}}
+
+When there is at least one (significant) simple effect that differs across levels of one of the IVs (as demonstrated above), then you can say there is an interaction between the two factors. In a two-way ANOVA, there is one possible interaction effect. We sometimes show this with a multiplication symbol: Sugar*Stir. In our example, there is an interaction between sugar and stirring.
+
+\hypertarget{factorial-anova-is-really-3-anovas}{%
+\section{Factorial ANOVA is really 3 ANOVAs}\label{factorial-anova-is-really-3-anovas}}
+
+When evaluating main effects, simple effects, and interactions, how do you know how much of a difference is enough? Great question! This is why we do significance testing. Running the two-way ANOVA lets you see whether you have main effects and/or an interaction effect.
+
+When you run a two-way ANOVA, you are really running three ANOVAs:
+
+\begin{itemize}
+\tightlist
+\item
+  An F-test of the interaction.
+\item
+  An F-test of the first factor.
+\item
+  An F-test of the second factor.
+\end{itemize}
+
+Any combination of these can reach significance (or not).
+
+\hypertarget{interpret-interaction-effects-first}{%
+\section{Interpret Interaction Effects First}\label{interpret-interaction-effects-first}}
+
+When you interpret a two-way ANOVA, you need to always start with the interaction. Sometimes, significant main effects with a significant interaction are misleading. Significant main effects might be fully explained by the interaction.
+
+In our example, you may have noticed a discrepancy. We started by saying that adding sugar or stirring alone did not affect the sweetness of the coffee. But, when we analyzed the table, we saw two main effects. This illustrates why we always need to look at our interaction effects first, and then take a closer look at the means, before we interpret main effects.
+
+Merely reporting the SPSS output would lead us to conclude that stirring has an effect, adding sugar has an effect, and the interaction has an effect. This is not the case. While, on average, stirring lead to sweeter coffee, it was only sweeter when sugar was also added. Always interpret significant interaction effects first.
+
+\hypertarget{graphing-factorial-anova-means}{%
+\section{Graphing Factorial ANOVA Means}\label{graphing-factorial-anova-means}}
+
+Graphing Factorial ANOVA Cell Means
+
+An interaction graph is simply a plot of the means for each cell in the ANOVA. Interaction graphs make it easier to interpret your data. Remember that you need post hoc tests in order to know which differences are significant.
+
+Steps in graphing an interaction (done for you by R):
+
+\begin{itemize}
+\item
+  Place the DV along the Y-axis.
+\item
+  Place factor 1 along the x-axis. It's best to use the factor with the most levels here.
+\item
+  Use separate lines for each level of factor 2. Distinguish the lines by making one a dashed line, or use different end points for each line. Any color coding should be redundant to enable those with color deficient vision to interpret it.
+\item
+  Plot the mean of each cell.
+\end{itemize}
+
+Steps in interpreting an interaction graph:
+
+\begin{itemize}
+\item
+  If the lines are not parallel, then there is an interaction effect.
+\item
+  Draw a line bisecting the two lines (it cuts the angle formed by them in half). If this new line has a positive or negative slope (that is, it's not a horizontal line), then there is a main effect for factor 1.
+\item
+  If the two lines do not meet on the graph then there is a main effect for factor 2, but this will not necessarily hold in the presence of an interaction effect. If the interaction causes the lines to cross, then a main effect will be evident if the lines do not cross in the middle.
+\end{itemize}
+
 \hypertarget{statistics-reference}{%
 \chapter{Statistics Reference}\label{statistics-reference}}
 
@@ -15448,13 +15597,13 @@ Imagine a high school has a graduation test with \(M = .80\) with a standard dev
 The data are test scores from 35 students.
 
 \begin{verbatim}
-##  [1] 0.99 0.77 0.86 0.77 0.83 0.81 0.94 0.74 0.89 0.92 1.01 0.81 0.89 0.82
-## [15] 0.91 0.97 1.04 0.79 0.81 0.96 0.99 0.85 0.96 0.96 1.02 0.96 0.81 0.92
-## [29] 0.85 0.76 0.87 1.10 1.01 0.83 0.91
+##  [1] 0.83 1.04 0.94 1.01 0.80 0.71 0.84 0.85 0.80 0.70 0.75 0.94 0.97 0.88
+## [15] 0.90 0.73 0.76 0.79 0.94 0.93 0.87 0.87 0.73 0.85 0.96 0.86 0.85 0.87
+## [29] 0.96 0.78 0.97 0.98 0.91 0.95 0.94
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 0.8951429
+## [1] 0.8702857
 \end{verbatim}
 
 The students in the program took the test and performed higher than the population average (\(M=\)\texttt{mean(sample)}). Is there evidence that the after school program is effective?
@@ -15489,13 +15638,13 @@ Assume the null hypothesis is true. Assuming the null hypothesis is true means t
 ##  One Sample t-test
 ## 
 ## data:  sample
-## t = 6.171, df = 34, p-value = 2.585e-07
+## t = 4.6043, df = 34, p-value = 2.782e-05
 ## alternative hypothesis: true mean is greater than 0.8
 ## 95 percent confidence interval:
-##  0.8690725       Inf
+##  0.8444736       Inf
 ## sample estimates:
 ## mean of x 
-## 0.8951429
+## 0.8702857
 \end{verbatim}
 
 Note that in the syntax for the t-test, you can specify an alternative hypothesis of ``two-sided'' (two-tailed), ``greater,'' or ``less.''
@@ -15582,41 +15731,41 @@ Did students' test scores significantly differ between exam 1 and exam 2?
 
 \begin{verbatim}
 ##    exam1 exam2
-## 1   0.97  0.92
-## 2   0.77  1.02
-## 3   0.89  0.94
-## 4   0.83  1.03
-## 5   1.04  0.93
-## 6   0.91  0.80
-## 7   0.85  1.06
-## 8   1.03  0.95
-## 9   0.96  0.78
-## 10  0.87  0.96
-## 11  1.01  0.93
-## 12  1.00  1.05
-## 13  0.85  1.03
-## 14  0.85  1.16
-## 15  0.91  1.08
-## 16  0.91  0.86
-## 17  0.96  0.84
-## 18  0.84  1.07
-## 19  0.88  0.85
-## 20  1.09  0.95
-## 21  0.92  1.04
-## 22  1.06  0.88
-## 23  0.78  0.92
-## 24  0.98  0.98
-## 25  0.86  1.05
-## 26  0.75  1.07
-## 27  0.93  0.90
-## 28  0.85  0.94
-## 29  0.65  0.78
-## 30  1.01  0.95
-## 31  0.82  1.01
-## 32  0.69  0.98
-## 33  0.90  0.96
-## 34  0.80  0.90
-## 35  0.82  1.04
+## 1   1.02  0.97
+## 2   0.88  1.04
+## 3   0.78  0.84
+## 4   0.92  0.93
+## 5   0.92  0.98
+## 6   1.00  0.93
+## 7   0.81  0.91
+## 8   0.82  0.88
+## 9   0.78  0.79
+## 10  1.00  0.95
+## 11  0.87  0.77
+## 12  0.90  0.98
+## 13  0.95  1.00
+## 14  0.94  1.06
+## 15  0.71  0.88
+## 16  0.92  0.92
+## 17  0.87  1.06
+## 18  0.98  0.86
+## 19  0.90  0.82
+## 20  0.88  1.09
+## 21  0.93  0.85
+## 22  0.97  1.02
+## 23  0.93  0.96
+## 24  0.82  0.81
+## 25  1.04  0.84
+## 26  0.84  0.76
+## 27  0.84  0.85
+## 28  0.63  1.03
+## 29  0.97  0.82
+## 30  0.99  0.94
+## 31  0.93  1.06
+## 32  0.83  0.89
+## 33  0.80  0.89
+## 34  0.97  0.82
+## 35  0.87  1.00
 \end{verbatim}
 
 \hypertarget{hypotheses-5}{%
@@ -15650,12 +15799,12 @@ We need to take our wide format data and make it long format data.
 
 \begin{verbatim}
 ##   exam1 exam2
-## 1  0.97  0.92
-## 2  0.77  1.02
-## 3  0.89  0.94
-## 4  0.83  1.03
-## 5  1.04  0.93
-## 6  0.91  0.80
+## 1  1.02  0.97
+## 2  0.88  1.04
+## 3  0.78  0.84
+## 4  0.92  0.93
+## 5  0.92  0.98
+## 6  1.00  0.93
 \end{verbatim}
 
 Then, we can run the \(t\)-test:
@@ -15671,13 +15820,13 @@ Then, we can run the \(t\)-test:
 ##  Paired t-test
 ## 
 ## data:  exams$exam1 and exams$exam2
-## t = -2.7239, df = 34, p-value = 0.01011
+## t = -1.3784, df = 34, p-value = 0.1771
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -0.11823498 -0.01719359
+##  -0.06998834  0.01341692
 ## sample estimates:
 ## mean of the differences 
-##             -0.06771429
+##             -0.02828571
 \end{verbatim}
 
 \hypertarget{decision-4}{%
@@ -16188,9 +16337,9 @@ Tukey also has the homogeneity of variance assumption, so if that is violated an
 ## 
 ## Linear Hypotheses:
 ##                        Estimate Std. Error t value Pr(>|t|)   
-## speech - auditory == 0    5.830      5.753   1.013  0.58282   
-## visual - auditory == 0  -22.244      5.753  -3.866  0.00581 **
-## visual - speech == 0    -28.074      5.753  -4.880  0.00121 **
+## speech - auditory == 0    5.830      5.753   1.013  0.58285   
+## visual - auditory == 0  -22.244      5.753  -3.866  0.00569 **
+## visual - speech == 0    -28.074      5.753  -4.880  0.00137 **
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## (Adjusted p values reported -- single-step method)

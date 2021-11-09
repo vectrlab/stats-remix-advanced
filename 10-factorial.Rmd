@@ -1,0 +1,120 @@
+# Factorial Analysis of Variance (ANOVA)
+
+## Video
+
+[Video - Interaction Effects - 10 min](https://www.youtube.com/watch?v=qbRXu2E780M)
+
+[Video - Interaction Effects explained a different way and graphed - 12 min](https://www.youtube.com/watch?v=JpohyJFDsX4)
+
+## Introduction
+
+When more than one IV is included in a model, we are using a **factorial design**. Factorial designs include 2 or more factors (IVs) with 2 or more levels in each factor. In the following example, our design has two factors (stirring and adding sugar), each with two levels. An ANOVA with two-factors is called a **two-way ANOVA**. An ANOVA with three factors is called a **three-way ANOVA**, and so on. Previously, we looked at one-way ANOVAs, those with only one factor. 
+
+While we won’t cover ANOVA models with more than one DV, it is possible to have more than one DV. Such a model is called *multivariate analysis of variance* (MANOVA). The main effects and interactions on a linear combination of the DVs (similar to how several IVs are linearly combined in multiple regression) are examined. 
+
+Another extension of the ANOVA is ANOVA with a covariate. In the *analysis of covariance* (ANCOVA), the variability due to a covariate is removed from the DV before the ANOVA is run. ANCOVA is useful in both experiments and quasi-/non-experiments to statistically remove unexplained error variance and the effects of confounding variables. For more discussion of ANCOVA, see Porter and Raudenbush (1987).
+
+In factorial designs (i.e., studies that include two or more factors), participants are observed at each level of each factor (either between-subjects or within-subjects). Because every possible combination of each IV is included, the effects of each factor alone can be observed. We also get to see how these factors impact each other. We say this design is fully crossed.
+
+## Why do a factorial ANOVA?
+
+There are two main benefits to a factorial design, at the cost of a more complex analysis. First, a factorial ANOVA is more efficient in that it uses the same participants to test the effects of two or more factors at one time. This can be less resource-intensive than taking multiple samples to perform a series of one-way ANOVAs. Second, a factorial ANOVA allows for testing of higher-order effects, also called interaction effects.
+
+## Interactions
+
+**Interaction effects** are also called **moderated relationships** or **moderation**. An interaction occurs when the effect of one variable depends on the value of another variable.
+
+For example, how do you increase the sweetness of coffee? Imagine that sweetness is the DV, and the two variables are stirring (yes vs no) and adding a sugar cube (yes vs no). We can draw the impact of these two factors in a table:
+
+
+---------------------------------------------------------------- 
+.                 Stirring: Yes          Stirring: No            
+----------------- ---------------------- -----------------------  
+Sugar: Yes        $\bar{X}_{sweet}=100$  $\bar{X}_{sweet} = 0$   
+
+Sugar: No         $\bar{X}_{sweet}=0$    $\bar{X}_{sweet} = 0$   
+----------------------------------------------------------------
+	
+When is the coffee sweet? Stirring alone does not change the taste of the coffee. Adding a sugar cube alone also doesn’t change the taste of the coffee since the sugar will just sink to the bottom. It’s only when sugar is added and the coffee is stirred that it tastes sweet.
+
+We can say there is a two-way interaction between adding sugar and stirring coffee. The effect of the stirring depends on the value of another variable (whether or not sugar is added).
+
+Drawing an ANOVA means table is a good way to understand interaction effects. To draw this table, place one factor on each axis, as shown above. Then, include every possible mean in the boxes.
+
+## Main Effects
+
+A main effect is the effect of one factor. There is one potential main effect for each factor. 
+
+In this example, the potential main effects are stirring and adding sugar. To find the main effects, find the mean of each column. If there are differences in these means, there is a significant main effect for one of the factors. Next, find the mean of each row. If there are differences in these row means, then there is a main effect for the other factor.
+
+
+-------------------------------------------------------------------------------------------------
+.                 Stirring: Yes          Stirring: No                Row mean
+----------------- ---------------------- --------------------------- ----------------------------
+Sugar: Yes        $\bar{X}_{sweet}=100$  $\bar{X}_{sweet} = 0$       $\bar{X}_{sugar}= 50$
+
+Sugar: No         $\bar{X}_{sweet}=0$    $\bar{X}_{sweet} = 0$       $\bar{X}_{\text{no sugar}}=0$
+
+Column mean       $\bar{X}_{stir}=50$    $\bar{X}_{nostir}=0$ .
+-------------------------------------------------------------------------------------------------
+
+In our example, we see two main effects. Adding a sugar cube (mean of 50) differs from not adding sugar (mean of 0). That’s the first main effect. The second is stirring; stirring (mean of 50) differs from not stirring (mean of 0).
+
+## Simple Effects
+
+When an interaction effect is present, each part of an interaction is called a simple effect. To examine the simple effects, compare each cell to every other cell in the same row. Next, compare each cell to ever other cell in the same column. Simple effects are never diagonal from each other.
+
+In our example, we see a simple effect as we go from Stir+Sugar to NoStir+Sugar. There is no simple effect between Stir+NoSugar and NoStir+NoSugar (both are 0). What makes this an interaction effect is that these two simple effects are different from one another.
+
+On the vertical, there is a simple effect from Stir+Sugar to Stir+NoSugar. There is no simple effect from NoStir+Sugar to NoStir+NoSugar (both are 0). Again, this is an interaction effect because these two simple effects are different. 
+
+## Interaction Effect
+
+When there is at least one (significant) simple effect that differs across levels of one of the IVs (as demonstrated above), then you can say there is an interaction between the two factors. In a two-way ANOVA, there is one possible interaction effect. We sometimes show this with a multiplication symbol: Sugar*Stir. In our example, there is an interaction between sugar and stirring.
+
+## Factorial ANOVA is really 3 ANOVAs
+
+When evaluating main effects, simple effects, and interactions, how do you know how much of a difference is enough? Great question! This is why we do significance testing. Running the two-way ANOVA lets you see whether you have main effects and/or an interaction effect.
+
+When you run a two-way ANOVA, you are really running three ANOVAs:
+
+- An F-test of the interaction.
+- An F-test of the first factor.
+- An F-test of the second factor.
+
+Any combination of these can reach significance (or not).
+
+## Interpret Interaction Effects First
+
+When you interpret a two-way ANOVA, you need to always start with the interaction. Sometimes, significant main effects with a significant interaction are misleading. Significant main effects might be fully explained by the interaction. 
+
+In our example, you may have noticed a discrepancy. We started by saying that adding sugar or stirring alone did not affect the sweetness of the coffee. But, when we analyzed the table, we saw two main effects. This illustrates why we always need to look at our interaction effects first, and then take a closer look at the means, before we interpret main effects.
+
+Merely reporting the SPSS output would lead us to conclude that stirring has an effect, adding sugar has an effect, and the interaction has an effect. This is not the case. While, on average, stirring lead to sweeter coffee, it was only sweeter when sugar was also added.  Always interpret significant interaction effects first. 
+
+## Graphing Factorial ANOVA Means
+
+Graphing Factorial ANOVA Cell Means
+
+An interaction graph is simply a plot of the means for each cell in the ANOVA. Interaction graphs make it easier to interpret your data. Remember that you need post hoc tests in order to know which differences are significant.
+ 
+Steps in graphing an interaction (done for you by R): 
+
+-	Place the DV along the Y-axis.
+
+-	Place factor 1 along the x-axis. It’s best to use the factor with the most levels here.
+
+-	Use separate lines for each level of factor 2. Distinguish the lines by making one a dashed line, or use different end points for each line. Any color coding should be redundant to enable those with color deficient vision to interpret it.
+
+-	Plot the mean of each cell.
+
+Steps in interpreting an interaction graph:
+
+-	If the lines are not parallel, then there is an interaction effect.
+
+-	Draw a line bisecting the two lines (it cuts the angle formed by them in half). If this new line has a positive or negative slope (that is, it’s not a horizontal line), then there is a main effect for factor 1. 
+
+-	If the two lines do not meet on the graph then there is a main effect for factor 2, but this will not necessarily hold in the presence of an interaction effect. If the interaction causes the lines to cross, then a main effect will be evident if the lines do not cross in the middle.
+
+
+
