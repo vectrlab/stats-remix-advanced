@@ -24,7 +24,7 @@
 <meta name="author" content="David Schuster" />
 
 
-<meta name="date" content="2021-11-09" />
+<meta name="date" content="2021-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -760,6 +760,15 @@ div.csl-indent {
 <li class="chapter" data-level="13.7.5" data-path="statistics-reference.html"><a href="statistics-reference.html#example-1-between-subjects"><i class="fa fa-check"></i><b>13.7.5</b> Example 1: Between-Subjects</a></li>
 <li class="chapter" data-level="13.7.6" data-path="statistics-reference.html"><a href="statistics-reference.html#example-2-within-subjects"><i class="fa fa-check"></i><b>13.7.6</b> Example 2: Within-Subjects</a></li>
 </ul></li>
+<li class="chapter" data-level="13.8" data-path="statistics-reference.html"><a href="statistics-reference.html#statguide-factorial"><i class="fa fa-check"></i><b>13.8</b> Factorial ANOVA</a>
+<ul>
+<li class="chapter" data-level="13.8.1" data-path="statistics-reference.html"><a href="statistics-reference.html#definition-7"><i class="fa fa-check"></i><b>13.8.1</b> Definition</a></li>
+<li class="chapter" data-level="13.8.2" data-path="statistics-reference.html"><a href="statistics-reference.html#test-statistic-7"><i class="fa fa-check"></i><b>13.8.2</b> Test Statistic</a></li>
+<li class="chapter" data-level="13.8.3" data-path="statistics-reference.html"><a href="statistics-reference.html#between-within-and-mixed-anova"><i class="fa fa-check"></i><b>13.8.3</b> Between, Within, and Mixed ANOVA</a></li>
+<li class="chapter" data-level="13.8.4" data-path="statistics-reference.html"><a href="statistics-reference.html#assumptions-required-data-7"><i class="fa fa-check"></i><b>13.8.4</b> Assumptions &amp; Required Data</a></li>
+<li class="chapter" data-level="13.8.5" data-path="statistics-reference.html"><a href="statistics-reference.html#when-to-use-it-7"><i class="fa fa-check"></i><b>13.8.5</b> When to use it</a></li>
+<li class="chapter" data-level="13.8.6" data-path="statistics-reference.html"><a href="statistics-reference.html#example-mixed-anova"><i class="fa fa-check"></i><b>13.8.6</b> Example: Mixed ANOVA</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1344,10 +1353,10 @@ Figure 13.4: The null hypothesis distribution of <span class="math inline">\(t\)
 <div id="data-3" class="section level4" number="13.4.5.1">
 <h4><span class="header-section-number">13.4.5.1</span> Data</h4>
 <p>The data are test scores from 35 students.</p>
-<pre><code>##  [1] 0.80 0.91 0.97 0.80 0.85 1.04 0.70 0.85 0.90 0.86 0.93 1.01 0.86 0.92
-## [15] 0.98 0.94 1.00 1.09 1.03 0.80 0.89 0.99 0.96 0.95 0.90 0.77 0.73 0.98
-## [29] 1.06 0.79 0.90 0.97 0.99 0.81 1.02</code></pre>
-<pre><code>## [1] 0.9128571</code></pre>
+<pre><code>##  [1] 0.81 0.73 0.87 0.93 0.93 0.86 1.00 0.72 1.06 0.78 0.86 1.00 0.79 0.75
+## [15] 0.96 1.03 0.86 0.78 0.89 0.97 0.84 1.05 0.80 0.99 0.74 0.85 0.92 0.79
+## [29] 1.05 0.71 0.88 0.92 0.95 0.89 1.00</code></pre>
+<pre><code>## [1] 0.8845714</code></pre>
 <p>The students in the program took the test and performed higher than the population average (<span class="math inline">\(M=\)</span><code>mean(sample)</code>). Is there evidence that the after school program is effective?</p>
 </div>
 <div id="hypotheses-4" class="section level4" number="13.4.5.2">
@@ -1369,13 +1378,13 @@ H_a = \mu &gt; .80
 ##  One Sample t-test
 ## 
 ## data:  sample
-## t = 6.8703, df = 34, p-value = 3.267e-08
+## t = 4.8632, df = 34, p-value = 1.291e-05
 ## alternative hypothesis: true mean is greater than 0.8
 ## 95 percent confidence interval:
-##  0.8850805       Inf
+##  0.8551663       Inf
 ## sample estimates:
 ## mean of x 
-## 0.9128571</code></pre>
+## 0.8845714</code></pre>
 <p>Note that in the syntax for the t-test, you can specify an alternative hypothesis of “two-sided” (two-tailed), “greater,” or “less.”</p>
 </div>
 <div id="effect-size-1" class="section level4" number="13.4.5.4">
@@ -1440,41 +1449,41 @@ Figure 13.5: The null hypothesis distribution of <span class="math inline">\(t\)
 <h4><span class="header-section-number">13.5.5.1</span> Data</h4>
 <p>Did students’ test scores significantly differ between exam 1 and exam 2?</p>
 <pre><code>##    exam1 exam2
-## 1   0.93  0.92
-## 2   0.91  0.91
-## 3   0.71  1.01
-## 4   0.78  0.94
-## 5   0.95  0.75
-## 6   0.81  0.85
-## 7   1.08  0.86
-## 8   0.87  0.92
-## 9   0.85  1.00
-## 10  0.93  0.88
-## 11  0.80  0.82
-## 12  0.82  0.83
-## 13  0.78  0.95
-## 14  0.97  0.97
-## 15  0.90  1.09
-## 16  0.82  1.02
-## 17  0.71  0.81
-## 18  0.81  0.79
-## 19  0.85  0.80
-## 20  0.86  1.02
-## 21  0.99  0.81
-## 22  0.95  0.92
-## 23  0.88  1.00
-## 24  0.79  0.87
-## 25  0.90  0.73
-## 26  0.94  1.05
-## 27  0.98  0.80
-## 28  0.86  1.00
-## 29  0.98  0.90
-## 30  0.82  0.91
-## 31  1.08  1.00
-## 32  0.97  0.86
-## 33  0.99  0.86
-## 34  0.88  0.94
-## 35  0.90  0.74</code></pre>
+## 1   1.02  0.96
+## 2   1.04  0.93
+## 3   0.83  0.95
+## 4   0.89  1.02
+## 5   0.88  0.89
+## 6   0.88  0.98
+## 7   0.96  1.09
+## 8   0.95  0.90
+## 9   0.96  0.84
+## 10  0.89  0.93
+## 11  1.08  0.81
+## 12  0.79  0.93
+## 13  0.78  1.03
+## 14  0.94  1.04
+## 15  0.79  0.78
+## 16  0.72  1.05
+## 17  0.79  0.94
+## 18  1.23  0.90
+## 19  0.80  0.95
+## 20  0.90  0.74
+## 21  1.08  1.06
+## 22  0.93  0.82
+## 23  0.96  0.90
+## 24  0.87  0.83
+## 25  0.88  1.04
+## 26  0.99  0.78
+## 27  0.90  0.89
+## 28  0.95  0.83
+## 29  0.70  0.85
+## 30  0.81  0.92
+## 31  0.90  0.82
+## 32  0.83  0.90
+## 33  0.96  0.88
+## 34  1.04  0.97
+## 35  0.77  1.02</code></pre>
 </div>
 <div id="hypotheses-5" class="section level4" number="13.5.5.2">
 <h4><span class="header-section-number">13.5.5.2</span> Hypotheses</h4>
@@ -1495,22 +1504,22 @@ H_1: &amp; \mu_D \neq 0
 <span id="cb966-2"><a href="statistics-reference.html#cb966-2" aria-hidden="true" tabindex="-1"></a><span class="co"># exams &lt;- sortFrame(exams, id)</span></span>
 <span id="cb966-3"><a href="statistics-reference.html#cb966-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(exams)</span></code></pre></div>
 <pre><code>##   exam1 exam2
-## 1  0.93  0.92
-## 2  0.91  0.91
-## 3  0.71  1.01
-## 4  0.78  0.94
-## 5  0.95  0.75
-## 6  0.81  0.85</code></pre>
+## 1  1.02  0.96
+## 2  1.04  0.93
+## 3  0.83  0.95
+## 4  0.89  1.02
+## 5  0.88  0.89
+## 6  0.88  0.98</code></pre>
 <p>Then, we can run the <span class="math inline">\(t\)</span>-test:</p>
 <div class="sourceCode" id="cb968"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb968-1"><a href="statistics-reference.html#cb968-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> exams<span class="sc">$</span>exam1, <span class="at">y =</span> exams<span class="sc">$</span>exam2, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
 ## data:  exams$exam1 and exams$exam2
-## t = -0.61239, df = 34, p-value = 0.5444
+## t = -0.54231, df = 34, p-value = 0.5911
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -0.05922599  0.03179742
+##  -0.06510678  0.03767821
 ## sample estimates:
 ## mean of the differences 
 ##             -0.01371429</code></pre>
@@ -1840,10 +1849,10 @@ H_1: &amp; \mbox{the null is false}
 ## Fit: aov(formula = RT ~ condition, data = longdata)
 ## 
 ## Linear Hypotheses:
-##                        Estimate Std. Error t value Pr(&gt;|t|)    
-## speech - auditory == 0    5.830      5.753   1.013   0.5829    
-## visual - auditory == 0  -22.244      5.753  -3.866   0.0057 ** 
-## visual - speech == 0    -28.074      5.753  -4.880   &lt;0.001 ***
+##                        Estimate Std. Error t value Pr(&gt;|t|)   
+## speech - auditory == 0    5.830      5.753   1.013  0.58282   
+## visual - auditory == 0  -22.244      5.753  -3.866  0.00576 **
+## visual - speech == 0    -28.074      5.753  -4.880  0.00114 **
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## (Adjusted p values reported -- single-step method)</code></pre>
@@ -2023,6 +2032,374 @@ H_1: &amp; \mbox{the null is false}
 <p>In G*Power, select the F tests family, and then choose “ANOVA: Repeated measures, within factors.”</p>
 <p>As this is a one-way, repeated measures ANOVA, you can enter effect size, alpha, and power. Then, set number of groups to 1 (as there is no between-subjects factor) and the number of measurements to the number of levels of the IV. The corr among rep measures is the estimated correlation between your measures (e.g., how well can you predict a participant’s time 2 score if you know their time 1 score). This can be hard to estimate, but it’s a good exercise to think about how large you expect these individual differences to be. The larger the correlation among measures, the more you gain by using a within-subjects design.</p>
 
+</div>
+</div>
+</div>
+<div id="statguide-factorial" class="section level2" number="13.8">
+<h2><span class="header-section-number">13.8</span> Factorial ANOVA</h2>
+<div id="definition-7" class="section level3" number="13.8.1">
+<h3><span class="header-section-number">13.8.1</span> Definition</h3>
+<p>Including more than one independent variable (called a factor) in an analysis of variance (ANOVA) results in a factorial ANOVA.</p>
+<p>Factorial ANOVA tests each of the factors individually, with results that are the same as if each factor was tested on its own one-way ANOVA. Factorial ANOVA adds a higher-level analysis, as well, called an <strong>interaction effect</strong>. Any two-way ANOVA (with two factors) has one potential interaction effect. A three-way ANOVA has four potential interaction effects. Imagine factors A (2 levels), B (3 levels), and C (2 levels). Such an ANOVA would be described as a 2 x 3 x 2 ANOVA. The factorial ANOVA would involve testing these omnibus effects:</p>
+<ul>
+<li><p>Main effect of A</p></li>
+<li><p>Main effect of B</p></li>
+<li><p>Main effect of C</p></li>
+<li><p>Interaction effect A x B</p></li>
+<li><p>Interaction effect B x C</p></li>
+<li><p>Interaction effect A x C</p></li>
+<li><p>Interaction effect A x B x C</p></li>
+</ul>
+<p>The three-way interaction is the highest <strong>order</strong> interaction. Order refers to the number of factors involved.</p>
+<p>You can calculate the number of potential interation effects with the formula <span class="math inline">\(2^m-m-1\)</span>, where <span class="math inline">\(k\)</span> is the number of factors. This calculation for three factors reveals the four potential interaction effects listed previously.</p>
+<p><em>Each</em> of these tests has stages. The <strong>omnibus test</strong> tests the null that two or more groups have the same mean. If the omnibus test is significant, <strong>pairwise comparisons</strong> are the second step. There are two strategies for pairwise comparisons. <strong>Planned comparisons</strong> maximizes statistical power by only testing hypothesized pairwise comparisons. <strong>Post-hoc tests</strong> run statistical tests for every possible pairwise comparison and then makes some (or no) adjustment for the number of tests that have been run.</p>
+</div>
+<div id="test-statistic-7" class="section level3" number="13.8.2">
+<h3><span class="header-section-number">13.8.2</span> Test Statistic</h3>
+<p>The test statistic for ANOVA is <span class="math inline">\(F\)</span>.</p>
+<div class="figure"><span style="display:block;" id="fig:factorialstat"></span>
+<img src="schuster-statistics-remix_files/figure-html/factorialstat-1.png" alt="The null hypothesis distribution of $F$ with values of df between F(4, 2) and F(10, 2)." width="672" />
+<p class="caption">
+Figure 13.8: The null hypothesis distribution of <span class="math inline">\(F\)</span> with values of df between F(4, 2) and F(10, 2).
+</p>
+</div>
+<p>Pairwise comparisons, whether planned or as post-hoc tests, are essentially just <span class="math inline">\(t\)</span>-tests.</p>
+</div>
+<div id="between-within-and-mixed-anova" class="section level3" number="13.8.3">
+<h3><span class="header-section-number">13.8.3</span> Between, Within, and Mixed ANOVA</h3>
+<p>Because different ANOVAs are used for between- and within-subjects designs, there are more possibilities of combinations with a factorial model. A factorial ANOVA can be a between-subjects factorial ANOVA when all factors are between-subjects, a repeated measures factorial ANOVA when all factors are within-subjects, or a <strong>mixed ANOVA</strong> when one or more factors are between-subjects and one or more factors are within-subjects.</p>
+</div>
+<div id="assumptions-required-data-7" class="section level3" number="13.8.4">
+<h3><span class="header-section-number">13.8.4</span> Assumptions &amp; Required Data</h3>
+<p>The assumptions for a factorial ANOVA match the underlying one-way ANOVAs. That is, if you have a between-subjects factor, you need to consider homogeneity of variance and the other assumptions for between-subjects ANOVA. If you have a within-subjects factor, you need to consider sphericity and the other assumptions for repeated-measures ANOVA.</p>
+</div>
+<div id="when-to-use-it-7" class="section level3" number="13.8.5">
+<h3><span class="header-section-number">13.8.5</span> When to use it</h3>
+<p>If you have a quantitative DV and two or more discrete IVs with two or more levels each, you can run a factorial ANOVA.</p>
+</div>
+<div id="example-mixed-anova" class="section level3" number="13.8.6">
+<h3><span class="header-section-number">13.8.6</span> Example: Mixed ANOVA</h3>
+<p>Researchers are interested in participants’ reaction times to three types of alert displays: a visual alert, an auditory alert, and a speech alert. They randomly assign participants to one of these three conditions. Participants repeat the task two times, and researchers are interested if reaction time improves with practice. Therefore, this is a mixed design.</p>
+<div id="data-8" class="section level4" number="13.8.6.1">
+<h4><span class="header-section-number">13.8.6.1</span> Data</h4>
+<p>I recommend starting with data formatted as follows:</p>
+<ul>
+<li><p>All repeated measures should be <strong>wide</strong>, with one column for each level of the within-subjects factor. In this example, we have two levels, Time 1 and Time 2, so we need a column for each. If you have more than one within-subjects factor, you need a column for each cell. Imagine you had another factor, Factor B at levels 1 and 2. You would need the following columns: DV_time1_B1, DV_time1_B2, DV_time2_B1, DV_time2_B2. Our task is a bit simpler here, since we only have one within-subjects factor.</p></li>
+<li><p>All between-subjects factors should be represented with <strong>grouping variables</strong>, resulting in wide data with one row per participant. In this example, we have a grouping variable called “modality” that specifies the participant’s between-subjects condition. If you have more than one between-subjects factor, you will need additional grouping variables.</p></li>
+<li><p>In all, we have data that are in wide format with one row per participant. Note that if you were to use SPSS, this is the format required in SPSS, so it is common.</p></li>
+</ul>
+<div class="sourceCode" id="cb1003"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1003-1"><a href="statistics-reference.html#cb1003-1" aria-hidden="true" tabindex="-1"></a>RT_t1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">238.37</span>, <span class="fl">249.06</span>, <span class="fl">238.86</span>, <span class="fl">248.76</span>, <span class="fl">239.34</span>, <span class="fl">218.24</span>, <span class="fl">218.34</span>, <span class="fl">229.05</span>, <span class="fl">219.12</span>, <span class="fl">218.42</span>, <span class="fl">258.34</span>, <span class="fl">228.62</span>, <span class="fl">239.31</span>, <span class="fl">259.14</span>, <span class="fl">258.13</span>)</span>
+<span id="cb1003-2"><a href="statistics-reference.html#cb1003-2" aria-hidden="true" tabindex="-1"></a>RT_t2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">235.37</span>, <span class="fl">246.06</span>, <span class="fl">235.86</span>, <span class="fl">245.76</span>, <span class="fl">236.34</span>, <span class="fl">258.64</span>, <span class="fl">228.42</span>, <span class="fl">239.51</span>, <span class="fl">259.94</span>, <span class="fl">258.26</span>, <span class="fl">216.24</span>, <span class="fl">216.34</span>, <span class="fl">227.05</span>, <span class="fl">217.12</span>, <span class="fl">216.42</span>)</span>
+<span id="cb1003-3"><a href="statistics-reference.html#cb1003-3" aria-hidden="true" tabindex="-1"></a>modality <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">replicate</span>(<span class="dv">5</span>, <span class="st">&quot;auditory&quot;</span>), <span class="fu">replicate</span>(<span class="dv">5</span>, <span class="st">&quot;speech&quot;</span>), <span class="fu">replicate</span>(<span class="dv">5</span>, <span class="st">&quot;visual&quot;</span>))</span>
+<span id="cb1003-4"><a href="statistics-reference.html#cb1003-4" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
+<span id="cb1003-5"><a href="statistics-reference.html#cb1003-5" aria-hidden="true" tabindex="-1"></a>dataframe <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(RT_t1, RT_t2, modality, id)</span>
+<span id="cb1003-6"><a href="statistics-reference.html#cb1003-6" aria-hidden="true" tabindex="-1"></a>dataframe</span></code></pre></div>
+<pre><code>##     RT_t1  RT_t2 modality id
+## 1  238.37 235.37 auditory  1
+## 2  249.06 246.06 auditory  2
+## 3  238.86 235.86 auditory  3
+## 4  248.76 245.76 auditory  4
+## 5  239.34 236.34 auditory  5
+## 6  218.24 258.64   speech  6
+## 7  218.34 228.42   speech  7
+## 8  229.05 239.51   speech  8
+## 9  219.12 259.94   speech  9
+## 10 218.42 258.26   speech 10
+## 11 258.34 216.24   visual 11
+## 12 228.62 216.34   visual 12
+## 13 239.31 227.05   visual 13
+## 14 259.14 217.12   visual 14
+## 15 258.13 216.42   visual 15</code></pre>
+<p>R requires our data in long format, so we will do that conversion first. We will also take this opportunity to properly set our grouping variables and participant ID variable to factors so that R treats them as categories.</p>
+<div class="sourceCode" id="cb1005"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1005-1"><a href="statistics-reference.html#cb1005-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;)</span></span>
+<span id="cb1005-2"><a href="statistics-reference.html#cb1005-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;rstatix&quot;)</span></span>
+<span id="cb1005-3"><a href="statistics-reference.html#cb1005-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## Warning in (function (kind = NULL, normal.kind = NULL, sample.kind =
+## NULL) : non-uniform &#39;Rounding&#39; sampler used</code></pre>
+<pre><code>## ── Attaching packages ────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ tibble  3.1.4     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   2.0.1     ✓ forcats 0.5.1
+## ✓ purrr   0.3.4</code></pre>
+<pre><code>## ── Conflicts ───────────────────────────────────── tidyverse_conflicts() ──
+## x ggplot2::%+%()   masks psych::%+%()
+## x ggplot2::alpha() masks psych::alpha()
+## x tidyr::extract() masks pastecs::extract()
+## x dplyr::filter()  masks stats::filter()
+## x dplyr::first()   masks pastecs::first()
+## x dplyr::lag()     masks stats::lag()
+## x dplyr::last()    masks pastecs::last()
+## x dplyr::recode()  masks car::recode()
+## x dplyr::select()  masks MASS::select()
+## x purrr::some()    masks car::some()</code></pre>
+<div class="sourceCode" id="cb1010"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1010-1"><a href="statistics-reference.html#cb1010-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;rstatix&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:MASS&#39;:
+## 
+##     select</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<div class="sourceCode" id="cb1014"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1014-1"><a href="statistics-reference.html#cb1014-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use gather() to convert data to long format</span></span>
+<span id="cb1014-2"><a href="statistics-reference.html#cb1014-2" aria-hidden="true" tabindex="-1"></a>longdata <span class="ot">&lt;-</span> <span class="fu">gather</span>(dataframe, <span class="at">key =</span> <span class="st">&quot;time&quot;</span>, <span class="at">value =</span> <span class="st">&quot;RT&quot;</span>, RT_t1, RT_t2)</span>
+<span id="cb1014-3"><a href="statistics-reference.html#cb1014-3" aria-hidden="true" tabindex="-1"></a>longdata</span></code></pre></div>
+<pre><code>##    modality id  time     RT
+## 1  auditory  1 RT_t1 238.37
+## 2  auditory  2 RT_t1 249.06
+## 3  auditory  3 RT_t1 238.86
+## 4  auditory  4 RT_t1 248.76
+## 5  auditory  5 RT_t1 239.34
+## 6    speech  6 RT_t1 218.24
+## 7    speech  7 RT_t1 218.34
+## 8    speech  8 RT_t1 229.05
+## 9    speech  9 RT_t1 219.12
+## 10   speech 10 RT_t1 218.42
+## 11   visual 11 RT_t1 258.34
+## 12   visual 12 RT_t1 228.62
+## 13   visual 13 RT_t1 239.31
+## 14   visual 14 RT_t1 259.14
+## 15   visual 15 RT_t1 258.13
+## 16 auditory  1 RT_t2 235.37
+## 17 auditory  2 RT_t2 246.06
+## 18 auditory  3 RT_t2 235.86
+## 19 auditory  4 RT_t2 245.76
+## 20 auditory  5 RT_t2 236.34
+## 21   speech  6 RT_t2 258.64
+## 22   speech  7 RT_t2 228.42
+## 23   speech  8 RT_t2 239.51
+## 24   speech  9 RT_t2 259.94
+## 25   speech 10 RT_t2 258.26
+## 26   visual 11 RT_t2 216.24
+## 27   visual 12 RT_t2 216.34
+## 28   visual 13 RT_t2 227.05
+## 29   visual 14 RT_t2 217.12
+## 30   visual 15 RT_t2 216.42</code></pre>
+<div class="sourceCode" id="cb1016"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1016-1"><a href="statistics-reference.html#cb1016-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tell R that ID and time are factors</span></span>
+<span id="cb1016-2"><a href="statistics-reference.html#cb1016-2" aria-hidden="true" tabindex="-1"></a>longdata <span class="ot">&lt;-</span> <span class="fu">convert_as_factor</span>(<span class="at">data =</span> longdata, <span class="at">vars =</span> <span class="fu">c</span>(<span class="st">&quot;id&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;modality&quot;</span>))</span>
+<span id="cb1016-3"><a href="statistics-reference.html#cb1016-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.factor</span>(longdata<span class="sc">$</span>time)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb1018"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1018-1"><a href="statistics-reference.html#cb1018-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.factor</span>(longdata<span class="sc">$</span>id)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb1020"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1020-1"><a href="statistics-reference.html#cb1020-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.factor</span>(longdata<span class="sc">$</span>modality)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>With that out of the way, we can now use our dataframe, <code>longdata</code>. First, we will descriptively look at the group means:</p>
+<div class="sourceCode" id="cb1022"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1022-1"><a href="statistics-reference.html#cb1022-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show descriptive stats for each main effect and for the intneraction cells</span></span>
+<span id="cb1022-2"><a href="statistics-reference.html#cb1022-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pastecs)</span>
+<span id="cb1022-3"><a href="statistics-reference.html#cb1022-3" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(longdata<span class="sc">$</span>RT, longdata<span class="sc">$</span>modality, stat.desc) <span class="co"># break by levels of modality</span></span></code></pre></div>
+<pre><code>## longdata$modality: auditory
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 1.000000e+01 0.000000e+00 0.000000e+00 2.353700e+02 2.490600e+02 
+##        range          sum       median         mean      SE.mean 
+## 1.369000e+01 2.413780e+03 2.391000e+02 2.413780e+02 1.719489e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 3.889754e+00 2.956642e+01 5.437501e+00 2.252691e-02 
+## -------------------------------------------------------- 
+## longdata$modality: speech
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 1.000000e+01 0.000000e+00 0.000000e+00 2.182400e+02 2.599400e+02 
+##        range          sum       median         mean      SE.mean 
+## 4.170000e+01 2.347940e+03 2.287350e+02 2.347940e+02 5.682350e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 1.285437e+01 3.228910e+02 1.796917e+01 7.653164e-02 
+## -------------------------------------------------------- 
+## longdata$modality: visual
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 1.000000e+01 0.000000e+00 0.000000e+00 2.162400e+02 2.591400e+02 
+##        range          sum       median         mean      SE.mean 
+## 4.290000e+01 2.336710e+03 2.278350e+02 2.336710e+02 5.899488e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 1.334557e+01 3.480396e+02 1.865582e+01 7.983798e-02</code></pre>
+<div class="sourceCode" id="cb1024"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1024-1"><a href="statistics-reference.html#cb1024-1" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(longdata<span class="sc">$</span>RT, longdata<span class="sc">$</span>time, stat.desc) <span class="co"># break by levels of time</span></span></code></pre></div>
+<pre><code>## longdata$time: RT_t1
+##      nbr.val     nbr.null       nbr.na          min          max 
+##    15.000000     0.000000     0.000000   218.240000   259.140000 
+##        range          sum       median         mean      SE.mean 
+##    40.900000  3561.100000   238.860000   237.406667     3.896232 
+## CI.mean.0.95          var      std.dev     coef.var 
+##     8.356587   227.709410    15.090043     0.063562 
+## -------------------------------------------------------- 
+## longdata$time: RT_t2
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 1.500000e+01 0.000000e+00 0.000000e+00 2.162400e+02 2.599400e+02 
+##        range          sum       median         mean      SE.mean 
+## 4.370000e+01 3.537330e+03 2.358600e+02 2.358220e+02 4.049928e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 8.686231e+00 2.460287e+02 1.568530e+01 6.651331e-02</code></pre>
+<div class="sourceCode" id="cb1026"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1026-1"><a href="statistics-reference.html#cb1026-1" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(longdata<span class="sc">$</span>RT, <span class="fu">interaction</span>(longdata<span class="sc">$</span>time, longdata<span class="sc">$</span>modality), stat.desc) <span class="co"># interaction cells (all combinations of modality and time)</span></span></code></pre></div>
+<pre><code>## interaction(longdata$time, longdata$modality): RT_t1.auditory
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 5.000000e+00 0.000000e+00 0.000000e+00 2.383700e+02 2.490600e+02 
+##        range          sum       median         mean      SE.mean 
+## 1.069000e+01 1.214390e+03 2.393400e+02 2.428780e+02 2.467781e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 6.851659e+00 3.044972e+01 5.518126e+00 2.271975e-02 
+## -------------------------------------------------------- 
+## interaction(longdata$time, longdata$modality): RT_t2.auditory
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 5.000000e+00 0.000000e+00 0.000000e+00 2.353700e+02 2.460600e+02 
+##        range          sum       median         mean      SE.mean 
+## 1.069000e+01 1.199390e+03 2.363400e+02 2.398780e+02 2.467781e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 6.851659e+00 3.044972e+01 5.518126e+00 2.300389e-02 
+## -------------------------------------------------------- 
+## interaction(longdata$time, longdata$modality): RT_t1.speech
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 5.000000e+00 0.000000e+00 0.000000e+00 2.182400e+02 2.290500e+02 
+##        range          sum       median         mean      SE.mean 
+## 1.081000e+01 1.103170e+03 2.184200e+02 2.206340e+02 2.109700e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 5.857467e+00 2.225418e+01 4.717434e+00 2.138126e-02 
+## -------------------------------------------------------- 
+## interaction(longdata$time, longdata$modality): RT_t2.speech
+##      nbr.val     nbr.null       nbr.na          min          max 
+##    5.0000000    0.0000000    0.0000000  228.4200000  259.9400000 
+##        range          sum       median         mean      SE.mean 
+##   31.5200000 1244.7700000  258.2600000  248.9540000    6.3716039 
+## CI.mean.0.95          var      std.dev     coef.var 
+##   17.6904084  202.9866800   14.2473394    0.0572288 
+## -------------------------------------------------------- 
+## interaction(longdata$time, longdata$modality): RT_t1.visual
+##      nbr.val     nbr.null       nbr.na          min          max 
+##    5.0000000    0.0000000    0.0000000  228.6200000  259.1400000 
+##        range          sum       median         mean      SE.mean 
+##   30.5200000 1243.5400000  258.1300000  248.7080000    6.2539039 
+## CI.mean.0.95          var      std.dev     coef.var 
+##   17.3636209  195.5565700   13.9841542    0.0562272 
+## -------------------------------------------------------- 
+## interaction(longdata$time, longdata$modality): RT_t2.visual
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 5.000000e+00 0.000000e+00 0.000000e+00 2.162400e+02 2.270500e+02 
+##        range          sum       median         mean      SE.mean 
+## 1.081000e+01 1.093170e+03 2.164200e+02 2.186340e+02 2.109700e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 5.857467e+00 2.225418e+01 4.717434e+00 2.157685e-02</code></pre>
+<p>And, we can create graphs of the means. Several versions of the graph are generated below to demonstrate options for customization.</p>
+<div class="sourceCode" id="cb1028"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1028-1"><a href="statistics-reference.html#cb1028-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the means of each cell with error bars</span></span>
+<span id="cb1028-2"><a href="statistics-reference.html#cb1028-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1028-3"><a href="statistics-reference.html#cb1028-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(longdata, <span class="fu">aes</span>(modality, RT, <span class="at">color=</span>time)) <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">position=</span><span class="fu">position_dodge</span>(<span class="dv">1</span>)) <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_normal, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="at">width=</span> <span class="fl">0.2</span>, <span class="at">position=</span><span class="fu">position_dodge</span>(<span class="dv">1</span>)) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span><span class="st">&quot;Condition&quot;</span>, <span class="at">y=</span><span class="st">&quot;Outcome&quot;</span>)</span></code></pre></div>
+<p><img src="schuster-statistics-remix_files/figure-html/anovavisC1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1029"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1029-1"><a href="statistics-reference.html#cb1029-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change the colors</span></span>
+<span id="cb1029-2"><a href="statistics-reference.html#cb1029-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(longdata, <span class="fu">aes</span>(modality, RT, <span class="at">color=</span>time)) <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">position=</span><span class="fu">position_dodge</span>(<span class="dv">1</span>)) <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_normal, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="at">width=</span> <span class="fl">0.2</span>, <span class="at">position=</span><span class="fu">position_dodge</span>(<span class="dv">1</span>)) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span><span class="st">&quot;Condition&quot;</span>, <span class="at">y=</span><span class="st">&quot;Outcome&quot;</span>) <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>))  <span class="co"># Note that green is not needed because there are only two levels of time</span></span></code></pre></div>
+<p><img src="schuster-statistics-remix_files/figure-html/anovavisC1-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1030"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1030-1"><a href="statistics-reference.html#cb1030-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create greyscale plots in the classic style</span></span>
+<span id="cb1030-2"><a href="statistics-reference.html#cb1030-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(longdata, <span class="fu">aes</span>(modality, RT, <span class="at">color=</span>time)) <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">position=</span><span class="fu">position_dodge</span>(<span class="dv">1</span>)) <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_normal, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="at">width=</span> <span class="fl">0.2</span>, <span class="at">position=</span><span class="fu">position_dodge</span>(<span class="dv">1</span>)) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span><span class="st">&quot;Condition&quot;</span>, <span class="at">y=</span><span class="st">&quot;Outcome&quot;</span>) <span class="sc">+</span> <span class="fu">scale_color_grey</span>() <span class="sc">+</span> <span class="fu">theme_classic</span>() </span></code></pre></div>
+<p><img src="schuster-statistics-remix_files/figure-html/anovavisC1-3.png" width="672" /></p>
+<div class="sourceCode" id="cb1031"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1031-1"><a href="statistics-reference.html#cb1031-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Represent a factor across separate graphs using faceting</span></span>
+<span id="cb1031-2"><a href="statistics-reference.html#cb1031-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(longdata, <span class="fu">aes</span>(modality, RT)) <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">position=</span><span class="fu">position_dodge</span>(<span class="dv">1</span>)) <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_normal, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="at">width=</span> <span class="fl">0.2</span>, <span class="at">position=</span><span class="fu">position_dodge</span>(<span class="dv">1</span>)) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span><span class="st">&quot;Condition&quot;</span>, <span class="at">y=</span><span class="st">&quot;Outcome&quot;</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>time) </span></code></pre></div>
+<p><img src="schuster-statistics-remix_files/figure-html/anovavisC1-4.png" width="672" /></p>
+<p>A visual interpretation of this graph suggests that visual had the fastest reaction time at both time1 and time2, followed by auditory, and then speech. Are these significantly different from each other? We need to run the ANOVA to find out. Is there an interaction? Meaning, is there a difference in the pattern of means between time1 and time2? We need to test the interaction effect to find out. Visually, the patterns look a bit different; visual reaction time is faster at time 2, for example.</p>
+</div>
+<div id="hypotheses-9" class="section level4" number="13.8.6.2">
+<h4><span class="header-section-number">13.8.6.2</span> Hypotheses</h4>
+<p>You need a set of hypotheses for each factor and one for the interaction. Note that the number of means depends on the number of levels for each factor.</p>
+<p>For “factor A”:</p>
+<p><span class="math inline">\(H_0:\mu_{auditory}=\mu_{speech}=\mu_{visual}\)</span></p>
+<p><span class="math inline">\(H_a:H_0\text{ is false}\)</span></p>
+<p>For “factor B”:</p>
+<p><span class="math inline">\(H_0:\mu_{time1}=\mu_{time2}\)</span></p>
+<p><span class="math inline">\(H_a:H_0\text{ is false}\)</span></p>
+<p>For the interaction:</p>
+<p><span class="math inline">\(H_0:\text{there is no interaction between modality and time}\)</span></p>
+<p><span class="math inline">\(H_a:H_0\text{ is false}\)</span></p>
+</div>
+<div id="assumption-checking" class="section level4" number="13.8.6.3">
+<h4><span class="header-section-number">13.8.6.3</span> Assumption Checking</h4>
+<p>Levene’s test for homogeneity needs to be done for the between-subjects factor.</p>
+<p>Note that the <a href="https://search.r-project.org/CRAN/refmans/DescTools/html/LeveneTest.html">default syntax</a> of Levene’s test uses <code>center = median</code>, so it is technically the Brown-Forsythe-Test. Using <code>center = mean</code> is the original Levene’s test.</p>
+<div class="sourceCode" id="cb1032"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1032-1"><a href="statistics-reference.html#cb1032-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb1032-2"><a href="statistics-reference.html#cb1032-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1032-3"><a href="statistics-reference.html#cb1032-3" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(longdata<span class="sc">$</span>RT, longdata<span class="sc">$</span>modality, <span class="at">center =</span> median) <span class="co"># Levene&#39;s for the between-subjects factor, modality</span></span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value  Pr(&gt;F)  
+## group  2  3.6939 0.03819 *
+##       27                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Levene’s test is significant here, so we have violated the assumption of homogeneity of variance. But, because our sample sizes are equal, we will continue with this example.</p>
+<p>Sphericity would need to be diagnosed for the within-subjects factor, but in this case, there are only two levels (time1 and time2). Therefore, sphericity does not apply. If it did, we would check it in the default ANOVA output.</p>
+</div>
+<div id="analysis-8" class="section level4" number="13.8.6.4">
+<h4><span class="header-section-number">13.8.6.4</span> Analysis</h4>
+<p>We need three omnibus tests here: the interaction effect, the main effect of modality, and the main effect of time. We will start with the first omnibus test, which is a test of the interaction effect.</p>
+<p>An alpha level of <span class="math inline">\(\alpha = .05\)</span> will be used.</p>
+<p>We are using ezANOVA() in the ez package.</p>
+<div class="sourceCode" id="cb1034"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1034-1"><a href="statistics-reference.html#cb1034-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;ez&quot;) # you may need to install the ez package</span></span>
+<span id="cb1034-2"><a href="statistics-reference.html#cb1034-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ez)</span>
+<span id="cb1034-3"><a href="statistics-reference.html#cb1034-3" aria-hidden="true" tabindex="-1"></a>mixedANOVAmodel <span class="ot">&lt;-</span> <span class="fu">ezANOVA</span>(<span class="at">data =</span> longdata, <span class="at">dv =</span> .(RT), <span class="at">wid =</span> .(id), <span class="at">within =</span> .(time), <span class="at">between =</span> .(modality), <span class="at">type =</span> <span class="dv">3</span>)</span>
+<span id="cb1034-4"><a href="statistics-reference.html#cb1034-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1034-5"><a href="statistics-reference.html#cb1034-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mixedANOVAmodel)</span></code></pre></div>
+<pre><code>## $ANOVA
+##          Effect DFn DFd          F            p p&lt;.05         ges
+## 2      modality   2  12  2.2031501 1.531170e-01       0.146748695
+## 3          time   1  12  0.2108988 6.542716e-01       0.009256567
+## 4 modality:time   2  12 23.9066189 6.520841e-05     * 0.679300094</code></pre>
+<p>ezANOVA gives us all three of our omnibus tests in one step. In this case, only the interaction effect is statistically significant.</p>
+<div id="omnibus-and-simple-effects-for-the-interaction" class="section level5" number="13.8.6.4.1">
+<h5><span class="header-section-number">13.8.6.4.1</span> Omnibus and Simple Effects for the Interaction</h5>
+<p>We will start the reporting of our results with the omnibus test for the interaction:</p>
+<p>There was a significant interaction effect for modality and time, <span class="math inline">\(F\)</span>(2, 12) = 23.90, <span class="math inline">\(p\)</span> &lt; .001, <span class="math inline">\(\eta^2_G\)</span> = .679. We can conclude that the effect of time depends on modality.</p>
+<p>Next, we need post-hoc tests done in a specific way, called <strong>tests of simple effects</strong> (also called <strong>simple main effects</strong>, which means the same thing). Simple effects are the comparison of two cells in the interaction. These cells must vary in only one variable. For example, the comparison of visual at time 1 to visual at time 2 is a simple effect. The comparison of visual at time 1 to auditor at time 2 is another simple effect. Compairing visual at time 1 to auditory at time 2 is <em>not</em> a valid simple effect, because both variables are changing across the comparison. Except that we are looking at simple effects, the multiple comparisons options and procedure is the same.</p>
+<p>The approach to multiple comparisons is the same for each effect. We are introducing a new operator, <code>%&gt;%</code>, called the <a href="https://www.datacamp.com/community/tutorials/pipe-r-tutorial">pipe operator</a>. It is an alternative syntax style for passing one function to another. So far, we have been largely storing the results of our functions in new variables and then using those variables as arguments in other functions. With the pipe operator, we do the same thing in one line of code. When you see the pipe operator, you could read it as “pass this result to…”</p>
+<div class="sourceCode" id="cb1036"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1036-1"><a href="statistics-reference.html#cb1036-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1036-2"><a href="statistics-reference.html#cb1036-2" aria-hidden="true" tabindex="-1"></a>simpleeffects <span class="ot">&lt;-</span> longdata <span class="sc">%&gt;%</span></span>
+<span id="cb1036-3"><a href="statistics-reference.html#cb1036-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(time) <span class="sc">%&gt;%</span></span>
+<span id="cb1036-4"><a href="statistics-reference.html#cb1036-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairwise_t_test</span>(RT <span class="sc">~</span> modality, <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span>
+<span id="cb1036-5"><a href="statistics-reference.html#cb1036-5" aria-hidden="true" tabindex="-1"></a>simpleeffects</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 10
+##   time  .y.   group1   group2    n1    n2        p p.signif    p.adj
+## * &lt;fct&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt; &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;
+## 1 RT_t1 RT    auditory speech     5     5 0.00224  **       0.00673 
+## 2 RT_t1 RT    auditory visual     5     5 0.331    ns       0.993   
+## 3 RT_t1 RT    speech   visual     5     5 0.000379 ***      0.00114 
+## 4 RT_t2 RT    auditory speech     5     5 0.146    ns       0.438   
+## 5 RT_t2 RT    auditory visual     5     5 0.0034   **       0.0102  
+## 6 RT_t2 RT    speech   visual     5     5 0.000225 ***      0.000674
+## # … with 1 more variable: p.adj.signif &lt;chr&gt;</code></pre>
+<p>The analysis of simple effects, with a Bonferroni adjustment for Type I error, showed a significant difference between auditory (<span class="math inline">\(M\)</span> = 242.87, <span class="math inline">\(SD\)</span> = 5.52) and speech (<span class="math inline">\(M\)</span> = 220.63, <span class="math inline">\(SD\)</span> = 4.72) at time 1, and between visual (<span class="math inline">\(M\)</span> = 248.71, <span class="math inline">\(SD\)</span> = 13.98) and speech at time 1. At time 2, the pattern was different, with a significant difference between auditory (<span class="math inline">\(M\)</span> = 242.87, <span class="math inline">\(SD\)</span> = 5.52) and visual (<span class="math inline">\(M\)</span> = 218.63, <span class="math inline">\(SD\)</span> = 4.72) and a significant difference between visual and speech (<span class="math inline">\(M\)</span> = 248.95, <span class="math inline">\(SD\)</span> = 14.25).</p>
+</div>
+<div id="omnibus-main-effect-of-time" class="section level5" number="13.8.6.4.2">
+<h5><span class="header-section-number">13.8.6.4.2</span> Omnibus main effect of Time</h5>
+<p>There was not a significant main effect for time, <span class="math inline">\(F\)</span>(1, 12) = 0.21, <span class="math inline">\(p\)</span> = .654, <span class="math inline">\(\eta^2_G\)</span> = .009. We can make no conclusions about the effects of time collapsing across modality.</p>
+<p>If there had been a significant effect for time, we would not have needed post-hoc testing with only two conditions. We could have simply interpreted the means.</p>
+</div>
+<div id="omnibus-main-effect-of-modality-including-post-hoc-tests" class="section level5" number="13.8.6.4.3">
+<h5><span class="header-section-number">13.8.6.4.3</span> Omnibus main effect of Modality including post-hoc tests</h5>
+<p>There was not a significant main effect for modality, <span class="math inline">\(F\)</span>(2, 12) = 2.203, <span class="math inline">\(p\)</span> = .153, <span class="math inline">\(\eta^2_G\)</span> = .147. We can make no conclusions about the effects of modality collapsing across levels of time.</p>
+<p>If there had been a significant effect for modality, we would have needed post-hoc testing. <strong>This effect was not significant so we stop here</strong>, but to show you how to do post-hoc testing, I am going to include the code.</p>
+<div class="sourceCode" id="cb1038"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1038-1"><a href="statistics-reference.html#cb1038-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(longdata<span class="sc">$</span>RT, longdata<span class="sc">$</span>modality, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  longdata$RT and longdata$modality 
+## 
+##        auditory speech
+## speech 1.00     -     
+## visual 0.81     1.00  
+## 
+## P value adjustment method: bonferroni</code></pre>
+<p>Notice that we used the same pairwise.t.test() function we have always used. When testing a main effect like this, we are ignoring the imapct of the other factor. For this reason, we omit mention of the time factor alltogether.</p>
+</div>
+</div>
+<div id="effect-size-6" class="section level4" number="13.8.6.5">
+<h4><span class="header-section-number">13.8.6.5</span> Effect Size</h4>
+<p>Eta squared (<span class="math inline">\(\eta^2\)</span>) is the measure of effect size for each omnibus effect.</p>
+<p>However, eta squared in an interaction would include variance for other effects in the denominator. Eta squared gets smaller when other factors and/or the interaction effect are significant, so we use a new measure of effect size, <strong>partial eta squared</strong> (<span class="math inline">\(\eta^2_{p}\)</span>). Partial eta squared is calculated as follows:</p>
+<p><span class="math inline">\(\eta^2_{p} = \frac{\mbox{SS}_{effect}}{\mbox{SS}_{effect} + \mbox{SS}_{within}}\)</span></p>
+<p>Therefore, partial eta squared is an estimate of the effect size for one effect on its own. This is a better measure to report in most factorial models.</p>
+<p>Generalized eta squared is the same as partial eta squared for between-subjects factors, but it is not the same in the presence of a within-subjects factor. Unfortunately, the methods I am finding to calculate partial eta squared using ezANOVA are very cumbersome. For the time being, I would recommend reporting generalized eta squared from the ezANOVA procedure while recognizing its limitations.</p>
+<p>Finally, you should be aware that eta squared is a biased estimator of effect size. While I still recommend reporting eta squared if only by convention, there are other measures of effect size. Omega squared (<span class="math inline">\(\omega^2\)</span>) works like adjusted <span class="math inline">\(R^2\)</span> to estimate population effect size by correcting for this bias.</p>
+</div>
+<div id="power-analysis-4" class="section level4" number="13.8.6.6">
+<h4><span class="header-section-number">13.8.6.6</span> Power Analysis</h4>
+<p>In G*Power, select the F tests family, and then choose “ANOVA: Special effects and interactions.”</p>
+<p>There is no calculation for all the pieces at once. Instead, power is calculated once for each effect and once for the interaction. One strategy is to calculate power for each effect and then plan for the largest sample size to ensure all effects are sufficiently powered (I believe this will always be the highest order interaction).</p>
+<p>You will need to enter the degrees of freedom. Here is how you calculate it:</p>
+<ul>
+<li><p>The df for a factor is <span class="math inline">\(k - 1\)</span>, where <span class="math inline">\(k\)</span> is the number of levels of that factor.</p></li>
+<li><p>The df for an interaction effect is <span class="math inline">\((k_1-1)(k_2-1)(k_n-1)\)</span>, where <span class="math inline">\(k_n\)</span> is the number of levels of factor number <span class="math inline">\(n\)</span>. You’ll need one of those terms for each factor. This example has three terms for three factors.</p></li>
+<li><p>The number of groups is the number of cells in the model. A 2 x 2 ANOVA would have 4 cells. A 3 x 2 x 3 ANOVA would have 18 cells.</p></li>
+</ul>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div class="csl-entry">

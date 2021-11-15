@@ -127,6 +127,7 @@ fig:onetnull
 fig:pairedtnull
 fig:indtnull
 fig:anovanull
+fig:factorialstat
 statistics-for-research
 introduction
 measurement
@@ -647,3 +648,19 @@ omnibus-decision-1
 post-hoc-tests-1
 effect-size-5
 power-analysis-3
+statguide-factorial
+definition-7
+test-statistic-7
+between-within-and-mixed-anova
+assumptions-required-data-7
+when-to-use-it-7
+example-mixed-anova
+data-8
+hypotheses-9
+assumption-checking
+analysis-8
+omnibus-and-simple-effects-for-the-interaction
+omnibus-main-effect-of-time
+omnibus-main-effect-of-modality-including-post-hoc-tests
+effect-size-6
+power-analysis-4

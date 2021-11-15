@@ -154,7 +154,7 @@
 
 \title{Advanced Statistics Remix}
 \author{David Schuster}
-\date{2021-11-09}
+\date{2021-11-15}
 
 \begin{document}
 \maketitle
@@ -4928,11 +4928,11 @@ There are two more descriptive statistics that you will sometimes see reported i
 Example by \citet{Navarro2018}
 
 \begin{verbatim}
-## [1] -0.9085402
+## [1] -0.9136909
 \end{verbatim}
 
 \begin{verbatim}
-## [1] -0.005220798
+## [1] 0.004967443
 \end{verbatim}
 
 \begin{figure}
@@ -4942,7 +4942,7 @@ Example by \citet{Navarro2018}
 \end{figure}
 
 \begin{verbatim}
-## [1] 0.9265568
+## [1] 0.9130693
 \end{verbatim}
 
 Since it's the more interesting of the two, let's start by talking about the \textbf{\emph{skewness}}. Skewness is basically a measure of asymmetry, and the easiest way to explain it is by drawing some pictures. As Figure \ref{fig:skewness} illustrates, if the data tend to have a lot of extreme small values (i.e., the lower tail is ``longer'' than the upper tail) and not so many extremely large values (left panel), then we say that the data are \emph{negatively skewed}. On the other hand, if there are more extremely large values than extremely small ones (right panel) we say that the data are \emph{positively skewed}. That's the qualitative idea behind skewness. The actual formula for the skewness of a data set is as follows
@@ -5137,11 +5137,11 @@ If p \textless{} .05, reject the null and conclude the data are not normal. If p
 The final measure that is sometimes referred to, though very rarely in practice, is the \textbf{\emph{kurtosis}} of a data set. Put simply, kurtosis is a measure of the ``pointiness'' of a data set, as illustrated in Figure \ref{fig:kurtosis}.
 
 \begin{verbatim}
-## [1] -0.9475097
+## [1] -0.9560784
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 0.0009677388
+## [1] -0.01663342
 \end{verbatim}
 
 \begin{figure}
@@ -5151,7 +5151,7 @@ The final measure that is sometimes referred to, though very rarely in practice,
 \end{figure}
 
 \begin{verbatim}
-## [1] 2.087526
+## [1] 1.975364
 \end{verbatim}
 
 By convention, we say that the ``normal curve'' (black lines) has zero kurtosis, so the pointiness of a data set is assessed relative to this curve. In this Figure, the data on the left are not pointy enough, so the kurtosis is negative and we call the data \emph{platykurtic}. The data on the right are too pointy, so the kurtosis is positive and we say that the data is \emph{leptokurtic}. But the data in the middle are just pointy enough, so we say that it is \emph{mesokurtic} and has kurtosis zero. This is summarised in the table below:
@@ -6368,7 +6368,7 @@ The idea is quite simple. Let's say we're talking about IQ scores. To a psycholo
 \includegraphics{schuster-statistics-remix_files/figure-latex/IQdist-1.pdf} \includegraphics{schuster-statistics-remix_files/figure-latex/IQdist-2.pdf}
 
 \begin{verbatim}
-## [1] "n= 100 mean= 97.2641575406391 sd= 15.2927509682102"
+## [1] "n= 100 mean= 99.5919374129665 sd= 15.3971646061716"
 \end{verbatim}
 
 \begin{figure}
@@ -6378,7 +6378,7 @@ The idea is quite simple. Let's say we're talking about IQ scores. To a psycholo
 \end{figure}
 
 \begin{verbatim}
-## [1] "n= 10000 mean= 99.899743320362 sd= 14.7971104245785"
+## [1] "n= 10000 mean= 99.951621373427 sd= 15.0289049049787"
 \end{verbatim}
 
 Now suppose I run an experiment. I select 100 people at random and administer an IQ test, giving me a simple random sample from the population. My sample would consist of a collection of numbers like this:
@@ -6407,7 +6407,7 @@ The obvious answer is to collect more data. Suppose that we ran a much larger ex
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  81 109  62  82 102  98
+## [1] 111 113  83  95 111 100
 \end{verbatim}
 
 I can compute the mean IQ using the command \texttt{mean(IQ)} and the standard deviation using the command \texttt{sd(IQ)}, and I can draw a histgram using \texttt{hist()}. The histogram of this much larger sample is shown in Figure \ref{fig:IQdist} c.~Even a moment's inspections makes clear that the larger sample is a much better approximation to the true population distribution than the smaller one. This is reflected in the sample statistics: the mean IQ for the larger sample turns out to be 99.9, and the standard deviation is 15.1. These values are now very close to the true population.
@@ -6520,7 +6520,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 50.61098}
+\DocumentationTok{\#\# [1] 51.03521}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6531,7 +6531,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Highlighting}[]
 \NormalTok{onesample }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(population, }\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# Take a random sample of size 3 from the population distribution with replacement}
 \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# Display the mean of the sample distribution}
-\DocumentationTok{\#\# [1] 34.15746}
+\DocumentationTok{\#\# [1] 63.59683}
 \FunctionTok{hist}\NormalTok{(onesample) }\CommentTok{\# Display a histogram of the sample distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6541,7 +6541,7 @@ Sampling error is the mismatch between a sample statistic and a population param
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(onesample) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the sample mean and the population mean}
-\DocumentationTok{\#\# [1] {-}16.45353}
+\DocumentationTok{\#\# [1] 12.56162}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6555,7 +6555,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 51.1853}
+\DocumentationTok{\#\# [1] 49.86771}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6566,7 +6566,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Highlighting}[]
 \NormalTok{onesample }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(population, }\AttributeTok{size =} \DecValTok{900}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# Take a random sample of size 900 from the population distribution with replacement}
 \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# Display the mean of the sample distribution}
-\DocumentationTok{\#\# [1] 50.93187}
+\DocumentationTok{\#\# [1] 48.71041}
 \FunctionTok{hist}\NormalTok{(onesample) }\CommentTok{\# Display a histogram of the sample distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6576,7 +6576,7 @@ Okay, the sample is not perfect. But sampling error is not dichotomous. Sometime
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(onesample) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the sample mean and the population mean}
-\DocumentationTok{\#\# [1] {-}0.2534337}
+\DocumentationTok{\#\# [1] {-}1.157302}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6601,7 +6601,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \begin{Highlighting}[]
 \NormalTok{population }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{100}\NormalTok{) }\CommentTok{\# Generate a variable called \textquotesingle{}population\textquotesingle{} with 1000 values chosen at random between 1 and 100}
 \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# Display the mean of the population distribution}
-\DocumentationTok{\#\# [1] 50.39852}
+\DocumentationTok{\#\# [1] 50.43223}
 \FunctionTok{hist}\NormalTok{(population) }\CommentTok{\# Display a histogram of the population distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6616,7 +6616,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \NormalTok{  sampling[i] }\OtherTok{=} \FunctionTok{mean}\NormalTok{(onesample) }\CommentTok{\# add the sample\textquotesingle{}s mean to the sampling distribution}
 \NormalTok{\}}
 \FunctionTok{mean}\NormalTok{(sampling) }\CommentTok{\# Display the mean of the SAMPLING distribution}
-\DocumentationTok{\#\# [1] 50.17464}
+\DocumentationTok{\#\# [1] 50.43477}
 \FunctionTok{hist}\NormalTok{(sampling) }\CommentTok{\# Display a histogram of the SAMPLING distribution}
 \end{Highlighting}
 \end{Shaded}
@@ -6626,7 +6626,7 @@ We will modify our prior example slightly. This time, we will create a loop (tec
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(sampling) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(population) }\CommentTok{\# The difference between the SAMPLING distribution mean and the population mean}
-\DocumentationTok{\#\# [1] {-}0.2238783}
+\DocumentationTok{\#\# [1] 0.002541854}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6696,7 +6696,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 12.82239
+## [1] 12.63496
 \end{verbatim}
 
 \begin{Shaded}
@@ -6708,7 +6708,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 12.80374
+## [1] 12.65122
 \end{verbatim}
 
 \begin{Shaded}
@@ -6718,7 +6718,7 @@ In words: divide the standard deviation of the population by the square root of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -0.01865479
+## [1] 0.01626217
 \end{verbatim}
 
 They are pretty close. Why do we need the standard error formula if we could just find the standard deviation of the sampling distribution? Well, we typically do not work with the sampling distribution directly. We simply understand that it exists. Creating a sampling distribution requires the population distribution to be available to us, and this isn't usually the case when we are doing research. Further, the central limit theorem specifies taking an \emph{unlimited} number of samples in order for the sampling distribution mean to equal the population mean. It also requires a sample size of \(N\ge30\) when the population is not normally distributed. We have violated that rule (we used a uniform population distribution and we set our sample size as low as 5), but the numbers still came out pretty close.
@@ -15597,13 +15597,13 @@ Imagine a high school has a graduation test with \(M = .80\) with a standard dev
 The data are test scores from 35 students.
 
 \begin{verbatim}
-##  [1] 0.83 1.04 0.94 1.01 0.80 0.71 0.84 0.85 0.80 0.70 0.75 0.94 0.97 0.88
-## [15] 0.90 0.73 0.76 0.79 0.94 0.93 0.87 0.87 0.73 0.85 0.96 0.86 0.85 0.87
-## [29] 0.96 0.78 0.97 0.98 0.91 0.95 0.94
+##  [1] 1.03 0.97 0.73 1.03 0.80 0.90 0.89 0.88 0.84 1.04 0.83 0.96 0.85 0.96
+## [15] 0.91 1.06 0.76 0.84 0.86 0.91 0.83 0.85 0.81 1.00 1.03 0.93 0.93 0.98
+## [29] 0.66 0.84 0.75 0.94 0.86 0.86 0.82
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 0.8702857
+## [1] 0.8897143
 \end{verbatim}
 
 The students in the program took the test and performed higher than the population average (\(M=\)\texttt{mean(sample)}). Is there evidence that the after school program is effective?
@@ -15638,13 +15638,13 @@ Assume the null hypothesis is true. Assuming the null hypothesis is true means t
 ##  One Sample t-test
 ## 
 ## data:  sample
-## t = 4.6043, df = 34, p-value = 2.782e-05
+## t = 5.5738, df = 34, p-value = 1.542e-06
 ## alternative hypothesis: true mean is greater than 0.8
 ## 95 percent confidence interval:
-##  0.8444736       Inf
+##  0.8624976       Inf
 ## sample estimates:
 ## mean of x 
-## 0.8702857
+## 0.8897143
 \end{verbatim}
 
 Note that in the syntax for the t-test, you can specify an alternative hypothesis of ``two-sided'' (two-tailed), ``greater,'' or ``less.''
@@ -15731,41 +15731,41 @@ Did students' test scores significantly differ between exam 1 and exam 2?
 
 \begin{verbatim}
 ##    exam1 exam2
-## 1   1.02  0.97
-## 2   0.88  1.04
-## 3   0.78  0.84
-## 4   0.92  0.93
-## 5   0.92  0.98
-## 6   1.00  0.93
-## 7   0.81  0.91
-## 8   0.82  0.88
-## 9   0.78  0.79
-## 10  1.00  0.95
-## 11  0.87  0.77
-## 12  0.90  0.98
-## 13  0.95  1.00
-## 14  0.94  1.06
-## 15  0.71  0.88
-## 16  0.92  0.92
-## 17  0.87  1.06
-## 18  0.98  0.86
-## 19  0.90  0.82
-## 20  0.88  1.09
-## 21  0.93  0.85
-## 22  0.97  1.02
-## 23  0.93  0.96
-## 24  0.82  0.81
-## 25  1.04  0.84
-## 26  0.84  0.76
-## 27  0.84  0.85
-## 28  0.63  1.03
-## 29  0.97  0.82
-## 30  0.99  0.94
-## 31  0.93  1.06
-## 32  0.83  0.89
-## 33  0.80  0.89
-## 34  0.97  0.82
-## 35  0.87  1.00
+## 1   1.07  0.91
+## 2   0.79  0.97
+## 3   0.89  0.93
+## 4   0.82  1.01
+## 5   1.07  0.96
+## 6   0.87  0.94
+## 7   1.03  0.96
+## 8   0.98  0.85
+## 9   0.78  0.84
+## 10  0.93  1.00
+## 11  0.78  0.80
+## 12  0.87  1.21
+## 13  1.09  0.89
+## 14  0.80  0.95
+## 15  0.78  0.98
+## 16  0.84  1.00
+## 17  0.86  0.93
+## 18  0.85  1.10
+## 19  0.96  0.75
+## 20  0.84  0.99
+## 21  0.76  0.75
+## 22  0.67  0.90
+## 23  1.10  1.00
+## 24  1.01  1.00
+## 25  0.88  1.03
+## 26  0.86  1.07
+## 27  0.86  0.79
+## 28  1.01  0.99
+## 29  0.84  0.91
+## 30  1.01  0.85
+## 31  0.90  1.00
+## 32  1.07  0.92
+## 33  0.84  0.93
+## 34  0.86  0.81
+## 35  0.88  0.95
 \end{verbatim}
 
 \hypertarget{hypotheses-5}{%
@@ -15799,12 +15799,12 @@ We need to take our wide format data and make it long format data.
 
 \begin{verbatim}
 ##   exam1 exam2
-## 1  1.02  0.97
-## 2  0.88  1.04
-## 3  0.78  0.84
-## 4  0.92  0.93
-## 5  0.92  0.98
-## 6  1.00  0.93
+## 1  1.07  0.91
+## 2  0.79  0.97
+## 3  0.89  0.93
+## 4  0.82  1.01
+## 5  1.07  0.96
+## 6  0.87  0.94
 \end{verbatim}
 
 Then, we can run the \(t\)-test:
@@ -15820,13 +15820,13 @@ Then, we can run the \(t\)-test:
 ##  Paired t-test
 ## 
 ## data:  exams$exam1 and exams$exam2
-## t = -1.3784, df = 34, p-value = 0.1771
+## t = -1.701, df = 34, p-value = 0.09807
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -0.06998834  0.01341692
+##  -0.089043675  0.007900818
 ## sample estimates:
 ## mean of the differences 
-##             -0.02828571
+##             -0.04057143
 \end{verbatim}
 
 \hypertarget{decision-4}{%
@@ -16336,10 +16336,10 @@ Tukey also has the homogeneity of variance assumption, so if that is violated an
 ## Fit: aov(formula = RT ~ condition, data = longdata)
 ## 
 ## Linear Hypotheses:
-##                        Estimate Std. Error t value Pr(>|t|)   
-## speech - auditory == 0    5.830      5.753   1.013  0.58285   
-## visual - auditory == 0  -22.244      5.753  -3.866  0.00569 **
-## visual - speech == 0    -28.074      5.753  -4.880  0.00137 **
+##                        Estimate Std. Error t value Pr(>|t|)    
+## speech - auditory == 0    5.830      5.753   1.013  0.58291    
+## visual - auditory == 0  -22.244      5.753  -3.866  0.00576 ** 
+## visual - speech == 0    -28.074      5.753  -4.880  < 0.001 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## (Adjusted p values reported -- single-step method)
@@ -16582,6 +16582,594 @@ The effect size statistic is called generalized eta squared (see also \href{http
 In G*Power, select the F tests family, and then choose ``ANOVA: Repeated measures, within factors.''
 
 As this is a one-way, repeated measures ANOVA, you can enter effect size, alpha, and power. Then, set number of groups to 1 (as there is no between-subjects factor) and the number of measurements to the number of levels of the IV. The corr among rep measures is the estimated correlation between your measures (e.g., how well can you predict a participant's time 2 score if you know their time 1 score). This can be hard to estimate, but it's a good exercise to think about how large you expect these individual differences to be. The larger the correlation among measures, the more you gain by using a within-subjects design.
+
+\hypertarget{statguide-factorial}{%
+\section{Factorial ANOVA}\label{statguide-factorial}}
+
+\hypertarget{definition-7}{%
+\subsection{Definition}\label{definition-7}}
+
+Including more than one independent variable (called a factor) in an analysis of variance (ANOVA) results in a factorial ANOVA.
+
+Factorial ANOVA tests each of the factors individually, with results that are the same as if each factor was tested on its own one-way ANOVA. Factorial ANOVA adds a higher-level analysis, as well, called an \textbf{interaction effect}. Any two-way ANOVA (with two factors) has one potential interaction effect. A three-way ANOVA has four potential interaction effects. Imagine factors A (2 levels), B (3 levels), and C (2 levels). Such an ANOVA would be described as a 2 x 3 x 2 ANOVA. The factorial ANOVA would involve testing these omnibus effects:
+
+\begin{itemize}
+\item
+  Main effect of A
+\item
+  Main effect of B
+\item
+  Main effect of C
+\item
+  Interaction effect A x B
+\item
+  Interaction effect B x C
+\item
+  Interaction effect A x C
+\item
+  Interaction effect A x B x C
+\end{itemize}
+
+The three-way interaction is the highest \textbf{order} interaction. Order refers to the number of factors involved.
+
+You can calculate the number of potential interation effects with the formula \(2^m-m-1\), where \(k\) is the number of factors. This calculation for three factors reveals the four potential interaction effects listed previously.
+
+\emph{Each} of these tests has stages. The \textbf{omnibus test} tests the null that two or more groups have the same mean. If the omnibus test is significant, \textbf{pairwise comparisons} are the second step. There are two strategies for pairwise comparisons. \textbf{Planned comparisons} maximizes statistical power by only testing hypothesized pairwise comparisons. \textbf{Post-hoc tests} run statistical tests for every possible pairwise comparison and then makes some (or no) adjustment for the number of tests that have been run.
+
+\hypertarget{test-statistic-7}{%
+\subsection{Test Statistic}\label{test-statistic-7}}
+
+The test statistic for ANOVA is \(F\).
+
+\begin{figure}
+\centering
+\includegraphics{schuster-statistics-remix_files/figure-latex/factorialstat-1.pdf}
+\caption{\label{fig:factorialstat}The null hypothesis distribution of \(F\) with values of df between F(4, 2) and F(10, 2).}
+\end{figure}
+
+Pairwise comparisons, whether planned or as post-hoc tests, are essentially just \(t\)-tests.
+
+\hypertarget{between-within-and-mixed-anova}{%
+\subsection{Between, Within, and Mixed ANOVA}\label{between-within-and-mixed-anova}}
+
+Because different ANOVAs are used for between- and within-subjects designs, there are more possibilities of combinations with a factorial model. A factorial ANOVA can be a between-subjects factorial ANOVA when all factors are between-subjects, a repeated measures factorial ANOVA when all factors are within-subjects, or a \textbf{mixed ANOVA} when one or more factors are between-subjects and one or more factors are within-subjects.
+
+\hypertarget{assumptions-required-data-7}{%
+\subsection{Assumptions \& Required Data}\label{assumptions-required-data-7}}
+
+The assumptions for a factorial ANOVA match the underlying one-way ANOVAs. That is, if you have a between-subjects factor, you need to consider homogeneity of variance and the other assumptions for between-subjects ANOVA. If you have a within-subjects factor, you need to consider sphericity and the other assumptions for repeated-measures ANOVA.
+
+\hypertarget{when-to-use-it-7}{%
+\subsection{When to use it}\label{when-to-use-it-7}}
+
+If you have a quantitative DV and two or more discrete IVs with two or more levels each, you can run a factorial ANOVA.
+
+\hypertarget{example-mixed-anova}{%
+\subsection{Example: Mixed ANOVA}\label{example-mixed-anova}}
+
+Researchers are interested in participants' reaction times to three types of alert displays: a visual alert, an auditory alert, and a speech alert. They randomly assign participants to one of these three conditions. Participants repeat the task two times, and researchers are interested if reaction time improves with practice. Therefore, this is a mixed design.
+
+\hypertarget{data-8}{%
+\subsubsection{Data}\label{data-8}}
+
+I recommend starting with data formatted as follows:
+
+\begin{itemize}
+\item
+  All repeated measures should be \textbf{wide}, with one column for each level of the within-subjects factor. In this example, we have two levels, Time 1 and Time 2, so we need a column for each. If you have more than one within-subjects factor, you need a column for each cell. Imagine you had another factor, Factor B at levels 1 and 2. You would need the following columns: DV\_time1\_B1, DV\_time1\_B2, DV\_time2\_B1, DV\_time2\_B2. Our task is a bit simpler here, since we only have one within-subjects factor.
+\item
+  All between-subjects factors should be represented with \textbf{grouping variables}, resulting in wide data with one row per participant. In this example, we have a grouping variable called ``modality'' that specifies the participant's between-subjects condition. If you have more than one between-subjects factor, you will need additional grouping variables.
+\item
+  In all, we have data that are in wide format with one row per participant. Note that if you were to use SPSS, this is the format required in SPSS, so it is common.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RT\_t1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{238.37}\NormalTok{, }\FloatTok{249.06}\NormalTok{, }\FloatTok{238.86}\NormalTok{, }\FloatTok{248.76}\NormalTok{, }\FloatTok{239.34}\NormalTok{, }\FloatTok{218.24}\NormalTok{, }\FloatTok{218.34}\NormalTok{, }\FloatTok{229.05}\NormalTok{, }\FloatTok{219.12}\NormalTok{, }\FloatTok{218.42}\NormalTok{, }\FloatTok{258.34}\NormalTok{, }\FloatTok{228.62}\NormalTok{, }\FloatTok{239.31}\NormalTok{, }\FloatTok{259.14}\NormalTok{, }\FloatTok{258.13}\NormalTok{)}
+\NormalTok{RT\_t2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{235.37}\NormalTok{, }\FloatTok{246.06}\NormalTok{, }\FloatTok{235.86}\NormalTok{, }\FloatTok{245.76}\NormalTok{, }\FloatTok{236.34}\NormalTok{, }\FloatTok{258.64}\NormalTok{, }\FloatTok{228.42}\NormalTok{, }\FloatTok{239.51}\NormalTok{, }\FloatTok{259.94}\NormalTok{, }\FloatTok{258.26}\NormalTok{, }\FloatTok{216.24}\NormalTok{, }\FloatTok{216.34}\NormalTok{, }\FloatTok{227.05}\NormalTok{, }\FloatTok{217.12}\NormalTok{, }\FloatTok{216.42}\NormalTok{)}
+\NormalTok{modality }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{replicate}\NormalTok{(}\DecValTok{5}\NormalTok{, }\StringTok{"auditory"}\NormalTok{), }\FunctionTok{replicate}\NormalTok{(}\DecValTok{5}\NormalTok{, }\StringTok{"speech"}\NormalTok{), }\FunctionTok{replicate}\NormalTok{(}\DecValTok{5}\NormalTok{, }\StringTok{"visual"}\NormalTok{))}
+\NormalTok{id }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{15}\NormalTok{)}
+\NormalTok{dataframe }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(RT\_t1, RT\_t2, modality, id)}
+\NormalTok{dataframe}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     RT_t1  RT_t2 modality id
+## 1  238.37 235.37 auditory  1
+## 2  249.06 246.06 auditory  2
+## 3  238.86 235.86 auditory  3
+## 4  248.76 245.76 auditory  4
+## 5  239.34 236.34 auditory  5
+## 6  218.24 258.64   speech  6
+## 7  218.34 228.42   speech  7
+## 8  229.05 239.51   speech  8
+## 9  219.12 259.94   speech  9
+## 10 218.42 258.26   speech 10
+## 11 258.34 216.24   visual 11
+## 12 228.62 216.34   visual 12
+## 13 239.31 227.05   visual 13
+## 14 259.14 217.12   visual 14
+## 15 258.13 216.42   visual 15
+\end{verbatim}
+
+R requires our data in long format, so we will do that conversion first. We will also take this opportunity to properly set our grouping variables and participant ID variable to factors so that R treats them as categories.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("tidyverse")}
+\CommentTok{\# install.packages("rstatix")}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in (function (kind = NULL, normal.kind = NULL, sample.kind =
+## NULL) : non-uniform 'Rounding' sampler used
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching packages ---------------------------------- tidyverse 1.3.1 --
+\end{verbatim}
+
+\begin{verbatim}
+## v tibble  3.1.4     v dplyr   1.0.7
+## v tidyr   1.1.3     v stringr 1.4.0
+## v readr   2.0.1     v forcats 0.5.1
+## v purrr   0.3.4
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------- tidyverse_conflicts() --
+## x ggplot2::%+%()   masks psych::%+%()
+## x ggplot2::alpha() masks psych::alpha()
+## x tidyr::extract() masks pastecs::extract()
+## x dplyr::filter()  masks stats::filter()
+## x dplyr::first()   masks pastecs::first()
+## x dplyr::lag()     masks stats::lag()
+## x dplyr::last()    masks pastecs::last()
+## x dplyr::recode()  masks car::recode()
+## x dplyr::select()  masks MASS::select()
+## x purrr::some()    masks car::some()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(rstatix)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'rstatix'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:MASS':
+## 
+##     select
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:stats':
+## 
+##     filter
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use gather() to convert data to long format}
+\NormalTok{longdata }\OtherTok{\textless{}{-}} \FunctionTok{gather}\NormalTok{(dataframe, }\AttributeTok{key =} \StringTok{"time"}\NormalTok{, }\AttributeTok{value =} \StringTok{"RT"}\NormalTok{, RT\_t1, RT\_t2)}
+\NormalTok{longdata}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    modality id  time     RT
+## 1  auditory  1 RT_t1 238.37
+## 2  auditory  2 RT_t1 249.06
+## 3  auditory  3 RT_t1 238.86
+## 4  auditory  4 RT_t1 248.76
+## 5  auditory  5 RT_t1 239.34
+## 6    speech  6 RT_t1 218.24
+## 7    speech  7 RT_t1 218.34
+## 8    speech  8 RT_t1 229.05
+## 9    speech  9 RT_t1 219.12
+## 10   speech 10 RT_t1 218.42
+## 11   visual 11 RT_t1 258.34
+## 12   visual 12 RT_t1 228.62
+## 13   visual 13 RT_t1 239.31
+## 14   visual 14 RT_t1 259.14
+## 15   visual 15 RT_t1 258.13
+## 16 auditory  1 RT_t2 235.37
+## 17 auditory  2 RT_t2 246.06
+## 18 auditory  3 RT_t2 235.86
+## 19 auditory  4 RT_t2 245.76
+## 20 auditory  5 RT_t2 236.34
+## 21   speech  6 RT_t2 258.64
+## 22   speech  7 RT_t2 228.42
+## 23   speech  8 RT_t2 239.51
+## 24   speech  9 RT_t2 259.94
+## 25   speech 10 RT_t2 258.26
+## 26   visual 11 RT_t2 216.24
+## 27   visual 12 RT_t2 216.34
+## 28   visual 13 RT_t2 227.05
+## 29   visual 14 RT_t2 217.12
+## 30   visual 15 RT_t2 216.42
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Tell R that ID and time are factors}
+\NormalTok{longdata }\OtherTok{\textless{}{-}} \FunctionTok{convert\_as\_factor}\NormalTok{(}\AttributeTok{data =}\NormalTok{ longdata, }\AttributeTok{vars =} \FunctionTok{c}\NormalTok{(}\StringTok{"id"}\NormalTok{, }\StringTok{"time"}\NormalTok{, }\StringTok{"modality"}\NormalTok{))}
+\FunctionTok{is.factor}\NormalTok{(longdata}\SpecialCharTok{$}\NormalTok{time)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.factor}\NormalTok{(longdata}\SpecialCharTok{$}\NormalTok{id)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is.factor}\NormalTok{(longdata}\SpecialCharTok{$}\NormalTok{modality)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+With that out of the way, we can now use our dataframe, \texttt{longdata}. First, we will descriptively look at the group means:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show descriptive stats for each main effect and for the intneraction cells}
+\FunctionTok{library}\NormalTok{(pastecs)}
+\FunctionTok{by}\NormalTok{(longdata}\SpecialCharTok{$}\NormalTok{RT, longdata}\SpecialCharTok{$}\NormalTok{modality, stat.desc) }\CommentTok{\# break by levels of modality}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## longdata$modality: auditory
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 1.000000e+01 0.000000e+00 0.000000e+00 2.353700e+02 2.490600e+02 
+##        range          sum       median         mean      SE.mean 
+## 1.369000e+01 2.413780e+03 2.391000e+02 2.413780e+02 1.719489e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 3.889754e+00 2.956642e+01 5.437501e+00 2.252691e-02 
+## -------------------------------------------------------- 
+## longdata$modality: speech
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 1.000000e+01 0.000000e+00 0.000000e+00 2.182400e+02 2.599400e+02 
+##        range          sum       median         mean      SE.mean 
+## 4.170000e+01 2.347940e+03 2.287350e+02 2.347940e+02 5.682350e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 1.285437e+01 3.228910e+02 1.796917e+01 7.653164e-02 
+## -------------------------------------------------------- 
+## longdata$modality: visual
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 1.000000e+01 0.000000e+00 0.000000e+00 2.162400e+02 2.591400e+02 
+##        range          sum       median         mean      SE.mean 
+## 4.290000e+01 2.336710e+03 2.278350e+02 2.336710e+02 5.899488e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 1.334557e+01 3.480396e+02 1.865582e+01 7.983798e-02
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{by}\NormalTok{(longdata}\SpecialCharTok{$}\NormalTok{RT, longdata}\SpecialCharTok{$}\NormalTok{time, stat.desc) }\CommentTok{\# break by levels of time}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## longdata$time: RT_t1
+##      nbr.val     nbr.null       nbr.na          min          max 
+##    15.000000     0.000000     0.000000   218.240000   259.140000 
+##        range          sum       median         mean      SE.mean 
+##    40.900000  3561.100000   238.860000   237.406667     3.896232 
+## CI.mean.0.95          var      std.dev     coef.var 
+##     8.356587   227.709410    15.090043     0.063562 
+## -------------------------------------------------------- 
+## longdata$time: RT_t2
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 1.500000e+01 0.000000e+00 0.000000e+00 2.162400e+02 2.599400e+02 
+##        range          sum       median         mean      SE.mean 
+## 4.370000e+01 3.537330e+03 2.358600e+02 2.358220e+02 4.049928e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 8.686231e+00 2.460287e+02 1.568530e+01 6.651331e-02
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{by}\NormalTok{(longdata}\SpecialCharTok{$}\NormalTok{RT, }\FunctionTok{interaction}\NormalTok{(longdata}\SpecialCharTok{$}\NormalTok{time, longdata}\SpecialCharTok{$}\NormalTok{modality), stat.desc) }\CommentTok{\# interaction cells (all combinations of modality and time)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## interaction(longdata$time, longdata$modality): RT_t1.auditory
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 5.000000e+00 0.000000e+00 0.000000e+00 2.383700e+02 2.490600e+02 
+##        range          sum       median         mean      SE.mean 
+## 1.069000e+01 1.214390e+03 2.393400e+02 2.428780e+02 2.467781e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 6.851659e+00 3.044972e+01 5.518126e+00 2.271975e-02 
+## -------------------------------------------------------- 
+## interaction(longdata$time, longdata$modality): RT_t2.auditory
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 5.000000e+00 0.000000e+00 0.000000e+00 2.353700e+02 2.460600e+02 
+##        range          sum       median         mean      SE.mean 
+## 1.069000e+01 1.199390e+03 2.363400e+02 2.398780e+02 2.467781e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 6.851659e+00 3.044972e+01 5.518126e+00 2.300389e-02 
+## -------------------------------------------------------- 
+## interaction(longdata$time, longdata$modality): RT_t1.speech
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 5.000000e+00 0.000000e+00 0.000000e+00 2.182400e+02 2.290500e+02 
+##        range          sum       median         mean      SE.mean 
+## 1.081000e+01 1.103170e+03 2.184200e+02 2.206340e+02 2.109700e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 5.857467e+00 2.225418e+01 4.717434e+00 2.138126e-02 
+## -------------------------------------------------------- 
+## interaction(longdata$time, longdata$modality): RT_t2.speech
+##      nbr.val     nbr.null       nbr.na          min          max 
+##    5.0000000    0.0000000    0.0000000  228.4200000  259.9400000 
+##        range          sum       median         mean      SE.mean 
+##   31.5200000 1244.7700000  258.2600000  248.9540000    6.3716039 
+## CI.mean.0.95          var      std.dev     coef.var 
+##   17.6904084  202.9866800   14.2473394    0.0572288 
+## -------------------------------------------------------- 
+## interaction(longdata$time, longdata$modality): RT_t1.visual
+##      nbr.val     nbr.null       nbr.na          min          max 
+##    5.0000000    0.0000000    0.0000000  228.6200000  259.1400000 
+##        range          sum       median         mean      SE.mean 
+##   30.5200000 1243.5400000  258.1300000  248.7080000    6.2539039 
+## CI.mean.0.95          var      std.dev     coef.var 
+##   17.3636209  195.5565700   13.9841542    0.0562272 
+## -------------------------------------------------------- 
+## interaction(longdata$time, longdata$modality): RT_t2.visual
+##      nbr.val     nbr.null       nbr.na          min          max 
+## 5.000000e+00 0.000000e+00 0.000000e+00 2.162400e+02 2.270500e+02 
+##        range          sum       median         mean      SE.mean 
+## 1.081000e+01 1.093170e+03 2.164200e+02 2.186340e+02 2.109700e+00 
+## CI.mean.0.95          var      std.dev     coef.var 
+## 5.857467e+00 2.225418e+01 4.717434e+00 2.157685e-02
+\end{verbatim}
+
+And, we can create graphs of the means. Several versions of the graph are generated below to demonstrate options for customization.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot the means of each cell with error bars}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggplot}\NormalTok{(longdata, }\FunctionTok{aes}\NormalTok{(modality, RT, }\AttributeTok{color=}\NormalTok{time)) }\SpecialCharTok{+} \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun =}\NormalTok{ mean, }\AttributeTok{geom =} \StringTok{"point"}\NormalTok{, }\AttributeTok{position=}\FunctionTok{position\_dodge}\NormalTok{(}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun.data =}\NormalTok{ mean\_cl\_normal, }\AttributeTok{geom =} \StringTok{"errorbar"}\NormalTok{, }\AttributeTok{width=} \FloatTok{0.2}\NormalTok{, }\AttributeTok{position=}\FunctionTok{position\_dodge}\NormalTok{(}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =}\StringTok{"Condition"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Outcome"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{schuster-statistics-remix_files/figure-latex/anovavisC1-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Change the colors}
+\FunctionTok{ggplot}\NormalTok{(longdata, }\FunctionTok{aes}\NormalTok{(modality, RT, }\AttributeTok{color=}\NormalTok{time)) }\SpecialCharTok{+} \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun =}\NormalTok{ mean, }\AttributeTok{geom =} \StringTok{"point"}\NormalTok{, }\AttributeTok{position=}\FunctionTok{position\_dodge}\NormalTok{(}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun.data =}\NormalTok{ mean\_cl\_normal, }\AttributeTok{geom =} \StringTok{"errorbar"}\NormalTok{, }\AttributeTok{width=} \FloatTok{0.2}\NormalTok{, }\AttributeTok{position=}\FunctionTok{position\_dodge}\NormalTok{(}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =}\StringTok{"Condition"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Outcome"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values=}\FunctionTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{, }\StringTok{"green"}\NormalTok{))  }\CommentTok{\# Note that green is not needed because there are only two levels of time}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{schuster-statistics-remix_files/figure-latex/anovavisC1-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create greyscale plots in the classic style}
+\FunctionTok{ggplot}\NormalTok{(longdata, }\FunctionTok{aes}\NormalTok{(modality, RT, }\AttributeTok{color=}\NormalTok{time)) }\SpecialCharTok{+} \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun =}\NormalTok{ mean, }\AttributeTok{geom =} \StringTok{"point"}\NormalTok{, }\AttributeTok{position=}\FunctionTok{position\_dodge}\NormalTok{(}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun.data =}\NormalTok{ mean\_cl\_normal, }\AttributeTok{geom =} \StringTok{"errorbar"}\NormalTok{, }\AttributeTok{width=} \FloatTok{0.2}\NormalTok{, }\AttributeTok{position=}\FunctionTok{position\_dodge}\NormalTok{(}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =}\StringTok{"Condition"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Outcome"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{scale\_color\_grey}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{theme\_classic}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{schuster-statistics-remix_files/figure-latex/anovavisC1-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Represent a factor across separate graphs using faceting}
+\FunctionTok{ggplot}\NormalTok{(longdata, }\FunctionTok{aes}\NormalTok{(modality, RT)) }\SpecialCharTok{+} \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun =}\NormalTok{ mean, }\AttributeTok{geom =} \StringTok{"point"}\NormalTok{, }\AttributeTok{position=}\FunctionTok{position\_dodge}\NormalTok{(}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun.data =}\NormalTok{ mean\_cl\_normal, }\AttributeTok{geom =} \StringTok{"errorbar"}\NormalTok{, }\AttributeTok{width=} \FloatTok{0.2}\NormalTok{, }\AttributeTok{position=}\FunctionTok{position\_dodge}\NormalTok{(}\DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =}\StringTok{"Condition"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Outcome"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{time) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{schuster-statistics-remix_files/figure-latex/anovavisC1-4.pdf}
+
+A visual interpretation of this graph suggests that visual had the fastest reaction time at both time1 and time2, followed by auditory, and then speech. Are these significantly different from each other? We need to run the ANOVA to find out. Is there an interaction? Meaning, is there a difference in the pattern of means between time1 and time2? We need to test the interaction effect to find out. Visually, the patterns look a bit different; visual reaction time is faster at time 2, for example.
+
+\hypertarget{hypotheses-9}{%
+\subsubsection{Hypotheses}\label{hypotheses-9}}
+
+You need a set of hypotheses for each factor and one for the interaction. Note that the number of means depends on the number of levels for each factor.
+
+For ``factor A'':
+
+\(H_0:\mu_{auditory}=\mu_{speech}=\mu_{visual}\)
+
+\(H_a:H_0\text{ is false}\)
+
+For ``factor B'':
+
+\(H_0:\mu_{time1}=\mu_{time2}\)
+
+\(H_a:H_0\text{ is false}\)
+
+For the interaction:
+
+\(H_0:\text{there is no interaction between modality and time}\)
+
+\(H_a:H_0\text{ is false}\)
+
+\hypertarget{assumption-checking}{%
+\subsubsection{Assumption Checking}\label{assumption-checking}}
+
+Levene's test for homogeneity needs to be done for the between-subjects factor.
+
+Note that the \href{https://search.r-project.org/CRAN/refmans/DescTools/html/LeveneTest.html}{default syntax} of Levene's test uses \texttt{center\ =\ median}, so it is technically the Brown-Forsythe-Test. Using \texttt{center\ =\ mean} is the original Levene's test.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(car)}
+
+\FunctionTok{leveneTest}\NormalTok{(longdata}\SpecialCharTok{$}\NormalTok{RT, longdata}\SpecialCharTok{$}\NormalTok{modality, }\AttributeTok{center =}\NormalTok{ median) }\CommentTok{\# Levene\textquotesingle{}s for the between{-}subjects factor, modality}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Levene's Test for Homogeneity of Variance (center = median)
+##       Df F value  Pr(>F)  
+## group  2  3.6939 0.03819 *
+##       27                  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+Levene's test is significant here, so we have violated the assumption of homogeneity of variance. But, because our sample sizes are equal, we will continue with this example.
+
+Sphericity would need to be diagnosed for the within-subjects factor, but in this case, there are only two levels (time1 and time2). Therefore, sphericity does not apply. If it did, we would check it in the default ANOVA output.
+
+\hypertarget{analysis-8}{%
+\subsubsection{Analysis}\label{analysis-8}}
+
+We need three omnibus tests here: the interaction effect, the main effect of modality, and the main effect of time. We will start with the first omnibus test, which is a test of the interaction effect.
+
+An alpha level of \(\alpha = .05\) will be used.
+
+We are using ezANOVA() in the ez package.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("ez") \# you may need to install the ez package}
+\FunctionTok{library}\NormalTok{(ez)}
+\NormalTok{mixedANOVAmodel }\OtherTok{\textless{}{-}} \FunctionTok{ezANOVA}\NormalTok{(}\AttributeTok{data =}\NormalTok{ longdata, }\AttributeTok{dv =}\NormalTok{ .(RT), }\AttributeTok{wid =}\NormalTok{ .(id), }\AttributeTok{within =}\NormalTok{ .(time), }\AttributeTok{between =}\NormalTok{ .(modality), }\AttributeTok{type =} \DecValTok{3}\NormalTok{)}
+
+\FunctionTok{print}\NormalTok{(mixedANOVAmodel)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $ANOVA
+##          Effect DFn DFd          F            p p<.05         ges
+## 2      modality   2  12  2.2031501 1.531170e-01       0.146748695
+## 3          time   1  12  0.2108988 6.542716e-01       0.009256567
+## 4 modality:time   2  12 23.9066189 6.520841e-05     * 0.679300094
+\end{verbatim}
+
+ezANOVA gives us all three of our omnibus tests in one step. In this case, only the interaction effect is statistically significant.
+
+\hypertarget{omnibus-and-simple-effects-for-the-interaction}{%
+\paragraph{Omnibus and Simple Effects for the Interaction}\label{omnibus-and-simple-effects-for-the-interaction}}
+
+We will start the reporting of our results with the omnibus test for the interaction:
+
+There was a significant interaction effect for modality and time, \(F\)(2, 12) = 23.90, \(p\) \textless{} .001, \(\eta^2_G\) = .679. We can conclude that the effect of time depends on modality.
+
+Next, we need post-hoc tests done in a specific way, called \textbf{tests of simple effects} (also called \textbf{simple main effects}, which means the same thing). Simple effects are the comparison of two cells in the interaction. These cells must vary in only one variable. For example, the comparison of visual at time 1 to visual at time 2 is a simple effect. The comparison of visual at time 1 to auditor at time 2 is another simple effect. Compairing visual at time 1 to auditory at time 2 is \emph{not} a valid simple effect, because both variables are changing across the comparison. Except that we are looking at simple effects, the multiple comparisons options and procedure is the same.
+
+The approach to multiple comparisons is the same for each effect. We are introducing a new operator, \texttt{\%\textgreater{}\%}, called the \href{https://www.datacamp.com/community/tutorials/pipe-r-tutorial}{pipe operator}. It is an alternative syntax style for passing one function to another. So far, we have been largely storing the results of our functions in new variables and then using those variables as arguments in other functions. With the pipe operator, we do the same thing in one line of code. When you see the pipe operator, you could read it as ``pass this result to\ldots{}''
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\NormalTok{simpleeffects }\OtherTok{\textless{}{-}}\NormalTok{ longdata }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(time) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pairwise\_t\_test}\NormalTok{(RT }\SpecialCharTok{\textasciitilde{}}\NormalTok{ modality, }\AttributeTok{p.adjust.method =} \StringTok{"bonferroni"}\NormalTok{)}
+\NormalTok{simpleeffects}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 10
+##   time  .y.   group1   group2    n1    n2        p p.signif    p.adj
+## * <fct> <chr> <chr>    <chr>  <int> <int>    <dbl> <chr>       <dbl>
+## 1 RT_t1 RT    auditory speech     5     5 0.00224  **       0.00673 
+## 2 RT_t1 RT    auditory visual     5     5 0.331    ns       0.993   
+## 3 RT_t1 RT    speech   visual     5     5 0.000379 ***      0.00114 
+## 4 RT_t2 RT    auditory speech     5     5 0.146    ns       0.438   
+## 5 RT_t2 RT    auditory visual     5     5 0.0034   **       0.0102  
+## 6 RT_t2 RT    speech   visual     5     5 0.000225 ***      0.000674
+## # ... with 1 more variable: p.adj.signif <chr>
+\end{verbatim}
+
+The analysis of simple effects, with a Bonferroni adjustment for Type I error, showed a significant difference between auditory (\(M\) = 242.87, \(SD\) = 5.52) and speech (\(M\) = 220.63, \(SD\) = 4.72) at time 1, and between visual (\(M\) = 248.71, \(SD\) = 13.98) and speech at time 1. At time 2, the pattern was different, with a significant difference between auditory (\(M\) = 242.87, \(SD\) = 5.52) and visual (\(M\) = 218.63, \(SD\) = 4.72) and a significant difference between visual and speech (\(M\) = 248.95, \(SD\) = 14.25).
+
+\hypertarget{omnibus-main-effect-of-time}{%
+\paragraph{Omnibus main effect of Time}\label{omnibus-main-effect-of-time}}
+
+There was not a significant main effect for time, \(F\)(1, 12) = 0.21, \(p\) = .654, \(\eta^2_G\) = .009. We can make no conclusions about the effects of time collapsing across modality.
+
+If there had been a significant effect for time, we would not have needed post-hoc testing with only two conditions. We could have simply interpreted the means.
+
+\hypertarget{omnibus-main-effect-of-modality-including-post-hoc-tests}{%
+\paragraph{Omnibus main effect of Modality including post-hoc tests}\label{omnibus-main-effect-of-modality-including-post-hoc-tests}}
+
+There was not a significant main effect for modality, \(F\)(2, 12) = 2.203, \(p\) = .153, \(\eta^2_G\) = .147. We can make no conclusions about the effects of modality collapsing across levels of time.
+
+If there had been a significant effect for modality, we would have needed post-hoc testing. \textbf{This effect was not significant so we stop here}, but to show you how to do post-hoc testing, I am going to include the code.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pairwise.t.test}\NormalTok{(longdata}\SpecialCharTok{$}\NormalTok{RT, longdata}\SpecialCharTok{$}\NormalTok{modality, }\AttributeTok{paired =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{p.adjust.method =} \StringTok{"bonferroni"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  longdata$RT and longdata$modality 
+## 
+##        auditory speech
+## speech 1.00     -     
+## visual 0.81     1.00  
+## 
+## P value adjustment method: bonferroni
+\end{verbatim}
+
+Notice that we used the same pairwise.t.test() function we have always used. When testing a main effect like this, we are ignoring the imapct of the other factor. For this reason, we omit mention of the time factor alltogether.
+
+\hypertarget{effect-size-6}{%
+\subsubsection{Effect Size}\label{effect-size-6}}
+
+Eta squared (\(\eta^2\)) is the measure of effect size for each omnibus effect.
+
+However, eta squared in an interaction would include variance for other effects in the denominator. Eta squared gets smaller when other factors and/or the interaction effect are significant, so we use a new measure of effect size, \textbf{partial eta squared} (\(\eta^2_{p}\)). Partial eta squared is calculated as follows:
+
+\(\eta^2_{p} = \frac{\mbox{SS}_{effect}}{\mbox{SS}_{effect} + \mbox{SS}_{within}}\)
+
+Therefore, partial eta squared is an estimate of the effect size for one effect on its own. This is a better measure to report in most factorial models.
+
+Generalized eta squared is the same as partial eta squared for between-subjects factors, but it is not the same in the presence of a within-subjects factor. Unfortunately, the methods I am finding to calculate partial eta squared using ezANOVA are very cumbersome. For the time being, I would recommend reporting generalized eta squared from the ezANOVA procedure while recognizing its limitations.
+
+Finally, you should be aware that eta squared is a biased estimator of effect size. While I still recommend reporting eta squared if only by convention, there are other measures of effect size. Omega squared (\(\omega^2\)) works like adjusted \(R^2\) to estimate population effect size by correcting for this bias.
+
+\hypertarget{power-analysis-4}{%
+\subsubsection{Power Analysis}\label{power-analysis-4}}
+
+In G*Power, select the F tests family, and then choose ``ANOVA: Special effects and interactions.''
+
+There is no calculation for all the pieces at once. Instead, power is calculated once for each effect and once for the interaction. One strategy is to calculate power for each effect and then plan for the largest sample size to ensure all effects are sufficiently powered (I believe this will always be the highest order interaction).
+
+You will need to enter the degrees of freedom. Here is how you calculate it:
+
+\begin{itemize}
+\item
+  The df for a factor is \(k - 1\), where \(k\) is the number of levels of that factor.
+\item
+  The df for an interaction effect is \((k_1-1)(k_2-1)(k_n-1)\), where \(k_n\) is the number of levels of factor number \(n\). You'll need one of those terms for each factor. This example has three terms for three factors.
+\item
+  The number of groups is the number of cells in the model. A 2 x 2 ANOVA would have 4 cells. A 3 x 2 x 3 ANOVA would have 18 cells.
+\end{itemize}
 
   \bibliography{book.bib,packages.bib}
 

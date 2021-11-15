@@ -1,0 +1,257 @@
+## Factorial ANOVA{#statguide-factorial}
+
+### Definition
+
+Including more than one independent variable (called a factor) in an analysis of variance (ANOVA) results in a factorial ANOVA. 
+
+Factorial ANOVA tests each of the factors individually, with results that are the same as if each factor was tested on its own one-way ANOVA. Factorial ANOVA adds a higher-level analysis, as well, called an **interaction effect**. Any two-way ANOVA (with two factors) has one potential interaction effect. A three-way ANOVA has four potential interaction effects. Imagine factors A (2 levels), B (3 levels), and C (2 levels). Such an ANOVA would be described as a 2 x 3 x 2 ANOVA. The factorial ANOVA would involve testing these omnibus effects:
+
+- Main effect of A
+
+- Main effect of B
+
+- Main effect of C
+
+- Interaction effect A x B
+
+- Interaction effect B x C
+
+- Interaction effect A x C
+
+- Interaction effect A x B x C
+
+The three-way interaction is the highest **order** interaction. Order refers to the number of factors involved.
+
+You can calculate the number of potential interation effects with the formula $2^m-m-1$, where $k$ is the number of factors. This calculation for three factors reveals the four potential interaction effects listed previously. 
+
+*Each* of these tests has stages. The **omnibus test** tests the null that two or more groups have the same mean. If the omnibus test is significant, **pairwise comparisons** are the second step. There are two strategies for pairwise comparisons. **Planned comparisons** maximizes statistical power by only testing hypothesized pairwise comparisons. **Post-hoc tests** run statistical tests for every possible pairwise comparison and then makes some (or no) adjustment for the number of tests that have been run.
+
+### Test Statistic
+
+The test statistic for ANOVA is $F$.
+
+```{r factorialstat, fig.cap="The null hypothesis distribution of $F$ with values of df between F(4, 2) and F(10, 2).", echo=FALSE}
+curve(df(x, df1 =10, df2=4), from=-0.5, to=4)
+curve(df(x, df1=2, df2=4), from=-0.5, to=4, add=TRUE)
+curve(df(x, df1 =4, df2=4), from=-0.5, to=4, add=TRUE)
+curve(df(x, df1=6, df2=4), from=-0.5, to=4, add=TRUE)
+curve(df(x, df1=8, df2=4), from=-0.5, to=4, add=TRUE)
+
+```
+
+Pairwise comparisons, whether planned or as post-hoc tests, are essentially just $t$-tests.
+
+### Between, Within, and Mixed ANOVA
+
+Because different ANOVAs are used for between- and within-subjects designs, there are more possibilities of combinations with a factorial model. A factorial ANOVA can be a between-subjects factorial ANOVA when all factors are between-subjects, a repeated measures factorial ANOVA when all factors are within-subjects, or a **mixed ANOVA** when one or more factors are between-subjects and one or more factors are within-subjects.
+
+### Assumptions & Required Data
+
+The assumptions for a factorial ANOVA match the underlying one-way ANOVAs. That is, if you have a between-subjects factor, you need to consider homogeneity of variance and the other assumptions for between-subjects ANOVA. If you have a within-subjects factor, you need to consider sphericity and the other assumptions for repeated-measures ANOVA.
+
+### When to use it
+
+If you have a quantitative DV and two or more discrete IVs with two or more levels each, you can run a factorial ANOVA.
+
+### Example: Mixed ANOVA
+
+Researchers are interested in participants' reaction times to three types of alert displays: a visual alert, an auditory alert, and a speech alert. They randomly assign participants to one of these three conditions. Participants repeat the task two times, and researchers are interested if reaction time improves with practice. Therefore, this is a mixed design.
+
+#### Data
+
+I recommend starting with data formatted as follows:
+
+- All repeated measures should be **wide**, with one column for each level of the within-subjects factor. In this example, we have two levels, Time 1 and Time 2, so we need a column for each. If you have more than one within-subjects factor, you need a column for each cell. Imagine you had another factor, Factor B at levels 1 and 2. You would need the following columns: DV_time1_B1, DV_time1_B2, DV_time2_B1, DV_time2_B2. Our task is a bit simpler here, since we only have one within-subjects factor.
+
+- All between-subjects factors should be represented with **grouping variables**, resulting in wide data with one row per participant. In this example, we have a grouping variable called "modality" that specifies the participant's between-subjects condition. If you have more than one between-subjects factor, you will need additional grouping variables.
+
+- In all, we have data that are in wide format with one row per participant. Note that if you were to use SPSS, this is the format required in SPSS, so it is common.
+
+````{r factorialdataA1, echo=TRUE}
+RT_t1 <- c(238.37, 249.06, 238.86, 248.76, 239.34, 218.24, 218.34, 229.05, 219.12, 218.42, 258.34, 228.62, 239.31, 259.14, 258.13)
+RT_t2 <- c(235.37, 246.06, 235.86, 245.76, 236.34, 258.64, 228.42, 239.51, 259.94, 258.26, 216.24, 216.34, 227.05, 217.12, 216.42)
+modality <- c(replicate(5, "auditory"), replicate(5, "speech"), replicate(5, "visual"))
+id <- c(1:15)
+dataframe <- data.frame(RT_t1, RT_t2, modality, id)
+dataframe
+
+````
+
+R requires our data in long format, so we will do that conversion first. We will also take this opportunity to properly set our grouping variables and participant ID variable to factors so that R treats them as categories.
+
+
+````{r factorialvis1, echo=TRUE}
+# install.packages("tidyverse")
+# install.packages("rstatix")
+library(tidyverse)
+library(rstatix)
+
+# Use gather() to convert data to long format
+longdata <- gather(dataframe, key = "time", value = "RT", RT_t1, RT_t2)
+longdata
+
+# Tell R that ID and time are factors
+longdata <- convert_as_factor(data = longdata, vars = c("id", "time", "modality"))
+is.factor(longdata$time)
+is.factor(longdata$id)
+is.factor(longdata$modality)
+````
+With that out of the way, we can now use our dataframe, ````longdata````. First, we will descriptively look at the group means:
+
+````{r factorialvisB1, echo=TRUE}
+
+
+# Show descriptive stats for each main effect and for the intneraction cells
+library(pastecs)
+by(longdata$RT, longdata$modality, stat.desc) # break by levels of modality
+by(longdata$RT, longdata$time, stat.desc) # break by levels of time
+by(longdata$RT, interaction(longdata$time, longdata$modality), stat.desc) # interaction cells (all combinations of modality and time)
+````
+
+And, we can create graphs of the means. Several versions of the graph are generated below to demonstrate options for customization.
+
+````{r anovavisC1, echo=TRUE}
+
+# Plot the means of each cell with error bars
+library(ggplot2)
+ggplot(longdata, aes(modality, RT, color=time)) + stat_summary(fun = mean, geom = "point", position=position_dodge(1)) + stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width= 0.2, position=position_dodge(1)) + labs(x ="Condition", y="Outcome")
+
+# Change the colors
+ggplot(longdata, aes(modality, RT, color=time)) + stat_summary(fun = mean, geom = "point", position=position_dodge(1)) + stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width= 0.2, position=position_dodge(1)) + labs(x ="Condition", y="Outcome") + scale_color_manual(values=c("red", "blue", "green"))  # Note that green is not needed because there are only two levels of time
+
+# Create greyscale plots in the classic style
+ggplot(longdata, aes(modality, RT, color=time)) + stat_summary(fun = mean, geom = "point", position=position_dodge(1)) + stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width= 0.2, position=position_dodge(1)) + labs(x ="Condition", y="Outcome") + scale_color_grey() + theme_classic() 
+
+# Represent a factor across separate graphs using faceting
+ggplot(longdata, aes(modality, RT)) + stat_summary(fun = mean, geom = "point", position=position_dodge(1)) + stat_summary(fun.data = mean_cl_normal, geom = "errorbar", width= 0.2, position=position_dodge(1)) + labs(x ="Condition", y="Outcome") + facet_wrap(~time) 
+
+````
+
+A visual interpretation of this graph suggests that visual had the fastest reaction time at both time1 and time2, followed by auditory, and then speech. Are these significantly different from each other? We need to run the ANOVA to find out. Is there an interaction? Meaning, is there a difference in the pattern of means between time1 and time2? We need to test the interaction effect to find out. Visually, the patterns look a bit different; visual reaction time is faster at time 2, for example.
+
+#### Hypotheses
+
+You need a set of hypotheses for each factor and one for the interaction. Note that the number of means depends on the number of levels for each factor.
+
+For “factor A”:
+
+
+$H_0:\mu_{auditory}=\mu_{speech}=\mu_{visual}$ 
+
+$H_a:H_0\text{ is false}$
+
+
+For “factor B”:
+
+$H_0:\mu_{time1}=\mu_{time2}$ 
+
+$H_a:H_0\text{ is false}$
+	
+For the interaction:
+
+$H_0:\text{there is no interaction between modality and time}$
+
+$H_a:H_0\text{ is false}$
+
+
+#### Assumption Checking
+
+Levene's test for homogeneity needs to be done for the between-subjects factor.
+
+Note that the [default syntax](https://search.r-project.org/CRAN/refmans/DescTools/html/LeveneTest.html) of Levene's test uses ```center = median```, so it is technically the Brown-Forsythe-Test. Using ```center = mean``` is the original Levene's test.
+
+````{r factorialassumption1, echo=TRUE}
+library(car)
+
+leveneTest(longdata$RT, longdata$modality, center = median) # Levene's for the between-subjects factor, modality
+````
+
+Levene's test is significant here, so we have violated the assumption of homogeneity of variance. But, because our sample sizes are equal, we will continue with this example.
+
+Sphericity would need to be diagnosed for the within-subjects factor, but in this case, there are only two levels (time1 and time2). Therefore, sphericity does not apply. If it did, we would check it in the default ANOVA output.
+
+#### Analysis
+
+We need three omnibus tests here: the interaction effect, the main effect of modality, and the main effect of time. We will start with the first omnibus test, which is a test of the interaction effect.
+
+An alpha level of $\alpha = .05$ will be used. 
+
+We are using ezANOVA() in the ez package.
+
+````{r factorialanalysis1, echo=TRUE}
+
+# install.packages("ez") # you may need to install the ez package
+library(ez)
+mixedANOVAmodel <- ezANOVA(data = longdata, dv = .(RT), wid = .(id), within = .(time), between = .(modality), type = 3)
+
+print(mixedANOVAmodel)
+````
+
+ezANOVA gives us all three of our omnibus tests in one step. In this case, only the interaction effect is statistically significant. 
+
+##### Omnibus and Simple Effects for the Interaction
+
+We will start the reporting of our results with the omnibus test for the interaction:
+
+There was a significant interaction effect for modality and time, $F$(2, 12) = 23.90, $p$ < .001, $\eta^2_G$ = .679. We can conclude that the effect of time depends on modality.
+
+Next, we need post-hoc tests done in a specific way, called **tests of simple effects** (also called **simple main effects**, which means the same thing). Simple effects are the comparison of two cells in the interaction. These cells must vary in only one variable. For example, the comparison of visual at time 1 to visual at time 2 is a simple effect. The comparison of visual at time 1 to auditor at time 2 is another simple effect. Compairing visual at time 1 to auditory at time 2 is *not* a valid simple effect, because both variables are changing across the comparison. Except that we are looking at simple effects, the multiple comparisons options and procedure is the same.
+
+The approach to multiple comparisons is the same for each effect. We are introducing a new operator, ```%>%```, called the [pipe operator](https://www.datacamp.com/community/tutorials/pipe-r-tutorial). It is an alternative syntax style for passing one function to another. So far, we have been largely storing the results of our functions in new variables and then using those variables as arguments in other functions. With the pipe operator, we do the same thing in one line of code. When you see the pipe operator, you could read it as "pass this result to..."
+
+````{r factorialanalysisposthoc1, echo=TRUE}
+library(tidyverse)
+simpleeffects <- longdata %>%
+  group_by(time) %>%
+  pairwise_t_test(RT ~ modality, p.adjust.method = "bonferroni")
+simpleeffects
+````
+The analysis of simple effects, with a Bonferroni adjustment for Type I error, showed a significant difference between auditory ($M$ = 242.87, $SD$ = 5.52) and speech ($M$ = 220.63, $SD$ = 4.72) at time 1, and between visual ($M$ = 248.71, $SD$ = 13.98) and speech at time 1. At time 2, the pattern was different, with a significant difference between auditory ($M$ = 242.87, $SD$ = 5.52) and visual ($M$ = 218.63, $SD$ = 4.72) and a significant difference between visual and speech ($M$ = 248.95, $SD$ = 14.25).
+
+##### Omnibus main effect of Time
+
+There was not a significant main effect for time, $F$(1, 12) = 0.21, $p$ = .654, $\eta^2_G$ = .009. We can make no conclusions about the effects of time collapsing across modality.
+
+If there had been a significant effect for time, we would not have needed post-hoc testing with only two conditions. We could have simply interpreted the means.
+
+
+##### Omnibus main effect of Modality including post-hoc tests
+
+There was not a significant main effect for modality, $F$(2, 12) = 2.203, $p$ = .153, $\eta^2_G$ = .147. We can make no conclusions about the effects of modality collapsing across levels of time.
+
+If there had been a significant effect for modality, we would have needed post-hoc testing. **This effect was not significant so we stop here**, but to show you how to do post-hoc testing, I am going to include the code.
+
+````{r factorialanalysisposthoc2, echo=TRUE}
+pairwise.t.test(longdata$RT, longdata$modality, paired = FALSE, p.adjust.method = "bonferroni")
+````
+
+Notice that we used the same pairwise.t.test() function we have always used. When testing a main effect like this, we are ignoring the imapct of the other factor. For this reason, we omit mention of the time factor alltogether.
+
+#### Effect Size
+
+Eta squared ($\eta^2$) is the measure of effect size for each omnibus effect.
+
+However, eta squared in an interaction would include variance for other effects in the denominator. Eta squared gets smaller when other factors and/or the interaction effect are significant, so we use a new measure of effect size, **partial eta squared** ($\eta^2_{p}$). Partial eta squared is calculated as follows:
+
+$\eta^2_{p} = \frac{\mbox{SS}_{effect}}{\mbox{SS}_{effect} + \mbox{SS}_{within}}$
+
+Therefore, partial eta squared is an estimate of the effect size for one effect on its own. This is a better measure to report in most factorial models. 
+
+Generalized eta squared is the same as partial eta squared for between-subjects factors, but it is not the same in the presence of a within-subjects factor. Unfortunately, the methods I am finding to calculate partial eta squared using ezANOVA are very cumbersome. For the time being, I would recommend reporting generalized eta squared from the ezANOVA procedure while recognizing its limitations.
+
+Finally, you should be aware that eta squared is a biased estimator of effect size. While I still recommend reporting eta squared if only by convention, there are other measures of effect size. Omega squared ($\omega^2$) works like adjusted $R^2$ to estimate population effect size by correcting for this bias.
+
+#### Power Analysis
+
+In G*Power, select the F tests family, and then choose "ANOVA: Special effects and interactions."
+
+There is no calculation for all the pieces at once. Instead, power is calculated once for each effect and once for the interaction. One strategy is to calculate power for each effect and then plan for the largest sample size to ensure all effects are sufficiently powered (I believe this will always be the highest order interaction). 
+
+You will need to enter the degrees of freedom. Here is how you calculate it:
+
+- The df for a factor is $k - 1$, where $k$ is the number of levels of that factor.
+
+- The df for an interaction effect is $(k_1-1)(k_2-1)(k_n-1)$, where $k_n$ is the number of levels of factor number $n$. You'll need one of those terms for each factor. This example has three terms for three factors.
+
+- The number of groups is the number of cells in the model. A 2 x 2 ANOVA would have 4 cells. A 3 x 2 x 3 ANOVA would have 18 cells.
+
